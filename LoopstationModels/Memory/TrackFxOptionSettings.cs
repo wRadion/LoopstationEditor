@@ -4,7 +4,7 @@ namespace LoopstationModels.Memory
 {
     public class TrackFxOptionSettings : BaseSettings
     {
-        public TrackFxOptionSettings()
+        public TrackFxOptionSettings() : base("TRACK_FX")
         {
             AddProperty("Mod", def: 1, max: 1);
             AddProperty("MltMod", max: 1);

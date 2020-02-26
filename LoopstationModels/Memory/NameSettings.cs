@@ -7,7 +7,7 @@ namespace LoopstationModels.Memory
     {
         public const int MAX_LENGTH = 12;
 
-        public string Name
+        public string Value
         {
             get
             {
@@ -37,7 +37,7 @@ namespace LoopstationModels.Memory
             }
         }
 
-        public NameSettings() : base()
+        public NameSettings() : base("NAME")
         {
             AddProperty("C01", def: 73, min: 32, max: 126);
             AddProperty("C02", def: 78, min: 32, max: 126);

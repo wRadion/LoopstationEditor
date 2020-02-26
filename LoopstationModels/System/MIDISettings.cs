@@ -4,7 +4,7 @@ namespace LoopstationModels.System
 {
     public class MIDISettings : BaseSettings
     {
-        public MIDISettings()
+        public MIDISettings() : base("MIDI")
         {
             AddProperty("RxCh", max: 15);
             AddProperty("Omni", def: 1, max: 1);

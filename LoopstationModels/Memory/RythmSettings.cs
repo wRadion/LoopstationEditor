@@ -4,7 +4,7 @@ namespace LoopstationModels.Memory
 {
     public class RythmSettings : BaseSettings
     {
-        public RythmSettings()
+        public RythmSettings() : base("RYTHM")
         {
             AddProperty("Sw", max: 1);
             AddProperty("Lvl", def: 50);

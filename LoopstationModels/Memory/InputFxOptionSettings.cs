@@ -4,7 +4,7 @@ namespace LoopstationModels.Memory
 {
     public class InputFxOptionSettings : BaseSettings
     {
-        public InputFxOptionSettings()
+        public InputFxOptionSettings() : base("INPUT_FX")
         {
             AddProperty("Mod", def: 1, max: 1);
             AddProperty("MltMod", max: 1);

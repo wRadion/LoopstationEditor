@@ -1,10 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LoopstationModels.Base
 {
     public class BaseSettings
     {
         private Dictionary<string, Property> _properties;
+
+        public string Name;
+
+        // TODO: Xml node Name should be tight to LoopstationXml not Models :(
+        /// <summary>
+        /// Initializes a settings.
+        /// </summary>
+        /// <param name="name">The XML Node name of the settings</param>
+        public BaseSettings(string name)
+        {
+            Name = name;
+        }
 
         /// <summary>
         /// Initializes _properties if it's null.
@@ -36,6 +50,10 @@ namespace LoopstationModels.Base
         protected void AddProperty(string name, int def = 0, int min = 0, int max = 100)
         {
             InitializeIfNull();
+
+            if (_properties.ContainsKey(name))
+                throw new Exception("Property already exists");
+
             _properties[name] = new Property(name, def, min, max);
         }
 
@@ -62,6 +80,15 @@ namespace LoopstationModels.Base
         {
             InitializeAndCheckKey(name);
             _properties[name].Value = value;
+        }
+
+        /// <summary>
+        /// Iterates over all the properties and execute the given action.
+        /// </summary>
+        /// <param name="action">The action to do with each properties</param>
+        public void ForEachProperty(Action<Property> action)
+        {
+            _properties.Values.ToList().ForEach(action);
         }
     }
 }

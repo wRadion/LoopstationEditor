@@ -4,7 +4,7 @@ namespace LoopstationModels
 {
     public class MemorySettings
     {
-        public int MemoryNumber { get; }
+        public int MemoryId { get; }
 
         public TrackSettings[] Tracks;
         public RythmSettings Rythm;
@@ -19,9 +19,9 @@ namespace LoopstationModels
         public FxSettings[] InputFxs;
         public FxSettings[] TrackFxs;
 
-        public MemorySettings(int num)
+        public MemorySettings(int id)
         {
-            MemoryNumber = num;
+            MemoryId = id;
 
             Tracks = new TrackSettings[5]
             {

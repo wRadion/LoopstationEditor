@@ -3,15 +3,15 @@
     public class Settings
     {
         public SystemSettings System;
-        public MemorySettings[] Memory;
+        public MemorySettings[] Memories;
 
         public Settings()
         {
             System = new SystemSettings();
-            Memory = new MemorySettings[99];
+            Memories = new MemorySettings[99];
 
-            for (int i = 0; i < Memory.Length; ++i)
-                Memory[i] = new MemorySettings(i);
+            for (int i = 0; i < Memories.Length; ++i)
+                Memories[i] = new MemorySettings(i);
         }
     }
 }

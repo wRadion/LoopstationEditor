@@ -4,7 +4,7 @@ namespace LoopstationModels.Memory
 {
     public class MasterSettings : BaseSettings
     {
-        public MasterSettings()
+        public MasterSettings() : base("MASTER")
         {
             AddProperty("Lvl", def: 50);
             AddProperty("Tmp", def: 1200, min: 400, max: 2500);

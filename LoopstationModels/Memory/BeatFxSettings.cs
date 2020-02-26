@@ -6,7 +6,7 @@ namespace LoopstationModels.Memory
     {
         public FxPosition FxPosition;
 
-        public BeatFxSettings(FxPosition pos)
+        public BeatFxSettings(FxPosition pos) : base($"BEAT_FX{ (int)pos }")
         {
             FxPosition = pos;
 

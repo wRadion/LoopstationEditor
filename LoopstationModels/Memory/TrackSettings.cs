@@ -6,7 +6,7 @@ namespace LoopstationModels.Memory
     {
         public int TrackNumber;
 
-        public TrackSettings(int num)
+        public TrackSettings(int num) : base($"TRACK{ num }")
         {
             TrackNumber = num;
 

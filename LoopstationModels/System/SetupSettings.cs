@@ -4,7 +4,7 @@ namespace LoopstationModels.System
 {
     public class SetupSettings : BaseSettings
     {
-        public SetupSettings() : base()
+        public SetupSettings() : base("SETUP")
         {
             AddProperty("MemNum", max: 98);
             AddProperty("LcdContrast", def: 7, max: 15);

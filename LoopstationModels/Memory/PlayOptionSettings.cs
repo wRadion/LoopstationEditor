@@ -4,7 +4,7 @@ namespace LoopstationModels.Memory
 {
     public class PlayOptionSettings : BaseSettings
     {
-        public PlayOptionSettings()
+        public PlayOptionSettings() : base("PLAY_OPTION")
         {
             AddProperty("SinglePlyChg", max: 1);
             AddProperty("LpQtz", max: 2);

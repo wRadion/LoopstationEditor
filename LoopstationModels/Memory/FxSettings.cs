@@ -10,9 +10,9 @@ namespace LoopstationModels.Memory
 
     public enum FxPosition
     {
-        A,
-        B,
-        C
+        A = 1,
+        B = 2,
+        C = 3
     }
 
     public class FxSettings : BaseSettings
@@ -20,7 +20,7 @@ namespace LoopstationModels.Memory
         public FxType FxType;
         public FxPosition FxPosition;
 
-        public FxSettings(FxType type, FxPosition pos)
+        public FxSettings(FxType type, FxPosition pos) : base($"{ type.ToString() }_FX{ (int)pos }")
         {
             FxType = type;
             FxPosition = pos;

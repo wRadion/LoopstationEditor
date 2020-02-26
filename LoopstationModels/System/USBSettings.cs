@@ -4,7 +4,7 @@ namespace LoopstationModels.System
 {
     public class USBSettings : BaseSettings
     {
-        public USBSettings()
+        public USBSettings() : base("USB")
         {
             AddProperty("Mod", max: 1);
             AddProperty("AuRouting", max: 2);

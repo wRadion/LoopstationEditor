@@ -4,7 +4,7 @@ namespace LoopstationModels.System
 {
     public class InputOutputSettings : BaseSettings
     {
-        public InputOutputSettings() : base()
+        public InputOutputSettings() : base("INPUT_OUTPUT")
         {
             AddProperty("InNsThrs", def: 40);
             AddProperty("LineOutLvl", def: 50);

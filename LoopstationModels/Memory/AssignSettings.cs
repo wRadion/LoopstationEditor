@@ -6,7 +6,7 @@ namespace LoopstationModels.Memory
     {
         public int AssignNumber;
 
-        public AssignSettings(int num)
+        public AssignSettings(int num) : base($"ASSIGN{ num }")
         {
             AssignNumber = num;
 

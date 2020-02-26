@@ -30,13 +30,13 @@ namespace LoopstationModels.Base
         /// Adds a property for this settings.
         /// </summary>
         /// <param name="name">The name of the property</param>
-        /// <param name="default">The default value of the property</param>
+        /// <param name="def">The default value of the property</param>
         /// <param name="min">The lower limit of the property (inclusive)</param>
         /// <param name="max">The upper limit of the property (inclusive)</param>
-        protected void AddProperty(string name, int @default = 0, int min = 0, int max = 100)
+        protected void AddProperty(string name, int def = 0, int min = 0, int max = 100)
         {
             InitializeIfNull();
-            _properties[name] = new Property(name, @default, min, max);
+            _properties[name] = new Property(name, def, min, max);
         }
 
         /// <summary>

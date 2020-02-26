@@ -8,8 +8,8 @@ namespace LoopstationModels.System
         {
             AddProperty("Mod", max: 1);
             AddProperty("AuRouting", max: 2);
-            AddProperty("InLvl", @default: 50);
-            AddProperty("OutLvl", @default: 50);
+            AddProperty("InLvl", def: 50);
+            AddProperty("OutLvl", def: 50);
         }
     }
 }

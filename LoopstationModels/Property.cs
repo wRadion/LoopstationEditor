@@ -42,14 +42,14 @@ namespace LoopstationModels
         /// Initializes a new property.
         /// </summary>
         /// <param name="name">The name of the property</param>
-        /// <param name="defaultValue">The default value of the property</param>
-        /// <param name="minValue">The lower limit of the property</param>
-        /// <param name="maxValue">The upper limit of the property</param>
-        public Property(string name, int defaultValue, int minValue, int maxValue)
+        /// <param name="default">The default value of the property</param>
+        /// <param name="min">The lower limit of the property</param>
+        /// <param name="max">The upper limit of the property</param>
+        public Property(string name, int @default, int min, int max)
         {
             Name = name;
-            DefaultValue = defaultValue;
-            Range = new Range(minValue, maxValue);
+            DefaultValue = @default;
+            Range = new Range(min, max);
             Value = DefaultValue;
         }
     }

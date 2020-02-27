@@ -1,3 +1,3 @@
 # RC-505 Loopstation Editor
 
-This project is currently in construction.
+This project is currently under construction.

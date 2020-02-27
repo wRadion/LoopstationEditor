@@ -15,7 +15,7 @@ namespace LoopstationEditor.Views.MainWindow
         {
             InitializeComponent();
 
-            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight - 2;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -32,18 +32,25 @@ namespace LoopstationEditor.Views.MainWindow
                 TopOffset.Visibility = Visibility.Visible;
                 LeftOffset.Visibility = Visibility.Visible;
                 RightOffset.Visibility = Visibility.Visible;
+                BottomOffset.Visibility = Visibility.Visible;
             }
             else
             {
                 TopOffset.Visibility = Visibility.Collapsed;
                 LeftOffset.Visibility = Visibility.Collapsed;
                 RightOffset.Visibility = Visibility.Collapsed;
+                BottomOffset.Visibility = Visibility.Collapsed;
             }
         }
 
         private void TitleBarControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void TitleBarControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ((MainWindowViewModel)DataContext).MaximizeCommand.Execute(null);
         }
     }
 }

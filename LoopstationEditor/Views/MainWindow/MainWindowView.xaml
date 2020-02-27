@@ -18,61 +18,64 @@
         MinHeight="360"
         Background="#111"
         Icon="/Images/icon.png">
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Setter Property="Topmost"  Value="True" />
-        </Style>
-    </Window.Style>
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBorder" Color="White" Opacity="0.1" />
+        <SolidColorBrush x:Key="MaximizedWindowBorder" Color="Black" Opacity="1" />
+    </Window.Resources>
 
-    <DockPanel>
-        <!-- #region Title Bar -->
-        <Grid DockPanel.Dock="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="40px" />
-                <ColumnDefinition Width="40px" />
-                <ColumnDefinition Width="40px" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
+    <Border BorderThickness="1" BorderBrush="{StaticResource WindowBorder}">
+        <DockPanel>
+            <!-- #region Offset when Maximized -->
+            <Border DockPanel.Dock="Top" x:Name="TopOffset" Height="7" Visibility="Collapsed"
+                Background="{StaticResource MaximizedWindowBorder}" />
+            <Border DockPanel.Dock="Left" x:Name="LeftOffset" Width="7" Visibility="Collapsed"
+                Background="{StaticResource MaximizedWindowBorder}" />
+            <Border DockPanel.Dock="Right" x:Name="RightOffset" Width="7" Visibility="Collapsed"
+                Background="{StaticResource MaximizedWindowBorder}" />
+            <Border DockPanel.Dock="Bottom" x:Name="BottomOffset" Height="7" Visibility="Collapsed"
+                Background="{StaticResource MaximizedWindowBorder}" />
+            <!-- #endregion Offset when Maximized -->
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="32" />
-            </Grid.RowDefinitions>
+            <DockPanel>
+                <!-- #region Title Bar -->
+                <Grid DockPanel.Dock="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40px" />
+                        <ColumnDefinition Width="40px" />
+                        <ColumnDefinition Width="40px" />
+                    </Grid.ColumnDefinitions>
 
-            <Border Grid.Row="0" x:Name="TopOffset" Height="7" Visibility="Collapsed" Background="Red" />
-            <Border Grid.Column="0" x:Name="LeftOffset" Width="7" Visibility="Collapsed" Background="Red" />
-            <Border Grid.Column="5" x:Name="RightOffset" Width="7" Visibility="Collapsed" Background="Red" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32" />
+                    </Grid.RowDefinitions>
 
-            <controls:TitleBarControl Grid.Column="1" Grid.Row="1"
-                                      Title="Loopstation RC-505 Settings Editor"
-                                      MouseLeftButtonDown="TitleBarControl_MouseLeftButtonDown" />
+                    <controls:TitleBarControl Grid.Column="0" Grid.Row="0"
+                                            Title="Loopstation RC-505 Settings Editor"
+                                            MouseLeftButtonDown="TitleBarControl_MouseLeftButtonDown"
+                                            MouseDoubleClick="TitleBarControl_MouseDoubleClick" />
 
-            <Border Grid.Column="2" Grid.Row="1">
-                <controls:TitleBarButtonControl IconPath="/Images/TitleBar/minimize_icon.png"
-                                                Command="{Binding MinimizeCommand}" />
-            </Border>
+                    <Border Grid.Column="1" Grid.Row="0">
+                        <controls:TitleBarButtonControl IconPath="/Images/TitleBar/minimize_icon.png"
+                                                    Command="{Binding MinimizeCommand}" />
+                    </Border>
 
-            <Border Grid.Column="3" Grid.Row="1">
-                <controls:TitleBarButtonControl IconPath="{Binding CurrentMaximizeIcon}"
-                                                Command="{Binding MaximizeCommand}" />
-            </Border>
+                    <Border Grid.Column="2" Grid.Row="0">
+                        <controls:TitleBarButtonControl IconPath="{Binding CurrentMaximizeIcon}"
+                                                    Command="{Binding MaximizeCommand}" />
+                    </Border>
 
-            <Border Grid.Column="4" Grid.Row="1">
-                <controls:TitleBarButtonControl IconPath="/Images/TitleBar/close_icon.png"
-                                                Command="{Binding CloseCommand}" />
-            </Border>
-        </Grid>
-        <!-- #endregion Title Bar -->
+                    <Border Grid.Column="3" Grid.Row="0">
+                        <controls:TitleBarButtonControl IconPath="/Images/TitleBar/close_icon.png"
+                                                    Command="{Binding CloseCommand}" />
+                    </Border>
+                </Grid>
+                <!-- #endregion Title Bar -->
 
-        <!-- #region Status Bar -->
-        <StatusBar DockPanel.Dock="Bottom" Height="20" />
-        <!-- #endregion Status Bar -->
-
-        <!-- #region Main Content -->
-        <Border />
-        <!-- #endregion Main Content -->
-
-    </DockPanel>
+                <!-- #region Main Content -->
+                <Border />
+                <!-- #endregion Main Content -->
+            </DockPanel>
+        </DockPanel>
+    </Border>
 </Window>

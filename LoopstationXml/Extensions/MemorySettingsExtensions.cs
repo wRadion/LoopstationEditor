@@ -11,7 +11,7 @@ namespace LoopstationXml.Extensions
         {
             foreach (TrackSettings track in memory.Tracks)
                 track.ReadXml(memoryXml);
-            memory.Rythm.ReadXml(memoryXml);
+            memory.Rhythm.ReadXml(memoryXml);
             memory.Name.ReadXml(memoryXml);
             memory.Master.ReadXml(memoryXml);
             memory.RecOption.ReadXml(memoryXml);
@@ -32,7 +32,7 @@ namespace LoopstationXml.Extensions
         {
             foreach (TrackSettings track in memory.Tracks)
                 track.WriteXml(memoryXml);
-            memory.Rythm.WriteXml(memoryXml);
+            memory.Rhythm.WriteXml(memoryXml);
             memory.Name.WriteXml(memoryXml);
             memory.Master.WriteXml(memoryXml);
             memory.RecOption.WriteXml(memoryXml);

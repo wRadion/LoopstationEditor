@@ -7,7 +7,7 @@ namespace LoopstationModels
         public int MemoryId { get; }
 
         public TrackSettings[] Tracks;
-        public RythmSettings Rythm;
+        public RhythmSettings Rhythm;
         public NameSettings Name;
         public MasterSettings Master;
         public RecOptionSettings RecOption;
@@ -27,7 +27,7 @@ namespace LoopstationModels
             {
                 new TrackSettings(1), new TrackSettings(2), new TrackSettings(3), new TrackSettings(4), new TrackSettings(5)
             };
-            Rythm = new RythmSettings();
+            Rhythm = new RhythmSettings();
             Name = new NameSettings();
             Master = new MasterSettings();
             RecOption = new RecOptionSettings();

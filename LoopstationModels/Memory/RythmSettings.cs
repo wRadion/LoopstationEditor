@@ -2,9 +2,9 @@
 
 namespace LoopstationModels.Memory
 {
-    public class RythmSettings : BaseSettings
+    public class RhythmSettings : BaseSettings
     {
-        public RythmSettings() : base("RYTHM")
+        public RhythmSettings() : base("RYTHM")
         {
             AddProperty("Sw", max: 1);
             AddProperty("Lvl", def: 50);

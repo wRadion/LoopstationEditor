@@ -4,10 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LoopstationEditor.Views.MainWindow.Controls"
+             xmlns:converters="clr-namespace:LoopstationEditor.Converters"
              mc:Ignorable="d"
              x:Name="_this"
              Background="#050505">
     <UserControl.Resources>
+        <converters:NullConverter x:Key="NullConverter" />
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True" />
             <Setter Property="Template">
@@ -32,7 +35,7 @@
                         </ControlTemplate.Triggers>
 
                         <Border Background="{TemplateBinding Background}">
-                            <Image Source="{Binding ElementName=_this, Path=IconPath}"
+                            <Image Source="{Binding ElementName=_this, Path=IconPath, Converter={StaticResource NullConverter}}"
                                    Width="32" Height="32"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" />

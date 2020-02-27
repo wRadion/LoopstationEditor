@@ -17,12 +17,15 @@
         AllowsTransparency="True"
         MinWidth="480"
         MinHeight="360"
-        Background="#111"
         Icon="/Images/icon.png">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBorder" Color="White" Opacity="0.1" />
         <SolidColorBrush x:Key="MaximizedWindowBorder" Color="Black" Opacity="1" />
     </Window.Resources>
+
+    <Window.Background>
+        <SolidColorBrush Color="#111" Opacity="1" />
+    </Window.Background>
 
     <Border BorderThickness="1" BorderBrush="{StaticResource WindowBorder}">
         <DockPanel>

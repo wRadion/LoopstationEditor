@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 using LoopstationEditor.Commands;
@@ -9,27 +8,13 @@ namespace LoopstationEditor.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private Window _window;
+        private readonly Window _window;
 
         public ICommand MinimizeCommand { get; }
         public ICommand MaximizeCommand { get; }
         public ICommand CloseCommand { get; }
 
-        private string _icon;
-        public object CurrentMaximizeIcon
-        {
-            get
-            {
-                if (String.IsNullOrWhiteSpace(_icon))
-                    return DependencyProperty.UnsetValue;
-
-                return _icon;
-            }
-            private set
-            {
-                _icon = value.ToString();
-            }
-        }
+        public string CurrentMaximizeIcon { get; private set; }
 
         public MainWindowViewModel(Window window)
         {

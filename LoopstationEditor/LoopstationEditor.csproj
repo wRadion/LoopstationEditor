@@ -61,6 +61,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Loopstation\LoopstationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainContent\MainContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow\Controls\TitleBarButtonControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +89,12 @@
     <Compile Include="Converters\NullConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\Loopstation\LoopstationView.xaml.cs">
+      <DependentUpon>LoopstationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainContent\MainContentView.xaml.cs">
+      <DependentUpon>MainContentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow\Controls\TitleBarButtonControl.xaml.cs">
       <DependentUpon>TitleBarButtonControl.xaml</DependentUpon>
     </Compile>
@@ -129,9 +143,7 @@
       <Name>LoopstationXml</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MainWindowComponents\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\icon.png" />
   </ItemGroup>

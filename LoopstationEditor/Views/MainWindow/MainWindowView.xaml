@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoopstationEditor.Views.MainWindow"
         xmlns:controls="clr-namespace:LoopstationEditor.Views.MainWindow.Controls"
+        xmlns:maincontent="clr-namespace:LoopstationEditor.Views.MainContent"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         StateChanged="Window_StateChanged"
@@ -25,6 +26,7 @@
 
     <Border BorderThickness="1" BorderBrush="{StaticResource WindowBorder}">
         <DockPanel>
+
             <!-- #region Offset when Maximized -->
             <Border DockPanel.Dock="Top" x:Name="TopOffset" Height="7" Visibility="Collapsed"
                 Background="{StaticResource MaximizedWindowBorder}" />
@@ -37,6 +39,7 @@
             <!-- #endregion Offset when Maximized -->
 
             <DockPanel>
+
                 <!-- #region Title Bar -->
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
@@ -73,8 +76,15 @@
                 <!-- #endregion Title Bar -->
 
                 <!-- #region Main Content -->
-                <Border />
+                <DockPanel>
+                    <!-- PUT MENU BAR HERE (Dock top) -->
+                    <!-- PUT STATUS BAR HERE (Dock bottom) -->
+                    <Border Padding="8">
+                        <maincontent:MainContentView />
+                    </Border>
+                </DockPanel>
                 <!-- #endregion Main Content -->
+
             </DockPanel>
         </DockPanel>
     </Border>

@@ -77,6 +77,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\ButtonEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\Track.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\TrackLevelSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\TrackSeparator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\TrackStartStopButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Loopstation\Tracks\LoopstationTracks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,10 +136,6 @@
     <Page Include="Views\Loopstation\Main\2 - KnobsArea\KnobsArea.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Loopstation\LoopstationViewOld.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loopstation\LoopstationView.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +177,21 @@
     <Compile Include="Views\Loopstation\Main\LoopstationMain.xaml.cs">
       <DependentUpon>LoopstationMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Loopstation\Tracks\Controls\ButtonEdit.xaml.cs">
+      <DependentUpon>ButtonEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loopstation\Tracks\Controls\Track.xaml.cs">
+      <DependentUpon>Track.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loopstation\Tracks\Controls\TrackLevelSlider.xaml.cs">
+      <DependentUpon>TrackLevelSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loopstation\Tracks\Controls\TrackSeparator.xaml.cs">
+      <DependentUpon>TrackSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loopstation\Tracks\Controls\TrackStartStopButton.xaml.cs">
+      <DependentUpon>TrackStartStopButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Loopstation\Tracks\LoopstationTracks.xaml.cs">
       <DependentUpon>LoopstationTracks.xaml</DependentUpon>
     </Compile>
@@ -190,9 +221,6 @@
     </Compile>
     <Compile Include="Views\Loopstation\Main\2 - KnobsArea\KnobsArea.xaml.cs">
       <DependentUpon>KnobsArea.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Loopstation\LoopstationViewOld.xaml.cs">
-      <DependentUpon>LoopstationViewOld.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loopstation\LoopstationView.xaml.cs">
       <DependentUpon>LoopstationView.xaml</DependentUpon>

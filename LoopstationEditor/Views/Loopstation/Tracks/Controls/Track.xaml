@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Loopstation.Tracks.Controls.Track"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation.Tracks.Controls"
+             xmlns:controls="clr-namespace:LoopstationEditor.Views.Loopstation.Controls"
+             mc:Ignorable="d"
+             x:Name="_this"
+             Width="220px"
+             Padding="0 10px 0 0">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+                <Setter Property="FontSize" Value="8px" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Margin" Value="0 0 0 4px" />
+            </Style>
+
+            <Style x:Key="TrackNumber" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+                <Setter Property="Text" Value="{Binding Number, ElementName=_this}" />
+                <Setter Property="FontSize" Value="42px" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Margin" Value="0 -8px 76px 0" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140px" />
+            <RowDefinition Height="178px" />
+        </Grid.RowDefinitions>
+
+        <!-- #region EDIT/STOP Buttons -->
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="70px" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50px" />
+                <RowDefinition Height="20px" />
+                <RowDefinition Height="70px" />
+            </Grid.RowDefinitions>
+
+            <local:ButtonEdit Grid.Column="1" Grid.Row="0" Margin="0 8px 0 0" />
+            <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="CLEAR: HOLD > 2 SEC." />
+            <controls:ButtonNormal Grid.Column="1" Grid.Row="2" FontSize="26px" LineHeight="27" Content="■" />
+        </Grid>
+        <!-- #endregion EDIT/STOP Buttons -->
+
+        <!-- Level/Volume Slider -->
+        <local:TrackLevelSlider Grid.Column="1" Grid.Row="0" />
+
+        <!-- Track Number -->
+        <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource TrackNumber}" />
+
+        <!-- START/STOP/REC Button -->
+        <local:TrackStartStopButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+    </Grid>
+</UserControl>

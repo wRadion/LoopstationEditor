@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation"
+             xmlns:controls="clr-namespace:LoopstationEditor.Views.Loopstation.Tracks.Controls"
              mc:Ignorable="d"
              x:Name="_this"
              Width="1184px" Height="350px">
@@ -12,6 +13,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type controls:Track}">
+                <Setter Property="Margin" Value="0 12px 0 0" />
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -27,15 +32,28 @@
                 <Border Grid.Row="0" Grid.RowSpan="2" Background="{StaticResource ShadowDark}" CornerRadius="16">
                     <Grid>
                         <!-- Border Shadow Light -->
-                        <Border BorderThickness="12 16 0 0" BorderBrush="{StaticResource ShadowLight}" CornerRadius="8 24 10 24" />
+                        <Border BorderThickness="20 32 0 0" BorderBrush="{StaticResource ShadowLight}" CornerRadius="8 24 10 24" />
                         <!-- Border Shadow Dark -->
                         <Border BorderThickness="0 0 32 32" BorderBrush="{StaticResource ShadowDark}" CornerRadius="10 16 10 16" />
                         <!-- Border to hide ShadowDark background over ShadowLight -->
                         <Border Width="32px" Height="32px" CornerRadius="15.45" Background="{StaticResource ShadowLight}" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
+                        <!-- Background Color -->
+                        <Border Margin="12px 22px 12px 32px" Background="{StaticResource Dark}" CornerRadius="16" />
+
                         <!-- Main Content-->
-                        <Border Margin="12px 16px" Padding="2px" Background="{StaticResource Dark}" CornerRadius="16">
-                            <ContentPresenter />
+                        <Border Padding="14px 0" CornerRadius="16">
+                            <StackPanel Orientation="Horizontal">
+                                <controls:Track TrackNumber="1" />
+                                <controls:TrackSeparator />
+                                <controls:Track TrackNumber="2" />
+                                <controls:TrackSeparator />
+                                <controls:Track TrackNumber="3" />
+                                <controls:TrackSeparator />
+                                <controls:Track TrackNumber="4" />
+                                <controls:TrackSeparator />
+                                <controls:Track TrackNumber="5" />
+                            </StackPanel>
                         </Border>
                     </Grid>
                 </Border>

@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Loopstation.Main.ButtonsArea.ButtonsAreaMiddleButtons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:LoopstationEditor.Views.Loopstation.Controls"
+             mc:Ignorable="d"
+             Width="480px" Height="64px">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type controls:ButtonNormal}">
+                <Setter Property="FontSize" Value="12px" />
+                <Setter Property="Width" Value="64px" />
+                <Setter Property="Height" Value="64px" />
+                <Setter Property="LineHeight" Value="12" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+                <Setter Property="FontSize" Value="9px" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Margin" Value="28px 0 0 0" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+            
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ALL START/STOP -->
+        <controls:ButtonNormal Grid.Column="0" Grid.ColumnSpan="2" Content="ALL START/ STOP" />
+
+        <!-- UNDO/REDO -->
+        <controls:ButtonNormal Grid.Column="2" Grid.ColumnSpan="2" Content="UNDO/ REDO" />
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="2" Text="CAPS" />
+
+        <!-- TAP TEMPO -->
+        <controls:ButtonNormal Grid.Column="4" Grid.ColumnSpan="2" Content="TAP TEMPO" />
+        <TextBlock Grid.Column="5" Grid.ColumnSpan="2" Text="INS" />
+
+        <!-- RHYTHM -->
+        <controls:ButtonNormal Grid.Column="6" Grid.ColumnSpan="2" Content="START/ STOP" />
+        <TextBlock Grid.Column="7" Grid.ColumnSpan="2" Text="DEL" />
+    </Grid>
+
+</UserControl>

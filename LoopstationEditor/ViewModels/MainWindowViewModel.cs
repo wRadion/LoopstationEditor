@@ -41,7 +41,7 @@ namespace LoopstationEditor.ViewModels
         {
             string icon = _window.WindowState == WindowState.Maximized ? "unmaximize" : "maximize";
 
-            CurrentMaximizeIcon = $"/Images/TitleBar/{ icon }_icon.png";
+            CurrentMaximizeIcon = $"/Views/Resources/Images/TitleBar/{ icon }_icon.png";
         }
     }
 }

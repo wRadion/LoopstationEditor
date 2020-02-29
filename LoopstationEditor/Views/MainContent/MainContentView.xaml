@@ -7,6 +7,6 @@
              xmlns:loopstation="clr-namespace:LoopstationEditor.Views.Loopstation"
              mc:Ignorable="d">
     <Grid>
-        <loopstation:LoopstationView />
+        <loopstation:LoopstationView Opacity="1" />
     </Grid>
 </UserControl>

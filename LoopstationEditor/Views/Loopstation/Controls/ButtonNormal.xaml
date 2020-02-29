@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Loopstation.Controls.ButtonNormal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation.Controls"
+             mc:Ignorable="d"
+             x:Name="_this"
+             MaxWidth="100px" MaxHeight="100px">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+                <Setter Property="Text" Value="{Binding Content, ElementName=_this}" />
+                <Setter Property="FontSize" Value="{Binding FontSize, ElementName=_this}" />
+                <Setter Property="LineHeight" Value="{Binding LineHeight, ElementName=_this}" />
+                <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="{x:Type UserControl}">
+
+            <Border Background="{StaticResource Lightest}" CornerRadius="50" Padding="4px">
+                <Border Background="{StaticResource Dark}" CornerRadius="50">
+                    <TextBlock />
+                </Border>
+            </Border>
+
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

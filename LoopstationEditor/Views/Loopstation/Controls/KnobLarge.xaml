@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Loopstation.Controls.KnobLarge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation.Controls"
+             mc:Ignorable="d"
+             MaxWidth="256px" MaxHeight="256px">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border Background="{StaticResource Dark}" Padding="12px" BorderThickness="2px" BorderBrush="{StaticResource Darkest}" CornerRadius="256">
+        <Border BorderThickness="8px" BorderBrush="{StaticResource Darkest}" CornerRadius="256" />
+    </Border>
+
+</UserControl>

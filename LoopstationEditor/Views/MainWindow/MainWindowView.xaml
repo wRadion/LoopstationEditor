@@ -9,15 +9,16 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         StateChanged="Window_StateChanged"
+        WindowStartupLocation="CenterScreen"
         UseLayoutRounding="True"
         SnapsToDevicePixels="False"
         WindowStyle="None"
         WindowState="Normal"
         ResizeMode="CanResizeWithGrip"
         AllowsTransparency="True"
-        MinWidth="480"
-        MinHeight="360"
-        Icon="/Images/icon.png">
+        MinWidth="1300px"
+        MinHeight="680px"
+        Icon="/Views/Resources/Images/icon.png">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBorder" Color="White" Opacity="0.1" />
         <SolidColorBrush x:Key="MaximizedWindowBorder" Color="Black" Opacity="1" />
@@ -62,7 +63,7 @@
                                             MouseDoubleClick="TitleBarControl_MouseDoubleClick" />
 
                     <Border Grid.Column="1" Grid.Row="0">
-                        <controls:TitleBarButtonControl IconPath="/Images/TitleBar/minimize_icon.png"
+                        <controls:TitleBarButtonControl IconPath="/Views/Resources/Images/TitleBar/minimize_icon.png"
                                                         Command="{Binding MinimizeCommand}" />
                     </Border>
 
@@ -72,7 +73,7 @@
                     </Border>
 
                     <Border Grid.Column="3" Grid.Row="0">
-                        <controls:TitleBarButtonControl IconPath="/Images/TitleBar/close_icon.png"
+                        <controls:TitleBarButtonControl IconPath="/Views/Resources/Images/TitleBar/close_icon.png"
                                                         Command="{Binding CloseCommand}" />
                     </Border>
                 </Grid>

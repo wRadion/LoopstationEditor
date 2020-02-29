@@ -16,7 +16,7 @@
 
     <Border Padding="8px 0 0 0">
         <StackPanel Orientation="Horizontal">
-            <Image Width="20px" Height="20px"  Source="/Images/icon.png" Margin="0 0 8px 0" />
+            <Image Width="20px" Height="20px"  Source="/Views/Resources/Images/icon.png" Margin="0 0 8px 0" />
             <TextBlock Text="{Binding ElementName=_this, Path=Title}" />
         </StackPanel>
     </Border>

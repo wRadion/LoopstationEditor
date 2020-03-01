@@ -75,10 +75,10 @@ namespace Loopstation.Xml.Memory
         public int LoFiBalance { get; set; } = 50;
 
         [XmlElement("RmFreq")]
-        public int RingModulatorFrequency5 { get; set; } = 0;
+        public int RingModulatorFrequency { get; set; } = 50;
 
         [XmlElement("RmBal")]
-        public int RingModulatorBalance10 { get; set; } = 0;
+        public int RingModulatorBalance { get; set; } = 100;
 
         [XmlElement("GToB")]
         public int GuitarToBassBalance { get; set; } = 50;
@@ -108,7 +108,7 @@ namespace Loopstation.Xml.Memory
         public int RobotGender { get; set; } = 10;
 
         [XmlElement("DistDist")]
-        public int VocalDistDistortion5 { get; set; } = 0;
+        public int VocalDistDistortion { get; set; } = 50;
 
         [XmlElement("DistTon")]
         public int VocalDistTone { get; set; } = 50;
@@ -165,7 +165,7 @@ namespace Loopstation.Xml.Memory
         public int IsolatorLevel { get; set; } = 100;
 
         [XmlElement("OctMod")]
-        public int OctaveMod { get; set; } = 0;
+        public int OctaveMode { get; set; } = 0;
 
         [XmlElement("OctLvl")]
         public int OctaveLevel { get; set; } = 50;
@@ -216,7 +216,7 @@ namespace Loopstation.Xml.Memory
         public int PanningDelayTime { get; set; } = 200;
 
         [XmlElement("PanDlyFb")]
-        public int PanningDelayFeedback2 { get; set; } = 0;
+        public int PanningDelayFeedback { get; set; } = 20;
 
         [XmlElement("PanDlyLvl")]
         public int PanningDelayLevel { get; set; } = 50;
@@ -234,10 +234,10 @@ namespace Loopstation.Xml.Memory
         public int GranularDelayTime { get; set; } = 50;
 
         [XmlElement("GraFb")]
-        public int GranularDelayFeedback7 { get; set; } = 0;
+        public int GranularDelayFeedback { get; set; } = 70;
 
         [XmlElement("GraLvl")]
-        public int GranularDelayLevel5 { get; set; } = 0;
+        public int GranularDelayLevel { get; set; } = 50;
 
         [XmlElement("RllTim")]
         public int RollTime { get; set; } = 1008;
@@ -297,8 +297,8 @@ namespace Loopstation.Xml.Memory
             LoFiDepth = other.LoFiDepth;
             LoFiSampleRate = other.LoFiSampleRate;
             LoFiBalance = other.LoFiBalance;
-            RingModulatorFrequency5 = other.RingModulatorFrequency5;
-            RingModulatorBalance10 = other.RingModulatorBalance10;
+            RingModulatorFrequency = other.RingModulatorFrequency;
+            RingModulatorBalance = other.RingModulatorBalance;
             GuitarToBassBalance = other.GuitarToBassBalance;
             SlowGearSensitivity = other.SlowGearSensitivity;
             SlowGearRiseTime = other.SlowGearRiseTime;
@@ -308,7 +308,7 @@ namespace Loopstation.Xml.Memory
             PitchBendBend = other.PitchBendBend;
             RobotNote = other.RobotNote;
             RobotGender = other.RobotGender;
-            VocalDistDistortion5 = other.VocalDistDistortion5;
+            VocalDistDistortion = other.VocalDistDistortion;
             VocalDistTone = other.VocalDistTone;
             VocalDistLevel = other.VocalDistLevel;
             VocoderCarrier = other.VocoderCarrier;
@@ -327,7 +327,7 @@ namespace Loopstation.Xml.Memory
             IsolatorDepth = other.IsolatorDepth;
             IsolatorStepRate = other.IsolatorStepRate;
             IsolatorLevel = other.IsolatorLevel;
-            OctaveMod = other.OctaveMod;
+            OctaveMode = other.OctaveMode;
             OctaveLevel = other.OctaveLevel;
             PanType = other.PanType;
             PanRate = other.PanRate;

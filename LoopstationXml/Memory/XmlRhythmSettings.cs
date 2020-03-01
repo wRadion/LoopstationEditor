@@ -10,7 +10,7 @@ namespace Loopstation.Xml.Memory
         public int Switch { get; set; } = 0;
 
         [XmlElement("Lvl")]
-        public int Volume { get; set; } = 50;
+        public int Level { get; set; } = 50;
 
         [XmlElement("Ptn")]
         public int Pattern { get; set; } = 0;
@@ -36,7 +36,7 @@ namespace Loopstation.Xml.Memory
             if (other == null) return;
 
             Switch = other.Switch;
-            Volume = other.Volume;
+            Level = other.Level;
             Pattern = other.Pattern;
             Beat = other.Beat;
             LineOut = other.LineOut;

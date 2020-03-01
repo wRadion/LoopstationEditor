@@ -7,7 +7,6 @@ Usage:
 
 ```csharp
 using Loopstation.Xml;
-using Loopstation.Xml.Helpers;
 
 namespace ConsoleApp
 {
@@ -16,25 +15,16 @@ namespace ConsoleApp
 		public static void main(string[] args)
 		{
 			// SYSTEM.RC0
-			// Initializes a SYSTEM.RC0 xml object with the default values
-			XmlSystemFile systemFile = new XmlSystemFile();
-
 			// Read/deserialize
-			systemFile = Xml.Deserialize(systemFile, "./path/to/SYSTEM.RC0");
-
+			XmlSystemFile systemFile = LoopstationXml.Deserialize("./path/to/" + XmlSystemFile.FILE_NAME);
 			// Write/serialize
-			Xml.Serialize(systemFile, "./path/to/new/SYSTEM.RC0");
-
+			LoopstationXml.Serialize(systemFile, "./path/to/new/" + XmlSystemFile.FILE_NAME);
 
 			// MEMORY.RC0
-			// Initializes a MEMORY.RC0 xml object with the default values
-			XmlMemoryFile memoryFile = new XmlMemoryFile();
-
 			// Read/deserialize
-			memoryFile = Xml.Deserialize(memoryFile, "./path/to/MEMORY.RC0");
-
+			XmlMemoryFile memoryFile = LoopstationXml.Deserialize("./path/to/" + XmlMemoryFile.FILE_NAME);
 			// Write/serialize
-			Xml.Serialize(memoryFile, "./path/to/new/MEMORY.RC0");
+			LoopstationXml.Serialize(memoryFile, "./path/to/new/" + XmlMemoryFile.FILE_NAME);
 		}
 	}
 }
@@ -54,4 +44,6 @@ memoryFile.Memories[42].Master.Level;
 
 // Get/set the LCD Contrast property of the Loopstation system
 systemFile.Setup.LcdContrast;
+
+...
 ```

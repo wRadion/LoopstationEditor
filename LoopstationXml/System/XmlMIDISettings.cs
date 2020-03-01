@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.System
 {
     [XmlRoot("MIDI")]
-    public class XmlMIDISettings : ICloneable
+    public class XmlMIDISettings : ICloneable<XmlMIDISettings>
     {
         [XmlElement("RxCh")]
         public int RxChannel { get; set; } = 0;
@@ -37,6 +38,6 @@ namespace Loopstation.Xml.System
             PcOut = other.PcOut;
         }
 
-        public object Clone() => new XmlMIDISettings(this);
+        public XmlMIDISettings Clone() => new XmlMIDISettings(this);
     }
 }

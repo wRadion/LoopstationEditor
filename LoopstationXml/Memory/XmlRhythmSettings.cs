@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("RHYTHM")]
-    public class XmlRhythmSettings : ICloneable
+    public class XmlRhythmSettings : ICloneable<XmlRhythmSettings>
     {
         [XmlElement("Sw")]
         public int Switch { get; set; } = 0;
@@ -45,6 +46,6 @@ namespace Loopstation.Xml.Memory
             StopMode = other.StopMode;
         }
 
-        public object Clone() => new XmlRhythmSettings(this);
+        public XmlRhythmSettings Clone() => new XmlRhythmSettings(this);
     }
 }

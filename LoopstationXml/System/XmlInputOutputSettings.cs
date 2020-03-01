@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.System
 {
     [XmlRoot("INPUT_OUTPUT")]
-    public class XmlInputOutputSettings : ICloneable
+    public class XmlInputOutputSettings : ICloneable<XmlInputOutputSettings>
     {
         [XmlElement("InNsThrs")]
         public int InputNSTreshold { get; set; } = 40;
@@ -33,6 +34,6 @@ namespace Loopstation.Xml.System
             OutputLevelSelection = other.OutputLevelSelection;
         }
 
-        public object Clone() => new XmlInputOutputSettings(this);
+        public XmlInputOutputSettings Clone() => new XmlInputOutputSettings(this);
     }
 }

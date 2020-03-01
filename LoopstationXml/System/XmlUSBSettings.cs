@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.System
 {
     [XmlRoot("USB")]
-    public class XmlUSBSettings : ICloneable
+    public class XmlUSBSettings : ICloneable<XmlUSBSettings>
     {
         [XmlElement("Mod")]
         public int Mode { get; set; } = 0;
@@ -29,6 +30,6 @@ namespace Loopstation.Xml.System
             OutputLevel = other.OutputLevel;
         }
 
-        public object Clone() => new XmlUSBSettings(this);
+        public XmlUSBSettings Clone() => new XmlUSBSettings(this);
     }
 }

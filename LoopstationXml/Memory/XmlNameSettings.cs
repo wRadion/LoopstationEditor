@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("NAME")]
-    public class XmlNameSettings : ICloneable
+    public class XmlNameSettings : ICloneable<XmlNameSettings>
     {
         [XmlElement("C01")]
         public int Character01 { get; set; } = 73;
@@ -61,6 +62,6 @@ namespace Loopstation.Xml.Memory
             Character12 = other.Character12;
         }
 
-        public object Clone() => new XmlNameSettings(this);
+        public XmlNameSettings Clone() => new XmlNameSettings(this);
     }
 }

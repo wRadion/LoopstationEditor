@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("REC_OPTION")]
-    public class XmlRecOptionSettings : ICloneable
+    public class XmlRecOptionSettings : ICloneable<XmlRecOptionSettings>
     {
         [XmlElement("DubMod")]
         public int OverdubMode { get; set; } = 0;
@@ -25,6 +26,6 @@ namespace Loopstation.Xml.Memory
             RecordQuantize = other.RecordQuantize;
         }
 
-        public object Clone() => new XmlRecOptionSettings(this);
+        public XmlRecOptionSettings Clone() => new XmlRecOptionSettings(this);
     }
 }

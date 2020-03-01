@@ -1,11 +1,12 @@
 ﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Base;
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml
 {
     [XmlRoot("database")]
-    public class XmlMemoryFile : XmlFileBase
+    public class XmlMemoryFile : XmlFileBase, ICloneable<XmlMemoryFile>
     {
         /// <summary>
         /// The default file name of a Loopstation RC-505 memory file.
@@ -36,6 +37,6 @@ namespace Loopstation.Xml
                 Memories[i] = new XmlMemorySettings(other?.Memories[i]);
         }
 
-        public override object Clone() => new XmlMemoryFile(this);
+        public XmlMemoryFile Clone() => new XmlMemoryFile(this);
     }
 }

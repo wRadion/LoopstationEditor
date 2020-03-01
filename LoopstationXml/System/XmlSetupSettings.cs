@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.System
 {
     [XmlRoot("SETUP")]
-    public class XmlSetupSettings : ICloneable
+    public class XmlSetupSettings : ICloneable<XmlSetupSettings>
     {
         [XmlElement("MemNum")]
         public int MemoryNumber { get; set; } = 0;
@@ -49,6 +50,6 @@ namespace Loopstation.Xml.System
             KnobMode = other.KnobMode;
         }
 
-        public object Clone() => new XmlSetupSettings(this);
+        public XmlSetupSettings Clone() => new XmlSetupSettings(this);
     }
 }

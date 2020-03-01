@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("INPUT_FX")]
-    public class XmlInputFxSettings : ICloneable
+    public class XmlInputFxSettings : ICloneable<XmlInputFxSettings>
     {
         [XmlElement("Mod")]
         public int Mode { get; set; } = 1;
@@ -57,6 +58,6 @@ namespace Loopstation.Xml.Memory
             SelectedMultiFxC = other.SelectedMultiFxC;
         }
 
-        public object Clone() => new XmlInputFxSettings(this);
+        public XmlInputFxSettings Clone() => new XmlInputFxSettings(this);
     }
 }

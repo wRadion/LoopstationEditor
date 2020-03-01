@@ -1,9 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
-    public class XmlBeatFxSettings : ICloneable
+    public class XmlBeatFxSettings : ICloneable<XmlBeatFxSettings>
     {
         [XmlElement("RepTyp")]
         public int BeatRepeatType { get; set; } = 0;
@@ -40,6 +41,6 @@ namespace Loopstation.Xml.Memory
             VinylFlick = other.VinylFlick;
         }
 
-        public object Clone() => new XmlBeatFxSettings(this);
+        public XmlBeatFxSettings Clone() => new XmlBeatFxSettings(this);
     }
 }

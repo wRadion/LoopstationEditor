@@ -1,9 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
-    public class XmlFxSettings : ICloneable
+    public class XmlFxSettings : ICloneable<XmlFxSettings>
     {
         [XmlElement("FilTyp")]
         public int FilterType { get; set; } = 0;
@@ -335,6 +336,6 @@ namespace Loopstation.Xml.Memory
             PanStepRate = other.PanStepRate;
         }
 
-        public object Clone() => new XmlFxSettings(this);
+        public XmlFxSettings Clone() => new XmlFxSettings(this);
     }
 }

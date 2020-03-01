@@ -1,11 +1,10 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Loopstation.Xml.Helpers
+namespace Loopstation.Xml
 {
-    public static class Xml
+    public static class LoopstationXml
     {
         /// <summary>
         /// Serializes the given object into an XML file.
@@ -53,13 +52,5 @@ namespace Loopstation.Xml.Helpers
 
             return result;
         }
-
-        /// <summary>
-        /// Returns a new instance of the given object type with the same values as the given object.
-        /// </summary>
-        /// <typeparam name="T">The type of the object to clone</typeparam>
-        /// <param name="obj">The object to clone</param>
-        /// <returns>A new instance of the object type that has the same properties/fields values as the given object</returns>
-        public static T Clone<T>(T obj) where T : ICloneable => (T)obj.Clone();
     }
 }

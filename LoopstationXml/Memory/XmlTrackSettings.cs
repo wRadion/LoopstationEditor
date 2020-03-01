@@ -1,9 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
-    public class XmlTrackSettings : ICloneable
+    public class XmlTrackSettings : ICloneable<XmlTrackSettings>
     {
         [XmlElement("Rev")]
         public int Reverse { get; set; } = 0;
@@ -76,6 +77,6 @@ namespace Loopstation.Xml.Memory
             WavLength = other.WavLength;
         }
 
-        public object Clone() => new XmlTrackSettings(this);
+        public XmlTrackSettings Clone() => new XmlTrackSettings(this);
     }
 }

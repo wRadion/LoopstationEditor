@@ -1,11 +1,12 @@
 ﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Base;
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml
 {
     [XmlRoot("mem")]
-    public class XmlMemorySettings : XmlMemorySettingsBase
+    public class XmlMemorySettings : XmlMemorySettingsBase, ICloneable<XmlMemorySettings>
     {
         [XmlAttribute("id")]
         public int Id { get; set; } = 0;
@@ -13,6 +14,6 @@ namespace Loopstation.Xml
         public XmlMemorySettings() : this(null) { }
         public XmlMemorySettings(XmlMemorySettings other) : base(other) { }
 
-        public override object Clone() => new XmlMemorySettings(this);
+        public XmlMemorySettings Clone() => new XmlMemorySettings(this);
     }
 }

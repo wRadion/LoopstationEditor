@@ -1,9 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
-    public class XmlAssignSettings : ICloneable
+    public class XmlAssignSettings : ICloneable<XmlAssignSettings>
     {
         [XmlElement("Sw")]
         public int Switch { get; set; } = 0;
@@ -36,6 +37,6 @@ namespace Loopstation.Xml.Memory
             TargetMax = other.TargetMax;
         }
 
-        public object Clone() => new XmlAssignSettings(this);
+        public XmlAssignSettings Clone() => new XmlAssignSettings(this);
     }
 }

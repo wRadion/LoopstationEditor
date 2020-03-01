@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("TRACK_FX")]
-    public class XmlTrackFxSettings : ICloneable
+    public class XmlTrackFxSettings : ICloneable<XmlTrackFxSettings>
     {
         [XmlElement("Mod")]
         public int Mode { get; set; } = 1;
@@ -57,6 +58,6 @@ namespace Loopstation.Xml.Memory
             SelectedMultiFxC = other.SelectedMultiFxC;
         }
 
-        public object Clone() => new XmlTrackFxSettings(this);
+        public XmlTrackFxSettings Clone() => new XmlTrackFxSettings(this);
     }
 }

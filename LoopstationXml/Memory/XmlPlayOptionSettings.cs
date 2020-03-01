@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("PLAY_OPTION")]
-    public class XmlPlayOptionSettings : ICloneable
+    public class XmlPlayOptionSettings : ICloneable<XmlPlayOptionSettings>
     {
         [XmlElement("SinglePlyChg")]
         public int SinglePlayChange { get; set; } = 0;
@@ -45,6 +46,6 @@ namespace Loopstation.Xml.Memory
             TargetTrack = other.TargetTrack;
         }
 
-        public object Clone() => new XmlPlayOptionSettings(this);
+        public XmlPlayOptionSettings Clone() => new XmlPlayOptionSettings(this);
     }
 }

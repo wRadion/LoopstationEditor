@@ -1,11 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Memory;
 
 namespace Loopstation.Xml.Base
 {
-    public abstract class XmlMemorySettingsBase : ICloneable
+    public abstract class XmlMemorySettingsBase
     {
         #region Tracks
         [XmlElement("TRACK1")]
@@ -160,7 +159,5 @@ namespace Loopstation.Xml.Base
             TrackFx3 = new XmlFxSettings(other?.TrackFx3);
             #endregion TrackFxs
         }
-
-        public abstract object Clone();
     }
 }

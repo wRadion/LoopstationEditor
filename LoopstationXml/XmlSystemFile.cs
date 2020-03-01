@@ -1,11 +1,12 @@
 ﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Base;
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml
 {
     [XmlRoot("database")]
-    public class XmlSystemFile : XmlFileBase
+    public class XmlSystemFile : XmlFileBase, ICloneable<XmlSystemFile>
     {
         /// <summary>
         /// The default file name of a Loopstation RC-505 system file.
@@ -28,6 +29,6 @@ namespace Loopstation.Xml
             System = new XmlSystemSettings(other?.System);
         }
 
-        public override object Clone() => new XmlSystemFile(this);
+        public XmlSystemFile Clone() => new XmlSystemFile(this);
     }
 }

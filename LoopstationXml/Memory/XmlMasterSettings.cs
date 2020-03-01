@@ -1,10 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+
+using Loopstation.Xml.Interfaces;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("MASTER")]
-    public class XmlMasterSettings : ICloneable
+    public class XmlMasterSettings : ICloneable<XmlMasterSettings>
     {
         [XmlElement("Lvl")]
         public int Level { get; set; } = 50;
@@ -37,6 +38,6 @@ namespace Loopstation.Xml.Memory
             PhonesOutTracks = other.PhonesOutTracks;
         }
 
-        public object Clone() => new XmlMasterSettings(this);
+        public XmlMasterSettings Clone() => new XmlMasterSettings(this);
     }
 }

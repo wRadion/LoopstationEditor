@@ -1,13 +1,13 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Base;
+using Loopstation.Xml.Interfaces;
 using Loopstation.Xml.System;
 
 namespace Loopstation.Xml
 {
     [XmlRoot("sys")]
-    public class XmlSystemSettings : XmlMemorySettingsBase, ICloneable
+    public class XmlSystemSettings : XmlMemorySettingsBase, ICloneable<XmlSystemSettings>
     {
         [XmlElement("SETUP")]
         public XmlSetupSettings Setup;
@@ -30,6 +30,6 @@ namespace Loopstation.Xml
             MIDI = new XmlMIDISettings(other?.MIDI);
         }
 
-        public override object Clone() => new XmlSystemSettings(this);
+        public XmlSystemSettings Clone() => new XmlSystemSettings(this);
     }
 }

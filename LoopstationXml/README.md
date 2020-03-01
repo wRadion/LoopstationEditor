@@ -52,6 +52,6 @@ as you would expect:
 // This entry is displayed as the entry #43 on the Loopstation
 memoryFile.Memories[42].Master.Level;
 
-// Get/set the LCD Contrast of the Loopstation system
+// Get/set the LCD Contrast property of the Loopstation system
 systemFile.Setup.LcdContrast;
 ```

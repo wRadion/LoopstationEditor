@@ -2,9 +2,8 @@
 
 using Loopstation.Xml.Base;
 using Loopstation.Xml.Interfaces;
-using Loopstation.Xml.System;
 
-namespace Loopstation.Xml
+namespace Loopstation.Xml.System
 {
     [XmlRoot("sys")]
     public class XmlSystemSettings : XmlMemorySettingsBase, ICloneable<XmlSystemSettings>

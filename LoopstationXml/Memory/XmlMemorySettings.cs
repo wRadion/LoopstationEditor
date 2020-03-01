@@ -3,7 +3,7 @@
 using Loopstation.Xml.Base;
 using Loopstation.Xml.Interfaces;
 
-namespace Loopstation.Xml
+namespace Loopstation.Xml.Memory
 {
     [XmlRoot("mem")]
     public class XmlMemorySettings : XmlMemorySettingsBase, ICloneable<XmlMemorySettings>

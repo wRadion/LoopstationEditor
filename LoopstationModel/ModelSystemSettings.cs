@@ -1,4 +1,5 @@
-﻿using Loopstation.Xml;
+﻿using Loopstation.Xml.System;
+
 using Loopstation.Model.System;
 
 namespace Loopstation.Model

@@ -2,6 +2,7 @@
 
 using Loopstation.Xml.Base;
 using Loopstation.Xml.Interfaces;
+using Loopstation.Xml.Memory;
 
 namespace Loopstation.Xml
 {

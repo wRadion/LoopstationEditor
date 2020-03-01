@@ -1,4 +1,4 @@
-﻿namespace LoopstationModels.Utils
+﻿namespace Loopstation.Model.Utils
 {
     public class Range
     {

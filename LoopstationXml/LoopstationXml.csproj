@@ -2,10 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Loopstation.Xml</RootNamespace>
+    <ApplicationIcon />
+    <Win32Resource />
+    <PackageId>Loopstation.Xml</PackageId>
+    <Authors>Rémi Waser</Authors>
+    <Company>wRadion</Company>
+    <PackageProjectUrl>https://github.com/wRadion/loopstation_editor/tree/master/LoopstationXml</PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants />
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LoopstationModels\LoopstationModels.csproj" />
+    <ProjectReference Include="..\LoopstationModels\LoopstationModel.csproj" />
   </ItemGroup>
 
 </Project>

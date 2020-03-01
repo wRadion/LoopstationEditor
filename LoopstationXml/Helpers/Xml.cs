@@ -34,12 +34,11 @@ namespace Loopstation.Xml.Helpers
         /// Deserializes a given XML file into an object of the given type.
         /// </summary>
         /// <typeparam name="T">The type of the object to deserialize</typeparam>
-        /// <param name="defaultObject">The default value for the object (if serialization fails for example)</param>
         /// <param name="file">The file in which the XML will be read</param>
         /// <returns>The deserialized object</returns>
-        public static T Deserialize<T>(T defaultObject, string file)
+        public static T? Deserialize<T>(string file) where T : struct
         {
-            T result = defaultObject;
+            T? result = null;
 
             XmlReaderSettings xmlReaderSettings = new XmlReaderSettings()
             {

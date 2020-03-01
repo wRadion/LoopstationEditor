@@ -25,22 +25,25 @@ namespace Loopstation.Model.Memory
 
     public class ModelRhythmSettings
     {
-        public bool IsOn { get; set; }
+        public bool Enabled { get; set; } = false;
 
         // TODO Level (0...100) *2
         private int _lvl;
-        public int Level { get; set; }
-        
-        public RhythmPattern Pattern { get; set; }
-        public RhythmBeat Beat { get; set; }
-        public bool IsLineOut { get; set; }
-        public bool HasRecOneMeasure { get; set; }
-        public bool HasPlayOneMeasure { get; set; }
-        public RhythmStopMode StopMode { get; set; }
+        public int Level { get; set; } = 50;
 
+        public RhythmPattern Pattern { get; set; } = RhythmPattern.SIMPLE_BEAT_1;
+        public RhythmBeat Beat { get; set; } = RhythmBeat.B4_4;
+        public bool IsLineOut { get; set; } = true;
+        public bool HasRecOneMeasure { get; set; } = false;
+        public bool HasPlayOneMeasure { get; set; } = false;
+        public RhythmStopMode StopMode { get; set; } = RhythmStopMode.LOOPER_STOP;
+
+        public ModelRhythmSettings() : this(null) { }
         public ModelRhythmSettings(XmlRhythmSettings xmlRhythm)
         {
-            IsOn = xmlRhythm.Switch == 1;
+            if (xmlRhythm == null) return;
+
+            Enabled = xmlRhythm.Switch == 1;
             Level = xmlRhythm.Level;
             Pattern = (RhythmPattern)xmlRhythm.Pattern;
             Beat = (RhythmBeat)xmlRhythm.Beat;

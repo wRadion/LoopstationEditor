@@ -1,9 +1,9 @@
-﻿using Loopstation.Xml.Memory;
+﻿using Loopstation.Model.Memory.Base;
+using Loopstation.Xml.Memory;
 
 namespace Loopstation.Model.Memory
 {
     public enum InputFxMode { MULTI, SINGLE }
-    public enum InputFx { A, B, C }
     public enum InputSingleFx
     {
         FILTER, PHASER, FLANGER, SYNTH, LO_FI, RING_MODULATOR, GUITAR_TO_BASS, SLOW_GEAR, TRANSPOSE,
@@ -30,27 +30,31 @@ namespace Loopstation.Model.Memory
 
     public class ModelInputFxSettings
     {
-        public InputFxMode Mode { get; set; }
-        public InputFx SingleSwitch { get; set; }
-        public InputFx Selected { get; set; }
-        public InputSingleFx SelectedSingleFxA { get; set; }
-        public InputSingleFx SelectedSingleFxB { get; set; }
-        public InputSingleFx SelectedSingleFxC { get; set; }
+        public InputFxMode Mode { get; set; } = InputFxMode.SINGLE;
+        public FxSlotWithNone SingleEnabledSlot { get; set; } = FxSlotWithNone.NONE;
+        public FxSlot SelectedSlot { get; set; } = FxSlot.A;
+        public InputSingleFx SelectedSingleFxA { get; set; } = InputSingleFx.FILTER;
+        public InputSingleFx SelectedSingleFxB { get; set; } = InputSingleFx.LO_FI;
+        public InputSingleFx SelectedSingleFxC { get; set; } = InputSingleFx.PAN;
         // TODO: Bitwise InputFx>MultiSwitch
-        public InputFxMulti MultiSwitch { get; set; }
-        public InputMultiFxA SelectedMultiFxA { get; set; }
-        public InputMultiFxB SelectedMultiFxB { get; set; }
-        public InputMultiFxC SelectedMultiFxC { get; set; }
+        // TODO: Bitwise Default Value 0 NONE
+        public InputFxMulti MultiEnabledSlots { get; set; }
+        public InputMultiFxA SelectedMultiFxA { get; set; } = InputMultiFxA.FILTER;
+        public InputMultiFxB SelectedMultiFxB { get; set; } = InputMultiFxB.RING_MODULATOR;
+        public InputMultiFxC SelectedMultiFxC { get; set; } = InputMultiFxC.TREMOLO;
 
+        public ModelInputFxSettings() : this(null) { }
         public ModelInputFxSettings(XmlInputFxSettings xmlInputFx)
         {
+            if (xmlInputFx == null) return;
+            
             Mode = (InputFxMode)xmlInputFx.Mode;
-            SingleSwitch = (InputFx)xmlInputFx.Switch;
-            Selected = (InputFx)xmlInputFx.Selected;
+            SingleEnabledSlot = (FxSlotWithNone)xmlInputFx.Switch;
+            SelectedSlot = (FxSlot)xmlInputFx.Selected;
             SelectedSingleFxA = (InputSingleFx)xmlInputFx.SelectedSingleFxA;
             SelectedSingleFxB = (InputSingleFx)xmlInputFx.SelectedSingleFxB;
             SelectedSingleFxC = (InputSingleFx)xmlInputFx.SelectedSingleFxC;
-            MultiSwitch = (InputFxMulti)xmlInputFx.MultiSwitch;
+            MultiEnabledSlots = (InputFxMulti)xmlInputFx.MultiSwitch;
             SelectedMultiFxA = (InputMultiFxA)xmlInputFx.SelectedMultiFxA;
             SelectedMultiFxB = (InputMultiFxB)xmlInputFx.SelectedMultiFxB;
             SelectedMultiFxC = (InputMultiFxC)xmlInputFx.SelectedMultiFxC;

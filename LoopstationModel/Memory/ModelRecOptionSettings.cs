@@ -7,12 +7,15 @@ namespace Loopstation.Model.Memory
 
     public class ModelRecOptionSettings
     {
-        public RecOptionOverdubMode OverdubMode { get; set; }
-        public RecOptionRecordAction RecordAction { get; set; }
+        public RecOptionOverdubMode OverdubMode { get; set; } = RecOptionOverdubMode.OVERDUB;
+        public RecOptionRecordAction RecordAction { get; set; } = RecOptionRecordAction.REC_THEN_OVERDUB;
         // TODO: Record Quantize ?
 
+        public ModelRecOptionSettings() : this(null) { }
         public ModelRecOptionSettings(XmlRecOptionSettings xmlRecOption)
         {
+            if (xmlRecOption == null) return;
+
             OverdubMode = (RecOptionOverdubMode)xmlRecOption.OverdubMode;
             RecordAction = (RecOptionRecordAction)xmlRecOption.RecordAction;
         }

@@ -6,7 +6,7 @@ namespace Loopstation.Model.Memory
 {
     public class ModelNameSettings
     {
-        private string _name;
+        private string _name = "INIT MEMORY";
         public string Name
         {
             get => _name;
@@ -20,8 +20,11 @@ namespace Loopstation.Model.Memory
             }
         }
 
+        public ModelNameSettings() : this(null) { }
         public ModelNameSettings(XmlNameSettings xmlName)
         {
+            if (xmlName == null) return;
+
             _name = new StringBuilder((char)xmlName.Character01).Append((char)xmlName.Character02).
                 Append((char)xmlName.Character03).Append((char)xmlName.Character04).
                 Append((char)xmlName.Character05).Append((char)xmlName.Character06).

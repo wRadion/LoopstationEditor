@@ -10,20 +10,23 @@ namespace Loopstation.Model.System
     {
         // TODO MemoryNumber (0...98) +1
         private int _memNum;
-        public int MemoryNumber { get; set; }
+        public int SelectedMemory { get; set; } = 0;
 
-        public int LCDContrast { get; set; }
-        public bool HasPhantomPower { get; set; }
-        public SetupDisplayMode DisplayMode { get; set; }
-        public SetupIndicatorMode IndicatorMode { get; set; }
-        public bool IsAutoOff { get; set; }
-        public bool HasAllClear { get; set; }
-        public bool HasQuickClear { get; set; }
-        public SetupKnobMode KnobMode { get; set; }
+        public int LCDContrast { get; set; } = 7;
+        public bool HasPhantomPower { get; set; } = false;
+        public SetupDisplayMode DisplayMode { get; set; } = SetupDisplayMode.MEMORY_NUMBER;
+        public SetupIndicatorMode IndicatorMode { get; set; } = SetupIndicatorMode.STATUS;
+        public bool IsAutoOff { get; set; } = true;
+        public bool HasAllClear { get; set; } = false;
+        public bool HasQuickClear { get; set; } = false;
+        public SetupKnobMode KnobMode { get; set; } = SetupKnobMode.IMMEDIATE;
 
+        public ModelSetupSettings() : this(null) { }
         public ModelSetupSettings(XmlSetupSettings xmlSetup)
         {
-            MemoryNumber = xmlSetup.MemoryNumber;
+            if (xmlSetup == null) return;
+
+            SelectedMemory = xmlSetup.MemoryNumber;
             LCDContrast = xmlSetup.LCDContrast;
             HasPhantomPower = xmlSetup.PhantomPower == 1;
             DisplayMode = (SetupDisplayMode)xmlSetup.DisplayMode;

@@ -1,9 +1,9 @@
 ﻿using Loopstation.Xml.Memory;
+using Loopstation.Model.Memory.Base;
 
 namespace Loopstation.Model.Memory
 {
     public enum TrackFxMode { MULTI, SINGLE }
-    public enum TrackFx { A, B, C }
     public enum TrackSingleFx
     {
         FILTER, PHASER, FLANGER, SYNTH, LO_FI, RING_MODULATOR, GUITAR_TO_BASS, SLOW_GEAR, TRANSPOSE,
@@ -32,27 +32,31 @@ namespace Loopstation.Model.Memory
 
     public class ModelTrackFxSettings
     {
-        public TrackFxMode Mode { get; set; }
-        public TrackFx SingleSwitch { get; set; }
-        public TrackFx Selected { get; set; }
-        public TrackSingleFx SelectedSingleFxA { get; set; }
-        public TrackSingleFx SelectedSingleFxB { get; set; }
-        public TrackSingleFx SelectedSingleFxC { get; set; }
+        public TrackFxMode Mode { get; set; } = TrackFxMode.SINGLE;
+        public FxSlotWithNone SingleEnabledSlot { get; set; } = FxSlotWithNone.NONE;
+        public FxSlot SelectedSlot { get; set; } = FxSlot.A;
+        public TrackSingleFx SelectedSingleFxA { get; set; } = TrackSingleFx.FILTER;
+        public TrackSingleFx SelectedSingleFxB { get; set; } = TrackSingleFx.DELAY;
+        public TrackSingleFx SelectedSingleFxC { get; set; } = TrackSingleFx.BEAT_REPEAT;
         // TODO: Bitwise TrackFx>MultiSwitch
-        public TrackFxMulti MultiSwitch { get; set; }
-        public TrackMultiFxA SelectedMultiFxA { get; set; }
-        public TrackMultiFxB SelectedMultiFxB { get; set; }
-        public TrackMultiFxC SelectedMultiFxC { get; set; }
+        // TODO: Bitwise Default Value 0 NONE
+        public TrackFxMulti MultiEnabledSlots { get; set; }
+        public TrackMultiFxA SelectedMultiFxA { get; set; } = TrackMultiFxA.BEAT_REPEAT;
+        public TrackMultiFxB SelectedMultiFxB { get; set; } = TrackMultiFxB.LO_FI;
+        public TrackMultiFxC SelectedMultiFxC { get; set; } = TrackMultiFxC.DELAY;
 
+        public ModelTrackFxSettings() : this(null) { }
         public ModelTrackFxSettings(XmlTrackFxSettings xmlTrackFx)
         {
+            if (xmlTrackFx == null) return;
+
             Mode = (TrackFxMode)xmlTrackFx.Mode;
-            SingleSwitch = (TrackFx)xmlTrackFx.Switch;
-            Selected = (TrackFx)xmlTrackFx.Selected;
+            SingleEnabledSlot = (FxSlotWithNone)xmlTrackFx.Switch;
+            SelectedSlot = (FxSlot)xmlTrackFx.Selected;
             SelectedSingleFxA = (TrackSingleFx)xmlTrackFx.SelectedSingleFxA;
             SelectedSingleFxB = (TrackSingleFx)xmlTrackFx.SelectedSingleFxB;
             SelectedSingleFxC = (TrackSingleFx)xmlTrackFx.SelectedSingleFxC;
-            MultiSwitch = (TrackFxMulti)xmlTrackFx.MultiSwitch;
+            MultiEnabledSlots = (TrackFxMulti)xmlTrackFx.MultiSwitch;
             SelectedMultiFxA = (TrackMultiFxA)xmlTrackFx.SelectedMultiFxA;
             SelectedMultiFxB = (TrackMultiFxB)xmlTrackFx.SelectedMultiFxB;
             SelectedMultiFxC = (TrackMultiFxC)xmlTrackFx.SelectedMultiFxC;

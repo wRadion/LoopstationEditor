@@ -7,18 +7,22 @@ namespace Loopstation.Model.System
 
     public class ModelInputOutputSettings
     {
-        public int InputNSTreshold { get; set; }
+        public int InputNSTreshold { get; set; } = 40;
 
         // TODO Level (0...100) *2
         private int _lineOutLvl;
-        public int LineOutLevel { get; set; }
+        public int LineOutLevel { get; set; } = 50;
 
-        public IOInputSource InputSource { get; set; }
-        public bool IsInputLineOut { get; set; }
-        public IOOutputLevelSelection OutputLevelSelection { get; set; }
+        public IOInputSource InputSource { get; set; } = IOInputSource.STEREO;
 
+        public bool IsInputLineOut { get; set; } = true;
+        public IOOutputLevelSelection OutputLevelSelection { get; set; } = IOOutputLevelSelection.LINE_PLUS_PHONES;
+
+        public ModelInputOutputSettings() : this(null) { }
         public ModelInputOutputSettings(XmlInputOutputSettings xmlInputOutput)
         {
+            if (xmlInputOutput == null) return;
+
             InputNSTreshold = xmlInputOutput.InputNSTreshold;
             LineOutLevel = xmlInputOutput.LineOutLevel;
             InputSource = (IOInputSource)xmlInputOutput.InputSource;

@@ -36,18 +36,21 @@ namespace Loopstation.Model.Memory
     {
         public int AssignNumber { get; }
 
-        public bool IsOn { get; set; }
-        public AssignSource Source { get; set; }
-        public AssignSourceMode SourceMode { get; set; }
-        public AssignTarget Target { get; set; }
-        public int TargetMin { get; set; }
-        public int TargetMax { get; set; }
+        public bool Enabled { get; set; } = false;
+        public AssignSource Source { get; set; } = AssignSource.EXP_PEDAL;
+        public AssignSourceMode SourceMode { get; set; } = AssignSourceMode.MOMENT;
+        public AssignTarget Target { get; set; } = AssignTarget.TR1_PLAY_LEVEL;
+        public int TargetMin { get; set; } = 0;
+        public int TargetMax { get; set; } = 100;
 
+        public ModelAssignSettings(int num) : this(num, null) { }
         public ModelAssignSettings(int num, XmlAssignSettings xmlAssign)
         {
             AssignNumber = num;
 
-            IsOn = xmlAssign.Switch == 1;
+            if (xmlAssign == null) return;
+
+            Enabled = xmlAssign.Switch == 1;
             Source = (AssignSource)xmlAssign.Source;
             SourceMode = (AssignSourceMode)xmlAssign.SourceMode;
             Target = (AssignTarget)xmlAssign.Target;

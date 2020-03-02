@@ -16,9 +16,9 @@ namespace Loopstation.Xml.System
         private int _pcOut;
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>15</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>15</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("RxCh")]
         public int RxChannel
         {
@@ -27,9 +27,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>1</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("Omni")]
         public int Omni
         {
@@ -38,9 +38,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>16</c>.
-		/// <para>Default value is <c>16</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>16</c>.
+        /// <para>Default value is <c>16</c>.</para>
+        /// </summary>
         [XmlElement("TxCh")]
         public int TxChannel
         {
@@ -49,9 +49,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Sync")]
         public int Sync
         {
@@ -60,9 +60,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("InSel")]
         public int SyncSource
         {
@@ -71,9 +71,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>1</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("PcOut")]
         public int PcOut
         {

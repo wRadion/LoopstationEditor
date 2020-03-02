@@ -20,6 +20,10 @@ namespace Loopstation.Xml.Memory
         private int _selectedMultiFxB;
         private int _selectedMultiFxC;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("Mod")]
         public int Mode
         {
@@ -27,6 +31,10 @@ namespace Loopstation.Xml.Memory
             set => _mode = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("MltMod")]
         public int MultiMode
         {
@@ -34,6 +42,10 @@ namespace Loopstation.Xml.Memory
             set => _multiMode = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>3</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Sw")]
         public int Switch
         {
@@ -41,6 +53,10 @@ namespace Loopstation.Xml.Memory
             set => _switch = Range.Guard(value, max: 3);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Sel")]
         public int Selected
         {
@@ -48,6 +64,10 @@ namespace Loopstation.Xml.Memory
             set => _selected = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>26</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Typ1")]
         public int SelectedSingleFxA
         {
@@ -55,6 +75,10 @@ namespace Loopstation.Xml.Memory
             set => _selectedSingleFxA = Range.Guard(value, max: 26);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>26</c>.
+        /// <para>Default value is <c>4</c>.</para>
+        /// </summary>
         [XmlElement("Typ2")]
         public int SelectedSingleFxB
         {
@@ -62,6 +86,10 @@ namespace Loopstation.Xml.Memory
             set => _selectedSingleFxB = Range.Guard(value, max: 26);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>26</c>.
+        /// <para>Default value is <c>17</c>.</para>
+        /// </summary>
         [XmlElement("Typ3")]
         public int SelectedSingleFxC
         {
@@ -69,6 +97,10 @@ namespace Loopstation.Xml.Memory
             set => _selectedSingleFxC = Range.Guard(value, max: 26);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>7</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("MltSw")]
         public int MultiSwitch
         {
@@ -76,6 +108,10 @@ namespace Loopstation.Xml.Memory
             set => _multiSwitch = Range.Guard(value, max: 7);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>18</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("MltTyp1")]
         public int SelectedMultiFxA
         {
@@ -83,6 +119,10 @@ namespace Loopstation.Xml.Memory
             set => _selectedMultiFxA = Range.Guard(value, max: 18);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>14</c>.
+        /// <para>Default value is <c>3</c>.</para>
+        /// </summary>
         [XmlElement("MltTyp2")]
         public int SelectedMultiFxB
         {
@@ -90,6 +130,10 @@ namespace Loopstation.Xml.Memory
             set => _selectedMultiFxB = Range.Guard(value, max: 14);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>17</c>.
+        /// <para>Default value is <c>8</c>.</para>
+        /// </summary>
         [XmlElement("MltTyp3")]
         public int SelectedMultiFxC
         {
@@ -100,17 +144,17 @@ namespace Loopstation.Xml.Memory
         public XmlInputFxSettings() : this(null) { }
         public XmlInputFxSettings(XmlInputFxSettings other)
         {
-            Mode = other?.Mode ?? 1;
-            MultiMode = other?.MultiMode ?? 0;
-            Switch = other?.Switch ?? 0;
-            Selected = other?.Selected ?? 0;
+            Mode              = other?.Mode              ?? 1;
+            MultiMode         = other?.MultiMode         ?? 0;
+            Switch            = other?.Switch            ?? 0;
+            Selected          = other?.Selected          ?? 0;
             SelectedSingleFxA = other?.SelectedSingleFxA ?? 0;
             SelectedSingleFxB = other?.SelectedSingleFxB ?? 4;
             SelectedSingleFxC = other?.SelectedSingleFxC ?? 17;
-            MultiSwitch = other?.MultiSwitch ?? 0;
-            SelectedMultiFxA = other?.SelectedMultiFxA ?? 0;
-            SelectedMultiFxB = other?.SelectedMultiFxB ?? 3;
-            SelectedMultiFxC = other?.SelectedMultiFxC ?? 8;
+            MultiSwitch       = other?.MultiSwitch       ?? 0;
+            SelectedMultiFxA  = other?.SelectedMultiFxA  ?? 0;
+            SelectedMultiFxB  = other?.SelectedMultiFxB  ?? 3;
+            SelectedMultiFxC  = other?.SelectedMultiFxC  ?? 8;
         }
 
         public XmlInputFxSettings Clone() => new XmlInputFxSettings(this);

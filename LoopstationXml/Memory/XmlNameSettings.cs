@@ -24,6 +24,10 @@ namespace Loopstation.Xml.Memory
         private int _character11;
         private int _character12;
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>73</c>.</para>
+        /// </summary>
         [XmlElement("C01")]
         public int Character01
         {
@@ -31,6 +35,10 @@ namespace Loopstation.Xml.Memory
             set => _character01 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>78</c>.</para>
+        /// </summary>
         [XmlElement("C02")]
         public int Character02
         {
@@ -38,6 +46,10 @@ namespace Loopstation.Xml.Memory
             set => _character02 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>73</c>.</para>
+        /// </summary>
         [XmlElement("C03")]
         public int Character03
         {
@@ -45,6 +57,10 @@ namespace Loopstation.Xml.Memory
             set => _character03 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>84</c>.</para>
+        /// </summary>
         [XmlElement("C04")]
         public int Character04
         {
@@ -52,6 +68,10 @@ namespace Loopstation.Xml.Memory
             set => _character04 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>32</c>.</para>
+        /// </summary>
         [XmlElement("C05")]
         public int Character05
         {
@@ -59,6 +79,10 @@ namespace Loopstation.Xml.Memory
             set => _character05 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>77</c>.</para>
+        /// </summary>
         [XmlElement("C06")]
         public int Character06
         {
@@ -66,6 +90,10 @@ namespace Loopstation.Xml.Memory
             set => _character06 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>69</c>.</para>
+        /// </summary>
         [XmlElement("C07")]
         public int Character07
         {
@@ -73,6 +101,10 @@ namespace Loopstation.Xml.Memory
             set => _character07 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>77</c>.</para>
+        /// </summary>
         [XmlElement("C08")]
         public int Character08
         {
@@ -80,6 +112,10 @@ namespace Loopstation.Xml.Memory
             set => _character08 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>79</c>.</para>
+        /// </summary>
         [XmlElement("C09")]
         public int Character09
         {
@@ -87,6 +123,10 @@ namespace Loopstation.Xml.Memory
             set => _character09 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>82</c>.</para>
+        /// </summary>
         [XmlElement("C10")]
         public int Character10
         {
@@ -94,6 +134,10 @@ namespace Loopstation.Xml.Memory
             set => _character10 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>89</c>.</para>
+        /// </summary>
         [XmlElement("C11")]
         public int Character11
         {
@@ -101,6 +145,10 @@ namespace Loopstation.Xml.Memory
             set => _character11 = Range.Guard(value, min: MINIMUM_CHAR, max: MAXIMUM_CHAR);
         }
 
+        /// <summary>
+        /// Integer from <c>32</c> to <c>126</c>.
+        /// <para>Default value is <c>32</c>.</para>
+        /// </summary>
         [XmlElement("C12")]
         public int Character12
         {

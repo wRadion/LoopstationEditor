@@ -14,6 +14,10 @@ namespace Loopstation.Xml.Memory
         private int _targetMin;
         private int _targetMax;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Sw")]
         public int Switch
         {
@@ -21,6 +25,10 @@ namespace Loopstation.Xml.Memory
             set => _switch = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>78</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Src")]
         public int Source
         {
@@ -28,6 +36,10 @@ namespace Loopstation.Xml.Memory
             set => _source = Range.Guard(value, max: 78);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("SrcMod")]
         public int SourceMode
         {
@@ -35,6 +47,10 @@ namespace Loopstation.Xml.Memory
             set => _sourceMode = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>142</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("Tgt")]
         public int Target
         {
@@ -42,6 +58,10 @@ namespace Loopstation.Xml.Memory
             set => _target = Range.Guard(value, max: 142);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>127</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("TgtMin")]
         public int TargetMin
         {
@@ -49,6 +69,10 @@ namespace Loopstation.Xml.Memory
             set => _targetMin = Range.Guard(value, max: 127);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>127</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("TgtMax")]
         public int TargetMax
         {
@@ -59,12 +83,12 @@ namespace Loopstation.Xml.Memory
         public XmlAssignSettings() : this(null) { }
         public XmlAssignSettings(XmlAssignSettings other)
         {
-            Switch = other?.Switch ?? 0;
-            Source = other?.Source ?? 0;
+            Switch     = other?.Switch     ?? 0;
+            Source     = other?.Source     ?? 0;
             SourceMode = other?.SourceMode ?? 0;
-            Target = other?.Target ?? 20;
-            TargetMin = other?.TargetMin ?? 0;
-            TargetMax = other?.TargetMax ?? 100;
+            Target     = other?.Target     ?? 20;
+            TargetMin  = other?.TargetMin  ?? 0;
+            TargetMax  = other?.TargetMax  ?? 100;
         }
 
         public XmlAssignSettings Clone() => new XmlAssignSettings(this);

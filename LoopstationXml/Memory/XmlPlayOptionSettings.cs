@@ -17,6 +17,10 @@ namespace Loopstation.Xml.Memory
         private int _fadeTime;
         private int _targetTrack;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("SinglePlyChg")]
         public int SinglePlayChange
         {
@@ -24,7 +28,10 @@ namespace Loopstation.Xml.Memory
             set => _singlePlayChange = Range.Guard(value, max: 1);
         }
 
-
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("LpQtz")]
         public int LoopQuantize
         {
@@ -32,6 +39,10 @@ namespace Loopstation.Xml.Memory
             set => _loopQuantize = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("LpMod")]
         public int LoopMode
         {
@@ -39,6 +50,10 @@ namespace Loopstation.Xml.Memory
             set => _loopMode = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1000</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("LpLen")]
         public int LoopLength
         {
@@ -46,6 +61,10 @@ namespace Loopstation.Xml.Memory
             set => _loopLength = Range.Guard(value, max: 1000);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>31</c>.
+        /// <para>Default value is <c>31</c>.</para>
+        /// </summary>
         [XmlElement("AllStrt")]
         public int AllStart
         {
@@ -53,6 +72,10 @@ namespace Loopstation.Xml.Memory
             set => _allStart = Range.Guard(value, max: 31);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>31</c>.
+        /// <para>Default value is <c>31</c>.</para>
+        /// </summary>
         [XmlElement("AllStp")]
         public int AllStop
         {
@@ -60,6 +83,10 @@ namespace Loopstation.Xml.Memory
             set => _allStop = Range.Guard(value, max: 31);
         }
 
+        /// <summary>
+        /// Integer from <c>1</c> to <c>64</c>.
+        /// <para>Default value is <c>2</c>.</para>
+        /// </summary>
         [XmlElement("FadeTim")]
         public int FadeTime
         {
@@ -67,6 +94,10 @@ namespace Loopstation.Xml.Memory
             set => _fadeTime = Range.Guard(value, min: 1, max: 64);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>4</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("TgtTr")]
         public int TargetTrack
         {
@@ -78,13 +109,13 @@ namespace Loopstation.Xml.Memory
         public XmlPlayOptionSettings(XmlPlayOptionSettings other)
         {
             SinglePlayChange = other?.SinglePlayChange ?? 0;
-            LoopQuantize = other?.LoopQuantize ?? 0;
-            LoopMode = other?.LoopMode ?? 0;
-            LoopLength = other?.LoopLength ?? 0;
-            AllStart = other?.AllStart ?? 31;
-            AllStop = other?.AllStop ?? 31;
-            FadeTime = other?.FadeTime ?? 2;
-            TargetTrack = other?.TargetTrack ?? 0;
+            LoopQuantize     = other?.LoopQuantize     ?? 0;
+            LoopMode         = other?.LoopMode         ?? 0;
+            LoopLength       = other?.LoopLength       ?? 0;
+            AllStart         = other?.AllStart         ?? 31;
+            AllStop          = other?.AllStop          ?? 31;
+            FadeTime         = other?.FadeTime         ?? 2;
+            TargetTrack      = other?.TargetTrack      ?? 0;
         }
 
         public XmlPlayOptionSettings Clone() => new XmlPlayOptionSettings(this);

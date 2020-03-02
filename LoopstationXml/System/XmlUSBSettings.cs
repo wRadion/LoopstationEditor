@@ -14,9 +14,9 @@ namespace Loopstation.Xml.System
         private int _outputLevel;
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("Mod")]
         public int Mode
         {
@@ -25,9 +25,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>2</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("AuRouting")]
         public int AudioRouting
         {
@@ -36,9 +36,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>100</c>.
-		/// <para>Default value is <c>50</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("InLvl")]
         public int InputLevel
         {
@@ -47,9 +47,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>100</c>.
-		/// <para>Default value is <c>50</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("OutLvl")]
         public int OutputLevel
         {

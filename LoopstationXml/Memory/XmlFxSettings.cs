@@ -96,6 +96,10 @@ namespace Loopstation.Xml.Memory
         private int _reverbLevel;
         private int _reverbDryLevel;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("FilTyp")]
         public int FilterType
         {
@@ -103,6 +107,10 @@ namespace Loopstation.Xml.Memory
             set => _filterType = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("FilRat")]
         public int FilterRate
         {
@@ -110,6 +118,10 @@ namespace Loopstation.Xml.Memory
             set => _filterRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>55</c>.</para>
+        /// </summary>
         [XmlElement("FilDep")]
         public int FilterDepth
         {
@@ -117,6 +129,10 @@ namespace Loopstation.Xml.Memory
             set => _filterDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("FilReso")]
         public int FilterResonance
         {
@@ -124,6 +140,10 @@ namespace Loopstation.Xml.Memory
             set => _filterResonance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("FilCut")]
         public int FilterCutoff
         {
@@ -131,6 +151,10 @@ namespace Loopstation.Xml.Memory
             set => _filterCutoff = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>115</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("FilStpRat")]
         public int FilterStepRate
         {
@@ -138,6 +162,10 @@ namespace Loopstation.Xml.Memory
             set => _filterStepRate = Range.Guard(value, max: 115);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>70</c>.</para>
+        /// </summary>
         [XmlElement("PhRat")]
         public int PhaserRate
         {
@@ -145,6 +173,10 @@ namespace Loopstation.Xml.Memory
             set => _phaserRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PhDep")]
         public int PhaserDepth
         {
@@ -152,6 +184,10 @@ namespace Loopstation.Xml.Memory
             set => _phaserDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("PhReso")]
         public int PhaserResonance
         {
@@ -159,6 +195,10 @@ namespace Loopstation.Xml.Memory
             set => _phaserResonance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>115</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("PhStpRat")]
         public int PhaserStepRate
         {
@@ -166,6 +206,10 @@ namespace Loopstation.Xml.Memory
             set => _phaserStepRate = Range.Guard(value, max: 115);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PhLvl")]
         public int PhaserLevel
         {
@@ -173,6 +217,10 @@ namespace Loopstation.Xml.Memory
             set => _phaserLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>25</c>.</para>
+        /// </summary>
         [XmlElement("FlRat")]
         public int FlangerRate
         {
@@ -180,6 +228,10 @@ namespace Loopstation.Xml.Memory
             set => _flangerRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("FlDep")]
         public int FlangerDepth
         {
@@ -187,6 +239,10 @@ namespace Loopstation.Xml.Memory
             set => _flangerDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>70</c>.</para>
+        /// </summary>
         [XmlElement("FlReso")]
         public int FlangerResonance
         {
@@ -194,6 +250,10 @@ namespace Loopstation.Xml.Memory
             set => _flangerResonance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>115</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("FlStpRat")]
         public int FlangerStepRate
         {
@@ -201,6 +261,10 @@ namespace Loopstation.Xml.Memory
             set => _flangerStepRate = Range.Guard(value, max: 115);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("FlLvl")]
         public int FlangerLevel
         {
@@ -208,6 +272,10 @@ namespace Loopstation.Xml.Memory
             set => _flangerLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("SynFreq")]
         public int SynthFrequency
         {
@@ -215,6 +283,10 @@ namespace Loopstation.Xml.Memory
             set => _synthFrequency = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("SynReso")]
         public int SynthResonance
         {
@@ -222,6 +294,10 @@ namespace Loopstation.Xml.Memory
             set => _synthResonance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("SynDecay")]
         public int SynthDecay
         {
@@ -229,6 +305,10 @@ namespace Loopstation.Xml.Memory
             set => _synthDecay = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>90</c>.</para>
+        /// </summary>
         [XmlElement("SynBal")]
         public int SynthBalance
         {
@@ -236,6 +316,10 @@ namespace Loopstation.Xml.Memory
             set => _synthBalance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>15</c>.
+        /// <para>Default value is <c>8</c>.</para>
+        /// </summary>
         [XmlElement("LoFiDep")]
         public int LoFiDepth
         {
@@ -243,6 +327,10 @@ namespace Loopstation.Xml.Memory
             set => _loFiDepth = Range.Guard(value, max: 15);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>31</c>.
+        /// <para>Default value is <c>15</c>.</para>
+        /// </summary>
         [XmlElement("LoFiSmpl")]
         public int LoFiSampleRate
         {
@@ -250,6 +338,10 @@ namespace Loopstation.Xml.Memory
             set => _loFiSampleRate = Range.Guard(value, max: 31);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("LoFiBal")]
         public int LoFiBalance
         {
@@ -257,6 +349,10 @@ namespace Loopstation.Xml.Memory
             set => _loFiBalance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("RmFreq")]
         public int RingModulatorFrequency
         {
@@ -264,6 +360,10 @@ namespace Loopstation.Xml.Memory
             set => _ringModulatorFrequency = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("RmBal")]
         public int RingModulatorBalance
         {
@@ -271,6 +371,10 @@ namespace Loopstation.Xml.Memory
             set => _ringModulatorBalance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("GToB")]
         public int GuitarToBassBalance
         {
@@ -278,6 +382,10 @@ namespace Loopstation.Xml.Memory
             set => _guitarToBassBalance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>40</c>.</para>
+        /// </summary>
         [XmlElement("SgSens")]
         public int SlowGearSensitivity
         {
@@ -285,6 +393,10 @@ namespace Loopstation.Xml.Memory
             set => _slowGearSensitivity = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("SgRisTim")]
         public int SlowGearRiseTime
         {
@@ -292,6 +404,10 @@ namespace Loopstation.Xml.Memory
             set => _slowGearRiseTime = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("SgLvl")]
         public int SlowGearLevel
         {
@@ -299,6 +415,10 @@ namespace Loopstation.Xml.Memory
             set => _slowGearLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>24</c>.
+        /// <para>Default value is <c>12</c>.</para>
+        /// </summary>
         [XmlElement("Trans")]
         public int Transpose
         {
@@ -306,6 +426,10 @@ namespace Loopstation.Xml.Memory
             set => _transpose = Range.Guard(value, max: 24);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>7</c>.
+        /// <para>Default value is <c>2</c>.</para>
+        /// </summary>
         [XmlElement("PbPit")]
         public int PitchBendOctave
         {
@@ -313,6 +437,10 @@ namespace Loopstation.Xml.Memory
             set => _pitchBendOctave = Range.Guard(value, max: 7);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("PbBnd")]
         public int PitchBendBend
         {
@@ -320,6 +448,10 @@ namespace Loopstation.Xml.Memory
             set => _pitchBendBend = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>11</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("RoboNote")]
         public int RobotNote
         {
@@ -327,6 +459,10 @@ namespace Loopstation.Xml.Memory
             set => _robotNote = Range.Guard(value, max: 11);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>20</c>.
+        /// <para>Default value is <c>10</c>.</para>
+        /// </summary>
         [XmlElement("RoboGen")]
         public int RobotGender
         {
@@ -334,6 +470,10 @@ namespace Loopstation.Xml.Memory
             set => _robotGender = Range.Guard(value, max: 20);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("DistDist")]
         public int VocalDistDistortion
         {
@@ -341,6 +481,10 @@ namespace Loopstation.Xml.Memory
             set => _vocalDistDistortion = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("DistTon")]
         public int VocalDistTone
         {
@@ -348,6 +492,10 @@ namespace Loopstation.Xml.Memory
             set => _vocalDistTone = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("DistLvl")]
         public int VocalDistLevel
         {
@@ -355,6 +503,10 @@ namespace Loopstation.Xml.Memory
             set => _vocalDistLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>4</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("VocoCar")]
         public int VocoderCarrier
         {
@@ -362,6 +514,10 @@ namespace Loopstation.Xml.Memory
             set => _vocoderCarrier = Range.Guard(value, max: 4);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("VocoSens")]
         public int VocoderModSens
         {
@@ -369,6 +525,10 @@ namespace Loopstation.Xml.Memory
             set => _vocoderModSens = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("VocoAtck")]
         public int VocoderAttack
         {
@@ -376,6 +536,10 @@ namespace Loopstation.Xml.Memory
             set => _vocoderAttack = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("VocoBal")]
         public int VocoderBalance
         {
@@ -383,6 +547,10 @@ namespace Loopstation.Xml.Memory
             set => _vocoderBalance = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>18</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("DynmTyp")]
         public int DynamicsType
         {
@@ -390,6 +558,10 @@ namespace Loopstation.Xml.Memory
             set => _dynamicsType = Range.Guard(value, max: 18);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("DynmDynm")]
         public int DynamicsDynamics
         {
@@ -397,6 +569,10 @@ namespace Loopstation.Xml.Memory
             set => _dynamicsDynamics = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("EqLo")]
         public int EqLow
         {
@@ -404,6 +580,10 @@ namespace Loopstation.Xml.Memory
             set => _eqLow = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("EqLoMd")]
         public int EqLowMid
         {
@@ -411,6 +591,10 @@ namespace Loopstation.Xml.Memory
             set => _eqLowMid = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("EqHiMd")]
         public int EqHighMid
         {
@@ -418,6 +602,10 @@ namespace Loopstation.Xml.Memory
             set => _eqHighMid = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("EqHi")]
         public int EqHigh
         {
@@ -425,6 +613,10 @@ namespace Loopstation.Xml.Memory
             set => _eqHigh = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>40</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("EqLvl")]
         public int EqLevel
         {
@@ -432,6 +624,10 @@ namespace Loopstation.Xml.Memory
             set => _eqLevel = Range.Guard(value, max: 40);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("IsoBnd")]
         public int IsolatorBand
         {
@@ -439,6 +635,10 @@ namespace Loopstation.Xml.Memory
             set => _isolatorBand = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>103</c>.</para>
+        /// </summary>
         [XmlElement("IsoRat")]
         public int IsolatorRate
         {
@@ -446,6 +646,10 @@ namespace Loopstation.Xml.Memory
             set => _isolatorRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("IsoDep")]
         public int IsolatorDepth
         {
@@ -453,6 +657,10 @@ namespace Loopstation.Xml.Memory
             set => _isolatorDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>115</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("IsoStpRat")]
         public int IsolatorStepRate
         {
@@ -460,6 +668,10 @@ namespace Loopstation.Xml.Memory
             set => _isolatorStepRate = Range.Guard(value, max: 115);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("IsoLvl")]
         public int IsolatorLevel
         {
@@ -467,6 +679,10 @@ namespace Loopstation.Xml.Memory
             set => _isolatorLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("OctMod")]
         public int OctaveMod
         {
@@ -474,6 +690,10 @@ namespace Loopstation.Xml.Memory
             set => _octaveMod = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("OctLvl")]
         public int OctaveLevel
         {
@@ -481,6 +701,10 @@ namespace Loopstation.Xml.Memory
             set => _octaveLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("PanTyp")]
         public int PanType
         {
@@ -488,6 +712,10 @@ namespace Loopstation.Xml.Memory
             set => _panType = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PanRat")]
         public int PanRate
         {
@@ -495,6 +723,10 @@ namespace Loopstation.Xml.Memory
             set => _panRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PanDep")]
         public int PanDepth
         {
@@ -502,6 +734,10 @@ namespace Loopstation.Xml.Memory
             set => _panDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>115</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("PanStpRat")]
         public int PanStepRate
         {
@@ -509,6 +745,10 @@ namespace Loopstation.Xml.Memory
             set => _panStepRate = Range.Guard(value, max: 115);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PanPos")]
         public int PanPosition
         {
@@ -516,6 +756,10 @@ namespace Loopstation.Xml.Memory
             set => _panPosition = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>85</c>.</para>
+        /// </summary>
         [XmlElement("TrRat")]
         public int TremoloRate
         {
@@ -523,6 +767,10 @@ namespace Loopstation.Xml.Memory
             set => _tremoloRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("TrDep")]
         public int TremoloDepth
         {
@@ -530,6 +778,10 @@ namespace Loopstation.Xml.Memory
             set => _tremoloDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("TrLvl")]
         public int TremoloLevel
         {
@@ -537,6 +789,10 @@ namespace Loopstation.Xml.Memory
             set => _tremoloLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>19</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("SlPat")]
         public int SlicerPattern
         {
@@ -544,6 +800,7 @@ namespace Loopstation.Xml.Memory
             set => _slicerPattern = Range.Guard(value, max: 19);
         }
 
+        // 110 114
         [XmlElement("SlRat")]
         public int SlicerRate
         {
@@ -551,6 +808,10 @@ namespace Loopstation.Xml.Memory
             set => _slicerRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("SlDep")]
         public int SlicerDepth
         {
@@ -558,6 +819,10 @@ namespace Loopstation.Xml.Memory
             set => _slicerDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1011</c>.
+        /// <para>Default value is <c>200</c>.</para>
+        /// </summary>
         [XmlElement("DlyTim")]
         public int DelayTime
         {
@@ -565,6 +830,10 @@ namespace Loopstation.Xml.Memory
             set => _delayTime = Range.Guard(value, max: 1011);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("DlyFb")]
         public int DelayFeedback
         {
@@ -572,6 +841,10 @@ namespace Loopstation.Xml.Memory
             set => _delayFeedback = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("DlyLvl")]
         public int DelayLevel
         {
@@ -579,6 +852,10 @@ namespace Loopstation.Xml.Memory
             set => _delayLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1011</c>.
+        /// <para>Default value is <c>200</c>.</para>
+        /// </summary>
         [XmlElement("PanDlyTim")]
         public int PanningDelayTime
         {
@@ -586,6 +863,10 @@ namespace Loopstation.Xml.Memory
             set => _panningDelayTime = Range.Guard(value, max: 1011);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("PanDlyFb")]
         public int PanningDelayFeedback
         {
@@ -593,6 +874,10 @@ namespace Loopstation.Xml.Memory
             set => _panningDelayFeedback = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("PanDlyLvl")]
         public int PanningDelayLevel
         {
@@ -600,6 +885,10 @@ namespace Loopstation.Xml.Memory
             set => _panningDelayLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("EchRat")]
         public int TapeEchoRate
         {
@@ -607,6 +896,10 @@ namespace Loopstation.Xml.Memory
             set => _tapeEchoRate = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("EchInt")]
         public int TapeEchoIntensity
         {
@@ -614,6 +907,10 @@ namespace Loopstation.Xml.Memory
             set => _tapeEchoIntensity = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("EchLvl")]
         public int TapeEchoLevel
         {
@@ -621,6 +918,10 @@ namespace Loopstation.Xml.Memory
             set => _tapeEchoLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("GraTim")]
         public int GranularDelayTime
         {
@@ -628,6 +929,10 @@ namespace Loopstation.Xml.Memory
             set => _granularDelayTime = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>70</c>.</para>
+        /// </summary>
         [XmlElement("GraFb")]
         public int GranularDelayFeedback
         {
@@ -635,6 +940,10 @@ namespace Loopstation.Xml.Memory
             set => _granularDelayFeedback = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("GraLvl")]
         public int GranularDelayLevel
         {
@@ -642,6 +951,10 @@ namespace Loopstation.Xml.Memory
             set => _granularDelayLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1011</c>.
+        /// <para>Default value is <c>1008</c>.</para>
+        /// </summary>
         [XmlElement("RllTim")]
         public int RollTime
         {
@@ -649,6 +962,10 @@ namespace Loopstation.Xml.Memory
             set => _rollTime = Range.Guard(value, max: 1011);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>4</c>.
+        /// <para>Default value is <c>2</c>.</para>
+        /// </summary>
         [XmlElement("RllMod")]
         public int RollMode
         {
@@ -656,6 +973,10 @@ namespace Loopstation.Xml.Memory
             set => _rollMode = Range.Guard(value, max: 4);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>20</c>.</para>
+        /// </summary>
         [XmlElement("RllFb")]
         public int RollFeedback
         {
@@ -663,6 +984,10 @@ namespace Loopstation.Xml.Memory
             set => _rollFeedback = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("RllLvl")]
         public int RollLevel
         {
@@ -670,6 +995,10 @@ namespace Loopstation.Xml.Memory
             set => _rollLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>114</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("ChoRat")]
         public int ChorusRate
         {
@@ -677,6 +1006,10 @@ namespace Loopstation.Xml.Memory
             set => _chorusRate = Range.Guard(value, max: 114);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("ChoDep")]
         public int ChorusDepth
         {
@@ -684,6 +1017,10 @@ namespace Loopstation.Xml.Memory
             set => _chorusDepth = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("ChoLvl")]
         public int ChorusLevel
         {
@@ -691,6 +1028,10 @@ namespace Loopstation.Xml.Memory
             set => _chorusLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>1</c> to <c>100</c>.
+        /// <para>Default value is <c>27</c>.</para>
+        /// </summary>
         [XmlElement("RevTim")]
         public int ReverbTime
         {
@@ -698,6 +1039,10 @@ namespace Loopstation.Xml.Memory
             set => _reverbTime = Range.Guard(value, min: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("RevLvl")]
         public int ReverbLevel
         {
@@ -705,6 +1050,10 @@ namespace Loopstation.Xml.Memory
             set => _reverbLevel = Range.Guard(value);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>100</c>.</para>
+        /// </summary>
         [XmlElement("RevDLvl")]
         public int ReverbDryLevel
         {
@@ -715,94 +1064,94 @@ namespace Loopstation.Xml.Memory
         public XmlFxSettings() : this(null) { }
         public XmlFxSettings(XmlFxSettings other)
         {
-            FilterType = other?.FilterType ?? 0;
-            FilterRate = other?.FilterRate ?? 50;
-            FilterDepth = other?.FilterDepth ?? 55;
-            FilterResonance = other?.FilterResonance ?? 50;
-            FilterCutoff = other?.FilterCutoff ?? 50;
-            FilterStepRate = other?.FilterStepRate ?? 0;
-            PhaserRate = other?.PhaserRate ?? 70;
-            PhaserDepth = other?.PhaserDepth ?? 50;
-            PhaserResonance = other?.PhaserResonance ?? 0;
-            PhaserStepRate = other?.PhaserStepRate ?? 0;
-            PhaserLevel = other?.PhaserLevel ?? 50;
-            FlangerRate = other?.FlangerRate ?? 25;
-            FlangerDepth = other?.FlangerDepth ?? 50;
-            FlangerResonance = other?.FlangerResonance ?? 70;
-            FlangerStepRate = other?.FlangerStepRate ?? 0;
-            FlangerLevel = other?.FlangerLevel ?? 50;
-            SynthFrequency = other?.SynthFrequency ?? 50;
-            SynthResonance = other?.SynthResonance ?? 50;
-            SynthDecay = other?.SynthDecay ?? 50;
-            SynthBalance = other?.SynthBalance ?? 90;
-            LoFiDepth = other?.LoFiDepth ?? 8;
-            LoFiSampleRate = other?.LoFiSampleRate ?? 15;
-            LoFiBalance = other?.LoFiBalance ?? 50;
+            FilterType             = other?.FilterType             ?? 0;
+            FilterRate             = other?.FilterRate             ?? 50;
+            FilterDepth            = other?.FilterDepth            ?? 55;
+            FilterResonance        = other?.FilterResonance        ?? 50;
+            FilterCutoff           = other?.FilterCutoff           ?? 50;
+            FilterStepRate         = other?.FilterStepRate         ?? 0;
+            PhaserRate             = other?.PhaserRate             ?? 70;
+            PhaserDepth            = other?.PhaserDepth            ?? 50;
+            PhaserResonance        = other?.PhaserResonance        ?? 0;
+            PhaserStepRate         = other?.PhaserStepRate         ?? 0;
+            PhaserLevel            = other?.PhaserLevel            ?? 50;
+            FlangerRate            = other?.FlangerRate            ?? 25;
+            FlangerDepth           = other?.FlangerDepth           ?? 50;
+            FlangerResonance       = other?.FlangerResonance       ?? 70;
+            FlangerStepRate        = other?.FlangerStepRate        ?? 0;
+            FlangerLevel           = other?.FlangerLevel           ?? 50;
+            SynthFrequency         = other?.SynthFrequency         ?? 50;
+            SynthResonance         = other?.SynthResonance         ?? 50;
+            SynthDecay             = other?.SynthDecay             ?? 50;
+            SynthBalance           = other?.SynthBalance           ?? 90;
+            LoFiDepth              = other?.LoFiDepth              ?? 8;
+            LoFiSampleRate         = other?.LoFiSampleRate         ?? 15;
+            LoFiBalance            = other?.LoFiBalance            ?? 50;
             RingModulatorFrequency = other?.RingModulatorFrequency ?? 50;
-            RingModulatorBalance = other?.RingModulatorBalance ?? 100;
-            GuitarToBassBalance = other?.GuitarToBassBalance ?? 50;
-            SlowGearSensitivity = other?.SlowGearSensitivity ?? 40;
-            SlowGearRiseTime = other?.SlowGearRiseTime ?? 50;
-            SlowGearLevel = other?.SlowGearLevel ?? 50;
-            Transpose = other?.Transpose ?? 12;
-            PitchBendOctave = other?.PitchBendOctave ?? 2;
-            PitchBendBend = other?.PitchBendBend ?? 100;
-            RobotNote = other?.RobotNote ?? 0;
-            RobotGender = other?.RobotGender ?? 10;
-            VocalDistDistortion = other?.VocalDistDistortion ?? 50;
-            VocalDistTone = other?.VocalDistTone ?? 50;
-            VocalDistLevel = other?.VocalDistLevel ?? 50;
-            VocoderCarrier = other?.VocoderCarrier ?? 0;
-            VocoderModSens = other?.VocoderModSens ?? 50;
-            VocoderAttack = other?.VocoderAttack ?? 50;
-            VocoderBalance = other?.VocoderBalance ?? 50;
-            DynamicsType = other?.DynamicsType ?? 0;
-            DynamicsDynamics = other?.DynamicsDynamics ?? 20;
-            EqLow = other?.EqLow ?? 20;
-            EqLowMid = other?.EqLowMid ?? 20;
-            EqHighMid = other?.EqHighMid ?? 20;
-            EqHigh = other?.EqHigh ?? 20;
-            EqLevel = other?.EqLevel ?? 20;
-            IsolatorBand = other?.IsolatorBand ?? 0;
-            IsolatorRate = other?.IsolatorRate ?? 103;
-            IsolatorDepth = other?.IsolatorDepth ?? 100;
-            IsolatorStepRate = other?.IsolatorStepRate ?? 0;
-            IsolatorLevel = other?.IsolatorLevel ?? 100;
-            OctaveMod = other?.OctaveMod ?? 0;
-            OctaveLevel = other?.OctaveLevel ?? 50;
-            PanType = other?.PanType ?? 0;
-            PanRate = other?.PanRate ?? 50;
-            PanDepth = other?.PanDepth ?? 50;
-            PanStepRate = other?.PanStepRate ?? 0;
-            PanPosition = other?.PanPosition ?? 50;
-            TremoloRate = other?.TremoloRate ?? 85;
-            TremoloDepth = other?.TremoloDepth ?? 50;
-            TremoloLevel = other?.TremoloLevel ?? 50;
-            SlicerPattern = other?.SlicerPattern ?? 0;
-            SlicerRate = other?.SlicerRate ?? 110;
-            SlicerDepth = other?.SlicerDepth ?? 100;
-            DelayTime = other?.DelayTime ?? 200;
-            DelayFeedback = other?.DelayFeedback ?? 20;
-            DelayLevel = other?.DelayLevel ?? 50;
-            PanningDelayTime = other?.PanningDelayTime ?? 200;
-            PanningDelayFeedback = other?.PanningDelayFeedback ?? 20;
-            PanningDelayLevel = other?.PanningDelayLevel ?? 50;
-            TapeEchoRate = other?.TapeEchoRate ?? 50;
-            TapeEchoIntensity = other?.TapeEchoIntensity ?? 50;
-            TapeEchoLevel = other?.TapeEchoLevel ?? 50;
-            GranularDelayTime = other?.GranularDelayTime ?? 50;
-            GranularDelayFeedback = other?.GranularDelayFeedback ?? 70;
-            GranularDelayLevel = other?.GranularDelayLevel ?? 50;
-            RollTime = other?.RollTime ?? 1008;
-            RollMode = other?.RollMode ?? 2;
-            RollFeedback = other?.RollFeedback ?? 20;
-            RollLevel = other?.RollLevel ?? 50;
-            ChorusRate = other?.ChorusRate ?? 50;
-            ChorusDepth = other?.ChorusDepth ?? 50;
-            ChorusLevel = other?.ChorusLevel ?? 50;
-            ReverbTime = other?.ReverbTime ?? 27;
-            ReverbLevel = other?.ReverbLevel ?? 50;
-            ReverbDryLevel = other?.ReverbDryLevel ?? 100;
+            RingModulatorBalance   = other?.RingModulatorBalance   ?? 100;
+            GuitarToBassBalance    = other?.GuitarToBassBalance    ?? 50;
+            SlowGearSensitivity    = other?.SlowGearSensitivity    ?? 40;
+            SlowGearRiseTime       = other?.SlowGearRiseTime       ?? 50;
+            SlowGearLevel          = other?.SlowGearLevel          ?? 50;
+            Transpose              = other?.Transpose              ?? 12;
+            PitchBendOctave        = other?.PitchBendOctave        ?? 2;
+            PitchBendBend          = other?.PitchBendBend          ?? 100;
+            RobotNote              = other?.RobotNote              ?? 0;
+            RobotGender            = other?.RobotGender            ?? 10;
+            VocalDistDistortion    = other?.VocalDistDistortion    ?? 50;
+            VocalDistTone          = other?.VocalDistTone          ?? 50;
+            VocalDistLevel         = other?.VocalDistLevel         ?? 50;
+            VocoderCarrier         = other?.VocoderCarrier         ?? 0;
+            VocoderModSens         = other?.VocoderModSens         ?? 50;
+            VocoderAttack          = other?.VocoderAttack          ?? 50;
+            VocoderBalance         = other?.VocoderBalance         ?? 50;
+            DynamicsType           = other?.DynamicsType           ?? 0;
+            DynamicsDynamics       = other?.DynamicsDynamics       ?? 20;
+            EqLow                  = other?.EqLow                  ?? 20;
+            EqLowMid               = other?.EqLowMid               ?? 20;
+            EqHighMid              = other?.EqHighMid              ?? 20;
+            EqHigh                 = other?.EqHigh                 ?? 20;
+            EqLevel                = other?.EqLevel                ?? 20;
+            IsolatorBand           = other?.IsolatorBand           ?? 0;
+            IsolatorRate           = other?.IsolatorRate           ?? 103;
+            IsolatorDepth          = other?.IsolatorDepth          ?? 100;
+            IsolatorStepRate       = other?.IsolatorStepRate       ?? 0;
+            IsolatorLevel          = other?.IsolatorLevel          ?? 100;
+            OctaveMod              = other?.OctaveMod              ?? 0;
+            OctaveLevel            = other?.OctaveLevel            ?? 50;
+            PanType                = other?.PanType                ?? 0;
+            PanRate                = other?.PanRate                ?? 50;
+            PanDepth               = other?.PanDepth               ?? 50;
+            PanStepRate            = other?.PanStepRate            ?? 0;
+            PanPosition            = other?.PanPosition            ?? 50;
+            TremoloRate            = other?.TremoloRate            ?? 85;
+            TremoloDepth           = other?.TremoloDepth           ?? 50;
+            TremoloLevel           = other?.TremoloLevel           ?? 50;
+            SlicerPattern          = other?.SlicerPattern          ?? 0;
+            SlicerRate             = other?.SlicerRate             ?? 110;
+            SlicerDepth            = other?.SlicerDepth            ?? 100;
+            DelayTime              = other?.DelayTime              ?? 200;
+            DelayFeedback          = other?.DelayFeedback          ?? 20;
+            DelayLevel             = other?.DelayLevel             ?? 50;
+            PanningDelayTime       = other?.PanningDelayTime       ?? 200;
+            PanningDelayFeedback   = other?.PanningDelayFeedback   ?? 20;
+            PanningDelayLevel      = other?.PanningDelayLevel      ?? 50;
+            TapeEchoRate           = other?.TapeEchoRate           ?? 50;
+            TapeEchoIntensity      = other?.TapeEchoIntensity      ?? 50;
+            TapeEchoLevel          = other?.TapeEchoLevel          ?? 50;
+            GranularDelayTime      = other?.GranularDelayTime      ?? 50;
+            GranularDelayFeedback  = other?.GranularDelayFeedback  ?? 70;
+            GranularDelayLevel     = other?.GranularDelayLevel     ?? 50;
+            RollTime               = other?.RollTime               ?? 1008;
+            RollMode               = other?.RollMode               ?? 2;
+            RollFeedback           = other?.RollFeedback           ?? 20;
+            RollLevel              = other?.RollLevel              ?? 50;
+            ChorusRate             = other?.ChorusRate             ?? 50;
+            ChorusDepth            = other?.ChorusDepth            ?? 50;
+            ChorusLevel            = other?.ChorusLevel            ?? 50;
+            ReverbTime             = other?.ReverbTime             ?? 27;
+            ReverbLevel            = other?.ReverbLevel            ?? 50;
+            ReverbDryLevel         = other?.ReverbDryLevel         ?? 100;
         }
 
         public XmlFxSettings Clone() => new XmlFxSettings(this);

@@ -15,9 +15,9 @@ namespace Loopstation.Xml.System
         private int _outputLevelSelection;
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>100</c>.
-		/// <para>Default value is <c>40</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>40</c>.</para>
+        /// </summary>
         [XmlElement("InNsThrs")]
         public int InputNSThreshold
         {
@@ -26,9 +26,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>100</c>.
-		/// <para>Default value is <c>50</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("LineOutLvl")]
         public int LineOutLevel
         {
@@ -37,9 +37,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>1</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("InSrc")]
         public int InputSource
         {
@@ -48,9 +48,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>1</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("InLineOut")]
         public int InputLineOut
         {
@@ -59,9 +59,9 @@ namespace Loopstation.Xml.System
         }
 
         /// <summary>
-		/// Integer from <c>0</c> to <c>1</c>.
-		/// <para>Default value is <c>0</c>.</para>
-		/// </summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("OutLvlSel")]
         public int OutputLevelSelection
         {

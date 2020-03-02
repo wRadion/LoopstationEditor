@@ -12,6 +12,10 @@ namespace Loopstation.Xml.Memory
         private int _recordAction;
         private int _recordQuantize;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("DubMod")]
         public int OverdubMode
         {
@@ -19,6 +23,10 @@ namespace Loopstation.Xml.Memory
             set => _overdubMode = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("RecAct")]
         public int RecordAction
         {
@@ -27,6 +35,10 @@ namespace Loopstation.Xml.Memory
         }
 
         // TODO: RecOption>RecordQuantize ???
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>1</c>.</para>
+        /// </summary>
         [XmlElement("RecQtz")]
         public int RecordQuantize
         {
@@ -37,8 +49,8 @@ namespace Loopstation.Xml.Memory
         public XmlRecOptionSettings() : this(null) { }
         public XmlRecOptionSettings(XmlRecOptionSettings other)
         {
-            OverdubMode = other?.OverdubMode ?? 0;
-            RecordAction = other?.RecordAction ?? 0;
+            OverdubMode    = other?.OverdubMode    ?? 0;
+            RecordAction   = other?.RecordAction   ?? 0;
             RecordQuantize = other?.RecordQuantize ?? 1;
         }
 

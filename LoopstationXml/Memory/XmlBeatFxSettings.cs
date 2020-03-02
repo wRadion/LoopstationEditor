@@ -15,6 +15,10 @@ namespace Loopstation.Xml.Memory
         private int _beatScatterLength;
         private int _vinylFlick;
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>2</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("RepTyp")]
         public int BeatRepeatType
         {
@@ -22,6 +26,10 @@ namespace Loopstation.Xml.Memory
             set => _beatRepeatType = Range.Guard(value, max: 2);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>6</c>.
+        /// <para>Default value is <c>5</c>.</para>
+        /// </summary>
         [XmlElement("RepLen")]
         public int BeatRepeatLength
         {
@@ -29,6 +37,10 @@ namespace Loopstation.Xml.Memory
             set => _beatRepeatLength = Range.Guard(value, max: 6);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>1</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("ShftTyp")]
         public int BeatShiftType
         {
@@ -36,6 +48,10 @@ namespace Loopstation.Xml.Memory
             set => _beatShiftType = Range.Guard(value, max: 1);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>5</c>.
+        /// <para>Default value is <c>3</c>.</para>
+        /// </summary>
         [XmlElement("ShftShft")]
         public int BeatShiftShift
         {
@@ -43,6 +59,10 @@ namespace Loopstation.Xml.Memory
             set => _beatShiftShift = Range.Guard(value, max: 5);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>3</c>.
+        /// <para>Default value is <c>0</c>.</para>
+        /// </summary>
         [XmlElement("ScatTyp")]
         public int BeatScatterType
         {
@@ -50,6 +70,10 @@ namespace Loopstation.Xml.Memory
             set => _beatScatterType = Range.Guard(value, max: 3);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>4</c>.
+        /// <para>Default value is <c>3</c>.</para>
+        /// </summary>
         [XmlElement("ScatLen")]
         public int BeatScatterLength
         {
@@ -57,6 +81,10 @@ namespace Loopstation.Xml.Memory
             set => _beatScatterLength = Range.Guard(value, max: 4);
         }
 
+        /// <summary>
+        /// Integer from <c>0</c> to <c>100</c>.
+        /// <para>Default value is <c>50</c>.</para>
+        /// </summary>
         [XmlElement("Flick")]
         public int VinylFlick
         {
@@ -67,13 +95,13 @@ namespace Loopstation.Xml.Memory
         public XmlBeatFxSettings() : this(null) { }
         public XmlBeatFxSettings(XmlBeatFxSettings other)
         {
-            BeatRepeatType = other?.BeatRepeatType ?? 0;
-            BeatRepeatLength = other?.BeatRepeatLength ?? 5;
-            BeatShiftType = other?.BeatShiftType ?? 0;
-            BeatShiftShift = other?.BeatShiftShift ?? 3;
-            BeatScatterType = other?.BeatScatterType ?? 0;
+            BeatRepeatType    = other?.BeatRepeatType    ?? 0;
+            BeatRepeatLength  = other?.BeatRepeatLength  ?? 5;
+            BeatShiftType     = other?.BeatShiftType     ?? 0;
+            BeatShiftShift    = other?.BeatShiftShift    ?? 3;
+            BeatScatterType   = other?.BeatScatterType   ?? 0;
             BeatScatterLength = other?.BeatScatterLength ?? 3;
-            VinylFlick = other?.VinylFlick ?? 50;
+            VinylFlick        = other?.VinylFlick        ?? 50;
         }
 
         public XmlBeatFxSettings Clone() => new XmlBeatFxSettings(this);

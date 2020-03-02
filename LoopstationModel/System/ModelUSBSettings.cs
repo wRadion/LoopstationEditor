@@ -1,32 +1,59 @@
 ﻿using Loopstation.Xml.System;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.System
 {
-    public enum USBMode { STORAGE, AUDIO_MIDI }
+    public enum USBMode         { STORAGE, AUDIO_MIDI }
     public enum USBAudioRouting { LOOP_IN, SUBMIX, LINEOUT }
 
     public class ModelUSBSettings
     {
-        public USBMode Mode { get; set; } = USBMode.STORAGE;
-        public USBAudioRouting AudioRouting { get; set; } = USBAudioRouting.LOOP_IN;
+        public USBMode Mode
+        {
+            get => _modeProperty.Value;
+            set => _modeProperty.Value = value;
+        }
+        public USBAudioRouting AudioRouting
+        {
+            get => _audioRoutingProperty.Value;
+            set => _audioRoutingProperty.Value = value;
+        }
+        public int InputLevel // TODO Level (0...100) *2
+        {
+            get => _inputLevelProperty.Value;
+            set => _inputLevelProperty.Value = value;
+        }
+        public int OutputLevel // TODO Level (0...100) *2
+        {
+            get => _outputLevelProperty.Value;
+            set => _outputLevelProperty.Value = value;
+        }
 
-        // TODO Level (0...100) *2
-        private int _inLvl;
-        public int InputLevel { get; set; } = 50;
+        #region private Fields
+        private EnumProperty<USBMode> _modeProperty;
+        private EnumProperty<USBAudioRouting> _audioRoutingProperty;
+        private IntProperty _inputLevelProperty;
+        private IntProperty _outputLevelProperty;
 
-        // TODO Level (0...100) *2
-        private int _outLvl;
-        public int OutputLevel { get; set; } = 50;
+        private XmlUSBSettings _xml;
+        #endregion private Fields
 
-        public ModelUSBSettings() : this(null) { }
+        public ModelUSBSettings() : this(new XmlUSBSettings()) { }
         public ModelUSBSettings(XmlUSBSettings xmlUSB)
         {
-            if (xmlUSB == null) return;
+            #region private Fields initialization
+            _xml = xmlUSB;
 
-            Mode = (USBMode)xmlUSB.Mode;
-            AudioRouting = (USBAudioRouting)xmlUSB.AudioRouting;
-            InputLevel = xmlUSB.InputLevel;
-            OutputLevel = xmlUSB.OutputLevel;
+            _modeProperty         = _xml.Mode;
+            _audioRoutingProperty = _xml.AudioRouting;
+            _inputLevelProperty   = _xml.InputLevel;
+            _outputLevelProperty  = _xml.OutputLevel;
+
+            _modeProperty.PropertyChanged         += (_, e) => _xml.Mode = e.Value;
+            _audioRoutingProperty.PropertyChanged += (_, e) => _xml.AudioRouting = e.Value;
+            _inputLevelProperty.PropertyChanged   += (_, e) => _xml.InputLevel = e.Value;
+            _outputLevelProperty.PropertyChanged  += (_, e) => _xml.OutputLevel = e.Value;
+            #endregion private Fields initialization
         }
     }
 }

@@ -7,9 +7,10 @@ namespace Loopstation.Model
         public ModelSystemSettings System;
         public ModelMemorySettings DefaultMemory;
 
+        public ModelSystemFile() : this(new XmlSystemFile()) { }
         public ModelSystemFile(XmlSystemFile xmlSystem)
         {
-            System = new ModelSystemSettings(xmlSystem.System);
+            System        = new ModelSystemSettings(xmlSystem.System);
             DefaultMemory = new ModelMemorySettings(xmlSystem.System);
         }
     }

@@ -11,41 +11,27 @@ namespace Loopstation.Model.Memory
         public BeatScatterFx BeatScatter { get; }
         public VinylFlickFx VinylFlick { get; }
 
-        public ModelTrackFx(FxSlot slot) : this(slot, null, null) { }
+        public ModelTrackFx(FxSlot slot) : this(slot, new XmlFxSettings(), new XmlBeatFxSettings()) { }
         public ModelTrackFx(FxSlot slot, XmlFxSettings xmlFx, XmlBeatFxSettings xmlBeatFx) : base(FxType.TRACK, slot, xmlFx)
         {
-            if (xmlBeatFx != null)
+            BeatRepeat = new BeatRepeatFx(xmlBeatFx);
+
+            BeatShift = new BeatShiftFx()
             {
-                BeatRepeat = new BeatRepeatFx()
-                {
-                    Type = (BeatRepeatType)xmlBeatFx.BeatRepeatType,
-                    Length = (BeatRepeatLength)xmlBeatFx.BeatRepeatLength
-                };
+                Type = (BeatShiftType)xmlBeatFx.BeatShiftType,
+                Shift = (BeatShiftShift)xmlBeatFx.BeatShiftShift
+            };
 
-                BeatShift = new BeatShiftFx()
-                {
-                    Type = (BeatShiftType)xmlBeatFx.BeatShiftType,
-                    Shift = (BeatShiftShift)xmlBeatFx.BeatShiftShift
-                };
-
-                BeatScatter = new BeatScatterFx()
-                {
-                    Type = (BeatScatterType)xmlBeatFx.BeatScatterType,
-                    Length = (BeatScatterLength)xmlBeatFx.BeatScatterLength
-                };
-
-                VinylFlick = new VinylFlickFx()
-                {
-                    Flick = xmlBeatFx.VinylFlick
-                };
-            }
-            else
+            BeatScatter = new BeatScatterFx()
             {
-                BeatRepeat = new BeatRepeatFx();
-                BeatShift = new BeatShiftFx();
-                BeatScatter = new BeatScatterFx();
-                VinylFlick = new VinylFlickFx();
-            }
+                Type = (BeatScatterType)xmlBeatFx.BeatScatterType,
+                Length = (BeatScatterLength)xmlBeatFx.BeatScatterLength
+            };
+
+            VinylFlick = new VinylFlickFx()
+            {
+                Flick = xmlBeatFx.VinylFlick
+            };
         }
     }
 }

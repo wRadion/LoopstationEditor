@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{1B1DDC50-9985-4A3C-A59E-21BFFA6C2398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopstationModel", "LoopstationModel\LoopstationModel.csproj", "{77AF8EDA-8EFC-4531-BE3A-FB5F7309DBDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoopstationModel", "LoopstationModel\LoopstationModel.csproj", "{77AF8EDA-8EFC-4531-BE3A-FB5F7309DBDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopstationCommon", "LoopstationCommon\LoopstationCommon.csproj", "{08DBC420-7911-4A82-9BCE-AD25312EE1D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{77AF8EDA-8EFC-4531-BE3A-FB5F7309DBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77AF8EDA-8EFC-4531-BE3A-FB5F7309DBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77AF8EDA-8EFC-4531-BE3A-FB5F7309DBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DBC420-7911-4A82-9BCE-AD25312EE1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DBC420-7911-4A82-9BCE-AD25312EE1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DBC420-7911-4A82-9BCE-AD25312EE1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DBC420-7911-4A82-9BCE-AD25312EE1D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,17 +10,10 @@ namespace Loopstation.Model.Memory
         public string Name
         {
             get => _name;
-            set
-            {
-                if (value.Length < 12)
-                    value += "            ";
-                if (value.Length > 12)
-                    value = value.Substring(0, 12);
-                _name = value;
-            }
+            set => _name = new StringBuilder(value).Append(' ', value.Length < 12 ? 12 - value.Length : 0).ToString().Substring(0, 12);
         }
 
-        public ModelNameSettings() : this(null) { }
+        public ModelNameSettings() : this(new XmlNameSettings()) { }
         public ModelNameSettings(XmlNameSettings xmlName)
         {
             if (xmlName == null) return;

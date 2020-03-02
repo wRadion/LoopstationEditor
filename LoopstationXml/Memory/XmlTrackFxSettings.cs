@@ -1,61 +1,116 @@
 ﻿using System.Xml.Serialization;
 
 using Loopstation.Xml.Interfaces;
+using Loopstation.Xml.Utils;
 
 namespace Loopstation.Xml.Memory
 {
     [XmlRoot("TRACK_FX")]
     public class XmlTrackFxSettings : ICloneable<XmlTrackFxSettings>
     {
+        private int _mode;
+        private int _multiMode;
+        private int _switch;
+        private int _selected;
+        private int _selectedSingleFxA;
+        private int _selectedSingleFxB;
+        private int _selectedSingleFxC;
+        private int _multiSwitch;
+        private int _selectedMultiFxA;
+        private int _selectedMultiFxB;
+        private int _selectedMultiFxC;
+
         [XmlElement("Mod")]
-        public int Mode { get; set; } = 1;
+        public int Mode
+        {
+            get => _mode;
+            set => _mode = Range.Guard(value, max: 1);
+        }
 
         [XmlElement("MltMod")]
-        public int MultiMode { get; set; } = 0;
+        public int MultiMode
+        {
+            get => _multiMode;
+            set => _multiMode = Range.Guard(value, max: 1);
+        }
 
         [XmlElement("Sw")]
-        public int Switch { get; set; } = 0;
+        public int Switch
+        {
+            get => _switch;
+            set => _switch = Range.Guard(value, max: 3);
+        }
 
         [XmlElement("Sel")]
-        public int Selected { get; set; } = 0;
+        public int Selected
+        {
+            get => _selected;
+            set => _selected = Range.Guard(value, max: 2);
+        }
 
         [XmlElement("Typ1")]
-        public int SelectedSingleFxA { get; set; } = 2;
+        public int SelectedSingleFxA
+        {
+            get => _selectedSingleFxA;
+            set => _selectedSingleFxA = Range.Guard(value, max: 30);
+        }
 
         [XmlElement("Typ2")]
-        public int SelectedSingleFxB { get; set; } = 20;
+        public int SelectedSingleFxB
+        {
+            get => _selectedSingleFxB;
+            set => _selectedSingleFxB = Range.Guard(value, max: 30);
+        }
 
         [XmlElement("Typ3")]
-        public int SelectedSingleFxC { get; set; } = 27;
+        public int SelectedSingleFxC
+        {
+            get => _selectedSingleFxC;
+            set => _selectedSingleFxC = Range.Guard(value, max: 30);
+        }
 
         [XmlElement("MltSw")]
-        public int MultiSwitch { get; set; } = 0;
+        public int MultiSwitch
+        {
+            get => _multiSwitch;
+            set => _multiSwitch = Range.Guard(value, max: 7);
+        }
 
         [XmlElement("MltTyp1")]
-        public int SelectedMultiFxA { get; set; } = 19;
+        public int SelectedMultiFxA
+        {
+            get => _selectedMultiFxA;
+            set => _selectedMultiFxA = Range.Guard(value, max: 22);
+        }
 
         [XmlElement("MltTyp2")]
-        public int SelectedMultiFxB { get; set; } = 2;
+        public int SelectedMultiFxB
+        {
+            get => _selectedMultiFxB;
+            set => _selectedMultiFxB = Range.Guard(value, max: 14);
+        }
 
         [XmlElement("MltTyp3")]
-        public int SelectedMultiFxC { get; set; } = 11;
+        public int SelectedMultiFxC
+        {
+            get => _selectedMultiFxC;
+            set => _selectedMultiFxC = Range.Guard(value, max: 17);
+        }
 
-        public XmlTrackFxSettings() { }
+        public XmlTrackFxSettings() : this(null) { }
         public XmlTrackFxSettings(XmlTrackFxSettings other)
         {
-            if (other == null) return;
-
-            Mode = other.Mode;
-            MultiMode = other.MultiMode;
-            Switch = other.Switch;
-            Selected = other.Selected;
-            SelectedSingleFxA = other.SelectedSingleFxA;
-            SelectedSingleFxB = other.SelectedSingleFxB;
-            SelectedSingleFxC = other.SelectedSingleFxC;
-            MultiSwitch = other.MultiSwitch;
-            SelectedMultiFxA = other.SelectedMultiFxA;
-            SelectedMultiFxB = other.SelectedMultiFxB;
-            SelectedMultiFxC = other.SelectedMultiFxC;
+            Mode = other?.Mode ?? 1;
+            MultiMode = other?.MultiMode ?? 0;
+            Switch = other?.Switch ?? 0;
+            Selected = other?.Selected ?? 0;
+            SelectedSingleFxA = other?.SelectedSingleFxA ?? 2;
+            SelectedSingleFxB = other?.SelectedSingleFxB ?? 20;
+            SelectedSingleFxC = other?.SelectedSingleFxC ?? 27;
+            MultiSwitch = other?.MultiSwitch ?? 0;
+            SelectedMultiFxA = other?.SelectedMultiFxA ?? 19;
+            SelectedMultiFxB = other?.SelectedMultiFxB ?? 2;
+            SelectedMultiFxC = other?.SelectedMultiFxC ?? 11;
         }
 
         public XmlTrackFxSettings Clone() => new XmlTrackFxSettings(this);

@@ -7,7 +7,7 @@ namespace Loopstation.Model.System
 
     public class ModelInputOutputSettings
     {
-        public int InputNSTreshold { get; set; } = 40;
+        public int InputNSThreshold { get; set; } = 40;
 
         // TODO Level (0...100) *2
         private int _lineOutLvl;
@@ -23,7 +23,7 @@ namespace Loopstation.Model.System
         {
             if (xmlInputOutput == null) return;
 
-            InputNSTreshold = xmlInputOutput.InputNSTreshold;
+            InputNSThreshold = xmlInputOutput.InputNSThreshold;
             LineOutLevel = xmlInputOutput.LineOutLevel;
             InputSource = (IOInputSource)xmlInputOutput.InputSource;
             IsInputLineOut = xmlInputOutput.InputLineOut == 1;

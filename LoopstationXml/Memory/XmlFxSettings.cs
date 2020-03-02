@@ -60,7 +60,7 @@ namespace Loopstation.Xml.Memory
         private int _isolatorDepth;
         private int _isolatorStepRate;
         private int _isolatorLevel;
-        private int _octaveMod;
+        private int _octaveMode;
         private int _octaveLevel;
         private int _panType;
         private int _panRate;
@@ -684,10 +684,10 @@ namespace Loopstation.Xml.Memory
         /// <para>Default value is <c>0</c>.</para>
         /// </summary>
         [XmlElement("OctMod")]
-        public int OctaveMod
+        public int OctaveMode
         {
-            get => _octaveMod;
-            set => _octaveMod = Range.Guard(value, max: 2);
+            get => _octaveMode;
+            set => _octaveMode = Range.Guard(value, max: 2);
         }
 
         /// <summary>
@@ -1117,7 +1117,7 @@ namespace Loopstation.Xml.Memory
             IsolatorDepth          = other?.IsolatorDepth          ?? 100;
             IsolatorStepRate       = other?.IsolatorStepRate       ?? 0;
             IsolatorLevel          = other?.IsolatorLevel          ?? 100;
-            OctaveMod              = other?.OctaveMod              ?? 0;
+            OctaveMode             = other?.OctaveMode             ?? 0;
             OctaveLevel            = other?.OctaveLevel            ?? 50;
             PanType                = other?.PanType                ?? 0;
             PanRate                = other?.PanRate                ?? 50;

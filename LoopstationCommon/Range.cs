@@ -1,6 +1,4 @@
-﻿using Loopstation.Xml.Exceptions;
-
-namespace Loopstation.Xml.Utils
+﻿namespace Loopstation.Common
 {
     public class Range
     {

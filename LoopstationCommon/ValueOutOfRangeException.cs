@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Loopstation.Xml.Exceptions
+namespace Loopstation.Common
 {
     public class ValueOutOfRangeException : Exception
     {

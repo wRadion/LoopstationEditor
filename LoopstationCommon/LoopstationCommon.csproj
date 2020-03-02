@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Loopstation.Common</RootNamespace>
+    <PackageId>Loopstation.Common</PackageId>
+    <Authors>Rémi Waser</Authors>
+    <Company>wRadion</Company>
+  </PropertyGroup>
+
+</Project>

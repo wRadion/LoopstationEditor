@@ -1,7 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-using Loopstation.Xml.Interfaces;
-using Loopstation.Xml.Utils;
+using Loopstation.Common;
 
 namespace Loopstation.Xml.Memory
 {

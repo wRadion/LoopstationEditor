@@ -21,4 +21,8 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LoopstationCommon\LoopstationCommon.csproj" />
+  </ItemGroup>
+
 </Project>

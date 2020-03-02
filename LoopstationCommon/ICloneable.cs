@@ -1,4 +1,4 @@
-﻿namespace Loopstation.Xml.Interfaces
+﻿namespace Loopstation.Common
 {
     public interface ICloneable<T>
     {

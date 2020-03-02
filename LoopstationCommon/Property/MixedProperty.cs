@@ -52,13 +52,13 @@ namespace Loopstation.Common.Property
         {
             if (prop.ValueType == MixedPropertyValueType.INT)
                 return (int)prop.Value;
-            throw new InvalidMixedPropertyValueType(prop.ValueType, typeof(int));
+            throw new InvalidMixedPropertyValueTypeException(prop.ValueType, typeof(int));
         }
         public static implicit operator T(MixedProperty<T> prop)
         {
             if (prop.ValueType == MixedPropertyValueType.ENUM)
                 return (T)prop.Value;
-            throw new InvalidMixedPropertyValueType(prop.ValueType, typeof(int));
+            throw new InvalidMixedPropertyValueTypeException(prop.ValueType, typeof(int));
         }
         public static implicit operator MixedProperty<T>(int value) => new MixedProperty<T>(value);
         public static implicit operator MixedProperty<T>(T value) => new MixedProperty<T>(value);

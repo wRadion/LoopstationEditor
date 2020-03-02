@@ -4,9 +4,9 @@ using Loopstation.Common.Property;
 
 namespace Loopstation.Common
 {
-    public class InvalidMixedPropertyValueType : Exception
+    public class InvalidMixedPropertyValueTypeException : Exception
     {
-        public InvalidMixedPropertyValueType(MixedPropertyValueType actualType, Type expectedType)
+        public InvalidMixedPropertyValueTypeException(MixedPropertyValueType actualType, Type expectedType)
             : base($"MixedProperty value is { actualType.ToString() } but expected [{ expectedType.Name }]")
         {
         }

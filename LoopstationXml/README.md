@@ -47,3 +47,23 @@ systemFile.Setup.LcdContrast;
 
 ...
 ```
+
+Whenever you set a property value, it ensures that the given value is inside the possible value range for
+the property:
+
+```csharp
+// Good ✔
+// Sets the SlicerPattern value to 7 (P08) for the INPUT_FX1 in the Memory entry 67.
+memoryFile.Memories[67].InputFx1.SlicerPattern = 7;
+
+// Bad ❌
+// Throws a ValueOutRangeException because the value is not inside the possible value range (0 = P01 to 19 = P20)
+memoryFile.Memories[67].InputFx1.SlicerPattern = 42;
+```
+
+There is documentation comments for every properties that indicates the property value range
+and its default value:
+
+<p align="center">
+	<img src="./README/doc_comment_range_defaultvalue.png">
+</p>

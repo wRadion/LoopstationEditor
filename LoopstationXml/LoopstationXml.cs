@@ -35,10 +35,8 @@ namespace Loopstation.Xml
         /// <typeparam name="T">The type of the object to deserialize</typeparam>
         /// <param name="file">The file in which the XML will be read</param>
         /// <returns>The deserialized object</returns>
-        public static T? Deserialize<T>(string file) where T : struct
+        public static T Deserialize<T>(string file)
         {
-            T? result = null;
-
             XmlReaderSettings xmlReaderSettings = new XmlReaderSettings()
             {
                 CloseInput = true
@@ -47,10 +45,8 @@ namespace Loopstation.Xml
             using (XmlReader reader = XmlReader.Create(file, xmlReaderSettings))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(T));
-                result = (T)serializer.Deserialize(reader);
+                return (T)serializer.Deserialize(reader);
             }
-
-            return result;
         }
     }
 }

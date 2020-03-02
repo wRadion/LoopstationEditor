@@ -16,13 +16,13 @@ namespace ConsoleApp
 		{
 			// SYSTEM.RC0
 			// Read/deserialize
-			XmlSystemFile systemFile = LoopstationXml.Deserialize("./path/to/" + XmlSystemFile.FILE_NAME);
+			XmlSystemFile systemFile = LoopstationXml.Deserialize<XmlSystemFile>("./path/to/" + XmlSystemFile.FILE_NAME);
 			// Write/serialize
 			LoopstationXml.Serialize(systemFile, "./path/to/new/" + XmlSystemFile.FILE_NAME);
 
 			// MEMORY.RC0
 			// Read/deserialize
-			XmlMemoryFile memoryFile = LoopstationXml.Deserialize("./path/to/" + XmlMemoryFile.FILE_NAME);
+			XmlMemoryFile memoryFile = LoopstationXml.Deserialize<XmlMemoryFile>("./path/to/" + XmlMemoryFile.FILE_NAME);
 			// Write/serialize
 			LoopstationXml.Serialize(memoryFile, "./path/to/new/" + XmlMemoryFile.FILE_NAME);
 		}

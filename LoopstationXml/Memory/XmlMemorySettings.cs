@@ -9,7 +9,7 @@ namespace Loopstation.Xml.Memory
     public class XmlMemorySettings : XmlMemorySettingsBase, ICloneable<XmlMemorySettings>
     {
         [XmlAttribute("id")]
-        public int Id { get; }
+        public int Id { get; set; }
 
         public XmlMemorySettings() : this(null) { }
         public XmlMemorySettings(XmlMemorySettings other) : base(other) { }

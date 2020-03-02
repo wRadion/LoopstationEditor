@@ -1,4 +1,5 @@
 ﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory
 {
@@ -36,26 +37,69 @@ namespace Loopstation.Model.Memory
     {
         public int AssignNumber { get; }
 
-        public bool Enabled { get; set; } = false;
-        public AssignSource Source { get; set; } = AssignSource.EXP_PEDAL;
-        public AssignSourceMode SourceMode { get; set; } = AssignSourceMode.MOMENT;
-        public AssignTarget Target { get; set; } = AssignTarget.TR1_PLAY_LEVEL;
-        public int TargetMin { get; set; } = 0;
-        public int TargetMax { get; set; } = 100;
+        public bool Enabled
+        {
+            get => _enabledProperty.Value;
+            set => _enabledProperty.Value = value;
+        }
+        public AssignSource Source
+        {
+            get => _sourceProperty.Value;
+            set => _sourceProperty.Value = value;
+        }
+        public AssignSourceMode SourceMode
+        {
+            get => _sourceModeProperty.Value;
+            set => _sourceModeProperty.Value = value;
+        }
+        public AssignTarget Target
+        {
+            get => _targetProperty.Value;
+            set => _targetProperty.Value = value;
+        }
+        public int TargetMin
+        {
+            get => _targetMinProperty.Value;
+            set => _targetMinProperty.Value = value;
+        }
+        public int TargetMax
+        {
+            get => _targetMaxProperty.Value;
+            set => _targetMaxProperty.Value = value;
+        }
 
-        public ModelAssignSettings(int num) : this(num, null) { }
+        #region private Fields
+        private readonly BoolProperty _enabledProperty;
+        private readonly EnumProperty<AssignSource> _sourceProperty;
+        private readonly EnumProperty<AssignSourceMode> _sourceModeProperty;
+        private readonly EnumProperty<AssignTarget> _targetProperty;
+        private readonly IntProperty _targetMinProperty;
+        private readonly IntProperty _targetMaxProperty;
+
+        private readonly XmlAssignSettings _xml;
+        #endregion private Fields
+
         public ModelAssignSettings(int num, XmlAssignSettings xmlAssign)
         {
+            #region private Fields initialization
+            _xml = xmlAssign;
+
+            _enabledProperty    = _xml.Switch;
+            _sourceProperty     = _xml.Source;
+            _sourceModeProperty = _xml.SourceMode;
+            _targetProperty     = _xml.Target;
+            _targetMinProperty  = _xml.TargetMin;
+            _targetMaxProperty  = _xml.TargetMax;
+
+            _enabledProperty.PropertyChanged    += (_, e) => _xml.Switch = e.Value;
+            _sourceProperty.PropertyChanged     += (_, e) => _xml.Source = e.Value;
+            _sourceModeProperty.PropertyChanged += (_, e) => _xml.SourceMode = e.Value;
+            _targetProperty.PropertyChanged     += (_, e) => _xml.Target = e.Value;
+            _targetMinProperty.PropertyChanged  += (_, e) => _xml.TargetMin = e.Value;
+            _targetMaxProperty.PropertyChanged  += (_, e) => _xml.TargetMax = e.Value;
+            #endregion private Fields initialization    
+
             AssignNumber = num;
-
-            if (xmlAssign == null) return;
-
-            Enabled = xmlAssign.Switch == 1;
-            Source = (AssignSource)xmlAssign.Source;
-            SourceMode = (AssignSourceMode)xmlAssign.SourceMode;
-            Target = (AssignTarget)xmlAssign.Target;
-            TargetMin = xmlAssign.TargetMin;
-            TargetMax = xmlAssign.TargetMax;
         }
     }
 }

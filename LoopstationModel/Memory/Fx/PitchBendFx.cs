@@ -1,20 +1,39 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class PitchBendFx : ICloneable
+    public class PitchBendFx
     {
-        // TODO: PitchBend Octave (0...7) (-3)
-        public int Octave { get; set; } = 2;
-        public int Bend { get; set; } = 100;
-
-        public PitchBendFx() { }
-        public PitchBendFx(PitchBendFx other)
+        public int Octave // TODO: PitchBend Octave (0...7) (-3)
         {
-            Octave = other.Octave;
-            Bend = other.Bend;
+            get => _octaveProperty.Value;
+            set => _octaveProperty.Value = value;
+        }
+        public int Bend
+        {
+            get => _bendProperty.Value;
+            set => _bendProperty.Value = value;
         }
 
-        public object Clone() => new PitchBendFx(this);
+        #region private Fields
+        private readonly IntProperty _octaveProperty;
+        private readonly IntProperty _bendProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public PitchBendFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _octaveProperty = _xml.PitchBendOctave;
+            _bendProperty   = _xml.PitchBendBend;
+
+            _octaveProperty.PropertyChanged += (_, e) => _xml.PitchBendOctave = e.Value;
+            _bendProperty.PropertyChanged   += (_, e) => _xml.PitchBendBend = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

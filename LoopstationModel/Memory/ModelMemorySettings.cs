@@ -1,28 +1,25 @@
 ﻿using Loopstation.Xml.Base;
 using Loopstation.Xml.Memory;
-using Loopstation.Model.Memory;
 using Loopstation.Model.Memory.Base;
 
-namespace Loopstation.Model
+namespace Loopstation.Model.Memory
 {
     public class ModelMemorySettings
     {
         public int MemoryNumber { get; }
 
-        public ModelTrackSettings[] Tracks;
-        public ModelRhythmSettings Rhythm;
-        public ModelNameSettings Name;
-        public ModelMasterSettings Master;
-        public ModelRecOptionSettings RecOption;
+        public    ModelTrackSettings[] Tracks;
+        public     ModelRhythmSettings Rhythm;
+        public       ModelNameSettings Name;
+        public     ModelMasterSettings Master;
+        public  ModelRecOptionSettings RecOption;
         public ModelPlayOptionSettings PlayOption;
-        public ModelAssignSettings[] Assigns;
-        public ModelInputFxSettings InputFx;
-        public ModelTrackFxSettings TrackFx;
-        public ModelInputFx[] InputFxs;
-        public ModelTrackFx[] TrackFxs;
+        public   ModelAssignSettings[] Assigns;
+        public    ModelInputFxSettings InputFx;
+        public    ModelTrackFxSettings TrackFx;
+        public          ModelInputFx[] InputFxs;
+        public          ModelTrackFx[] TrackFxs;
 
-        public ModelMemorySettings() : this(0) { }
-        public ModelMemorySettings(int num) : this(num, new XmlMemorySettings()) { }
         public ModelMemorySettings(XmlMemorySettingsBase xmlMemory) : this(0, xmlMemory) { }
         public ModelMemorySettings(int num, XmlMemorySettingsBase xmlMemory)
         {

@@ -1,22 +1,47 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class TremoloFx : ICloneable
+    public class TremoloFx
     {
-        // TODO: Rate Default Value 85
-        public Rate Rate { get; set; }
-        public int Depth { get; set; } = 50;
-        public int Level { get; set; } = 50;
-
-        public TremoloFx() { }
-        public TremoloFx(TremoloFx other)
+        public Rate Rate
         {
-            Rate = other.Rate;
-            Depth = other.Depth;
-            Level = other.Level;
+            get => _rateProperty.Value;
+            set => _rateProperty.Value = value;
+        }
+        public int Depth
+        {
+            get => _depthProperty.Value;
+            set => _depthProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new TremoloFx(this);
+        #region private Fields
+        private readonly EnumProperty<Rate> _rateProperty;
+        private readonly IntProperty _depthProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public TremoloFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _rateProperty  = _xml.TremoloRate;
+            _depthProperty = _xml.TremoloDepth;
+            _levelProperty = _xml.TremoloLevel;
+
+            _rateProperty.PropertyChanged  += (_, e) => _xml.TremoloRate = e.Value;
+            _depthProperty.PropertyChanged += (_, e) => _xml.TremoloDepth = e.Value;
+            _levelProperty.PropertyChanged += (_, e) => _xml.TremoloLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

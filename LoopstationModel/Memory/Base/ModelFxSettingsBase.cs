@@ -1,5 +1,4 @@
 ﻿using Loopstation.Xml.Memory;
-
 using Loopstation.Model.Memory.Fx;
 
 namespace Loopstation.Model.Memory.Base
@@ -41,207 +40,38 @@ namespace Loopstation.Model.Memory.Base
         public        ChorusFx Chorus        { get; }
         public        ReverbFx Reverb        { get; }
 
-        public ModelFxSettingsBase(FxType type, FxSlot slot) : this(type, slot, new XmlFxSettings()) { }
         public ModelFxSettingsBase(FxType type, FxSlot slot, XmlFxSettings xmlFx)
         {
             Type = type;
             Slot = slot;
 
-            Filter = new FilterFx()
-            {
-                Type      = (FilterType)xmlFx.FilterType,
-                Rate      = (Rate)xmlFx.FilterRate,
-                Depth     = xmlFx.FilterDepth,
-                Resonance = xmlFx.FilterResonance,
-                Cutoff    = xmlFx.FilterCutoff,
-                StepRate  = (StepRate)xmlFx.FilterStepRate
-            };
-
-            Phaser = new PhaserFx()
-            {
-                Rate      = (Rate)xmlFx.PhaserRate,
-                Depth     = xmlFx.PhaserDepth,
-                Resonance = xmlFx.PhaserResonance,
-                StepRate  = (StepRate)xmlFx.PhaserStepRate,
-                Level     = xmlFx.PhaserLevel
-            };
-
-            Flanger = new FlangerFx()
-            {
-                Rate      = (Rate)xmlFx.FlangerRate,
-                Depth     = xmlFx.FlangerDepth,
-                Resonance = xmlFx.FlangerResonance,
-                StepRate  = (StepRate)xmlFx.FlangerStepRate,
-                Level     = xmlFx.FlangerLevel
-            };
-
-            Synth = new SynthFx()
-            {
-                Frequency = xmlFx.SynthFrequency,
-                Resonance = xmlFx.SynthResonance,
-                Decay     = xmlFx.SynthDecay,
-                Balance   = xmlFx.SynthBalance
-            };
-
-            LoFi = new LoFiFx()
-            {
-                Depth      = xmlFx.LoFiDepth,
-                SampleRate = xmlFx.LoFiSampleRate,
-                Balance    = xmlFx.LoFiBalance
-            };
-
-            RingModulator = new RingModulatorFx()
-            {
-                Frequency = xmlFx.RingModulatorFrequency,
-                Balance   = xmlFx.RingModulatorBalance
-            };
-
-            GuitarToBass = new GuitarToBassFx()
-            {
-                Balance = xmlFx.GuitarToBassBalance
-            };
-
-            SlowGear = new SlowGearFx()
-            {
-                Sensitivity = xmlFx.SlowGearSensitivity,
-                RiseTime    = xmlFx.SlowGearRiseTime,
-                Level       = xmlFx.SlowGearLevel
-            };
-
-            Transpose = new TransposeFx()
-            {
-                Semitones = xmlFx.Transpose
-            };
-
-            PitchBend = new PitchBendFx()
-            {
-                Octave = xmlFx.PitchBendOctave,
-                Bend   = xmlFx.PitchBendBend
-            };
-
-            Robot = new RobotFx()
-            {
-                Note   = (RobotNote)xmlFx.RobotNote,
-                Gender = xmlFx.RobotGender
-            };
-
-            VocalDist = new VocalDistFx()
-            {
-                Distortion = xmlFx.VocalDistDistortion,
-                Tone       = xmlFx.VocalDistTone,
-                Level      = xmlFx.VocalDistLevel
-            };
-
-            Vocoder = new VocoderFx()
-            {
-                Carrier = (Track)xmlFx.VocoderCarrier,
-                ModSens = xmlFx.VocoderModSens,
-                Attack  = xmlFx.VocoderAttack,
-                Balance = xmlFx.VocoderBalance
-            };
-
-            Dynamics = new DynamicsFx()
-            {
-                Type     = (DynamicsType)xmlFx.DynamicsType,
-                Dynamics = xmlFx.DynamicsDynamics
-            };
-
-            Eq = new EqFx()
-            {
-                Low     = xmlFx.EqLow,
-                LowMid  = xmlFx.EqLowMid,
-                HighMid = xmlFx.EqHighMid,
-                High    = xmlFx.EqHigh,
-                Level   = xmlFx.EqLevel
-            };
-
-            Isolator = new IsolatorFx()
-            {
-                Band     = (IsolatorBand)xmlFx.IsolatorBand,
-                Rate     = (Rate)xmlFx.IsolatorRate,
-                Depth    = xmlFx.IsolatorDepth,
-                StepRate = (StepRate)xmlFx.IsolatorStepRate,
-                Level    = xmlFx.IsolatorLevel
-            };
-
-            Octave = new OctaveFx()
-            {
-                Mode  = (OctaveMode)xmlFx.OctaveMode,
-                Level = xmlFx.OctaveLevel
-            };
-
-            Pan = new PanFx()
-            {
-                Type     = (PanType)xmlFx.PanType,
-                Rate     = (Rate)xmlFx.PanRate,
-                Depth    = xmlFx.PanDepth,
-                StepRate = (StepRate)xmlFx.PanStepRate,
-                Position = xmlFx.PanPosition
-            };
-
-            Tremolo = new TremoloFx()
-            {
-                Rate  = (Rate)xmlFx.TremoloRate,
-                Depth = xmlFx.TremoloDepth,
-                Level = xmlFx.TremoloLevel
-            };
-
-            Slicer = new SlicerFx()
-            {
-                Pattern = (SlicerPattern)xmlFx.SlicerPattern,
-                Rate    = (Rate)xmlFx.SlicerRate,
-                Depth   = xmlFx.SlicerDepth
-            };
-
-            Delay = new DelayFx()
-            {
-                Time     = (DelayTime)xmlFx.DelayTime,
-                Feedback = xmlFx.DelayFeedback,
-                Level    = xmlFx.DelayLevel
-            };
-
-            PanningDelay = new PanningDelayFx()
-            {
-                Time     = (DelayTime)xmlFx.PanningDelayTime,
-                Feedback = xmlFx.PanningDelayFeedback,
-                Level    = xmlFx.PanningDelayLevel
-            };
-
-            TapeEcho = new TapeEchoFx()
-            {
-                Rate      = xmlFx.TapeEchoRate,
-                Intensity = xmlFx.TapeEchoIntensity,
-                Level     = xmlFx.TapeEchoLevel
-            };
-
-            GranularDelay = new GranularDelayFx()
-            {
-                Time     = xmlFx.GranularDelayTime,
-                Feedback = xmlFx.GranularDelayFeedback,
-                Level    = xmlFx.GranularDelayLevel
-            };
-
-            Roll = new RollFx()
-            {
-                Time     = (DelayTime)xmlFx.RollTime,
-                Mode     = (RollMode)xmlFx.RollMode,
-                Feedback = xmlFx.RollFeedback,
-                Level    = xmlFx.RollLevel
-            };
-
-            Chorus = new ChorusFx()
-            {
-                Rate  = (Rate)xmlFx.ChorusRate,
-                Depth = xmlFx.ChorusDepth,
-                Level = xmlFx.ChorusLevel
-            };
-
-            Reverb = new ReverbFx()
-            {
-                Time     = xmlFx.ReverbTime,
-                Level    = xmlFx.ReverbLevel,
-                DryLevel = xmlFx.ReverbDryLevel
-            };
+            Filter        = new FilterFx(xmlFx);
+            Phaser        = new PhaserFx(xmlFx);
+            Flanger       = new FlangerFx(xmlFx);
+            Synth         = new SynthFx(xmlFx);
+            LoFi          = new LoFiFx(xmlFx);
+            RingModulator = new RingModulatorFx(xmlFx);
+            GuitarToBass  = new GuitarToBassFx(xmlFx);
+            SlowGear      = new SlowGearFx(xmlFx);
+            Transpose     = new TransposeFx(xmlFx);
+            PitchBend     = new PitchBendFx(xmlFx);
+            Robot         = new RobotFx(xmlFx);
+            VocalDist     = new VocalDistFx(xmlFx);
+            Vocoder       = new VocoderFx(xmlFx);
+            Dynamics      = new DynamicsFx(xmlFx);
+            Eq            = new EqFx(xmlFx);
+            Isolator      = new IsolatorFx(xmlFx);
+            Octave        = new OctaveFx(xmlFx);
+            Pan           = new PanFx(xmlFx);
+            Tremolo       = new TremoloFx(xmlFx);
+            Slicer        = new SlicerFx(xmlFx);
+            Delay         = new DelayFx(xmlFx);
+            PanningDelay  = new PanningDelayFx(xmlFx);
+            TapeEcho      = new TapeEchoFx(xmlFx);
+            GranularDelay = new GranularDelayFx(xmlFx);
+            Roll          = new RollFx(xmlFx);
+            Chorus        = new ChorusFx(xmlFx);
+            Reverb        = new ReverbFx(xmlFx);
         }
     }
 }

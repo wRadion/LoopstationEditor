@@ -56,20 +56,19 @@ namespace Loopstation.Model.System
         }
 
         #region private Fields
-        private IntProperty _selectedMemoryProperty;
-        private IntProperty _lcdContrastProperty;
-        private BoolProperty _phantomPowerProperty;
-        private EnumProperty<SetupDisplayMode> _displayModeProperty;
-        private EnumProperty<SetupIndicatorMode> _indicatorModeProperty;
-        private BoolProperty _autoOffProperty;
-        private BoolProperty _allClearProperty;
-        private BoolProperty _quickClearProperty;
-        private EnumProperty<SetupKnobMode> _knobModeProperty;
+        private readonly IntProperty _selectedMemoryProperty;
+        private readonly IntProperty _lcdContrastProperty;
+        private readonly BoolProperty _phantomPowerProperty;
+        private readonly EnumProperty<SetupDisplayMode> _displayModeProperty;
+        private readonly EnumProperty<SetupIndicatorMode> _indicatorModeProperty;
+        private readonly BoolProperty _autoOffProperty;
+        private readonly BoolProperty _allClearProperty;
+        private readonly BoolProperty _quickClearProperty;
+        private readonly EnumProperty<SetupKnobMode> _knobModeProperty;
 
-        private XmlSetupSettings _xml;
+        private readonly XmlSetupSettings _xml;
         #endregion private Fields
 
-        public ModelSetupSettings() : this(new XmlSetupSettings()) { }
         public ModelSetupSettings(XmlSetupSettings xmlSetup)
         {
             #region private Fields initialization
@@ -91,9 +90,9 @@ namespace Loopstation.Model.System
             _displayModeProperty.PropertyChanged    += (_, e) => _xml.DisplayMode = e.Value;
             _indicatorModeProperty.PropertyChanged  += (_, e) => _xml.IndicatorMode = e.Value;
             _autoOffProperty.PropertyChanged        += (_, e) => _xml.AutoOff = e.Value;
-            _allClearProperty.PropertyChanged       += (_, e) => _allClearProperty = e.Value;
-            _quickClearProperty.PropertyChanged     += (_, e) => _quickClearProperty = e.Value;
-            _knobModeProperty.PropertyChanged       += (_, e) => _knobModeProperty = e.Value;
+            _allClearProperty.PropertyChanged       += (_, e) => _xml.AllClear = e.Value;
+            _quickClearProperty.PropertyChanged     += (_, e) => _xml.QuickClear = e.Value;
+            _knobModeProperty.PropertyChanged       += (_, e) => _xml.KnobMode = e.Value;
             #endregion private Fields initialization
         }
     }

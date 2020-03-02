@@ -41,17 +41,16 @@ namespace Loopstation.Model.System
         }
 
         #region private Fields
-        private IntProperty _rxChannelProperty;
-        private BoolProperty _omniProperty;
-        private MixedProperty<MIDITxChannel> _txChannelProperty;
-        private EnumProperty<MIDISync> _syncProperty;
-        private EnumProperty<MIDISyncSource> _syncSourceProperty;
-        private BoolProperty _pcOutProperty;
+        private readonly IntProperty _rxChannelProperty;
+        private readonly BoolProperty _omniProperty;
+        private readonly MixedProperty<MIDITxChannel> _txChannelProperty;
+        private readonly EnumProperty<MIDISync> _syncProperty;
+        private readonly EnumProperty<MIDISyncSource> _syncSourceProperty;
+        private readonly BoolProperty _pcOutProperty;
 
-        private XmlMIDISettings _xml;
+        private readonly XmlMIDISettings _xml;
         #endregion private Fields
 
-        public ModelMIDISettings() : this(new XmlMIDISettings()) { }
         public ModelMIDISettings(XmlMIDISettings xmlMIDI)
         {
             #region private Fields initialization

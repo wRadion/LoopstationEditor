@@ -1,29 +1,65 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
     public enum IsolatorBand { LOW, MID, HIGH }
 
-    public class IsolatorFx : ICloneable
+    public class IsolatorFx
     {
-        public IsolatorBand Band { get; set; } = IsolatorBand.LOW;
-        // TODO: Rate Default Value 103
-        public Rate Rate { get; set; }
-        public int Depth { get; set; } = 100;
-        // TODO: StepRate Default Value 0
-        public StepRate StepRate { get; set; }
-        public int Level { get; set; } = 100;
-
-        public IsolatorFx() { }
-        public IsolatorFx(IsolatorFx other)
+        public IsolatorBand Band
         {
-            Band = other.Band;
-            Rate = other.Rate;
-            Depth = other.Depth;
-            StepRate = other.StepRate;
-            Level = other.Level;
+            get => _bandProperty.Value;
+            set => _bandProperty.Value = value;
+        }
+        public Rate Rate
+        {
+            get => _rateProperty.Value;
+            set => _rateProperty.Value = value;
+        }
+        public int Depth
+        {
+            get => _depthProperty.Value;
+            set => _depthProperty.Value = value;
+        }
+        public StepRate StepRate
+        {
+            get => _stepRateProperty.Value;
+            set => _stepRateProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new IsolatorFx(this);
+        #region private Fields
+        private readonly EnumProperty<IsolatorBand> _bandProperty;
+        private readonly EnumProperty<Rate> _rateProperty;
+        private readonly IntProperty _depthProperty;
+        private readonly EnumProperty<StepRate> _stepRateProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public IsolatorFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _bandProperty     = _xml.IsolatorBand;
+            _rateProperty     = _xml.IsolatorRate;
+            _depthProperty    = _xml.IsolatorDepth;
+            _stepRateProperty = _xml.IsolatorStepRate;
+            _levelProperty    = _xml.IsolatorLevel;
+
+            _bandProperty.PropertyChanged     += (_, e) => _xml.IsolatorBand = e.Value;
+            _rateProperty.PropertyChanged     += (_, e) => _xml.IsolatorRate = e.Value;
+            _depthProperty.PropertyChanged    += (_, e) => _xml.IsolatorDepth = e.Value;
+            _stepRateProperty.PropertyChanged += (_, e) => _xml.IsolatorStepRate = e.Value;
+            _levelProperty.PropertyChanged    += (_, e) => _xml.IsolatorLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

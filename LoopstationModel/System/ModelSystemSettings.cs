@@ -1,8 +1,6 @@
 ﻿using Loopstation.Xml.System;
 
-using Loopstation.Model.System;
-
-namespace Loopstation.Model
+namespace Loopstation.Model.System
 {
     public class ModelSystemSettings
     {
@@ -11,7 +9,6 @@ namespace Loopstation.Model
         public         ModelUSBSettings USB;
         public        ModelMIDISettings MIDI;
 
-        public ModelSystemSettings() : this(new XmlSystemSettings()) { }
         public ModelSystemSettings(XmlSystemSettings xmlSystem)
         {
             Setup       = new ModelSetupSettings(xmlSystem.Setup);

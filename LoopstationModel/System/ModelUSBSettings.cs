@@ -30,15 +30,14 @@ namespace Loopstation.Model.System
         }
 
         #region private Fields
-        private EnumProperty<USBMode> _modeProperty;
-        private EnumProperty<USBAudioRouting> _audioRoutingProperty;
-        private IntProperty _inputLevelProperty;
-        private IntProperty _outputLevelProperty;
+        private readonly EnumProperty<USBMode> _modeProperty;
+        private readonly EnumProperty<USBAudioRouting> _audioRoutingProperty;
+        private readonly IntProperty _inputLevelProperty;
+        private readonly IntProperty _outputLevelProperty;
 
-        private XmlUSBSettings _xml;
+        private readonly XmlUSBSettings _xml;
         #endregion private Fields
 
-        public ModelUSBSettings() : this(new XmlUSBSettings()) { }
         public ModelUSBSettings(XmlUSBSettings xmlUSB)
         {
             #region private Fields initialization

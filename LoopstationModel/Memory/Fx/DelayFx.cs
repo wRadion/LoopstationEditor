@@ -1,22 +1,47 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class DelayFx : ICloneable
+    public class DelayFx
     {
-        // TODO: DelayTime Default Value 200
-        public DelayTime Time { get; set; }
-        public int Feedback { get; set; } = 20;
-        public int Level { get; set; } = 50;
-
-        public DelayFx() { }
-        public DelayFx(DelayFx other)
+        public DelayTime Time
         {
-            Time = other.Time;
-            Feedback = other.Feedback;
-            Level = other.Level;
+            get => _timeProperty.Value;
+            set => _timeProperty.Value = value;
+        }
+        public int Feedback
+        {
+            get => _feedbackProperty.Value;
+            set => _feedbackProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new DelayFx(this);
+        #region private Fields
+        private readonly EnumProperty<DelayTime> _timeProperty;
+        private readonly IntProperty _feedbackProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public DelayFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _timeProperty     = _xml.DelayTime;
+            _feedbackProperty = _xml.DelayFeedback;
+            _levelProperty    = _xml.DelayLevel;
+
+            _timeProperty.PropertyChanged     += (_, e) => _xml.DelayTime = e.Value;
+            _feedbackProperty.PropertyChanged += (_, e) => _xml.DelayFeedback = e.Value;
+            _levelProperty.PropertyChanged    += (_, e) => _xml.DelayLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

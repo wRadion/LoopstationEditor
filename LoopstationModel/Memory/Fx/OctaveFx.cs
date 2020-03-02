@@ -1,21 +1,41 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
     public enum OctaveMode { MINUS_1_OCT, MINUS_2_OCT, BOTH }
 
-    public class OctaveFx : ICloneable
+    public class OctaveFx
     {
-        public OctaveMode Mode { get; set; } = OctaveMode.MINUS_1_OCT;
-        public int Level { get; set; } = 50;
-
-        public OctaveFx() { }
-        public OctaveFx(OctaveFx other)
+        public OctaveMode Mode
         {
-            Mode = other.Mode;
-            Level = other.Level;
+            get => _modeProperty.Value;
+            set => _modeProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new OctaveFx(this);
+        #region private Fields
+        private readonly EnumProperty<OctaveMode> _modeProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public OctaveFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _modeProperty  = _xml.OctaveMode;
+            _levelProperty = _xml.OctaveLevel;
+
+            _modeProperty.PropertyChanged  += (_, e) => _xml.OctaveMode = e.Value;
+            _levelProperty.PropertyChanged += (_, e) => _xml.OctaveLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

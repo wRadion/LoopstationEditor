@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
@@ -9,19 +10,37 @@ namespace Loopstation.Model.Memory.Fx
         VOCAL_COMP, ACOUSTIC, ROCK_BAND, ORCHESTRA, LOW_BOOST, BRIGHTEN, DJs_VOICE, PHONE_VOX
     }
 
-    public class DynamicsFx : ICloneable
+    public class DynamicsFx
     {
-        public DynamicsType Type { get; set; } = DynamicsType.NATURAL_COMP;
-        // TODO: Eq/Comp (0...40) -20
-        public int Dynamics { get; set; } = 20;
-
-        public DynamicsFx() { }
-        public DynamicsFx(DynamicsFx other)
+        public DynamicsType Type
         {
-            Type = other.Type;
-            Dynamics = other.Dynamics;
+            get => _typeProperty.Value;
+            set => _typeProperty.Value = value;
+        }
+        public int Dynamics // TODO: Eq/Comp (0...40) -20
+        {
+            get => _dynamicsProperty.Value;
+            set => _dynamicsProperty.Value = value;
         }
 
-        public object Clone() => new DynamicsFx(this);
+        #region private Fields
+        private readonly EnumProperty<DynamicsType> _typeProperty;
+        private readonly IntProperty _dynamicsProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public DynamicsFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _typeProperty     = _xml.DynamicsType;
+            _dynamicsProperty = _xml.DynamicsDynamics;
+
+            _typeProperty.PropertyChanged     += (_, e) => _xml.DynamicsType = e.Value;
+            _dynamicsProperty.PropertyChanged += (_, e) => _xml.DynamicsDynamics = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

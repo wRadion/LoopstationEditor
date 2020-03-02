@@ -35,16 +35,15 @@ namespace Loopstation.Model.System
         }
 
         #region private Fields
-        private IntProperty _inputNSThresholdProperty;
-        private IntProperty _lineOutLevelProperty;
-        private EnumProperty<IOInputSource> _inputSourceProperty;
-        private BoolProperty _inputLineOutProperty;
-        private EnumProperty<IOOutputLevelSelection> _outputLevelSelectionProperty;
+        private readonly IntProperty _inputNSThresholdProperty;
+        private readonly IntProperty _lineOutLevelProperty;
+        private readonly EnumProperty<IOInputSource> _inputSourceProperty;
+        private readonly BoolProperty _inputLineOutProperty;
+        private readonly EnumProperty<IOOutputLevelSelection> _outputLevelSelectionProperty;
 
-        private XmlInputOutputSettings _xml;
+        private readonly XmlInputOutputSettings _xml;
         #endregion private Fields
 
-        public ModelInputOutputSettings() : this(new XmlInputOutputSettings()) { }
         public ModelInputOutputSettings(XmlInputOutputSettings xmlInputOutput)
         {
             #region private Fields initialization

@@ -1,27 +1,63 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class PhaserFx : ICloneable
+    public class PhaserFx
     {
-        // TODO: Rate Default Value 70
-        public Rate Rate { get; set; }
-        public int Depth { get; set; } = 50;
-        public int Resonance { get; set; } = 0;
-        // TODO: StepRate Default Value 0
-        public StepRate StepRate { get; set; }
-        public int Level { get; set; } = 50;
-
-        public PhaserFx() { }
-        public PhaserFx(PhaserFx other)
+        public Rate Rate
         {
-            Rate = other.Rate;
-            Depth = other.Depth;
-            Resonance = other.Resonance;
-            StepRate = other.StepRate;
-            Level = other.Level;
+            get => _rateProperty.Value;
+            set => _rateProperty.Value = value;
+        }
+        public int Depth
+        {
+            get => _depthProperty.Value;
+            set => _depthProperty.Value = value;
+        }
+        public int Resonance
+        {
+            get => _resonanceProperty.Value;
+            set => _resonanceProperty.Value = value;
+        }
+        public StepRate StepRate
+        {
+            get => _stepRateProperty.Value;
+            set => _stepRateProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new PhaserFx(this);
+        #region private Fields
+        private readonly EnumProperty<Rate> _rateProperty;
+        private readonly IntProperty _depthProperty;
+        private readonly IntProperty _resonanceProperty;
+        private readonly EnumProperty<StepRate> _stepRateProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public PhaserFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _rateProperty      = _xml.PhaserRate;
+            _depthProperty     = _xml.PhaserDepth;
+            _resonanceProperty = _xml.PhaserResonance;
+            _stepRateProperty  = _xml.PhaserStepRate;
+            _levelProperty     = _xml.PhaserLevel;
+
+            _rateProperty.PropertyChanged      += (_, e) => _xml.PhaserRate = e.Value;
+            _depthProperty.PropertyChanged     += (_, e) => _xml.PhaserDepth = e.Value;
+            _resonanceProperty.PropertyChanged += (_, e) => _xml.PhaserResonance = e.Value;
+            _stepRateProperty.PropertyChanged  += (_, e) => _xml.PhaserStepRate = e.Value;
+            _levelProperty.PropertyChanged     += (_, e) => _xml.PhaserLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

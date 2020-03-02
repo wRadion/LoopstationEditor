@@ -1,22 +1,47 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class VocalDistFx : ICloneable
+    public class VocalDistFx
     {
-        public int Distortion { get; set; } = 50;
-        // TODO: VocalDist Tone (0...100) -50
-        public int Tone { get; set; } = 50;
-        public int Level { get; set; } = 50;
-
-        public VocalDistFx() { }
-        public VocalDistFx(VocalDistFx other)
+        public int Distortion
         {
-            Distortion = other.Distortion;
-            Tone = other.Tone;
-            Level = other.Level;
+            get => _distortionProperty.Value;
+            set => _distortionProperty.Value = value;
+        }
+        public int Tone // TODO: VocalDist Tone (0...100) -50
+        {
+            get => _toneProperty.Value;
+            set => _toneProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new VocalDistFx(this);
+        #region private Fields
+        private readonly IntProperty _distortionProperty;
+        private readonly IntProperty _toneProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public VocalDistFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _distortionProperty = _xml.VocalDistDistortion;
+            _toneProperty       = _xml.VocalDistTone;
+            _levelProperty      = _xml.VocalDistLevel;
+
+            _distortionProperty.PropertyChanged += (_, e) => _xml.VocalDistDistortion = e.Value;
+            _toneProperty.PropertyChanged       += (_, e) => _xml.VocalDistTone = e.Value;
+            _levelProperty.PropertyChanged      += (_, e) => _xml.VocalDistLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

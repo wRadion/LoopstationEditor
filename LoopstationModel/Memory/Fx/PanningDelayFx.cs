@@ -1,22 +1,35 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class PanningDelayFx : ICloneable
+    public class PanningDelayFx
     {
-        // TODO: DelayTime Default Value 200
         public DelayTime Time { get; set; }
-        public int Feedback { get; set; } = 20;
-        public int Level { get; set; } = 50;
+        public int Feedback { get; set; }
+        public int Level { get; set; }
 
-        public PanningDelayFx() { }
-        public PanningDelayFx(PanningDelayFx other)
+        #region private Fields
+        private readonly EnumProperty<DelayTime> _timeProperty;
+        private readonly IntProperty _feedbackProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public PanningDelayFx(XmlFxSettings xmlFx)
         {
-            Time = other.Time;
-            Feedback = other.Feedback;
-            Level = other.Level;
-        }
+            #region private Fields initialization
+            _xml = xmlFx;
 
-        public object Clone() => new PanningDelayFx(this);
+            _timeProperty     = _xml.PanningDelayTime;
+            _feedbackProperty = _xml.PanningDelayFeedback;
+            _levelProperty    = _xml.PanningDelayLevel;
+
+            _timeProperty.PropertyChanged     += (_, e) => _xml.PanningDelayTime = e.Value;
+            _feedbackProperty.PropertyChanged += (_, e) => _xml.PanningDelayFeedback = e.Value;
+            _levelProperty.PropertyChanged    += (_, e) => _xml.PanningDelayLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

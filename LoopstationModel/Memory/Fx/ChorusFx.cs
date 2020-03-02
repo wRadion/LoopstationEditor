@@ -1,22 +1,47 @@
-﻿using System;
+﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory.Fx
 {
-    public class ChorusFx : ICloneable
+    public class ChorusFx
     {
-        // TODO: Rate Default Value 50
-        public Rate Rate { get; set; }
-        public int Depth { get; set; } = 50;
-        public int Level { get; set; } = 50;
-
-        public ChorusFx() { }
-        public ChorusFx(ChorusFx other)
+        public Rate Rate
         {
-            Rate = other.Rate;
-            Depth = other.Depth;
-            Level = other.Level;
+            get => _rateProperty.Value;
+            set => _rateProperty.Value = value;
+        }
+        public int Depth
+        {
+            get => _depthProperty.Value;
+            set => _depthProperty.Value = value;
+        }
+        public int Level
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
         }
 
-        public object Clone() => new ChorusFx(this);
+        #region private Fields
+        private readonly EnumProperty<Rate> _rateProperty;
+        private readonly IntProperty _depthProperty;
+        private readonly IntProperty _levelProperty;
+
+        private readonly XmlFxSettings _xml;
+        #endregion private Fields
+
+        public ChorusFx(XmlFxSettings xmlFx)
+        {
+            #region private Fields initialization
+            _xml = xmlFx;
+
+            _rateProperty  = _xml.ChorusRate;
+            _depthProperty = _xml.ChorusDepth;
+            _levelProperty = _xml.ChorusLevel;
+
+            _rateProperty.PropertyChanged  += (_, e) => _xml.ChorusRate = e.Value;
+            _depthProperty.PropertyChanged += (_, e) => _xml.ChorusDepth = e.Value;
+            _levelProperty.PropertyChanged += (_, e) => _xml.ChorusLevel = e.Value;
+            #endregion private Fields initialization
+        }
     }
 }

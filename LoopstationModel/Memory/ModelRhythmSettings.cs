@@ -1,4 +1,5 @@
 ﻿using Loopstation.Xml.Memory;
+using Loopstation.Common.Property;
 
 namespace Loopstation.Model.Memory
 {
@@ -25,32 +26,83 @@ namespace Loopstation.Model.Memory
 
     public class ModelRhythmSettings
     {
-        public bool Enabled { get; set; } = false;
+        public bool Enabled
+        {
+            get => _enabledProperty.Value;
+            set => _enabledProperty.Value = value;
+        }
+        public int Level // TODO Level (0...100) *2
+        {
+            get => _levelProperty.Value;
+            set => _levelProperty.Value = value;
+        }
+        public RhythmPattern Pattern
+        {
+            get => _patternProperty.Value;
+            set => _patternProperty.Value = value;
+        }
+        public RhythmBeat Beat
+        {
+            get => _beatProperty.Value;
+            set => _beatProperty.Value = value;
+        }
+        public bool LineOut
+        {
+            get => _lineOutProperty.Value;
+            set => _lineOutProperty.Value = value;
+        }
+        public bool RecCount
+        {
+            get => _recCountProperty.Value;
+            set => _recCountProperty.Value = value;
+        }
+        public bool PlayCount
+        {
+            get => _playCountProperty.Value;
+            set => _playCountProperty.Value = value;
+        }
+        public RhythmStopMode StopMode
+        {
+            get => _stopModeProperty.Value;
+            set => _stopModeProperty.Value = value;
+        }
 
-        // TODO Level (0...100) *2
-        private int _lvl;
-        public int Level { get; set; } = 50;
+        #region private Fields
+        private readonly BoolProperty _enabledProperty;
+        private readonly IntProperty _levelProperty;
+        private readonly EnumProperty<RhythmPattern> _patternProperty;
+        private readonly EnumProperty<RhythmBeat> _beatProperty;
+        private readonly BoolProperty _lineOutProperty;
+        private readonly BoolProperty _recCountProperty;
+        private readonly BoolProperty _playCountProperty;
+        private readonly EnumProperty<RhythmStopMode> _stopModeProperty;
 
-        public RhythmPattern Pattern { get; set; } = RhythmPattern.SIMPLE_BEAT_1;
-        public RhythmBeat Beat { get; set; } = RhythmBeat.B4_4;
-        public bool IsLineOut { get; set; } = true;
-        public bool HasRecOneMeasure { get; set; } = false;
-        public bool HasPlayOneMeasure { get; set; } = false;
-        public RhythmStopMode StopMode { get; set; } = RhythmStopMode.LOOPER_STOP;
+        private readonly XmlRhythmSettings _xml;
+        #endregion private Fields
 
-        public ModelRhythmSettings() : this(null) { }
         public ModelRhythmSettings(XmlRhythmSettings xmlRhythm)
         {
-            if (xmlRhythm == null) return;
+            #region private Fields initialization
+            _xml = xmlRhythm;
 
-            Enabled = xmlRhythm.Switch == 1;
-            Level = xmlRhythm.Level;
-            Pattern = (RhythmPattern)xmlRhythm.Pattern;
-            Beat = (RhythmBeat)xmlRhythm.Beat;
-            IsLineOut = xmlRhythm.LineOut == 1;
-            HasRecOneMeasure = xmlRhythm.RecCount == 1;
-            HasPlayOneMeasure = xmlRhythm.PlayCount == 1;
-            StopMode = (RhythmStopMode)xmlRhythm.StopMode;
+            _enabledProperty   = _xml.Switch;
+            _levelProperty     = _xml.Level;
+            _patternProperty   = _xml.Pattern;
+            _beatProperty      = _xml.Beat;
+            _lineOutProperty   = _xml.LineOut;
+            _recCountProperty  = _xml.RecCount;
+            _playCountProperty = _xml.PlayCount;
+            _stopModeProperty  = _xml.StopMode;
+
+            _enabledProperty.PropertyChanged   += (_, e) => _xml.Switch = e.Value;
+            _levelProperty.PropertyChanged     += (_, e) => _xml.Level = e.Value;
+            _patternProperty.PropertyChanged   += (_, e) => _xml.Pattern = e.Value;
+            _beatProperty.PropertyChanged      += (_, e) => _xml.Beat = e.Value;
+            _lineOutProperty.PropertyChanged   += (_, e) => _xml.LineOut = e.Value;
+            _recCountProperty.PropertyChanged  += (_, e) => _xml.RecCount = e.Value;
+            _playCountProperty.PropertyChanged += (_, e) => _xml.PlayCount = e.Value;
+            _stopModeProperty.PropertyChanged  += (_, e) => _xml.StopMode = e.Value;
+            #endregion private Fields initialization
         }
     }
 }

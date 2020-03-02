@@ -1,4 +1,5 @@
 ﻿using Loopstation.Xml;
+using Loopstation.Model.Memory;
 
 namespace Loopstation.Model
 {

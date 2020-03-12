@@ -12,14 +12,14 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="VerticalAlignment" Value="Bottom" />
             </Style>
 
             <Style x:Key="Min" TargetType="{x:Type TextBlock}">
                 <Setter Property="Text" Value="MIN" />
                 <Setter Property="FontSize" Value="8px" />
-                <Setter Property="Foreground" Value="{StaticResource Lightest}" />
+                <Setter Property="Foreground" Value="{StaticResource Loopstation.Lightest}" />
                 <Setter Property="Margin" Value="4px 0 0 0" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="VerticalAlignment" Value="Top" />
@@ -28,7 +28,7 @@
             <Style x:Key="Max" TargetType="{x:Type TextBlock}">
                 <Setter Property="Text" Value="MAX" />
                 <Setter Property="FontSize" Value="8px" />
-                <Setter Property="Foreground" Value="{StaticResource Lightest}" />
+                <Setter Property="Foreground" Value="{StaticResource Loopstation.Lightest}" />
                 <Setter Property="Margin" Value="0 0 4px 0" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="VerticalAlignment" Value="Top" />

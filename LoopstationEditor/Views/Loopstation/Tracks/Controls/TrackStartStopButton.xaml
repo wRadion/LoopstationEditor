@@ -15,10 +15,10 @@
     </UserControl.Resources>
 
     <Grid>
-        <Border Background="{StaticResource Red}" BorderBrush="{StaticResource Darkest}" BorderThickness="12px" CornerRadius="89" />
-        <Border Background="{StaticResource Darkest}" CornerRadius="65" Width="130px" Height="130px" />
+        <Border Background="{StaticResource Loopstation.Red}" BorderBrush="{StaticResource Loopstation.Darkest}" BorderThickness="12px" CornerRadius="89" />
+        <Border Background="{StaticResource Loopstation.Darkest}" CornerRadius="65" Width="130px" Height="130px" />
         <controls:ButtonNormal Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="32px" LineHeight="40" Content="▶⧸⬤" />
-        <Polygon Fill="{StaticResource Darkest}" Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Polygon Fill="{StaticResource Loopstation.Darkest}" Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Polygon.Points>
                 <Point X="50" Y="0" />
                 <Point X="100" Y="-18" />

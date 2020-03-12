@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="VerticalAlignment" Value="Center" />
             </Style>
         </ResourceDictionary>

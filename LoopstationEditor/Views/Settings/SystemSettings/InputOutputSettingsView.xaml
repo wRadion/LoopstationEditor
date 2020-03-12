@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.SystemSettings.InputOutputSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.SystemSettings"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type xd:TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 0 8px 0" />
+        </Style>
+
+        <Style TargetType="{x:Type xd:TextBox}">
+            <Setter Property="Padding" Value="2px" />
+        </Style>
+
+        <Style TargetType="{x:Type xd:ComboBox}">
+            <Setter Property="Padding" Value="4px 2px" />
+        </Style>
+
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="Padding" Value="8px" />
+        </Style>
+
+        <conv:IntToStringConverter x:Key="IntToString" />
+        <conv:EnumToStringConverter x:Key="EnumToString" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48px" />
+            <RowDefinition Height="48px" />
+            <RowDefinition Height="48px" />
+            <RowDefinition Height="48px" />
+            <RowDefinition Height="48px" />
+        </Grid.RowDefinitions>
+
+        <!-- Input NS Threshold (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Input NS Threshold" />
+        <Border Grid.Column="1" Grid.Row="0">
+            <xd:TextBox Text="{Binding InputNSThreshold, Mode=TwoWay, Converter={StaticResource IntToString}}" />
+        </Border>
+
+        <!-- Line Out Level (int, level) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Line Out Level" />
+        <Border Grid.Column="1" Grid.Row="1">
+            <xd:TextBox Text="{Binding LineOutLevel, Mode=TwoWay, Converter={StaticResource IntToString}}" />
+        </Border>
+
+        <!-- Input Source (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Input Source" />
+        <Border Grid.Column="1" Grid.Row="2">
+            <xd:ComboBox ItemsSource="{Binding InputSources}"
+                         SelectedItem="{Binding InputSource, Mode=TwoWay}" />
+        </Border>
+
+        <!-- Input Line Out (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Input Line Out" />
+        <Border Grid.Column="1" Grid.Row="3">
+            <xd:Switch IsChecked="{Binding InputLineOut, Mode=TwoWay}" />
+        </Border>
+
+        <!-- Output Level Selection (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Output Level Selection" />
+        <Border Grid.Column="1" Grid.Row="4">
+            <xd:ComboBox ItemsSource="{Binding OutputLevelSelections}"
+                         SelectedItem="{Binding OutputLevelSelection, Mode=TwoWay}" />
+        </Border>
+    </Grid>
+</UserControl>

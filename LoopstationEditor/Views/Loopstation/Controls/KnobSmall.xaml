@@ -14,8 +14,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border Background="{StaticResource Dark}" Padding="8px" BorderThickness="2px" BorderBrush="{StaticResource Darkest}" CornerRadius="128" >
-        <Border BorderThickness="6px" BorderBrush="{StaticResource Darkest}" CornerRadius="128" />
+    <Border Background="{StaticResource Loopstation.Dark}" Padding="8px" BorderThickness="2px" BorderBrush="{StaticResource Loopstation.Darkest}" CornerRadius="128" >
+        <Border BorderThickness="6px" BorderBrush="{StaticResource Loopstation.Darkest}" CornerRadius="128" />
     </Border>
 
 </UserControl>

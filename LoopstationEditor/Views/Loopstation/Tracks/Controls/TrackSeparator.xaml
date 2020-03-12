@@ -13,14 +13,14 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Background="{StaticResource Dark}">
+    <Grid Background="{StaticResource Loopstation.Dark}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" BorderThickness="3px 0 0 0" BorderBrush="{StaticResource ShadowDark}" />
-        <Border Grid.Column="1" BorderThickness="0 0 3px 0" BorderBrush="{StaticResource ShadowLight}" />
+        <Border Grid.Column="0" BorderThickness="3px 0 0 0" BorderBrush="{StaticResource Loopstation.Shadow.Dark}" />
+        <Border Grid.Column="1" BorderThickness="0 0 3px 0" BorderBrush="{StaticResource Loopstation.Shadow.Light}" />
     </Grid>
 
 </UserControl>

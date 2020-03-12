@@ -5,8 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation"
              mc:Ignorable="d">
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <local:LoopstationMain />
-        <local:LoopstationTracks Margin="0 -241px 0 0" />
-    </StackPanel>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="258px" />
+            <RowDefinition Height="258px" />
+            <RowDefinition Height="126px" />
+        </Grid.RowDefinitions>
+
+        <local:LoopstationMain Grid.Row="0" Grid.RowSpan="2" />
+
+        <local:LoopstationTracks Grid.Row="1" Grid.RowSpan="2" />
+
+        <Canvas x:Name="canvas" Opacity="1">
+            <!-- #region System -->
+
+            <!-- #region InputOutputSettings -->
+            <local:LoopstationArea Canvas.Top="28"
+                                   Canvas.Left="228"
+                                   Text="Input/Output Settings"
+                                   TextOffset="0 0 200 0"
+                                   Command="{Binding OpenInputOutputSettingsWindow}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="475" Y="0" />
+                    <Point X="475" Y="32" />
+                    <Point X="265" Y="32" />
+                    <Point X="265" Y="140" />
+                    <Point X="0" Y="140" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion InputOutputSettings -->
+
+            <!-- #endregion System -->
+        </Canvas>
+
+    </Grid>
 </UserControl>

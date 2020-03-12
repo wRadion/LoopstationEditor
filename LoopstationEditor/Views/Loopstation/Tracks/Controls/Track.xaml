@@ -15,13 +15,13 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="FontSize" Value="8px" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
                 <Setter Property="Margin" Value="0 0 0 4px" />
             </Style>
 
-            <Style x:Key="TrackNumber" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style x:Key="TrackNumber" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="Text" Value="{Binding TrackNumber, ElementName=_this}" />
                 <Setter Property="FontSize" Value="42px" />
                 <Setter Property="HorizontalAlignment" Value="Right" />

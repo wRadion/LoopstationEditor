@@ -2,9 +2,9 @@
 
 namespace LoopstationEditor.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class LoopstationViewModel : ViewModelBase
     {
-        public MainWindowViewModel()
+        public LoopstationViewModel()
         {
         }
     }

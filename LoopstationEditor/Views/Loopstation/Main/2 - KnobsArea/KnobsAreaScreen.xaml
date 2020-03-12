@@ -14,9 +14,9 @@
     </UserControl.Resources>
 
     <Grid>
-        <Border Height="70px" Background="{StaticResource Light}" CornerRadius="4">
-            <Border Height="50px" Margin="28px 0" Background="{StaticResource Screen}" CornerRadius="2"
-                    BorderThickness="4" BorderBrush="{StaticResource Darkest}" />
+        <Border Height="70px" Background="{StaticResource Loopstation.Light}" CornerRadius="4">
+            <Border Height="50px" Margin="28px 0" Background="{StaticResource Loopstation.Screen}" CornerRadius="2"
+                    BorderThickness="4" BorderBrush="{StaticResource Loopstation.Darkest}" />
         </Border>
     </Grid>
 

@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="Text" Value="EDIT" />
                 <Setter Property="FontSize" Value="16px" />
                 <Setter Property="LineHeight" Value="20px" />
@@ -22,8 +22,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border Background="{StaticResource Lightest}" CornerRadius="15" Padding="4px">
-        <Border Background="{StaticResource Dark}" CornerRadius="11">
+    <Border Background="{StaticResource Loopstation.Lightest}" CornerRadius="15" Padding="4px">
+        <Border Background="{StaticResource Loopstation.Dark}" CornerRadius="11">
             <TextBlock />
         </Border>
     </Border>

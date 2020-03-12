@@ -15,15 +15,15 @@
 
     <Grid>
         <!-- Border Shadow Dark -->
-        <Border BorderThickness="4px 16px 0 0" BorderBrush="{StaticResource ShadowDark}" />
+        <Border BorderThickness="4px 16px 0 0" BorderBrush="{StaticResource Loopstation.Shadow.Dark}" />
         <!-- Border Shadow Light -->
-        <Border BorderThickness="0 0 4px 16px" BorderBrush="{StaticResource ShadowLight}" />
+        <Border BorderThickness="0 0 4px 16px" BorderBrush="{StaticResource Loopstation.Shadow.Light}" />
 
         <!-- Level Slider -->
-        <Border Background="{StaticResource Dark}" CornerRadius="1" Margin="4px 16px" Padding="0 5px">
+        <Border Background="{StaticResource Loopstation.Dark}" CornerRadius="1" Margin="4px 16px" Padding="0 5px">
             <Grid>
-                <Border Background="{StaticResource Darkest}" BorderThickness="6px" Margin="23px 8px" BorderBrush="{StaticResource Darker}" />
-                <Border Background="{StaticResource Lightest}" BorderThickness="0 14px" Margin="0 12px 0 0" BorderBrush="{StaticResource Darker}"
+                <Border Background="{StaticResource Loopstation.Darkest}" BorderThickness="6px" Margin="23px 8px" BorderBrush="{StaticResource Loopstation.Darker}" />
+                <Border Background="{StaticResource Loopstation.Lightest}" BorderThickness="0 14px" Margin="0 12px 0 0" BorderBrush="{StaticResource Loopstation.Darker}"
                         VerticalAlignment="Top" Height="32px" />
             </Grid>
         </Border>

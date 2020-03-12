@@ -7,7 +7,8 @@
              xmlns:knobs="clr-namespace:LoopstationEditor.Views.Loopstation.Main.KnobsArea"
              xmlns:buttons="clr-namespace:LoopstationEditor.Views.Loopstation.Main.ButtonsArea"
              mc:Ignorable="d"
-             Width="1280px" Height="516px">
+             Width="1280px"
+             Height="516px">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,27 +17,27 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border BorderThickness="1" BorderBrush="{StaticResource MainBorder}" Background="{StaticResource ShadowDark}" CornerRadius="16">
+    <Border BorderThickness="1" BorderBrush="{StaticResource Loopstation.Border.Main}" Background="{StaticResource Loopstation.Shadow.Dark}" CornerRadius="16">
         <Grid>
             <!-- Border Shadow Light -->
-            <Border BorderThickness="16 16 0 0" BorderBrush="{StaticResource ShadowLight}" CornerRadius="8 24 10 24" />
+            <Border BorderThickness="16 16 0 0" BorderBrush="{StaticResource Loopstation.Shadow.Light}" CornerRadius="8 24 10 24" />
             <!-- Border Shadow Dark -->
-            <Border BorderThickness="0 0 32 32" BorderBrush="{StaticResource ShadowDark}" CornerRadius="10 16 10 16" />
+            <Border BorderThickness="0 0 32 32" BorderBrush="{StaticResource Loopstation.Shadow.Dark}" CornerRadius="10 16 10 16" />
             <!-- Border to hide ShadowDark background over ShadowLight -->
-            <Border Width="32px" Height="32px" CornerRadius="15.45" Background="{StaticResource ShadowLight}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Border Width="32px" Height="32px" CornerRadius="15.45" Background="{StaticResource Loopstation.Shadow.Light}" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
             <!-- Main Content-->
-            <Border Margin="16px" Padding="14px" Background="{StaticResource Dark}" CornerRadius="16">
+            <Border Margin="16px" Padding="14px" Background="{StaticResource Loopstation.Dark}" CornerRadius="16">
                 <StackPanel Orientation="Vertical">
-                    <Border Height="218px" Background="{StaticResource Darkest}" CornerRadius="16 16 0 0" Padding="16px 0" VerticalAlignment="Top">
+                    <Border Height="218px" Background="{StaticResource Loopstation.Darkest}" CornerRadius="16 16 0 0" Padding="16px 0" VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical">
                             <plugs:PlugsArea />
                             <knobs:KnobsArea />
                             <buttons:ButtonsArea />
                         </StackPanel>
                     </Border>
-                    <Border Height="12px" Background="{StaticResource Darkest}" />
-                    <Border Height="14px" Background="{StaticResource Light}" />
+                    <Border Height="12px" Background="{StaticResource Loopstation.Darkest}" />
+                    <Border Height="14px" Background="{StaticResource Loopstation.Light}" />
                 </StackPanel>
             </Border>
         </Grid>

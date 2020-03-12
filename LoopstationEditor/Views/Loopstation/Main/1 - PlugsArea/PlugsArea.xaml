@@ -11,21 +11,21 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="FontSize" Value="8px" />
                 <Setter Property="Margin" Value="0 1px 0 0" />
                 <Setter Property="VerticalAlignment" Value="Top" />
             </Style>
 
-            <Style x:Key="BottomText" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style x:Key="BottomText" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="FontSize" Value="8px" />
                 <Setter Property="Margin" Value="0 -3px 0 0" />
                 <Setter Property="Padding" Value="2px 0" />
-                <Setter Property="Background" Value="{StaticResource Darkest}" />
+                <Setter Property="Background" Value="{StaticResource Loopstation.Darkest}" />
             </Style>
 
             <Style TargetType="{x:Type Border}">
-                <Setter Property="BorderBrush" Value="{StaticResource Lightest}" />
+                <Setter Property="BorderBrush" Value="{StaticResource Loopstation.Lightest}" />
                 <Setter Property="BorderThickness" Value="0 1 0 0" />
             </Style>
         </ResourceDictionary>

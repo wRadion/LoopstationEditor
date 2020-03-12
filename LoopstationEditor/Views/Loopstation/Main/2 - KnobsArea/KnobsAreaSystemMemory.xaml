@@ -12,18 +12,18 @@
                 <ResourceDictionary Source="/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Base}">
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Base}">
                 <Setter Property="VerticalAlignment" Value="Bottom" />
                 <Setter Property="Margin" Value="0 0 0 6px" />
             </Style>
 
-            <Style x:Key="RhythmText" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource RedText}">
+            <Style x:Key="RhythmText" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Loopstation.Text.Red}">
                 <Setter Property="Text" Value="RHYTHM" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="67px 0 0 2px" />
             </Style>
 
-            <Style x:Key="RhythmBorder" TargetType="{x:Type Border}" BasedOn="{StaticResource RedBorder}">
+            <Style x:Key="RhythmBorder" TargetType="{x:Type Border}" BasedOn="{StaticResource Loopstation.Border.Red}">
                 <Setter Property="Width" Value="70px" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="58px 0 0 0" />

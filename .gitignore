@@ -6,6 +6,9 @@
 # Ignore ConsoleApp (debug & testing only)
 ConsoleApp/
 
+# Ignore LineEndingsUnifier file
+.leu
+
 # User-specific files
 *.rsuser
 *.suo

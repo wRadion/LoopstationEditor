@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:LoopstationEditor"
              StartupUri="Views/MainWindow/MainWindowView.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

@@ -275,28 +275,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LoopstationCommon\LoopstationCommon.csproj">
-      <Project>{08dbc420-7911-4a82-9bce-ad25312ee1d0}</Project>
-      <Name>LoopstationCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LoopstationModel\LoopstationModel.csproj">
-      <Project>{77af8eda-8efc-4531-be3a-fb5f7309dbda}</Project>
-      <Name>LoopstationModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LoopstationXml\LoopstationXml.csproj">
-      <Project>{4b9813b2-f49f-47f0-9b1d-13a95013870a}</Project>
-      <Name>LoopstationXml</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Settings\System\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Views\Resources\Images\icon.png" />
   </ItemGroup>

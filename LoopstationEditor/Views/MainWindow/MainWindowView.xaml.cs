@@ -11,7 +11,7 @@ namespace LoopstationEditor.Views.MainWindow
         {
             InitializeComponent();
 
-            this.DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

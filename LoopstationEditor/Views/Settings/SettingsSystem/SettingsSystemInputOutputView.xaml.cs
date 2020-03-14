@@ -7,9 +7,9 @@ namespace LoopstationEditor.Views.Settings.SystemSettings
     /// <summary>
     /// Interaction logic for InputOutputSettingsView.xaml
     /// </summary>
-    public partial class InputOutputSettingsView : UserControl
+    public partial class SettingsSystemInputOutputView : UserControl
     {
-        public InputOutputSettingsView(InputOutputSettingsViewModel viewModel)
+        public SettingsSystemInputOutputView(SettingsSystemInputOutputViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

@@ -8,6 +8,9 @@ namespace LoopstationEditor.Models.PropertyEngine
         protected ValueBool(int value) : base(value) { }
         protected ValueBool(bool value) : base(Convert.ToInt32(value)) { }
 
+        public static implicit operator int(ValueBool value) => value._value;
+        public static implicit operator ValueBool(int value) => new ValueBool(value);
+
         public static implicit operator bool(ValueBool value) => Convert.ToBoolean(value._value);
         public static implicit operator ValueBool(bool value) => new ValueBool(value);
     }

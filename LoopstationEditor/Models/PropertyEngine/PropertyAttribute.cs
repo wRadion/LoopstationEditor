@@ -4,14 +4,12 @@ namespace LoopstationEditor.Models.PropertyEngine
 {
     public class PropertyAttribute : Attribute
     {
-        public string Name { get; }
         public ValueInt DefaultValue { get; }
         public int MinimumValue { get; }
         public int MaximumValue { get; }
 
-        public PropertyAttribute(string name, object defaultValue, int minimumValue, int maximumValue)
+        public PropertyAttribute(object defaultValue, int minimumValue, int maximumValue)
         {
-            Name = name;
             MinimumValue = minimumValue;
             MaximumValue = maximumValue;
 

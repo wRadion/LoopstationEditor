@@ -1,11 +1,12 @@
-﻿using LoopstationEditor.ViewModels.Base;
-
-namespace LoopstationEditor.ViewModels
+﻿namespace LoopstationEditor.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModel
     {
+        public LoopstationViewModel LoopstationViewModel { get; }
+
         public MainWindowViewModel()
         {
+            LoopstationViewModel = new LoopstationViewModel();
         }
     }
 }

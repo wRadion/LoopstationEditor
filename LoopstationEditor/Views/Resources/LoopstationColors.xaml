@@ -40,4 +40,5 @@
         <Setter Property="BorderBrush" Value="{StaticResource Loopstation.Red}" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
     </Style>
+
 </ResourceDictionary>

@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="LoopstationEditor.Views.Settings.SystemSettings.SettingsSystemInputOutputView"
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.System_.SettingsSystemInputOutputView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:conv="clr-namespace:LoopstationEditor.Converters"
-             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.SystemSettings"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
              mc:Ignorable="d">
@@ -36,17 +36,16 @@
 
         <!-- Input NS Threshold (int) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Input NS Threshold" />
-        <Border Grid.Column="1" Grid.Row="0">
+        <Border Grid.Column="1" Grid.Row="0" DataContext="{Binding InputNSThreshold}">
             <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger x:Name="InNsThrsBox"
-                                     Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding InputNSThreshold, Mode=TwoWay}"
+                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
+                                     Value="{Binding Value, Mode=TwoWay}"
                                      Width="48px"
-                                     Minimum="{Binding InputNSThresholdMinimum}"
-                                     Maximum="{Binding InputNSThresholdMaximum}" />
-                <xd:Slider Value="{Binding InputNSThreshold, Mode=TwoWay}"
-                           Minimum="{Binding InputNSThresholdMinimum}"
-                           Maximum="{Binding InputNSThresholdMaximum}"
+                                     Minimum="{Binding MinimumValue}"
+                                     Maximum="{Binding MaximumValue}" />
+                <xd:Slider Value="{Binding Value, Mode=TwoWay}"
+                           Minimum="{Binding MinimumValue}"
+                           Maximum="{Binding MaximumValue}"
                            LargeChange="10"
                            TickFrequency="1"
                            IsSnapToTickEnabled="True"
@@ -56,17 +55,16 @@
 
         <!-- Line Out Level (int, level) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Line Out Level" />
-        <Border Grid.Column="1" Grid.Row="1">
+        <Border Grid.Column="1" Grid.Row="1" DataContext="{Binding LineOutLevel}">
             <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger x:Name="LineOutLvlBox"
-                                     Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding LineOutLevel, Mode=TwoWay, Converter={StaticResource Level}}"
+                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
+                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
                                      Width="48px"
-                                     Minimum="{Binding LineOutLevelMinimum, Converter={StaticResource Level}}"
-                                     Maximum="{Binding LineOutLevelMaximum, Converter={StaticResource Level}}" />
-                <xd:Slider Value="{Binding LineOutLevel, Mode=TwoWay, Converter={StaticResource Level}}"
-                           Minimum="{Binding LineOutLevelMinimum, Converter={StaticResource Level}}"
-                           Maximum="{Binding LineOutLevelMaximum, Converter={StaticResource Level}}"
+                                     Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
+                                     Maximum="{Binding MaximumValue, Converter={StaticResource Level}}" />
+                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
+                           Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
+                           Maximum="{Binding MaximumValue, Converter={StaticResource Level}}"
                            LargeChange="10"
                            TickFrequency="2"
                            IsSnapToTickEnabled="True"
@@ -76,22 +74,21 @@
 
         <!-- Input Source (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Input Source" />
-        <Border Grid.Column="1" Grid.Row="2">
-            <xd:ComboBox ItemsSource="{Binding InputSources}"
-                         SelectedItem="{Binding InputSourceString, Mode=TwoWay}" />
+        <Border Grid.Column="1" Grid.Row="2" DataContext="{Binding InputSource}">
+            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
         </Border>
 
         <!-- Input Line Out (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Input Line Out" />
-        <Border Grid.Column="1" Grid.Row="3">
-            <xd:Switch IsChecked="{Binding InputLineOut, Mode=TwoWay}" />
+        <Border Grid.Column="1" Grid.Row="3" DataContext="{Binding InputLineOut}">
+            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
         </Border>
 
         <!-- Output Level Selection (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Output Level Selection" />
-        <Border Grid.Column="1" Grid.Row="4">
-            <xd:ComboBox ItemsSource="{Binding OutputLevelSelections}"
-                         SelectedItem="{Binding OutputLevelSelectionString, Mode=TwoWay}" />
+        <Border Grid.Column="1" Grid.Row="4" DataContext="{Binding OutputLevelSelection}">
+            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
         </Border>
+
     </Grid>
 </UserControl>

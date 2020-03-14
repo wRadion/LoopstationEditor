@@ -1,10 +1,10 @@
 ﻿using System.Windows.Input;
 
 using LoopstationEditor.Commands;
-using LoopstationEditor.Models.Settings;
-using LoopstationEditor.ViewModels.Settings;
+using LoopstationEditor.Models.Settings.System;
+using LoopstationEditor.ViewModels.Settings.System;
 using LoopstationEditor.Views.Settings;
-using LoopstationEditor.Views.Settings.SystemSettings;
+using LoopstationEditor.Views.Settings.System_;
 
 namespace LoopstationEditor.ViewModels
 {
@@ -13,6 +13,7 @@ namespace LoopstationEditor.ViewModels
         public SettingsSystemModel _system;
 
         public ICommand OpenInputOutputSettingsWindow { get; }
+        public ICommand OpenSetupSettingsWindow { get; }
 
         public LoopstationViewModel()
         {
@@ -22,6 +23,12 @@ namespace LoopstationEditor.ViewModels
             {
                 SettingsSystemInputOutputViewModel viewModel = new SettingsSystemInputOutputViewModel(_system.InputOutput);
                 new SettingsWindow(viewModel, "Input/Output Settings", new SettingsSystemInputOutputView(viewModel)).Show();
+            });
+
+            OpenSetupSettingsWindow = new RelayCommand(() =>
+            {
+                SettingsSystemSetupViewModel viewModel = new SettingsSystemSetupViewModel(_system.Setup);
+                new SettingsWindow(viewModel, "Setup Settings", new SettingsSystemSetupView(viewModel)).Show();
             });
         }
     }

@@ -14,7 +14,7 @@ namespace LoopstationEditor.Extensions
             return (T)Enum.Parse(typeof(T), value.Replace(">", " THEN ").Replace("+", " PLUS ").Replace(' ', '_'));
         }
 
-        public static string[] GetEnums<T>()
+        public static string[] GetOptions<T>()
         {
             string[] names = Enum.GetNames(typeof(T));
             string[] enums = new string[names.Length];

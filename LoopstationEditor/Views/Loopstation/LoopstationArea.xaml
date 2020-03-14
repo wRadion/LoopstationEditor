@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Name="this_LoopstationArea">
     <UserControl.Resources>
-        <sys:Double x:Key="Background.Opacity.Normal">0</sys:Double>
+        <sys:Double x:Key="Background.Opacity.Normal">0.25</sys:Double>
         <sys:Double x:Key="Background.Opacity.Hover">0.25</sys:Double>
         <sys:Double x:Key="Background.Opacity.Pressed">0.1</sys:Double>
 
@@ -26,8 +26,8 @@
         <Color x:Key="Background" R="64" G="64" B="160" A="255" />
         <Color x:Key="Border"     R="32" G="32" B="128" A="255" />
 
-        <Duration x:Key="Duration.MouseEnter">00:00:00.2</Duration>
-        <Duration x:Key="Duration.MouseLeave">00:00:00.4</Duration>
+        <Duration x:Key="Duration.MouseEnter">00:00:00.00</Duration>
+        <Duration x:Key="Duration.MouseLeave">00:00:00.00</Duration>
         <Duration x:Key="Duration.MouseDown">00:00:00.00</Duration>
         <Duration x:Key="Duration.MouseUp">00:00:00.00</Duration>
 

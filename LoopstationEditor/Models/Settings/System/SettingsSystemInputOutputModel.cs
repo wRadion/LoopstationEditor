@@ -2,7 +2,7 @@
 
 using LoopstationEditor.Models.PropertyEngine;
 
-namespace LoopstationEditor.Models.Settings
+namespace LoopstationEditor.Models.Settings.System
 {
     public enum IOInputSource { MONO = 0, STEREO = 1 }
     public enum IOOutputLevelSelection { LINE_PLUS_PHONES = 0, PHONES = 1 }

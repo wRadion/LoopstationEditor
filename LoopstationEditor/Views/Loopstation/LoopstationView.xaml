@@ -19,6 +19,21 @@
         <Canvas x:Name="canvas" Opacity="1">
             <!-- #region System -->
 
+            <!-- #region SetupSettings -->
+            <local:LoopstationArea Canvas.Top="64"
+                                   Canvas.Right="189"
+                                   Text="Setup Settings"
+                                   TextOffset="-50 0 0 0"
+                                   Command="{Binding OpenSetupSettingsWindow}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="50" Y="0" />
+                    <Point X="50" Y="50" />
+                    <Point X="0" Y="50" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion SetupSettings -->
+
             <!-- #region InputOutputSettings -->
             <local:LoopstationArea Canvas.Top="28"
                                    Canvas.Left="228"

@@ -1,8 +1,8 @@
 ﻿using System.Windows.Controls;
 
-using LoopstationEditor.ViewModels.Settings;
+using LoopstationEditor.ViewModels.Settings.System;
 
-namespace LoopstationEditor.Views.Settings.SystemSettings
+namespace LoopstationEditor.Views.Settings.System_
 {
     /// <summary>
     /// Interaction logic for InputOutputSettingsView.xaml

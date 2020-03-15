@@ -5,7 +5,7 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class PropertyEnumViewModel<TEnum> : PropertyViewModel<ValueEnum<TEnum>> where TEnum : Enum
+    public class PropertyEnumViewModel<TEnum> : PropertyViewModel where TEnum : Enum
     {
         public string Value
         {

@@ -21,10 +21,10 @@
 
             <!-- #region SetupSettings -->
             <local:LoopstationArea Canvas.Top="64"
-                                   Canvas.Right="189"
-                                   Text="Setup Settings"
-                                   TextOffset="-50 0 0 0"
-                                   Command="{Binding OpenSetupSettingsWindow}">
+                                   Canvas.Right="222"
+                                   Text="Setup"
+                                   TextOffset="-8 0 0 0"
+                                   Command="{Binding OpenSystemWindowSetupTab}">
                 <local:LoopstationArea.Points>
                     <Point X="0" Y="0" />
                     <Point X="50" Y="0" />
@@ -37,9 +37,9 @@
             <!-- #region InputOutputSettings -->
             <local:LoopstationArea Canvas.Top="28"
                                    Canvas.Left="228"
-                                   Text="Input/Output Settings"
-                                   TextOffset="0 0 200 0"
-                                   Command="{Binding OpenInputOutputSettingsWindow}">
+                                   Text="Input/Output"
+                                   TextOffset="0 0 205 0"
+                                   Command="{Binding OpenSystemWindowInputOutputTab}">
                 <local:LoopstationArea.Points>
                     <Point X="0" Y="0" />
                     <Point X="475" Y="0" />
@@ -50,6 +50,36 @@
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
             <!-- #endregion InputOutputSettings -->
+
+            <!-- #region USBSettings -->
+            <local:LoopstationArea Canvas.Top="28"
+                                   Canvas.Right="290"
+                                   Text="USB"
+                                   TextOffset="0 -4 0 0"
+                                   Command="{Binding OpenSystemWindowUSBTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="70" Y="0" />
+                    <Point X="70" Y="32" />
+                    <Point X="0" Y="32" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion USBSettings -->
+
+            <!-- #region MIDISettings -->
+            <local:LoopstationArea Canvas.Top="28"
+                                   Canvas.Right="384"
+                                   Text="MIDI"
+                                   TextOffset="0 -4 0 0"
+                                   Command="{Binding OpenSystemWindowMIDITab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="105" Y="0" />
+                    <Point X="105" Y="32" />
+                    <Point X="0" Y="32" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion MIDISettings -->
 
             <!-- #endregion System -->
         </Canvas>

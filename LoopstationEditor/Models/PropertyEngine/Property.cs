@@ -23,7 +23,7 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public Property(string name, PropertyAttribute attr)
             : this(name, attr.MinimumValue, attr.MaximumValue, attr.DefaultValue) { }
-        private Property(string name, int minimumValue, int maximumValue, ValueInt value)
+        protected Property(string name, int minimumValue, int maximumValue, ValueInt value)
         {
             Name = name;
             MinimumValue = minimumValue;
@@ -33,13 +33,15 @@ namespace LoopstationEditor.Models.PropertyEngine
                 throw new ArgumentException("Maximum value must be greater than Minimum value.");
 
             if (value is ValueInt intValue)
-                _value = intValue;
+                Value = intValue;
             else if (value is ValueBool boolValue)
-                _value = boolValue;
+                Value = boolValue;
+            else if (value is ValueChar charValue)
+                Value = charValue;
             else
             {
                 Type type = typeof(ValueEnum<>).MakeGenericType(value.GetType());
-                _value = (ValueInt)Activator.CreateInstance(type, value);
+                Value = (ValueInt)Activator.CreateInstance(type, value);
             }
         }
 

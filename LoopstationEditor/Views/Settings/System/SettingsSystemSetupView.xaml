@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
              mc:Ignorable="d">
@@ -16,7 +16,8 @@
 
             <conv:IntToStringConverter x:Key="IntToString" />
 
-            <conv_loopstation:LevelConverter x:Key="Level" />
+            <conv_loopstation:AddIntConverter x:Key="MemoryNumber" Value="1" />
+            <conv_loopstation:MultiplyIntConverter x:Key="Level" Value="2" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -43,13 +44,13 @@
         <Border Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedMemory}">
             <StackPanel Orientation="Horizontal">
                 <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding Value, Mode=TwoWay}"
+                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource MemoryNumber}}"
                                      Width="48px"
-                                     Minimum="{Binding MinimumValue}"
-                                     Maximum="{Binding MaximumValue}" />
-                <xd:Slider Value="{Binding Value, Mode=TwoWay}"
-                           Minimum="{Binding MinimumValue}"
-                           Maximum="{Binding MaximumValue}"
+                                     Minimum="{Binding MinimumValue, Converter={StaticResource MemoryNumber}}"
+                                     Maximum="{Binding MaximumValue, Converter={StaticResource MemoryNumber}}" />
+                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource MemoryNumber}}"
+                           Minimum="{Binding MinimumValue, Converter={StaticResource MemoryNumber}}"
+                           Maximum="{Binding MaximumValue, Converter={StaticResource MemoryNumber}}"
                            LargeChange="10"
                            TickFrequency="1"
                            IsSnapToTickEnabled="True"

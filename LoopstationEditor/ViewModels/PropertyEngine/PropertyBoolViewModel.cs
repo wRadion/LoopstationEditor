@@ -2,7 +2,7 @@
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class PropertyBoolViewModel : PropertyViewModel<ValueBool>
+    public class PropertyBoolViewModel : PropertyViewModel
     {
         public bool Value
         {

@@ -2,7 +2,7 @@
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public abstract class PropertyViewModel<T> where T : ValueInt
+    public abstract class PropertyViewModel
     {
         protected string _name;
         protected PropertySet _set;

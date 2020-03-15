@@ -17,6 +17,8 @@ namespace LoopstationEditor.Models.PropertyEngine
                 DefaultValue = intValue;
             else if (defaultValue is bool boolValue)
                 DefaultValue = (ValueBool)boolValue;
+            else if (defaultValue is char charValue)
+                DefaultValue = (ValueChar)charValue;
             else if (defaultValue is Enum enumValue)
             {
                 Type type = typeof(ValueEnum<>).MakeGenericType(enumValue.GetType());

@@ -1,18 +1,15 @@
 ﻿using System.Windows.Controls;
 
-using LoopstationEditor.ViewModels.Settings.System;
-
 namespace LoopstationEditor.Views.Settings.System_
 {
     /// <summary>
-    /// Interaction logic for InputOutputSettingsView.xaml
+    /// Interaction logic for SettingsSystemInputOutputView.xaml
     /// </summary>
     public partial class SettingsSystemInputOutputView : UserControl
     {
-        public SettingsSystemInputOutputView(SettingsSystemInputOutputViewModel viewModel)
+        public SettingsSystemInputOutputView()
         {
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

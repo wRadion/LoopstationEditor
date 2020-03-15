@@ -2,7 +2,7 @@
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class PropertyIntViewModel : PropertyViewModel<ValueInt>
+    public class PropertyIntViewModel : PropertyViewModel
     {
         public int Value
         {

@@ -3,33 +3,28 @@
 using LoopstationEditor.Commands;
 using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.ViewModels.Settings.System;
-using LoopstationEditor.Views.Settings;
-using LoopstationEditor.Views.Settings.System_;
 
 namespace LoopstationEditor.ViewModels
 {
     public class LoopstationViewModel : ViewModel
     {
-        public SettingsSystemModel _system;
+        private SystemModel _systemModel;
+        private SystemViewModel _systemViewModel;
 
-        public ICommand OpenInputOutputSettingsWindow { get; }
-        public ICommand OpenSetupSettingsWindow { get; }
+        public ICommand OpenSystemWindowSetupTab { get; }
+        public ICommand OpenSystemWindowInputOutputTab { get; }
+        public ICommand OpenSystemWindowUSBTab { get; }
+        public ICommand OpenSystemWindowMIDITab { get; }
 
         public LoopstationViewModel()
         {
-            _system = new SettingsSystemModel();
+            _systemModel = new SystemModel();
+            _systemViewModel = new SystemViewModel(_systemModel);
 
-            OpenInputOutputSettingsWindow = new RelayCommand(() =>
-            {
-                SettingsSystemInputOutputViewModel viewModel = new SettingsSystemInputOutputViewModel(_system.InputOutput);
-                new SettingsWindow(viewModel, "Input/Output Settings", new SettingsSystemInputOutputView(viewModel)).Show();
-            });
-
-            OpenSetupSettingsWindow = new RelayCommand(() =>
-            {
-                SettingsSystemSetupViewModel viewModel = new SettingsSystemSetupViewModel(_system.Setup);
-                new SettingsWindow(viewModel, "Setup Settings", new SettingsSystemSetupView(viewModel)).Show();
-            });
+            OpenSystemWindowSetupTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.SETUP));
+            OpenSystemWindowInputOutputTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.INPUT_OUTPUT));
+            OpenSystemWindowUSBTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.USB));
+            OpenSystemWindowMIDITab = new RelayCommand(() => _systemViewModel.Show(SystemTab.MIDI));
         }
     }
 }

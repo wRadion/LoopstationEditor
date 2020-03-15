@@ -1,19 +1,23 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Collections;
-using System;
 
 namespace LoopstationEditor.Models.PropertyEngine
 {
     public class PropertySet
-
     {
         private readonly Dictionary<string, Property> _properties;
 
         public PropertySet(params Property[] properties)
         {
             _properties = new Dictionary<string, Property>();
-            properties.ToList().ForEach((p) => _properties.Add(p.Name, p));
+            properties.ToList().ForEach((p) =>
+            {
+                if (p is PropertyMixed mixedp)
+                    _properties.Add(p.Name, mixedp);
+                else
+                    _properties.Add(p.Name, p);
+            });
         }
 
         private void ContainsNameGuard(string name)
@@ -46,7 +50,14 @@ namespace LoopstationEditor.Models.PropertyEngine
             List<Property> list = _properties.Values.ToList();
 
             for (int i = 0; i < props.Length; ++i)
-                props[i] = list[i].Clone();
+            {
+                Property prop = list[i];
+
+                if (prop is PropertyMixed mixedProp)
+                    props[i] = mixedProp.Clone();
+                else
+                    props[i] = prop.Clone();
+            }
 
             return new PropertySet(props);
         }

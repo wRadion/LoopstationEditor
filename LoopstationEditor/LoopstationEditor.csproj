@@ -68,17 +68,67 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\IntToStringConverter.cs" />
-    <Compile Include="Converters\Loopstation\LevelConverter.cs" />
+    <Compile Include="Converters\Loopstation\DivideIntConverter.cs" />
+    <Compile Include="Converters\Loopstation\MultiplyIntConverter.cs" />
+    <Compile Include="Converters\Loopstation\AddIntConverter.cs" />
+    <Compile Include="Converters\Loopstation\SubstractIntConverter.cs" />
     <Compile Include="Extensions\EnumUtils.cs" />
     <Compile Include="Models\PropertyEngine\Property.cs" />
     <Compile Include="Models\PropertyEngine\PropertyAttribute.cs" />
+    <Compile Include="Models\PropertyEngine\PropertyMixed.cs" />
+    <Compile Include="Models\PropertyEngine\PropertyMixedAttribute.cs" />
     <Compile Include="Models\PropertyEngine\PropertySet.cs" />
+    <Compile Include="Models\PropertyEngine\ValueChar.cs" />
     <Compile Include="Models\PropertyEngine\ValueInt.cs" />
     <Compile Include="Models\PropertyEngine\ValueBool.cs" />
     <Compile Include="Models\PropertyEngine\ValueEnum.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxBeatRepeatModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxBeatScatterModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxBeatShiftModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxChorusModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxDelayModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxDynamicsModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxEqModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxFilterModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxFlangerModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxGranularDelayModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxGuitarToBassModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxIsolatorModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxLoFiModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxOctaveModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxPanModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxPanningDelayModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxPhaserModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxPitchBendModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxProperty.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxReverbModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxRingModulatorModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxRobotModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxRollModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxSlicerModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxSlowGearModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxSynthModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxTapeEchoModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxTransposeModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxTremoloModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxVinylFlickModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxVocalDistModel.cs" />
+    <Compile Include="Models\Settings\Memory\Fx\FxVocoderModel.cs" />
+    <Compile Include="Models\Settings\Memory\MemoryModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryAssignModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryFxModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryTrackFxModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryInputFxModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryMasterModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryNameModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryPlayOptionModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryRecOptionModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryRhythmModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryTrackModel.cs" />
+    <Compile Include="Models\Settings\SettingsContainerModel.cs" />
     <Compile Include="Models\Settings\SettingsModel.cs" />
     <Compile Include="Models\Settings\System\SettingsSystemMIDIModel.cs" />
-    <Compile Include="Models\Settings\System\SettingsSystemModel.cs" />
+    <Compile Include="Models\Settings\System\SystemModel.cs" />
     <Compile Include="Models\Settings\System\SettingsSystemInputOutputModel.cs" />
     <Compile Include="Models\Settings\System\SettingsSystemSetupModel.cs" />
     <Compile Include="Models\Settings\System\SettingsSystemUSBModel.cs" />
@@ -86,17 +136,25 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyBoolViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyEnumViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
+    <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemInputOutputViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemMIDIViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemSetupViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemUSBViewModel.cs" />
-    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Settings\System\SystemViewModel.cs" />
+    <Compile Include="Views\Settings\System\SettingsSystemMIDIView.xaml.cs">
+      <DependentUpon>SettingsSystemMIDIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\System\SettingsSystemUSBView.xaml.cs">
+      <DependentUpon>SettingsSystemUSBView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\System\SystemWindow.xaml.cs">
+      <DependentUpon>SystemWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\System\SettingsSystemSetupView.xaml.cs">
       <DependentUpon>SettingsSystemSetupView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Settings\SettingsWindow.xaml.cs">
-      <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\System\SettingsSystemInputOutputView.xaml.cs">
       <DependentUpon>SettingsSystemInputOutputView.xaml</DependentUpon>
@@ -271,11 +329,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Settings\System\SettingsSystemSetupView.xaml">
+    <Page Include="Views\Settings\System\SettingsSystemMIDIView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Settings\SettingsWindow.xaml">
+    <Page Include="Views\Settings\System\SettingsSystemUSBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\System\SystemWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings\System\SettingsSystemSetupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

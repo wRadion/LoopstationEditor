@@ -3,7 +3,7 @@
 namespace LoopstationEditor.Models.Settings.System
 {
     [XmlRoot("sys")]
-    public class SettingsSystemModel
+    public class SystemModel : SettingsContainerModel
     {
         [XmlElement("SETUP")]
         public SettingsSystemSetupModel Setup { get; set; }
@@ -17,7 +17,7 @@ namespace LoopstationEditor.Models.Settings.System
         [XmlElement("MIDI")]
         public SettingsSystemMIDIModel MIDI { get; set; }
 
-        public SettingsSystemModel()
+        public SystemModel()
         {
             Setup = new SettingsSystemSetupModel();
             InputOutput = new SettingsSystemInputOutputModel();

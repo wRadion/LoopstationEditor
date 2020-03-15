@@ -23,7 +23,13 @@ namespace LoopstationEditor.Models.Settings
                 XmlElementAttribute xmlAttr = prop.GetCustomAttribute<XmlElementAttribute>();
                 if (xmlAttr == null) continue;
 
-                Property propValue = new Property(xmlAttr.ElementName, attr);
+                Property propValue;
+
+                if (attr is PropertyMixedAttribute mixedAttr)
+                    propValue = new PropertyMixed(xmlAttr.ElementName, mixedAttr);
+                else
+                    propValue = new Property(xmlAttr.ElementName, attr);
+
                 properties.Add(propValue);
 
                 prop.SetValue(this, propValue.Value);

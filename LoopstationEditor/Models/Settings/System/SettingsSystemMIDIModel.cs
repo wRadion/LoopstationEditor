@@ -28,9 +28,8 @@ namespace LoopstationEditor.Models.Settings.System
         [Property(true, 0, 1)]
         public ValueBool Omni { get; set; }
 
-        // TODO MIXED
         [XmlElement(MIDIProperty.TxChannel, typeof(int))]
-        [Property(MIDITxChannel.RX, 0, 16)]
+        [PropertyMixed(MIDITxChannel.RX, 0, 16, 0, 15)]
         public ValueInt TxChannel { get; set; }
 
         [XmlElement(MIDIProperty.Sync, typeof(int))]

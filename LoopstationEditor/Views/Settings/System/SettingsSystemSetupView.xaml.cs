@@ -1,7 +1,5 @@
 ﻿using System.Windows.Controls;
 
-using LoopstationEditor.ViewModels.Settings.System;
-
 namespace LoopstationEditor.Views.Settings.System_
 {
     /// <summary>
@@ -9,10 +7,9 @@ namespace LoopstationEditor.Views.Settings.System_
     /// </summary>
     public partial class SettingsSystemSetupView : UserControl
     {
-        public SettingsSystemSetupView(SettingsSystemSetupViewModel viewModel)
+        public SettingsSystemSetupView()
         {
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.System_.SettingsSystemMIDIView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:IntToStringConverter x:Key="IntToString" />
+
+            <conv_loopstation:AddIntConverter x:Key="RxChannel" Value="1" />
+            <conv_loopstation:AddIntConverter x:Key="TxChannel" Value="1" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- MIDI RX Channel (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="MIDI RX Channel" />
+        <Border Grid.Column="1" Grid.Row="0" DataContext="{Binding RxChannel}">
+            <StackPanel Orientation="Horizontal">
+                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
+                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource RxChannel}}"
+                                     Width="48px"
+                                     Minimum="{Binding MinimumValue, Converter={StaticResource RxChannel}}"
+                                     Maximum="{Binding MaximumValue, Converter={StaticResource RxChannel}}" />
+                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource RxChannel}}"
+                           Minimum="{Binding MinimumValue, Converter={StaticResource RxChannel}}"
+                           Maximum="{Binding MaximumValue, Converter={StaticResource RxChannel}}"
+                           LargeChange="3"
+                           TickFrequency="1"
+                           IsSnapToTickEnabled="True"
+                           AutoToolTipPlacement="TopLeft" />
+            </StackPanel>
+        </Border>
+
+
+        <!-- MIDI Omni (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="MIDI Omni" />
+        <Border Grid.Column="1" Grid.Row="1" DataContext="{Binding Omni}">
+            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
+        </Border>
+
+
+        <!-- MIDI TX Channel (mixed) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="MIDI TX Channel" />
+        <Border Grid.Column="1" Grid.Row="2" DataContext="{Binding TxChannel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <xd:RadioButton x:Name="TxChannel_Int"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                IsChecked="{Binding IsInt, Mode=TwoWay}"
+                                Content="Integer value"
+                                GroupName="TxChannel" />
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Orientation="Horizontal"
+                            IsEnabled="{Binding ElementName=TxChannel_Int, Path=IsChecked, Mode=OneWay}">
+                    <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
+                                         Value="{Binding IntValue, Mode=TwoWay, Converter={StaticResource TxChannel}}"
+                                         Width="48px"
+                                         Minimum="{Binding MinimumIntValue, Converter={StaticResource TxChannel}}"
+                                         Maximum="{Binding MaximumIntValue, Converter={StaticResource TxChannel}}" />
+                    <xd:Slider Value="{Binding IntValue, Mode=TwoWay, Converter={StaticResource TxChannel}}"
+                               Minimum="{Binding MinimumIntValue, Converter={StaticResource TxChannel}}"
+                               Maximum="{Binding MaximumIntValue, Converter={StaticResource TxChannel}}"
+                               Width="100px"
+                               LargeChange="3"
+                               TickFrequency="1"
+                               IsSnapToTickEnabled="True"
+                               AutoToolTipPlacement="TopLeft" />
+                </StackPanel>
+
+                <xd:RadioButton x:Name="TxChannel_Enum"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                IsChecked="{Binding IsEnum, Mode=TwoWay}"
+                                Content="Other value"
+                                GroupName="TxChannel" />
+
+                <xd:ComboBox Grid.Column="1"
+                             Grid.Row="1"
+                             IsEnabled="{Binding ElementName=TxChannel_Enum, Path=IsChecked, Mode=OneWay}"
+                             ItemsSource="{Binding EnumOptions}"
+                             SelectedItem="{Binding EnumValue, Mode=TwoWay}" />
+            </Grid>
+        </Border>
+
+        <!-- MIDI Sync (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="MIDI Sync" />
+        <Border Grid.Column="1" Grid.Row="3" DataContext="{Binding Sync}">
+            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
+        </Border>
+
+        <!-- MIDI Sync Source (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="MIDI Sync Source" />
+        <Border Grid.Column="1" Grid.Row="4" DataContext="{Binding SyncSource}">
+            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
+        </Border>
+
+        <!-- MIDI PC Out (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="MIDI PC Out" />
+        <Border Grid.Column="1" Grid.Row="5" DataContext="{Binding PCOut}">
+            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
+        </Border>
+
+    </Grid>
+</UserControl>

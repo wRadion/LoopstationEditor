@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Name="this_LoopstationArea">
     <UserControl.Resources>
-        <sys:Double x:Key="Background.Opacity.Normal">0.25</sys:Double>
+        <sys:Double x:Key="Background.Opacity.Normal">0</sys:Double>
         <sys:Double x:Key="Background.Opacity.Hover">0.25</sys:Double>
         <sys:Double x:Key="Background.Opacity.Pressed">0.1</sys:Double>
 

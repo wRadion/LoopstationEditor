@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
              mc:Ignorable="d">
@@ -16,7 +16,7 @@
 
             <conv:IntToStringConverter x:Key="IntToString" />
 
-            <conv_loopstation:LevelConverter x:Key="Level" />
+            <conv_loopstation:MultiplyIntConverter x:Key="Level" Value="2" />
         </ResourceDictionary>
     </UserControl.Resources>
 

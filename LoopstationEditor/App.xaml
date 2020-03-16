@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:LoopstationEditor"
              StartupUri="Views/MainWindow/MainWindowView.xaml">
     <Application.Resources>
-        <FontFamily x:Key="LoopstationLCD">/LoopstationEditor;component/Views/Resources/Fonts/#loopstationlcd</FontFamily>
+        <FontFamily x:Key="LoopstationLCD">/LoopstationEditor;component/Views/Resources/Fonts/#loopstation lcd</FontFamily>
     </Application.Resources>
 </Application>

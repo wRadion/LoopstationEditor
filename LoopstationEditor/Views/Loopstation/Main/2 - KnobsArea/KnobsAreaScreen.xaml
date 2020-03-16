@@ -4,19 +4,96 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
+             x:Name="KnobsAreaScreen_this"
              Width="240px" Height="134px">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/LoopstationColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Width" Value="10px" />
+                <Setter Property="Height" Value="16px" />
+                <Setter Property="FontFamily" Value="{StaticResource LoopstationLCD}" />
+                <Setter Property="FontSize" Value="14px" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="Black" Opacity="0.5" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
-        <Border Height="70px" Background="{StaticResource Loopstation.Light}" CornerRadius="4">
-            <Border Height="50px" Margin="28px 0" Background="{StaticResource Loopstation.Screen}" CornerRadius="2"
-                    BorderThickness="4" BorderBrush="{StaticResource Loopstation.Darkest}" />
+        <Border Height="70px" Background="{StaticResource Loopstation.Light}" CornerRadius="2">
+            <Border Background="{StaticResource Loopstation.Screen}" CornerRadius="2"
+                    Margin="16px 8px" BorderThickness="2" BorderBrush="{StaticResource Loopstation.Darkest}">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="12px" />
+                        <ColumnDefinition Width="10px" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="18px" />
+                        <RowDefinition Height="16px" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Char1, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Char2, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding Char3, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding Char4, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="4" Grid.Row="0" Text="{Binding Char5, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="5" Grid.Row="0" Text="{Binding Char6, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="6" Grid.Row="0" Text="{Binding Char7, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="7" Grid.Row="0" Text="{Binding Char8, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="8" Grid.Row="0" Text="{Binding Char9, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="9" Grid.Row="0" Text="{Binding Char10, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="10" Grid.Row="0" Text="{Binding Char11, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="11" Grid.Row="0" Text="{Binding Char12, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="12" Grid.Row="0" Text="{Binding Char13, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="13" Grid.Row="0" Text="{Binding Char14, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="14" Grid.Row="0" Text="{Binding Char15, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="15" Grid.Row="0" Text="{Binding Char16, ElementName=KnobsAreaScreen_this}" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Char17, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Char18, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Char19, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Char20, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Char21, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="5" Grid.Row="1" Text="{Binding Char22, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Char23, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="7" Grid.Row="1" Text="{Binding Char24, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="8" Grid.Row="1" Text="{Binding Char25, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="9" Grid.Row="1" Text="{Binding Char26, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="10" Grid.Row="1" Text="{Binding Char27, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="11" Grid.Row="1" Text="{Binding Char28, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="12" Grid.Row="1" Text="{Binding Char29, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="13" Grid.Row="1" Text="{Binding Char30, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="14" Grid.Row="1" Text="{Binding Char31, ElementName=KnobsAreaScreen_this}" />
+                    <TextBlock Grid.Column="15" Grid.Row="1" Text="{Binding Char32, ElementName=KnobsAreaScreen_this}" />
+                </Grid>
+            </Border>
         </Border>
     </Grid>
 

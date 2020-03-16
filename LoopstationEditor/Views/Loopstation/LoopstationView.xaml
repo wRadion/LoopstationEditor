@@ -12,7 +12,7 @@
             <RowDefinition Height="126px" />
         </Grid.RowDefinitions>
 
-        <local:LoopstationMain Grid.Row="0" Grid.RowSpan="2" />
+        <local:LoopstationMain Grid.Row="0" Grid.RowSpan="2" DataContext="{Binding ScreenText}" />
 
         <local:LoopstationTracks Grid.Row="1" Grid.RowSpan="2" />
 

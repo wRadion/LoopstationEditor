@@ -20,6 +20,8 @@ namespace LoopstationEditor.Models.Settings.Memory
 
     public class SettingsMemoryAssignModel : SettingsModel
     {
+        public int AssignNumber { get; }
+
         [XmlElement(AssignProperty.Enabled, typeof(int))]
         [Property(false, 0, 1)]
         public ValueBool Enabled { get; set; }
@@ -44,6 +46,9 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(100, 0, 100)]
         public ValueInt TargetMax { get; set; }
 
-        public SettingsMemoryAssignModel() : base() { }
+        public SettingsMemoryAssignModel(int num) : base()
+        {
+            AssignNumber = num;
+        }
     }
 }

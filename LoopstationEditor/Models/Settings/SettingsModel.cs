@@ -6,11 +6,11 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.Models.Settings
 {
-    public abstract class SettingsModel
+    public abstract class SettingsModel : SettingsContainerModel
     {
         private readonly PropertySet _properties;
 
-        public SettingsModel()
+        public SettingsModel() : base()
         {
             List<Property> properties = new List<Property>();
 

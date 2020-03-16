@@ -14,9 +14,8 @@ namespace LoopstationEditor.ViewModels.Settings.System
         MIDI = 3
     }
 
-    public class SystemViewModel : ViewModel
+    public class SystemViewModel : SettingsContainerViewModel
     {
-        private SystemModel _model;
         private SystemWindow _view;
         private bool _isClosed;
 
@@ -31,8 +30,8 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public ICommand CancelChangesCommand { get; }
 
         public SystemViewModel(SystemModel model)
+            : base(model)
         {
-            _model = model;
             _view = null;
             _isClosed = true;
 
@@ -51,10 +50,12 @@ namespace LoopstationEditor.ViewModels.Settings.System
 
         public void InitViewModels()
         {
-            SetupViewModel = new SettingsSystemSetupViewModel(_model.Setup);
-            InputOutputViewModel = new SettingsSystemInputOutputViewModel(_model.InputOutput);
-            USBViewModel = new SettingsSystemUSBViewModel(_model.USB);
-            MIDIViewModel = new SettingsSystemMIDIViewModel(_model.MIDI);
+            SystemModel model = (SystemModel)_model;
+
+            SetupViewModel = new SettingsSystemSetupViewModel(model.Setup);
+            InputOutputViewModel = new SettingsSystemInputOutputViewModel(model.InputOutput);
+            USBViewModel = new SettingsSystemUSBViewModel(model.USB);
+            MIDIViewModel = new SettingsSystemMIDIViewModel(model.MIDI);
         }
 
         public void SelectTab(SystemTab tab) => SelectedTabIndex = (int)tab;

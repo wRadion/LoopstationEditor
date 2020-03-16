@@ -77,5 +77,61 @@ namespace LoopstationEditor.Models.Settings.Memory
         [XmlElement("TRACK_FX")]
         public SettingsMemoryTrackFxModel TrackFx { get; set; }
 
+        [XmlElement("INPUT_FX1")]
+        public SettingsMemoryFxInputModel InputFxA { get; set; }
+        [XmlElement("INPUT_FX2")]
+        public SettingsMemoryFxInputModel InputFxB { get; set; }
+        [XmlElement("INPUT_FX3")]
+        public SettingsMemoryFxInputModel InputFxC { get; set; }
+
+        [XmlElement("TRACK_FX1")]
+        public SettingsMemoryFxTrackModel TrackFxA { get; set; }
+        [XmlElement("TRACK_FX2")]
+        public SettingsMemoryFxTrackModel TrackFxB { get; set; }
+        [XmlElement("TRACK_FX3")]
+        public SettingsMemoryFxTrackModel TrackFxC { get; set; }
+
+        public MemoryModel() : base()
+        {
+            Track1 = new SettingsMemoryTrackModel();
+            Track2 = new SettingsMemoryTrackModel();
+            Track3 = new SettingsMemoryTrackModel();
+            Track4 = new SettingsMemoryTrackModel();
+            Track5 = new SettingsMemoryTrackModel();
+
+            Rhythm = new SettingsMemoryRhythmModel();
+            Name = new SettingsMemoryNameModel();
+            Master = new SettingsMemoryMasterModel();
+            RecOption = new SettingsMemoryRecOptionModel();
+            PlayOption = new SettingsMemoryPlayOptionModel();
+
+            Assign1 = new SettingsMemoryAssignModel(1);
+            Assign2 = new SettingsMemoryAssignModel(2);
+            Assign3 = new SettingsMemoryAssignModel(3);
+            Assign4 = new SettingsMemoryAssignModel(4);
+            Assign5 = new SettingsMemoryAssignModel(5);
+            Assign6 = new SettingsMemoryAssignModel(6);
+            Assign7 = new SettingsMemoryAssignModel(7);
+            Assign8 = new SettingsMemoryAssignModel(8);
+            Assign9 = new SettingsMemoryAssignModel(9);
+            Assign10 = new SettingsMemoryAssignModel(10);
+            Assign11 = new SettingsMemoryAssignModel(11);
+            Assign12 = new SettingsMemoryAssignModel(12);
+            Assign13 = new SettingsMemoryAssignModel(13);
+            Assign14 = new SettingsMemoryAssignModel(14);
+            Assign15 = new SettingsMemoryAssignModel(15);
+            Assign16 = new SettingsMemoryAssignModel(16);
+
+            InputFx = new SettingsMemoryInputFxModel();
+            TrackFx = new SettingsMemoryTrackFxModel();
+
+            InputFxA = new SettingsMemoryFxInputModel(FxSlot.A);
+            InputFxB = new SettingsMemoryFxInputModel(FxSlot.B);
+            InputFxC = new SettingsMemoryFxInputModel(FxSlot.C);
+
+            TrackFxA = new SettingsMemoryFxTrackModel(FxSlot.A);
+            TrackFxB = new SettingsMemoryFxTrackModel(FxSlot.B);
+            TrackFxC = new SettingsMemoryFxTrackModel(FxSlot.C);
+        }
     }
 }

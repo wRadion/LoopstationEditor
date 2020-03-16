@@ -17,7 +17,7 @@ namespace LoopstationEditor.Models.Settings.System
         [XmlElement("MIDI")]
         public SettingsSystemMIDIModel MIDI { get; set; }
 
-        public SystemModel()
+        public SystemModel() : base()
         {
             Setup = new SettingsSystemSetupModel();
             InputOutput = new SettingsSystemInputOutputModel();

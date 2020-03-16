@@ -116,7 +116,9 @@
     <Compile Include="Models\Settings\Memory\Fx\FxVocoderModel.cs" />
     <Compile Include="Models\Settings\Memory\MemoryModel.cs" />
     <Compile Include="Models\Settings\Memory\SettingsMemoryAssignModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryFxInputModel.cs" />
     <Compile Include="Models\Settings\Memory\SettingsMemoryFxModel.cs" />
+    <Compile Include="Models\Settings\Memory\SettingsMemoryFxTrackModel.cs" />
     <Compile Include="Models\Settings\Memory\SettingsMemoryTrackFxModel.cs" />
     <Compile Include="Models\Settings\Memory\SettingsMemoryInputFxModel.cs" />
     <Compile Include="Models\Settings\Memory\SettingsMemoryMasterModel.cs" />
@@ -138,6 +140,51 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatRepeatViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatScatterViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatShiftViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxChorusViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxDelayViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxDynamicsViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxEqViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxFilterViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxFlangerViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxGranularDelayViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxGuitarToBassViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxIsolatorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxLoFiViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxOctaveViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxPanningDelayViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxPanViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxPhaserViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxPitchBendViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxReverbViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxRingModulatorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxRobotViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxRollViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxSlicerViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxSlowGearViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxSynthViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxTapeEchoViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxTransposeViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxTremoloViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxVinylFlickViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxVocalDistViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxVocoderViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\MemoryViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryAssignViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryFxInputViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryFxTrackViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryFxViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryInputFxViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryMasterViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryNameViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryPlayOptionViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryRecOptionViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryRhythmViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryTrackFxViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\SettingsMemoryTrackViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsContainerViewModel.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemInputOutputViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemMIDIViewModel.cs" />
@@ -373,11 +420,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Views\Resources\Fonts\loopstationlcd.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Settings\Memory\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Resources\Images\icon.png" />
   </ItemGroup>

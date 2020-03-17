@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel LoFiSampleRate { get; }
         public PropertyIntViewModel LoFiBalance { get; }
 
-        public FxLoFiViewModel(FxLoFiModel model)
+        public FxLoFiViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             LoFiDepth = new PropertyIntViewModel(FxProperty.LoFiDepth, _properties);

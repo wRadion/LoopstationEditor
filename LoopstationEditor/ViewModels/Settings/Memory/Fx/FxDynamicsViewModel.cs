@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -8,7 +8,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyEnumViewModel<FxDynamicsType> DynamicsType { get; }
         public PropertyIntViewModel DynamicsDynamics { get; }
 
-        public FxDynamicsViewModel(FxDynamicsModel model)
+        public FxDynamicsViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             DynamicsType = new PropertyEnumViewModel<FxDynamicsType>(FxProperty.DynamicsType, _properties);

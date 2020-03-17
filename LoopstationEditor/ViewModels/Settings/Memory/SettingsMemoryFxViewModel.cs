@@ -33,35 +33,35 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public FxChorusViewModel Chorus { get; }
         public FxReverbViewModel Reverb { get; }
 
-        public SettingsMemoryFxViewModel(SettingsMemoryFxModel model) :
-            base(model)
+        public SettingsMemoryFxViewModel(SettingsMemoryFxModel model)
+            : base(model)
         {
-            Filter = new FxFilterViewModel(model.Filter);
-            Phaser = new FxPhaserViewModel(model.Phaser);
-            Flanger = new FxFlangerViewModel(model.Flanger);
-            Synth = new FxSynthViewModel(model.Synth);
-            LoFi = new FxLoFiViewModel(model.LoFi);
-            RingModulator = new FxRingModulatorViewModel(model.RingModulator);
-            GuitarToBass = new FxGuitarToBassViewModel(model.GuitarToBass);
-            SlowGear = new FxSlowGearViewModel(model.SlowGear);
-            Transpose = new FxTransposeViewModel(model.Transpose);
-            PitchBend = new FxPitchBendViewModel(model.PitchBend);
-            Robot = new FxRobotViewModel(model.Robot);
-            VocalDist = new FxVocalDistViewModel(model.VocalDist);
-            Dynamics = new FxDynamicsViewModel(model.Dynamics);
-            Eq = new FxEqViewModel(model.Eq);
-            Isolator = new FxIsolatorViewModel(model.Isolator);
-            Octave = new FxOctaveViewModel(model.Octave);
-            Pan = new FxPanViewModel(model.Pan);
-            Tremolo = new FxTremoloViewModel(model.Tremolo);
-            Slicer = new FxSlicerViewModel(model.Slicer);
-            Delay = new FxDelayViewModel(model.Delay);
-            PanningDelay = new FxPanningDelayViewModel(model.PanningDelay);
-            TapeEcho = new FxTapeEchoViewModel(model.TapeEcho);
-            GranularDelay = new FxGranularDelayViewModel(model.GranularDelay);
-            Roll = new FxRollViewModel(model.Roll);
-            Chorus = new FxChorusViewModel(model.Chorus);
-            Reverb = new FxReverbViewModel(model.Reverb);
+            Filter = new FxFilterViewModel(model);
+            Phaser = new FxPhaserViewModel(model);
+            Flanger = new FxFlangerViewModel(model);
+            Synth = new FxSynthViewModel(model);
+            LoFi = new FxLoFiViewModel(model);
+            RingModulator = new FxRingModulatorViewModel(model);
+            GuitarToBass = new FxGuitarToBassViewModel(model);
+            SlowGear = new FxSlowGearViewModel(model);
+            Transpose = new FxTransposeViewModel(model);
+            PitchBend = new FxPitchBendViewModel(model);
+            Robot = new FxRobotViewModel(model);
+            VocalDist = new FxVocalDistViewModel(model);
+            Dynamics = new FxDynamicsViewModel(model);
+            Eq = new FxEqViewModel(model);
+            Isolator = new FxIsolatorViewModel(model);
+            Octave = new FxOctaveViewModel(model);
+            Pan = new FxPanViewModel(model);
+            Tremolo = new FxTremoloViewModel(model);
+            Slicer = new FxSlicerViewModel(model);
+            Delay = new FxDelayViewModel(model);
+            PanningDelay = new FxPanningDelayViewModel(model);
+            TapeEcho = new FxTapeEchoViewModel(model);
+            GranularDelay = new FxGranularDelayViewModel(model);
+            Roll = new FxRollViewModel(model);
+            Chorus = new FxChorusViewModel(model);
+            Reverb = new FxReverbViewModel(model);
         }
     }
 }

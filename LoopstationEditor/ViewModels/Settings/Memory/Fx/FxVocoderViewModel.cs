@@ -1,5 +1,4 @@
 using LoopstationEditor.Models.Settings.Memory;
-using LoopstationEditor.Models.Settings.Memory.Fx;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +10,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel VocoderAttack { get; }
         public PropertyIntViewModel VocoderBalance { get; }
 
-        public FxVocoderViewModel(FxVocoderModel model)
+        public FxVocoderViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             VocoderCarrier = new PropertyEnumViewModel<Track>(FxProperty.VocoderCarrier, _properties);

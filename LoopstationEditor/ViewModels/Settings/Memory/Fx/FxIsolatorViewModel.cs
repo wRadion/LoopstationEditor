@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyMixedViewModel<FxStepRate> IsolatorStepRate { get; }
         public PropertyIntViewModel IsolatorLevel { get; }
 
-        public FxIsolatorViewModel(FxIsolatorModel model)
+        public FxIsolatorViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             IsolatorBand = new PropertyEnumViewModel<FxIsolatorBand>(FxProperty.IsolatorBand, _properties);

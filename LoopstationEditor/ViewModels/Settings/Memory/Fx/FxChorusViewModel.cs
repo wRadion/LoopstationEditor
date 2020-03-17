@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel ChorusDepth { get; }
         public PropertyIntViewModel ChorusLevel { get; }
 
-        public FxChorusViewModel(FxChorusModel model)
+        public FxChorusViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             ChorusRate = new PropertyMixedViewModel<FxRate>(FxProperty.ChorusRate, _properties);

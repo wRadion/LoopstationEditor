@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -8,7 +8,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel RingModulatorFrequency { get; }
         public PropertyIntViewModel RingModulatorBalance { get; }
 
-        public FxRingModulatorViewModel(FxRingModulatorModel model)
+        public FxRingModulatorViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             RingModulatorFrequency = new PropertyIntViewModel(FxProperty.RingModulatorFrequency, _properties);

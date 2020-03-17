@@ -5,18 +5,22 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 {
     public class SettingsMemoryFxTrackViewModel : SettingsMemoryFxViewModel
     {
+        private SettingsMemoryBeatFxModel _beatFxModel;
+
         public FxBeatRepeatViewModel BeatRepeat { get; }
         public FxBeatShiftViewModel BeatShift { get; }
         public FxBeatScatterViewModel BeatScatter { get; }
         public FxVinylFlickViewModel VinylFlick { get; }
 
-        public SettingsMemoryFxTrackViewModel(SettingsMemoryFxTrackModel model)
+        public SettingsMemoryFxTrackViewModel(SettingsMemoryFxModel model, SettingsMemoryBeatFxModel beatFxModel)
             : base(model)
         {
-            BeatRepeat = new FxBeatRepeatViewModel(model.BeatRepeat);
-            BeatShift = new FxBeatShiftViewModel(model.BeatShift);
-            BeatScatter = new FxBeatScatterViewModel(model.BeatScatter);
-            VinylFlick = new FxVinylFlickViewModel(model.VinylFlick);
+            _beatFxModel = beatFxModel;
+
+            BeatRepeat = new FxBeatRepeatViewModel(beatFxModel);
+            BeatShift = new FxBeatShiftViewModel(beatFxModel);
+            BeatScatter = new FxBeatScatterViewModel(beatFxModel);
+            VinylFlick = new FxVinylFlickViewModel(beatFxModel);
         }
     }
 }

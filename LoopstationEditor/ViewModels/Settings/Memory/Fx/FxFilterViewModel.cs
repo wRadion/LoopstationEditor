@@ -1,4 +1,4 @@
-﻿using LoopstationEditor.Models.Settings.Memory.Fx;
+﻿using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -12,7 +12,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel FilterCutoff { get; }
         public PropertyMixedViewModel<FxStepRate> FilterStepRate { get; }
 
-        public FxFilterViewModel(FxFilterModel model)
+        public FxFilterViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             FilterType = new PropertyEnumViewModel<FxFilterType>(FxProperty.FilterType, _properties);

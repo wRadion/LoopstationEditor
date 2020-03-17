@@ -1,4 +1,4 @@
-﻿using LoopstationEditor.Models.Settings.Memory.Fx;
+﻿using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyMixedViewModel<FxStepRate> PhaserStepRate { get; }
         public PropertyIntViewModel PhaserLevel { get; }
 
-        public FxPhaserViewModel(FxPhaserModel model)
+        public FxPhaserViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             PhaserRate = new PropertyMixedViewModel<FxRate>(FxProperty.PhaserRate, _properties);

@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel DelayFeedback { get; }
         public PropertyIntViewModel DelayLevel { get; }
 
-        public FxDelayViewModel(FxDelayModel model)
+        public FxDelayViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             DelayTime = new PropertyMixedViewModel<FxDelayTime>(FxProperty.DelayTime, _properties);

@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -8,11 +8,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyEnumViewModel<FxBeatRepeatType> BeatRepeatType { get; }
         public PropertyEnumViewModel<FxBeatRepeatLength> BeatRepeatLength { get; }
 
-        public FxBeatRepeatViewModel(FxBeatRepeatModel model)
+        public FxBeatRepeatViewModel(SettingsMemoryBeatFxModel model)
             : base(model)
         {
-            BeatRepeatType = new PropertyEnumViewModel<FxBeatRepeatType>(FxProperty.BeatRepeatType, _properties);
-            BeatRepeatLength = new PropertyEnumViewModel<FxBeatRepeatLength>(FxProperty.BeatRepeatLength, _properties);
+            BeatRepeatType = new PropertyEnumViewModel<FxBeatRepeatType>(BeatFxProperty.BeatRepeatType, _properties);
+            BeatRepeatLength = new PropertyEnumViewModel<FxBeatRepeatLength>(BeatFxProperty.BeatRepeatLength, _properties);
         }
     }
 }

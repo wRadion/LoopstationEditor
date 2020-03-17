@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel GranularDelayFeedback { get; }
         public PropertyIntViewModel GranularDelayLevel { get; }
 
-        public FxGranularDelayViewModel(FxGranularDelayModel model)
+        public FxGranularDelayViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             GranularDelayTime = new PropertyMixedViewModel<FxDelayTime>(FxProperty.GranularDelayTime, _properties);

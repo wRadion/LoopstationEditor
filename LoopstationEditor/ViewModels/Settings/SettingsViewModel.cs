@@ -1,4 +1,6 @@
-﻿using LoopstationEditor.Models.PropertyEngine;
+﻿using System.Linq;
+
+using LoopstationEditor.Models.PropertyEngine;
 using LoopstationEditor.Models.Settings;
 
 namespace LoopstationEditor.ViewModels.Settings
@@ -11,7 +13,7 @@ namespace LoopstationEditor.ViewModels.Settings
         public SettingsViewModel(SettingsModel model)
         {
             _model = model;
-            _properties = _model.CopyPropertySet();
+            _properties = _model.CopyPropertySet(GetType().GetProperties(SettingsModel.PropertyFlags).Select((prop) => prop.Name).ToArray());
         }
 
         public void ApplyChanges() => _model.PastePropertySet(_properties);

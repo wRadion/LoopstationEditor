@@ -44,7 +44,7 @@ namespace LoopstationEditor.Models.PropertyEngine
             return _properties[name];
         }
 
-        public PropertySet Clone()
+        public PropertySet Clone(params string[] names)
         {
             Property[] props = new Property[_properties.Count];
             List<Property> list = _properties.Values.ToList();
@@ -52,6 +52,9 @@ namespace LoopstationEditor.Models.PropertyEngine
             for (int i = 0; i < props.Length; ++i)
             {
                 Property prop = list[i];
+
+                if (names != null && names.Length > 0 && !names.Contains(props[i].Name))
+                    continue;
 
                 if (prop is PropertyMixed mixedProp)
                     props[i] = mixedProp.Clone();

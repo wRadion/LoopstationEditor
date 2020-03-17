@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -8,7 +8,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyEnumViewModel<FxOctaveMode> OctaveMod { get; }
         public PropertyIntViewModel OctaveLevel { get; }
 
-        public FxOctaveViewModel(FxOctaveModel model)
+        public FxOctaveViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             OctaveMod = new PropertyEnumViewModel<FxOctaveMode>(FxProperty.OctaveMod, _properties);

@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyMixedViewModel<FxRate> SlicerRate { get; }
         public PropertyIntViewModel SlicerDepth { get; }
 
-        public FxSlicerViewModel(FxSlicerModel model)
+        public FxSlicerViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             SlicerPattern = new PropertyEnumViewModel<FxSlicerPattern>(FxProperty.SlicerPattern, _properties);

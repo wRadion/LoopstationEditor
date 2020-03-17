@@ -72,20 +72,6 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(' ', 32, 126)]
         public ValueChar Character12 { get; set; }
 
-        public string Name
-        {
-            get => new string(new char[12]{ Character01, Character02, Character03, Character04,
-                Character05, Character06, Character07, Character08,
-                Character09, Character10, Character11, Character12 });
-
-            set
-            {
-                Character01 = value[0]; Character02 = value[1]; Character03 = value[2]; Character04 = value[3];
-                Character05 = value[4]; Character06 = value[5]; Character07 = value[6]; Character08 = value[7];
-                Character09 = value[8]; Character10 = value[9]; Character11 = value[10]; Character12 = value[11];
-            }
-        }
-
         public SettingsMemoryNameModel() : base() { }
     }
 }

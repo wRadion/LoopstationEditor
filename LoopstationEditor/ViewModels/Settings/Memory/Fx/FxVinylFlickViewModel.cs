@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -7,10 +7,10 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
     {
         public PropertyIntViewModel VinylFlick { get; }
 
-        public FxVinylFlickViewModel(FxVinylFlickModel model)
+        public FxVinylFlickViewModel(SettingsMemoryBeatFxModel model)
             : base(model)
         {
-            VinylFlick = new PropertyIntViewModel(FxProperty.VinylFlick, _properties);
+            VinylFlick = new PropertyIntViewModel(BeatFxProperty.VinylFlick, _properties);
         }
     }
 }

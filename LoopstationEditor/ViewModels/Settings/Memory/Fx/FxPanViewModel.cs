@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyMixedViewModel<FxStepRate> PanStepRate { get; }
         public PropertyIntViewModel PanPosition { get; }
 
-        public FxPanViewModel(FxPanModel model)
+        public FxPanViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             PanType = new PropertyEnumViewModel<FxPanType>(FxProperty.PanType, _properties);

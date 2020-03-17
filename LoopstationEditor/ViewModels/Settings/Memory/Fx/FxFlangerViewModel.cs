@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyMixedViewModel<FxStepRate> FlangerStepRate { get; }
         public PropertyIntViewModel FlangerLevel { get; }
 
-        public FxFlangerViewModel(FxFlangerModel model)
+        public FxFlangerViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             FlangerRate = new PropertyMixedViewModel<FxRate>(FxProperty.FlangerRate, _properties);

@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel PanningDelayFeedback { get; }
         public PropertyIntViewModel PanningDelayLevel { get; }
 
-        public FxPanningDelayViewModel(FxPanningDelayModel model)
+        public FxPanningDelayViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             PanningDelayTime = new PropertyMixedViewModel<FxDelayTime>(FxProperty.PanningDelayTime, _properties);

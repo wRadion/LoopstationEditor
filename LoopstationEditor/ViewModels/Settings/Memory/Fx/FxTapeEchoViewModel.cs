@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel TapeEchoIntensity { get; }
         public PropertyIntViewModel TapeEchoLevel { get; }
 
-        public FxTapeEchoViewModel(FxTapeEchoModel model)
+        public FxTapeEchoViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             TapeEchoRate = new PropertyIntViewModel(FxProperty.TapeEchoRate, _properties);

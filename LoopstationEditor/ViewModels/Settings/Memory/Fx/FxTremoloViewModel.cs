@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -9,7 +9,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel TremoloDepth { get; }
         public PropertyIntViewModel TremoloLevel { get; }
 
-        public FxTremoloViewModel(FxTremoloModel model)
+        public FxTremoloViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             TremoloRate = new PropertyMixedViewModel<FxRate>(FxProperty.TremoloRate, _properties);

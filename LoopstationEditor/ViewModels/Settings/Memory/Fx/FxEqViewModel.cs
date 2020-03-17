@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel EqHigh { get; }
         public PropertyIntViewModel EqLevel { get; }
 
-        public FxEqViewModel(FxEqModel model)
+        public FxEqViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             EqLow = new PropertyIntViewModel(FxProperty.EqLow, _properties);

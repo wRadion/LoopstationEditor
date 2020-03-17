@@ -1,4 +1,4 @@
-using LoopstationEditor.Models.Settings.Memory.Fx;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -10,7 +10,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel SynthDecay { get; }
         public PropertyIntViewModel SynthBalance { get; }
 
-        public FxSynthViewModel(FxSynthModel model)
+        public FxSynthViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
             SynthFrequency = new PropertyIntViewModel(FxProperty.SynthFrequency, _properties);

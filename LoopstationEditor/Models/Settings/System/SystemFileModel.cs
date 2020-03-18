@@ -10,13 +10,7 @@ namespace LoopstationEditor.Models.Settings.System
     {
         public const string FileName = "SYSTEM.RC0";
 
-        public static SystemFileModel Load(string path)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(SystemFileModel));
-            XmlReaderSettings settings = new XmlReaderSettings() { CloseInput = true };
-            using (XmlReader reader = XmlReader.Create(File.OpenRead(path), settings))
-                return (SystemFileModel)serializer.Deserialize(reader);
-        }
+        public static SystemFileModel Load(string file) => Load<SystemFileModel>(file);
 
         [XmlElement("sys")]
         public SystemModel System { get; set; }
@@ -24,20 +18,6 @@ namespace LoopstationEditor.Models.Settings.System
         public SystemFileModel() : base()
         {
             System = new SystemModel();
-        }
-
-        public void Save(string path)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(SystemFileModel));
-            XmlWriterSettings settings = new XmlWriterSettings()
-            {
-                CloseOutput = true,
-                Encoding = Encoding.UTF8,
-                Indent = true,
-                NewLineChars = "\n"
-            };
-            using (XmlWriter writer = XmlWriter.Create(File.OpenWrite(path), settings))
-                serializer.Serialize(writer, this, new XmlSerializerNamespaces(new XmlQualifiedName[] { new XmlQualifiedName() }));
         }
     }
 }

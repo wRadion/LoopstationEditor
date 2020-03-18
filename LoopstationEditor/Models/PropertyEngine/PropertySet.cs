@@ -53,7 +53,7 @@ namespace LoopstationEditor.Models.PropertyEngine
             {
                 Property prop = list[i];
 
-                if (names != null && names.Length > 0 && !names.Contains(props[i].Name))
+                if (names != null && names.Length > 0 && !names.Contains(prop.Name))
                     continue;
 
                 if (prop is PropertyMixed mixedProp)

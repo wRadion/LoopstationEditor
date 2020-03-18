@@ -8,7 +8,9 @@ namespace LoopstationEditor.Models.Settings.Memory
         public const string FileName = "MEMORY.RC0";
         public const int MemoryCount = 99;
 
-        [XmlArray("mem")]
+        public static MemoryFileModel Load(string file) => Load<MemoryFileModel>(file);
+
+        [XmlArrayItem("mem")]
         public MemoryModel[] Memories { get; set; }
 
         public MemoryFileModel() : base()

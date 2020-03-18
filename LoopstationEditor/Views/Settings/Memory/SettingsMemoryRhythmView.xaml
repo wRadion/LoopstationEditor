@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.SettingsMemoryRhythmView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Enabled (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Enabled" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="0" DataContext="{Binding Enabled}" />
+
+        <!-- Level (int, level) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Level" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding Level}"
+                          SmallChange="2" LargeChange="20" TickFrequency="2" />
+
+        <!-- Pattern (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Pattern" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="2" DataContext="{Binding Pattern}" />
+
+        <!-- Beat (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Beat" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="3" DataContext="{Binding Beat}" />
+
+        <!-- Line Out (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Line Out" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="4" DataContext="{Binding LineOut}" />
+
+        <!-- Rec Count (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Rec Count" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="5" DataContext="{Binding RecCount}" />
+
+        <!-- Play Count (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Play Count" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="6" DataContext="{Binding PlayCount}" />
+
+        <!-- Stop Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Stop Mode" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="7" DataContext="{Binding StopMode}" />
+    </Grid>
+</UserControl>

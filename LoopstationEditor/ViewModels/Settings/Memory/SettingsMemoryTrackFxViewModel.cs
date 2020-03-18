@@ -7,7 +7,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
     {
         public PropertyEnumViewModel<FxMode> Mode { get; }
         public PropertyBoolViewModel MultiMode { get; }
-        public PropertyEnumViewModel<FxSlotOrNone> SingleEnabledFx { get; }
+        public PropertyEnumViewModel<FxSlotOrNone> SingleEnabledFxSlot { get; }
         public PropertyEnumViewModel<FxSlot> SelectedFxSlot { get; }
         public PropertyEnumViewModel<SingleTrackFx> SelectedSingleFxA { get; }
         public PropertyEnumViewModel<SingleTrackFx> SelectedSingleFxB { get; }
@@ -20,17 +20,17 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryTrackFxViewModel(SettingsMemoryTrackFxModel model)
             : base(model)
         {
-            Mode = new PropertyEnumViewModel<FxMode>(TrackFxProperty.Mode, _properties);
-            MultiMode = new PropertyBoolViewModel(TrackFxProperty.MultiMode, _properties);
-            SingleEnabledFx = new PropertyEnumViewModel<FxSlotOrNone>(TrackFxProperty.SingleEnabledFxSlot, _properties);
-            SelectedFxSlot = new PropertyEnumViewModel<FxSlot>(TrackFxProperty.SelectedFxSlot, _properties);
-            SelectedSingleFxA = new PropertyEnumViewModel<SingleTrackFx>(TrackFxProperty.SelectedSingleFxA, _properties);
-            SelectedSingleFxB = new PropertyEnumViewModel<SingleTrackFx>(TrackFxProperty.SelectedSingleFxB, _properties);
-            SelectedSingleFxC = new PropertyEnumViewModel<SingleTrackFx>(TrackFxProperty.SelectedSingleFxC, _properties);
-            MultiEnabledFxSlot = new PropertyEnumViewModel<FxSlotBitwise>(TrackFxProperty.MultiEnabledFxSlot, _properties);
-            SelectedMultiFxA = new PropertyEnumViewModel<MultiTrackFxA>(TrackFxProperty.SelectedMultiFxA, _properties);
-            SelectedMultiFxB = new PropertyEnumViewModel<MultiTrackFxB>(TrackFxProperty.SelectedMultiFxB, _properties);
-            SelectedMultiFxC = new PropertyEnumViewModel<MultiTrackFxC>(TrackFxProperty.SelectedMultiFxC, _properties);
+            Mode = new PropertyEnumViewModel<FxMode>(nameof(Mode), _properties);
+            MultiMode = new PropertyBoolViewModel(nameof(MultiMode), _properties);
+            SingleEnabledFxSlot = new PropertyEnumViewModel<FxSlotOrNone>(nameof(SingleEnabledFxSlot), _properties);
+            SelectedFxSlot = new PropertyEnumViewModel<FxSlot>(nameof(SelectedFxSlot), _properties);
+            SelectedSingleFxA = new PropertyEnumViewModel<SingleTrackFx>(nameof(SelectedSingleFxA), _properties);
+            SelectedSingleFxB = new PropertyEnumViewModel<SingleTrackFx>(nameof(SelectedSingleFxB), _properties);
+            SelectedSingleFxC = new PropertyEnumViewModel<SingleTrackFx>(nameof(SelectedSingleFxC), _properties);
+            MultiEnabledFxSlot = new PropertyEnumViewModel<FxSlotBitwise>(nameof(MultiEnabledFxSlot), _properties);
+            SelectedMultiFxA = new PropertyEnumViewModel<MultiTrackFxA>(nameof(SelectedMultiFxA), _properties);
+            SelectedMultiFxB = new PropertyEnumViewModel<MultiTrackFxB>(nameof(SelectedMultiFxB), _properties);
+            SelectedMultiFxC = new PropertyEnumViewModel<MultiTrackFxC>(nameof(SelectedMultiFxC), _properties);
         }
     }
 }

@@ -1,3 +1,4 @@
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
@@ -12,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxVocalDistViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            VocalDistDistortion = new PropertyIntViewModel(FxProperty.VocalDistDistortion, _properties);
-            VocalDistTone = new PropertyIntViewModel(FxProperty.VocalDistTone, _properties);
-            VocalDistLevel = new PropertyIntViewModel(FxProperty.VocalDistLevel, _properties);
+            VocalDistDistortion = new PropertyIntViewModel(nameof(VocalDistDistortion), _properties);
+            VocalDistTone = new PropertyIntViewModel(nameof(VocalDistTone), _properties, new IntToneConverter());
+            VocalDistLevel = new PropertyIntViewModel(nameof(VocalDistLevel), _properties);
         }
     }
 }

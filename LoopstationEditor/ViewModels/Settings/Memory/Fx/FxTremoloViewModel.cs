@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxTremoloViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            TremoloRate = new PropertyMixedViewModel<FxRate>(FxProperty.TremoloRate, _properties);
-            TremoloDepth = new PropertyIntViewModel(FxProperty.TremoloDepth, _properties);
-            TremoloLevel = new PropertyIntViewModel(FxProperty.TremoloLevel, _properties);
+            TremoloRate = new PropertyMixedViewModel<FxRate>(nameof(TremoloRate), _properties);
+            TremoloDepth = new PropertyIntViewModel(nameof(TremoloDepth), _properties);
+            TremoloLevel = new PropertyIntViewModel(nameof(TremoloLevel), _properties);
         }
     }
 }

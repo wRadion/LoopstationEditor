@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
@@ -12,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxReverbViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            ReverbTime = new PropertyIntViewModel(FxProperty.ReverbTime, _properties);
-            ReverbLevel = new PropertyIntViewModel(FxProperty.ReverbLevel, _properties);
-            ReverbDryLevel = new PropertyIntViewModel(FxProperty.ReverbDryLevel, _properties);
+            ReverbTime = new PropertyIntViewModel(nameof(ReverbTime), _properties, new IntTimeConverter());
+            ReverbLevel = new PropertyIntViewModel(nameof(ReverbLevel), _properties);
+            ReverbDryLevel = new PropertyIntViewModel(nameof(ReverbDryLevel), _properties);
         }
     }
 }

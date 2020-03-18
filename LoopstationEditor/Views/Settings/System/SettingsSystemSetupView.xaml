@@ -4,20 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
-             xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <conv:IntToStringConverter x:Key="IntToString" />
-
-            <conv_loopstation:AddIntConverter x:Key="MemoryNumber" Value="1" />
-            <conv_loopstation:MultiplyIntConverter x:Key="Level" Value="2" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -41,83 +35,40 @@
 
         <!-- Selected Memory (int) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Selected Memory" />
-        <Border Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedMemory}">
-            <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource MemoryNumber}}"
-                                     Width="48px"
-                                     Minimum="{Binding MinimumValue, Converter={StaticResource MemoryNumber}}"
-                                     Maximum="{Binding MaximumValue, Converter={StaticResource MemoryNumber}}" />
-                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource MemoryNumber}}"
-                           Minimum="{Binding MinimumValue, Converter={StaticResource MemoryNumber}}"
-                           Maximum="{Binding MaximumValue, Converter={StaticResource MemoryNumber}}"
-                           LargeChange="10"
-                           TickFrequency="1"
-                           IsSnapToTickEnabled="True"
-                           AutoToolTipPlacement="TopLeft" />
-            </StackPanel>
-        </Border>
+        <prop:PropertyInt Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedMemory}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
 
         <!-- Lcd Contrast (int) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="LCD Contrast" />
-        <Border Grid.Column="1" Grid.Row="1" DataContext="{Binding LcdContrast}">
-            <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding Value, Mode=TwoWay}"
-                                     Width="48px"
-                                     Minimum="{Binding MinimumValue}"
-                                     Maximum="{Binding MaximumValue}" />
-                <xd:Slider Value="{Binding Value, Mode=TwoWay}"
-                           Minimum="{Binding MinimumValue}"
-                           Maximum="{Binding MaximumValue}"
-                           LargeChange="3"
-                           TickFrequency="1"
-                           IsSnapToTickEnabled="True"
-                           AutoToolTipPlacement="TopLeft" />
-            </StackPanel>
-        </Border>
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding LcdContrast}"
+                          SmallChange="1" LargeChange="3" TickFrequency="1" />
 
         <!-- Phantom Power (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Phantom Power" />
-        <Border Grid.Column="1" Grid.Row="2" DataContext="{Binding PhantomPower}">
-            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyBool Grid.Column="1" Grid.Row="2" DataContext="{Binding PhantomPower}" />
 
         <!-- Display Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Display Mode" />
-        <Border Grid.Column="1" Grid.Row="3" DataContext="{Binding DisplayMode}">
-            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="3" DataContext="{Binding DisplayMode}" />
 
         <!-- Indicator Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Indicator Mode" />
-        <Border Grid.Column="1" Grid.Row="4" DataContext="{Binding IndicatorMode}">
-            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="4" DataContext="{Binding IndicatorMode}" />
 
         <!-- AutoOff (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Auto Off" />
-        <Border Grid.Column="1" Grid.Row="5" DataContext="{Binding AutoOff}">
-            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyBool Grid.Column="1" Grid.Row="5" DataContext="{Binding AutoOff}" />
 
         <!-- AllClear (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="All Clear" />
-        <Border Grid.Column="1" Grid.Row="6" DataContext="{Binding AllClear}">
-            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyBool Grid.Column="1" Grid.Row="6" DataContext="{Binding AllClear}" />
 
         <!-- QuickClear (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Quick Clear" />
-        <Border Grid.Column="1" Grid.Row="7" DataContext="{Binding QuickClear}">
-            <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyBool Grid.Column="1" Grid.Row="7" DataContext="{Binding QuickClear}" />
 
         <!-- KnobMode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Knob Mode" />
-        <Border Grid.Column="1" Grid.Row="8" DataContext="{Binding KnobMode}">
-            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
-        </Border>
-
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="8" DataContext="{Binding KnobMode}" />
     </Grid>
 </UserControl>

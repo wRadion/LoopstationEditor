@@ -1,3 +1,4 @@
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
@@ -14,11 +15,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPanViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            PanType = new PropertyEnumViewModel<FxPanType>(FxProperty.PanType, _properties);
-            PanRate = new PropertyMixedViewModel<FxRate>(FxProperty.PanRate, _properties);
-            PanDepth = new PropertyIntViewModel(FxProperty.PanDepth, _properties);
-            PanStepRate = new PropertyMixedViewModel<FxStepRate>(FxProperty.PanStepRate, _properties);
-            PanPosition = new PropertyIntViewModel(FxProperty.PanPosition, _properties);
+            PanType = new PropertyEnumViewModel<FxPanType>(nameof(PanType), _properties);
+            PanRate = new PropertyMixedViewModel<FxRate>(nameof(PanRate), _properties);
+            PanDepth = new PropertyIntViewModel(nameof(PanDepth), _properties);
+            PanStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(PanStepRate), _properties);
+            PanPosition = new PropertyIntViewModel(nameof(PanPosition), _properties, new IntPanConverter());
         }
     }
 }

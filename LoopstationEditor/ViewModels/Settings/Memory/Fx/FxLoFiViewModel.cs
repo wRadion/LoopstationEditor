@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxLoFiViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            LoFiDepth = new PropertyIntViewModel(FxProperty.LoFiDepth, _properties);
-            LoFiSampleRate = new PropertyIntViewModel(FxProperty.LoFiSampleRate, _properties);
-            LoFiBalance = new PropertyIntViewModel(FxProperty.LoFiBalance, _properties);
+            LoFiDepth = new PropertyIntViewModel(nameof(LoFiDepth), _properties);
+            LoFiSampleRate = new PropertyIntViewModel(nameof(LoFiSampleRate), _properties);
+            LoFiBalance = new PropertyIntViewModel(nameof(LoFiBalance), _properties);
         }
     }
 }

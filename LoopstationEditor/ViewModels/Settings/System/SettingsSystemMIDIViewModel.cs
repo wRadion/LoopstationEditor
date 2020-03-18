@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.System;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -15,12 +16,12 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemMIDIViewModel(SettingsSystemMIDIModel model)
             : base(model)
         {
-            RxChannel = new PropertyIntViewModel(MIDIProperty.RxChannel, _properties);
-            Omni = new PropertyBoolViewModel(MIDIProperty.Omni, _properties);
-            TxChannel = new PropertyMixedViewModel<MIDITxChannel>(MIDIProperty.TxChannel, _properties);
-            Sync = new PropertyEnumViewModel<MIDISync>(MIDIProperty.Sync, _properties);
-            SyncSource = new PropertyEnumViewModel<MIDISyncSource>(MIDIProperty.SyncSource, _properties);
-            PCOut = new PropertyBoolViewModel(MIDIProperty.PCOut, _properties);
+            RxChannel = new PropertyIntViewModel(nameof(RxChannel), _properties, new IntChannelConverter());
+            Omni = new PropertyBoolViewModel(nameof(Omni), _properties);
+            TxChannel = new PropertyMixedViewModel<MIDITxChannel>(nameof(TxChannel), _properties, new IntChannelConverter());
+            Sync = new PropertyEnumViewModel<MIDISync>(nameof(Sync), _properties);
+            SyncSource = new PropertyEnumViewModel<MIDISyncSource>(nameof(SyncSource), _properties);
+            PCOut = new PropertyBoolViewModel(nameof(PCOut), _properties);
         }
     }
 }

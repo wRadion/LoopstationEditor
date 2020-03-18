@@ -1,3 +1,4 @@
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
@@ -14,11 +15,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxEqViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            EqLow = new PropertyIntViewModel(FxProperty.EqLow, _properties);
-            EqLowMid = new PropertyIntViewModel(FxProperty.EqLowMid, _properties);
-            EqHighMid = new PropertyIntViewModel(FxProperty.EqHighMid, _properties);
-            EqHigh = new PropertyIntViewModel(FxProperty.EqHigh, _properties);
-            EqLevel = new PropertyIntViewModel(FxProperty.EqLevel, _properties);
+            EqLow = new PropertyIntViewModel(nameof(EqLow), _properties, new IntDbConverter());
+            EqLowMid = new PropertyIntViewModel(nameof(EqLowMid), _properties, new IntDbConverter());
+            EqHighMid = new PropertyIntViewModel(nameof(EqHighMid), _properties, new IntDbConverter());
+            EqHigh = new PropertyIntViewModel(nameof(EqHigh), _properties, new IntDbConverter());
+            EqLevel = new PropertyIntViewModel(nameof(EqLevel), _properties, new IntDbConverter());
         }
     }
 }

@@ -13,12 +13,9 @@
         </Grid.RowDefinitions>
 
         <local:LoopstationMain Grid.Row="0" Grid.RowSpan="2" DataContext="{Binding ScreenText}" />
-
         <local:LoopstationTracks Grid.Row="1" Grid.RowSpan="2" />
 
-        <Canvas x:Name="canvas" Opacity="1">
-            <!-- #region System -->
-
+        <Canvas x:Name="systemCanvas" Opacity="1">
             <!-- #region SetupSettings -->
             <local:LoopstationArea Canvas.Top="64"
                                    Canvas.Right="222"
@@ -80,8 +77,22 @@
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
             <!-- #endregion MIDISettings -->
+        </Canvas> <!-- systemCanvas -->
 
-            <!-- #endregion System -->
+        <Canvas x:Name="memoryCanvas" Opacity="1">
+            <!-- #region RhythmSettings -->
+            <local:LoopstationArea Canvas.Bottom="0"
+                        Canvas.Right="352"
+                        Text="Rhythm"
+                        Command="{Binding OpenMemoryWindowRhythmTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="150" Y="0" />
+                    <Point X="150" Y="95" />
+                    <Point X="0" Y="95" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion RhythmSettings -->
         </Canvas>
 
     </Grid>

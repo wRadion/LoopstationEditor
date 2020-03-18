@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Property.PropertyInt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d"
+             x:Name="PropertyInt_this">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type xd:NumberBoxInteger}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8px 8px 0 8px" />
+        </Style>
+
+        <Style TargetType="{x:Type xd:Slider}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8px 8px 0 8px" />
+            <Setter Property="Width" Value="160px" />
+        </Style>
+
+        <conv:IntToStringConverter x:Key="IntToString" />
+    </UserControl.Resources>
+
+    <Border>
+        <StackPanel Orientation="Horizontal">
+            <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
+                                 Value="{Binding Value, Mode=TwoWay}"
+                                 Width="48px"
+                                 Minimum="{Binding MinimumValue}"
+                                 Maximum="{Binding MaximumValue}" />
+            <xd:Slider Value="{Binding Value, Mode=TwoWay}"
+                       Minimum="{Binding MinimumValue}"
+                       Maximum="{Binding MaximumValue}"
+                       SmallChange="{Binding SmallChange, ElementName=PropertyInt_this}"
+                       LargeChange="{Binding LargeChange, ElementName=PropertyInt_this}"
+                       TickFrequency="{Binding TickFrequency, ElementName=PropertyInt_this}"
+                       IsSnapToTickEnabled="True"
+                       AutoToolTipPlacement="TopLeft" />
+        </StackPanel>
+    </Border>
+
+</UserControl>

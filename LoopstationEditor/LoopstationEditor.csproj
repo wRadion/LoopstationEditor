@@ -70,11 +70,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
-    <Compile Include="Converters\Loopstation\DivideIntConverter.cs" />
-    <Compile Include="Converters\Loopstation\MultiplyIntConverter.cs" />
-    <Compile Include="Converters\Loopstation\AddIntConverter.cs" />
-    <Compile Include="Converters\Loopstation\SubstractIntConverter.cs" />
+    <Compile Include="Converters\Int\IntChannelConverter.cs" />
+    <Compile Include="Converters\Int\IntDbConverter.cs" />
+    <Compile Include="Converters\Int\IntDepthConverter.cs" />
+    <Compile Include="Converters\Int\IntGenderConverter.cs" />
+    <Compile Include="Converters\Int\IntIdentityConverter.cs" />
+    <Compile Include="Converters\Int\IntOctaveConverter.cs" />
+    <Compile Include="Converters\Int\IntSemitonesConverter.cs" />
+    <Compile Include="Converters\Int\IntTargetConverter.cs" />
+    <Compile Include="Converters\Int\IntLevelConverter.cs" />
+    <Compile Include="Converters\Int\IntMemoryNumberConverter.cs" />
+    <Compile Include="Converters\Int\IntPanConverter.cs" />
+    <Compile Include="Converters\Int\IntTempoConverter.cs" />
+    <Compile Include="Converters\Int\IntTimeConverter.cs" />
+    <Compile Include="Converters\Int\IntToneConverter.cs" />
+    <Compile Include="Converters\IValueConverter.cs" />
     <Compile Include="Extensions\EnumUtils.cs" />
     <Compile Include="Models\PropertyEngine\Property.cs" />
     <Compile Include="Models\PropertyEngine\PropertyAttribute.cs" />
@@ -113,6 +125,7 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\WindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatRepeatViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatScatterViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatShiftViewModel.cs" />
@@ -144,7 +157,7 @@
     <Compile Include="ViewModels\Settings\Memory\Fx\FxVinylFlickViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxVocalDistViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxVocoderViewModel.cs" />
-    <Compile Include="ViewModels\Settings\Memory\MemoryViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\MemoryWindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\SettingsMemoryAssignViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\SettingsMemoryFxInputViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\SettingsMemoryFxTrackViewModel.cs" />
@@ -163,7 +176,28 @@
     <Compile Include="ViewModels\Settings\System\SettingsSystemMIDIViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemSetupViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemUSBViewModel.cs" />
-    <Compile Include="ViewModels\Settings\System\SystemViewModel.cs" />
+    <Compile Include="ViewModels\Settings\System\SystemWindowViewModel.cs" />
+    <Compile Include="Views\Property\PropertyBitwise.xaml.cs">
+      <DependentUpon>PropertyBitwise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyBool.xaml.cs">
+      <DependentUpon>PropertyBool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyEnum.xaml.cs">
+      <DependentUpon>PropertyEnum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyInt.xaml.cs">
+      <DependentUpon>PropertyInt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyMixed.xaml.cs">
+      <DependentUpon>PropertyMixed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\MemoryWindow.xaml.cs">
+      <DependentUpon>MemoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml.cs">
+      <DependentUpon>SettingsMemoryRhythmView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\System\SettingsSystemMIDIView.xaml.cs">
       <DependentUpon>SettingsSystemMIDIView.xaml</DependentUpon>
     </Compile>
@@ -341,11 +375,39 @@
       <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Property\PropertyBitwise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Property\PropertyBool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Property\PropertyEnum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Property\PropertyInt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Property\PropertyMixed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Resources\LoopstationColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Resources\SettingsViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\MemoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -398,9 +460,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Settings\Memory\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Views\Resources\Images\icon.png" />
   </ItemGroup>

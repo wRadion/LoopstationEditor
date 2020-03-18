@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
@@ -15,12 +16,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryAssignViewModel(SettingsMemoryAssignModel model)
             : base(model)
         {
-            Enabled = new PropertyBoolViewModel(AssignProperty.Enabled, _properties);
-            Source = new PropertyEnumViewModel<AssignSource>(AssignProperty.Source, _properties);
-            SourceMode = new PropertyEnumViewModel<AssignSourceMode>(AssignProperty.SourceMode, _properties);
-            Target = new PropertyEnumViewModel<AssignTarget>(AssignProperty.Target, _properties);
-            TargetMin = new PropertyIntViewModel(AssignProperty.TargetMin, _properties);
-            TargetMax = new PropertyIntViewModel(AssignProperty.TargetMax, _properties);
+            Enabled = new PropertyBoolViewModel(nameof(Enabled), _properties);
+            Source = new PropertyEnumViewModel<AssignSource>(nameof(Source), _properties);
+            SourceMode = new PropertyEnumViewModel<AssignSourceMode>(nameof(SourceMode), _properties);
+            Target = new PropertyEnumViewModel<AssignTarget>(nameof(Target), _properties);
+            TargetMin = new PropertyIntViewModel(nameof(TargetMin), _properties, new IntTargetConverter());
+            TargetMax = new PropertyIntViewModel(nameof(TargetMax), _properties, new IntTargetConverter());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
     public static class RhythmProperty
     {
-        public const string Switch = "Sw";
+        public const string Enabled = "Sw";
         public const string Level = "Lvl";
         public const string Pattern = "Ptn";
         public const string Beat = "Bt";
@@ -23,9 +23,9 @@ namespace LoopstationEditor.Models.Settings.Memory
     }
     public class SettingsMemoryRhythmModel : SettingsModel
     {
-        [XmlElement(RhythmProperty.Switch, typeof(int))]
+        [XmlElement(RhythmProperty.Enabled, typeof(int))]
         [Property(false, 0, 1)]
-        public ValueBool Switch { get; set; }
+        public ValueBool Enabled { get; set; }
 
         [XmlElement(RhythmProperty.Level, typeof(int))]
         [Property(50, 0, 100)]

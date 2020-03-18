@@ -10,7 +10,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         public static MemoryFileModel Load(string file) => Load<MemoryFileModel>(file);
 
-        [XmlArrayItem("mem")]
+        [XmlElement("mem")]
         public MemoryModel[] Memories { get; set; }
 
         public MemoryFileModel() : base()
@@ -18,7 +18,7 @@ namespace LoopstationEditor.Models.Settings.Memory
             Memories = new MemoryModel[MemoryCount];
 
             for (int i = 0; i < Memories.Length; ++i)
-                Memories[i] = new MemoryModel();
+                Memories[i] = new MemoryModel(i);
         }
     }
 }

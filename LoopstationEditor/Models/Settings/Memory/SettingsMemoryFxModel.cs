@@ -360,7 +360,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(50, 0, 100)]
         public ValueInt PanDepth { get; set; }
         [XmlElement(FxProperty.PanStepRate, typeof(int))]
-        [Property(FxStepRate.OFF, 0, 115)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
         public ValueInt PanStepRate { get; set; }
         [XmlElement(FxProperty.PanPosition, typeof(int))]
         [Property(50, 0, 100)]
@@ -382,7 +382,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(FxSlicerPattern.P01, 0, 19)]
         public ValueEnum<FxSlicerPattern> SlicerPattern { get; set; }
         [XmlElement(FxProperty.SlicerRate, typeof(int))]
-        [Property(FxRate.EIGHTH_NOTE, 0, 114)]
+        [PropertyMixed(FxRate.EIGHTH_NOTE, 0, 114, 0, 100)]
         public ValueInt SlicerRate { get; set; }
         [XmlElement(FxProperty.SlicerDepth, typeof(int))]
         [Property(100, 0, 120)]

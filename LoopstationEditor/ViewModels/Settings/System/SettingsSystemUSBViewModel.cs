@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.System;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -13,10 +14,10 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemUSBViewModel(SettingsSystemUSBModel model)
             : base(model)
         {
-            Mode = new PropertyEnumViewModel<USBMode>(USBProperty.Mode, _properties);
-            AudioRouting = new PropertyEnumViewModel<USBAudioRouting>(USBProperty.AudioRouting, _properties);
-            InputLevel = new PropertyIntViewModel(USBProperty.InputLevel, _properties);
-            OutputLevel = new PropertyIntViewModel(USBProperty.OutputLevel, _properties);
+            Mode = new PropertyEnumViewModel<USBMode>(nameof(Mode), _properties);
+            AudioRouting = new PropertyEnumViewModel<USBAudioRouting>(nameof(AudioRouting), _properties);
+            InputLevel = new PropertyIntViewModel(nameof(InputLevel), _properties, new IntLevelConverter());
+            OutputLevel = new PropertyIntViewModel(nameof(OutputLevel), _properties, new IntLevelConverter());
         }
     }
 }

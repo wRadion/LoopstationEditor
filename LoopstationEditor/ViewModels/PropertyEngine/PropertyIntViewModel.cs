@@ -1,23 +1,27 @@
-﻿using LoopstationEditor.Models.PropertyEngine;
+﻿using LoopstationEditor.Converters;
+using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class PropertyIntViewModel : PropertyViewModel
+    public class PropertyIntViewModel : PropertyViewModel<int, int>
     {
         public int Value
         {
-            get => _set.GetValue<ValueInt>(_name);
-            set => _set.SetValue<ValueInt>(_name, value);
+            get => _converter.Convert(_set.GetValue<ValueInt>(_name));
+            set => _set.SetValue<ValueInt>(_name, _converter.ConvertBack(value));
         }
         public int MinimumValue { get; }
         public int MaximumValue { get; }
 
-        public PropertyIntViewModel(string name, PropertySet set) : base(name, set)
+        public PropertyIntViewModel(string name, PropertySet set) : this(name, set, new IntIdentityConverter()) { }
+        public PropertyIntViewModel(string name, PropertySet set, IValueConverter<int, int> converter)
+            : base(name, set, converter)
         {
             Property prop = set.GetProperty(name);
 
-            MinimumValue = prop.MinimumValue;
-            MaximumValue = prop.MaximumValue;
+            MinimumValue = _converter.Convert(prop.MinimumValue);
+            MaximumValue = _converter.Convert(prop.MaximumValue);
         }
     }
 }

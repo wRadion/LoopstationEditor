@@ -15,12 +15,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxFilterViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            FilterType = new PropertyEnumViewModel<FxFilterType>(FxProperty.FilterType, _properties);
-            FilterRate = new PropertyMixedViewModel<FxRate>(FxProperty.FilterRate, _properties);
-            FilterDepth = new PropertyIntViewModel(FxProperty.FilterDepth, _properties);
-            FilterResonance = new PropertyIntViewModel(FxProperty.FilterResonance, _properties);
-            FilterCutoff = new PropertyIntViewModel(FxProperty.FilterCutoff, _properties);
-            FilterStepRate = new PropertyMixedViewModel<FxStepRate>(FxProperty.FilterStepRate, _properties);
+            FilterType = new PropertyEnumViewModel<FxFilterType>(nameof(FilterType), _properties);
+            FilterRate = new PropertyMixedViewModel<FxRate>(nameof(FilterRate), _properties);
+            FilterDepth = new PropertyIntViewModel(nameof(FilterDepth), _properties);
+            FilterResonance = new PropertyIntViewModel(nameof(FilterResonance), _properties);
+            FilterCutoff = new PropertyIntViewModel(nameof(FilterCutoff), _properties);
+            FilterStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(FilterStepRate), _properties);
         }
     }
 }

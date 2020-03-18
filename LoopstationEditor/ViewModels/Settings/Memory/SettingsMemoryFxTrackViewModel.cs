@@ -5,7 +5,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 {
     public class SettingsMemoryFxTrackViewModel : SettingsMemoryFxViewModel
     {
-        private SettingsMemoryBeatFxModel _beatFxModel;
+        private readonly SettingsMemoryBeatFxModel _beatFxModel;
 
         public FxBeatRepeatViewModel BeatRepeat { get; }
         public FxBeatShiftViewModel BeatShift { get; }

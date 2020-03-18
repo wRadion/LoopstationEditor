@@ -4,19 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.System_"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
-             xmlns:conv_loopstation="clr-namespace:LoopstationEditor.Converters.Loopstation"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <conv:IntToStringConverter x:Key="IntToString" />
-
-            <conv_loopstation:MultiplyIntConverter x:Key="Level" Value="2" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -35,53 +30,20 @@
 
         <!-- USB Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="USB Mode" />
-        <Border Grid.Column="1" Grid.Row="0" DataContext="{Binding Mode}">
-            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="0" DataContext="{Binding Mode}" />
 
         <!-- USB Audio Routing (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="USB Audio Routing" />
-        <Border Grid.Column="1" Grid.Row="1" DataContext="{Binding AudioRouting}">
-            <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
-        </Border>
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="1" DataContext="{Binding AudioRouting}" />
 
-        <!-- USB Input Level (int) -->
+        <!-- USB Input Level (int, Level) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="USB Input Level" />
-        <Border Grid.Column="1" Grid.Row="2" DataContext="{Binding InputLevel}">
-            <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
-                                     Width="48px"
-                                     Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
-                                     Maximum="{Binding MaximumValue, Converter={StaticResource Level}}" />
-                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
-                           Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
-                           Maximum="{Binding MaximumValue, Converter={StaticResource Level}}"
-                           LargeChange="10"
-                           TickFrequency="2"
-                           IsSnapToTickEnabled="True"
-                           AutoToolTipPlacement="TopLeft" />
-            </StackPanel>
-        </Border>
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding InputLevel}"
+                          SmallChange="2" LargeChange="10" TickFrequency="2" />
 
-        <!-- USB Output Level (int) -->
+        <!-- USB Output Level (int, Level) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="USB Output Level" />
-        <Border Grid.Column="1" Grid.Row="3" DataContext="{Binding OutputLevel}">
-            <StackPanel Orientation="Horizontal">
-                <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                     Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
-                                     Width="48px"
-                                     Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
-                                     Maximum="{Binding MaximumValue, Converter={StaticResource Level}}" />
-                <xd:Slider Value="{Binding Value, Mode=TwoWay, Converter={StaticResource Level}}"
-                           Minimum="{Binding MinimumValue, Converter={StaticResource Level}}"
-                           Maximum="{Binding MaximumValue, Converter={StaticResource Level}}"
-                           LargeChange="10"
-                           TickFrequency="2"
-                           IsSnapToTickEnabled="True"
-                           AutoToolTipPlacement="TopLeft" />
-            </StackPanel>
-        </Border>
-
+        <prop:PropertyInt Grid.Column="1" Grid.Row="3" DataContext="{Binding OutputLevel}"
+                          SmallChange="2" LargeChange="10" TickFrequency="2" />
     </Grid>
 </UserControl>

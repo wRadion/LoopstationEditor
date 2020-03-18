@@ -1,7 +1,9 @@
 ﻿using System.Windows.Input;
 
 using LoopstationEditor.Commands;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.Models.Settings.System;
+using LoopstationEditor.ViewModels.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.System;
 
 namespace LoopstationEditor.ViewModels
@@ -16,8 +18,9 @@ namespace LoopstationEditor.ViewModels
 
     public class LoopstationViewModel : ViewModel
     {
-        private SystemModel _systemModel;
-        private SystemViewModel _systemViewModel;
+        private SystemWindowViewModel _systemViewModel;
+        private MemoryWindowViewModel[] _memoryViewModels;
+        private int _currentMemory;
 
         public ScreenText ScreenText { get; }
 
@@ -26,10 +29,16 @@ namespace LoopstationEditor.ViewModels
         public ICommand OpenSystemWindowUSBTab { get; }
         public ICommand OpenSystemWindowMIDITab { get; }
 
+        public ICommand OpenMemoryWindowRhythmTab { get; }
+
         public LoopstationViewModel()
         {
-            _systemModel = new SystemModel();
-            _systemViewModel = new SystemViewModel(_systemModel);
+            _systemViewModel = new SystemWindowViewModel(new SystemModel());
+            _memoryViewModels = new MemoryWindowViewModel[MemoryFileModel.MemoryCount];
+            _currentMemory = 0;
+
+            for (int i = 0; i < _memoryViewModels.Length; ++i)
+                _memoryViewModels[i] = new MemoryWindowViewModel(new MemoryModel(i));
 
             ScreenText = new ScreenText();
 
@@ -37,6 +46,8 @@ namespace LoopstationEditor.ViewModels
             OpenSystemWindowInputOutputTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.INPUT_OUTPUT));
             OpenSystemWindowUSBTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.USB));
             OpenSystemWindowMIDITab = new RelayCommand(() => _systemViewModel.Show(SystemTab.MIDI));
+
+            OpenMemoryWindowRhythmTab = new RelayCommand(() => _memoryViewModels[_currentMemory].Show(MemoryTab.TRACKS));
         }
     }
 }

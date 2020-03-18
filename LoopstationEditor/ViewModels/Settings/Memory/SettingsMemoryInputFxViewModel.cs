@@ -20,17 +20,17 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryInputFxViewModel(SettingsMemoryInputFxModel model)
             : base(model)
         {
-            Mode = new PropertyEnumViewModel<FxMode>(InputFxProperty.Mode, _properties);
-            MultiMode = new PropertyBoolViewModel(InputFxProperty.MultiMode, _properties);
-            SingleEnabledFxSlot = new PropertyEnumViewModel<FxSlotOrNone>(InputFxProperty.SingleEnabledFxSlot, _properties);
-            SelectedFxSlot = new PropertyEnumViewModel<FxSlot>(InputFxProperty.SelectedFxSlot, _properties);
-            SelectedSingleFxA = new PropertyEnumViewModel<SingleInputFx>(InputFxProperty.SelectedSingleFxA, _properties);
-            SelectedSingleFxB = new PropertyEnumViewModel<SingleInputFx>(InputFxProperty.SelectedSingleFxB, _properties);
-            SelectedSingleFxC = new PropertyEnumViewModel<SingleInputFx>(InputFxProperty.SelectedSingleFxC, _properties);
-            MultiEnabledFxSlot = new PropertyEnumViewModel<FxSlotBitwise>(InputFxProperty.MultiEnabledFxSlot, _properties);
-            SelectedMultiFxA = new PropertyEnumViewModel<MultiInputFxA>(InputFxProperty.SelectedMultiFxA, _properties);
-            SelectedMultiFxB = new PropertyEnumViewModel<MultiInputFxB>(InputFxProperty.SelectedMultiFxB, _properties);
-            SelectedMultiFxC = new PropertyEnumViewModel<MultiInputFxC>(InputFxProperty.SelectedMultiFxC, _properties);
+            Mode = new PropertyEnumViewModel<FxMode>(nameof(Mode), _properties);
+            MultiMode = new PropertyBoolViewModel(nameof(MultiMode), _properties);
+            SingleEnabledFxSlot = new PropertyEnumViewModel<FxSlotOrNone>(nameof(SingleEnabledFxSlot), _properties);
+            SelectedFxSlot = new PropertyEnumViewModel<FxSlot>(nameof(SelectedFxSlot), _properties);
+            SelectedSingleFxA = new PropertyEnumViewModel<SingleInputFx>(nameof(SelectedSingleFxA), _properties);
+            SelectedSingleFxB = new PropertyEnumViewModel<SingleInputFx>(nameof(SelectedSingleFxB), _properties);
+            SelectedSingleFxC = new PropertyEnumViewModel<SingleInputFx>(nameof(SelectedSingleFxC), _properties);
+            MultiEnabledFxSlot = new PropertyEnumViewModel<FxSlotBitwise>(nameof(MultiEnabledFxSlot), _properties);
+            SelectedMultiFxA = new PropertyEnumViewModel<MultiInputFxA>(nameof(SelectedMultiFxA), _properties);
+            SelectedMultiFxB = new PropertyEnumViewModel<MultiInputFxB>(nameof(SelectedMultiFxB), _properties);
+            SelectedMultiFxC = new PropertyEnumViewModel<MultiInputFxC>(nameof(SelectedMultiFxC), _properties);
         }
     }
 }

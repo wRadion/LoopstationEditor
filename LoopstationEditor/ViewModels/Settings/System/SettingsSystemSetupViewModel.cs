@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.System;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -18,15 +19,15 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemSetupViewModel(SettingsSystemSetupModel model)
             : base(model)
         {
-            SelectedMemory = new PropertyIntViewModel(SetupProperty.SelectedMemory, _properties);
-            LcdContrast = new PropertyIntViewModel(SetupProperty.LcdContrast, _properties);
-            PhantomPower = new PropertyBoolViewModel(SetupProperty.PhantomPower, _properties);
-            DisplayMode = new PropertyEnumViewModel<SetupDisplayMode>(SetupProperty.DisplayMode, _properties);
-            IndicatorMode = new PropertyEnumViewModel<SetupIndicatorMode>(SetupProperty.IndicatorMode, _properties);
-            AutoOff = new PropertyBoolViewModel(SetupProperty.AutoOff, _properties);
-            AllClear = new PropertyBoolViewModel(SetupProperty.AllClear, _properties);
-            QuickClear = new PropertyBoolViewModel(SetupProperty.QuickClear, _properties);
-            KnobMode = new PropertyEnumViewModel<SetupKnobMode>(SetupProperty.KnobMode, _properties);
+            SelectedMemory = new PropertyIntViewModel(nameof(SelectedMemory), _properties, new IntMemoryNumberConverter());
+            LcdContrast = new PropertyIntViewModel(nameof(LcdContrast), _properties);
+            PhantomPower = new PropertyBoolViewModel(nameof(PhantomPower), _properties);
+            DisplayMode = new PropertyEnumViewModel<SetupDisplayMode>(nameof(DisplayMode), _properties);
+            IndicatorMode = new PropertyEnumViewModel<SetupIndicatorMode>(nameof(IndicatorMode), _properties);
+            AutoOff = new PropertyBoolViewModel(nameof(AutoOff), _properties);
+            AllClear = new PropertyBoolViewModel(nameof(AllClear), _properties);
+            QuickClear = new PropertyBoolViewModel(nameof(QuickClear), _properties);
+            KnobMode = new PropertyEnumViewModel<SetupKnobMode>(nameof(KnobMode), _properties);
         }
     }
 }

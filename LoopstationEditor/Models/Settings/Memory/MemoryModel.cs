@@ -93,8 +93,11 @@ namespace LoopstationEditor.Models.Settings.Memory
         [XmlElement("TRACK_FX3")]
         public SettingsMemoryFxModel TrackFxC { get; set; }
 
-        public MemoryModel() : base()
+        public MemoryModel() : this(0) { }
+        public MemoryModel(int id) : base()
         {
+            Id = id;
+
             Track1 = new SettingsMemoryTrackModel();
             Track2 = new SettingsMemoryTrackModel();
             Track3 = new SettingsMemoryTrackModel();

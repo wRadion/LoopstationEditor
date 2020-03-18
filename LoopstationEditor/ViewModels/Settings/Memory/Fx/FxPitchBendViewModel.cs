@@ -1,3 +1,4 @@
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
@@ -11,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPitchBendViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            PitchBendOctave = new PropertyIntViewModel(FxProperty.PitchBendOctave, _properties);
-            PitchBendBend = new PropertyIntViewModel(FxProperty.PitchBendBend, _properties);
+            PitchBendOctave = new PropertyIntViewModel(nameof(PitchBendOctave), _properties, new IntOctaveConverter());
+            PitchBendBend = new PropertyIntViewModel(nameof(PitchBendBend), _properties);
         }
     }
 }

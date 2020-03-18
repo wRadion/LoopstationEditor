@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Models.Settings.System;
+﻿using LoopstationEditor.Converters.Int;
+using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -14,11 +15,11 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemInputOutputViewModel(SettingsSystemInputOutputModel model)
             : base(model)
         {
-            InputNSThreshold = new PropertyIntViewModel(InputOutputProperty.InputNSThreshold, _properties);
-            LineOutLevel = new PropertyIntViewModel(InputOutputProperty.LineOutLevel, _properties);
-            InputSource = new PropertyEnumViewModel<IOInputSource>(InputOutputProperty.InputSource, _properties);
-            InputLineOut = new PropertyBoolViewModel(InputOutputProperty.InputLineOut, _properties);
-            OutputLevelSelection = new PropertyEnumViewModel<IOOutputLevelSelection>(InputOutputProperty.OutputLevelSelection, _properties);
+            InputNSThreshold = new PropertyIntViewModel(nameof(InputNSThreshold), _properties);
+            LineOutLevel = new PropertyIntViewModel(nameof(LineOutLevel), _properties, new IntLevelConverter());
+            InputSource = new PropertyEnumViewModel<IOInputSource>(nameof(InputSource), _properties);
+            InputLineOut = new PropertyBoolViewModel(nameof(InputLineOut), _properties);
+            OutputLevelSelection = new PropertyEnumViewModel<IOOutputLevelSelection>(nameof(OutputLevelSelection), _properties);
         }
     }
 }

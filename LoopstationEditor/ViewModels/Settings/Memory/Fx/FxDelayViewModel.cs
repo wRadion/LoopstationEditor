@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxDelayViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            DelayTime = new PropertyMixedViewModel<FxDelayTime>(FxProperty.DelayTime, _properties);
-            DelayFeedback = new PropertyIntViewModel(FxProperty.DelayFeedback, _properties);
-            DelayLevel = new PropertyIntViewModel(FxProperty.DelayLevel, _properties);
+            DelayTime = new PropertyMixedViewModel<FxDelayTime>(nameof(DelayTime), _properties);
+            DelayFeedback = new PropertyIntViewModel(nameof(DelayFeedback), _properties);
+            DelayLevel = new PropertyIntViewModel(nameof(DelayLevel), _properties);
         }
     }
 }

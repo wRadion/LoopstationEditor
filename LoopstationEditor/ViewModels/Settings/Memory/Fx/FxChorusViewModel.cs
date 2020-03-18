@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxChorusViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            ChorusRate = new PropertyMixedViewModel<FxRate>(FxProperty.ChorusRate, _properties);
-            ChorusDepth = new PropertyIntViewModel(FxProperty.ChorusDepth, _properties);
-            ChorusLevel = new PropertyIntViewModel(FxProperty.ChorusLevel, _properties);
+            ChorusRate = new PropertyMixedViewModel<FxRate>(nameof(ChorusRate), _properties);
+            ChorusDepth = new PropertyIntViewModel(nameof(ChorusDepth), _properties);
+            ChorusLevel = new PropertyIntViewModel(nameof(ChorusLevel), _properties);
         }
     }
 }

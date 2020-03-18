@@ -14,11 +14,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPhaserViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            PhaserRate = new PropertyMixedViewModel<FxRate>(FxProperty.PhaserRate, _properties);
-            PhaserDepth = new PropertyIntViewModel(FxProperty.PhaserDepth, _properties);
-            PhaserResonance = new PropertyIntViewModel(FxProperty.PhaserResonance, _properties);
-            PhaserStepRate = new PropertyMixedViewModel<FxStepRate>(FxProperty.PhaserStepRate, _properties);
-            PhaserLevel = new PropertyIntViewModel(FxProperty.PhaserLevel, _properties);
+            PhaserRate = new PropertyMixedViewModel<FxRate>(nameof(PhaserRate), _properties);
+            PhaserDepth = new PropertyIntViewModel(nameof(PhaserDepth), _properties);
+            PhaserResonance = new PropertyIntViewModel(nameof(PhaserResonance), _properties);
+            PhaserStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(PhaserStepRate), _properties);
+            PhaserLevel = new PropertyIntViewModel(nameof(PhaserLevel), _properties);
         }
     }
 }

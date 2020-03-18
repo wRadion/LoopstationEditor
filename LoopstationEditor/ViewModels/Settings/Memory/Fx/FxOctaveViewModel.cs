@@ -11,8 +11,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxOctaveViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            OctaveMod = new PropertyEnumViewModel<FxOctaveMode>(FxProperty.OctaveMod, _properties);
-            OctaveLevel = new PropertyIntViewModel(FxProperty.OctaveLevel, _properties);
+            OctaveMod = new PropertyEnumViewModel<FxOctaveMode>(nameof(OctaveMod), _properties);
+            OctaveLevel = new PropertyIntViewModel(nameof(OctaveLevel), _properties);
         }
     }
 }

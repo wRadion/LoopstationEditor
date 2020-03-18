@@ -46,10 +46,11 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public PropertySet Clone(params string[] names)
         {
-            Property[] props = new Property[_properties.Count];
+            Property[] props = new Property[(names == null || names.Length == 0) ? _properties.Count : names.Length];
             List<Property> list = _properties.Values.ToList();
 
-            for (int i = 0; i < props.Length; ++i)
+            int currentIndex = 0;
+            for (int i = 0; i < list.Count; ++i)
             {
                 Property prop = list[i];
 
@@ -57,9 +58,9 @@ namespace LoopstationEditor.Models.PropertyEngine
                     continue;
 
                 if (prop is PropertyMixed mixedProp)
-                    props[i] = mixedProp.Clone();
+                    props[currentIndex++] = mixedProp.Clone();
                 else
-                    props[i] = prop.Clone();
+                    props[currentIndex++] = prop.Clone();
             }
 
             return new PropertySet(props);

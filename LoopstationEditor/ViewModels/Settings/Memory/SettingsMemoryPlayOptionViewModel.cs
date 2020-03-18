@@ -17,14 +17,14 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryPlayOptionViewModel(SettingsMemoryPlayOptionModel model)
             : base(model)
         {
-            SinglePlayChange = new PropertyEnumViewModel<PlayOptionSinglePlayChange>(PlayOptionProperty.SinglePlayChange, _properties);
-            LoopQuantize = new PropertyEnumViewModel<PlayOptionLoopQuantize>(PlayOptionProperty.LoopQuantize, _properties);
-            LoopMode = new PropertyEnumViewModel<PlayOptionLoopMode>(PlayOptionProperty.LoopMode, _properties);
-            LoopLength = new PropertyIntViewModel(PlayOptionProperty.LoopLength, _properties);
-            AllStart = new PropertyEnumViewModel<TrackBitwise>(PlayOptionProperty.AllStart, _properties);
-            AllStop = new PropertyEnumViewModel<TrackBitwise>(PlayOptionProperty.AllStop, _properties);
-            FadeTime = new PropertyIntViewModel(PlayOptionProperty.FadeTime, _properties);
-            TargetTrack = new PropertyEnumViewModel<Track>(PlayOptionProperty.TargetTrack, _properties);
+            SinglePlayChange = new PropertyEnumViewModel<PlayOptionSinglePlayChange>(nameof(SinglePlayChange), _properties);
+            LoopQuantize = new PropertyEnumViewModel<PlayOptionLoopQuantize>(nameof(LoopQuantize), _properties);
+            LoopMode = new PropertyEnumViewModel<PlayOptionLoopMode>(nameof(LoopMode), _properties);
+            LoopLength = new PropertyIntViewModel(nameof(LoopLength), _properties);
+            AllStart = new PropertyEnumViewModel<TrackBitwise>(nameof(AllStart), _properties);
+            AllStop = new PropertyEnumViewModel<TrackBitwise>(nameof(AllStop), _properties);
+            FadeTime = new PropertyIntViewModel(nameof(FadeTime), _properties);
+            TargetTrack = new PropertyEnumViewModel<Track>(nameof(TargetTrack), _properties);
         }
     }
 }

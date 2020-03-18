@@ -8,29 +8,4 @@
         <Setter Property="Margin" Value="0 0 8px 0" />
     </Style>
 
-    <Style TargetType="{x:Type xd:NumberBoxInteger}">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="8px 8px 0 8px" />
-    </Style>
-
-    <Style TargetType="{x:Type xd:Slider}">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="8px 8px 0 8px" />
-        <Setter Property="Width" Value="160px" />
-    </Style>
-
-    <Style TargetType="{x:Type xd:ComboBox}">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="8px 8px 0 8px" />
-    </Style>
-
-    <Style TargetType="{x:Type xd:Switch}">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="8px 8px 0 8px" />
-    </Style>
-
 </ResourceDictionary>

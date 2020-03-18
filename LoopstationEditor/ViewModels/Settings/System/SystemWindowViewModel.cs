@@ -14,28 +14,16 @@ namespace LoopstationEditor.ViewModels.Settings.System
         MIDI = 3
     }
 
-    public class SystemViewModel : SettingsContainerViewModel
+    public class SystemWindowViewModel : WindowViewModel<SystemWindow>
     {
-        private SystemWindow _view;
-        private bool _isClosed;
-
         public SettingsSystemSetupViewModel SetupViewModel { get; private set; }
         public SettingsSystemInputOutputViewModel InputOutputViewModel { get; private set; }
         public SettingsSystemUSBViewModel USBViewModel { get; private set; }
         public SettingsSystemMIDIViewModel MIDIViewModel { get; private set; }
 
-        public int SelectedTabIndex { get; set; }
-
-        public ICommand ApplyChangesCommand { get; }
-        public ICommand CancelChangesCommand { get; }
-
-        public SystemViewModel(SystemModel model)
+        public SystemWindowViewModel(SystemModel model)
             : base(model)
         {
-            _view = null;
-            _isClosed = true;
-
-            InitViewModels();
             SelectTab(SystemTab.SETUP);
 
             ApplyChangesCommand = new RelayCommand(() =>
@@ -45,10 +33,9 @@ namespace LoopstationEditor.ViewModels.Settings.System
                 USBViewModel.ApplyChanges();
                 MIDIViewModel.ApplyChanges();
             });
-            CancelChangesCommand = new RelayCommand(() => { });
         }
 
-        public void InitViewModels()
+        protected override void InitViewModels()
         {
             SystemModel model = (SystemModel)_model;
 
@@ -56,24 +43,6 @@ namespace LoopstationEditor.ViewModels.Settings.System
             InputOutputViewModel = new SettingsSystemInputOutputViewModel(model.InputOutput);
             USBViewModel = new SettingsSystemUSBViewModel(model.USB);
             MIDIViewModel = new SettingsSystemMIDIViewModel(model.MIDI);
-        }
-
-        public void SelectTab(SystemTab tab) => SelectedTabIndex = (int)tab;
-
-        public void Show(SystemTab tab)
-        {
-            if (_view == null || _isClosed)
-            {
-                _isClosed = false;
-                _view = new SystemWindow(this);
-                InitViewModels();
-                _view.Closed += (sender, e) => _isClosed = true;
-                _view.Show();
-            }
-            else
-                _view.Focus();
-
-            SelectTab(tab);
         }
     }
 }

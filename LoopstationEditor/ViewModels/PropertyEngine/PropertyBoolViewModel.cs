@@ -2,7 +2,7 @@
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class PropertyBoolViewModel : PropertyViewModel
+    public class PropertyBoolViewModel : PropertyViewModel<bool, bool>
     {
         public bool Value
         {
@@ -10,6 +10,6 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             set => _set.SetValue<ValueBool>(_name, value);
         }
 
-        public PropertyBoolViewModel(string name, PropertySet set) : base(name, set) { }
+        public PropertyBoolViewModel(string name, PropertySet set) : base(name, set, null) { }
     }
 }

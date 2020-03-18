@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxTapeEchoViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            TapeEchoRate = new PropertyIntViewModel(FxProperty.TapeEchoRate, _properties);
-            TapeEchoIntensity = new PropertyIntViewModel(FxProperty.TapeEchoIntensity, _properties);
-            TapeEchoLevel = new PropertyIntViewModel(FxProperty.TapeEchoLevel, _properties);
+            TapeEchoRate = new PropertyIntViewModel(nameof(TapeEchoRate), _properties);
+            TapeEchoIntensity = new PropertyIntViewModel(nameof(TapeEchoIntensity), _properties);
+            TapeEchoLevel = new PropertyIntViewModel(nameof(TapeEchoLevel), _properties);
         }
     }
 }

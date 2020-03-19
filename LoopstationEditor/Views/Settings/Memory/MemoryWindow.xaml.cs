@@ -1,4 +1,5 @@
 ﻿using LoopstationEditor.ViewModels.Settings.Memory;
+using System.Windows;
 
 namespace LoopstationEditor.Views.Settings.Memory
 {
@@ -7,6 +8,14 @@ namespace LoopstationEditor.Views.Settings.Memory
     /// </summary>
     public partial class MemoryWindow : XenionDark.Windows.Window
     {
+        public static DependencyProperty SelectedSubtabIndexProperty = DependencyProperty.Register("SelectedSubtabIndex", typeof(int), typeof(MemoryWindow));
+
+        public int SelectedSubtabIndex
+        {
+            get => (int)GetValue(SelectedSubtabIndexProperty);
+            set => SetValue(SelectedSubtabIndexProperty, value);
+        }
+
         public MemoryWindow(MemoryWindowViewModel viewModel)
         {
             InitializeComponent();
@@ -19,7 +28,12 @@ namespace LoopstationEditor.Views.Settings.Memory
             Title += $" - { viewModel.Id.ToString("D2") }";
         }
 
-        private void OK_Click(object sender, System.Windows.RoutedEventArgs e) => Close();
-        private void Cancel_Click(object sender, System.Windows.RoutedEventArgs e) => Close();
+        public void SetSelectedSubtabIndex(int index)
+        {
+            SelectedSubtabIndex = index;
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e) => Close();
+        private void Cancel_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

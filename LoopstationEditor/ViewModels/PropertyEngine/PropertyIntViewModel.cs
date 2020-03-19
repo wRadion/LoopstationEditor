@@ -23,5 +23,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             MinimumValue = _converter.Convert(prop.MinimumValue);
             MaximumValue = _converter.Convert(prop.MaximumValue);
         }
+
+        public override string ToString() => Value.ToString();
     }
 }

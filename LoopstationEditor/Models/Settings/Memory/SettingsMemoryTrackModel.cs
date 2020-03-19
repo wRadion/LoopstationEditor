@@ -25,7 +25,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         public const string PlayLevel = "PlyLvl";
         public const string Pan = "Pan";
         public const string OneShot = "One";
-        public const string TrackFX = "TrkFx";
+        public const string TrackFx = "TrkFx";
         public const string PlayMode = "PlyMod";
         public const string StartMode = "StrtMod";
         public const string StopMode = "StpMod";
@@ -57,9 +57,9 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(false, 0, 1)]
         public ValueBool OneShot { get; set; }
 
-        [XmlElement(TrackProperty.TrackFX, typeof(int))]
+        [XmlElement(TrackProperty.TrackFx, typeof(int))]
         [Property(true, 0, 1)]
-        public ValueBool TrackFX { get; set; }
+        public ValueBool TrackFx { get; set; }
 
         [XmlElement(TrackProperty.PlayMode, typeof(int))]
         [Property(TrackPlayMode.MULTI, 0, 1)]

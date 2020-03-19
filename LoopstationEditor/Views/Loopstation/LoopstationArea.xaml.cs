@@ -14,6 +14,7 @@ namespace LoopstationEditor.Views.Loopstation
         public static DependencyProperty TextOffsetProperty = DependencyProperty.Register("TextOffset", typeof(Thickness), typeof(LoopstationArea));
         public static DependencyProperty PointsProperty = DependencyProperty.Register("Points", typeof(PointCollection), typeof(LoopstationArea));
         public static DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(LoopstationArea));
+        public static DependencyProperty CommandParameterProperty = DependencyProperty.Register("CommandParameter", typeof(object), typeof(LoopstationArea), new PropertyMetadata(null));
 
         public string Text
         {
@@ -39,6 +40,12 @@ namespace LoopstationEditor.Views.Loopstation
             set => SetValue(CommandProperty, value);
         }
 
+        public object CommandParameter
+        {
+            get => GetValue(CommandParameterProperty);
+            set => SetValue(CommandParameterProperty, value);
+        }
+
         private bool _hasClicked;
 
         public LoopstationArea()
@@ -59,7 +66,7 @@ namespace LoopstationEditor.Views.Loopstation
             if (_hasClicked && Command != null)
             {
                 _hasClicked = false;
-                Command.Execute(null);
+                Command.Execute(CommandParameter);
             }
         }
     }

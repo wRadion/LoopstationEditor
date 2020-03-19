@@ -1,4 +1,5 @@
 ﻿using LoopstationEditor.Models.Settings.Memory;
+using LoopstationEditor.ViewModels.Settings.Memory.Tab;
 using LoopstationEditor.Views.Settings.Memory;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
@@ -22,7 +23,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
     {
         public int Id { get; }
 
-        public SettingsMemoryTrackViewModel[] TrackViewModels { get; private set; }
+        public SettingsMemoryTracksTabViewModel TracksTabViewModel { get; private set; }
         public SettingsMemoryRhythmViewModel RhythmViewModel { get; private set; }
         public SettingsMemoryNameViewModel NameViewModel { get; private set; }
         public SettingsMemoryMasterViewModel MasterViewModel { get; private set; }
@@ -40,17 +41,17 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             Id = model.Id + 1;
         }
 
+        public void ShowSubtab(MemoryTab tab, int subtab)
+        {
+            Show(tab);
+            _view.SetSelectedSubtabIndex(subtab);
+        }
+
         protected override void InitViewModels()
         {
             MemoryModel model = (MemoryModel)_model;
 
-            TrackViewModels = new SettingsMemoryTrackViewModel[5]
-            {
-                new SettingsMemoryTrackViewModel(model.Track1), new SettingsMemoryTrackViewModel(model.Track2),
-                new SettingsMemoryTrackViewModel(model.Track3), new SettingsMemoryTrackViewModel(model.Track4),
-                new SettingsMemoryTrackViewModel(model.Track5)
-            };
-
+            TracksTabViewModel = new SettingsMemoryTracksTabViewModel(model);
             RhythmViewModel = new SettingsMemoryRhythmViewModel(model.Rhythm);
             NameViewModel = new SettingsMemoryNameViewModel(model.Name);
             MasterViewModel = new SettingsMemoryMasterViewModel(model.Master);

@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\IntCommand.cs" />
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
     <Compile Include="Converters\Int\IntChannelConverter.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryTracksTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\WindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatRepeatViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatScatterViewModel.cs" />
@@ -197,6 +199,12 @@
     </Compile>
     <Compile Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml.cs">
       <DependentUpon>SettingsMemoryRhythmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryTrackView.xaml.cs">
+      <DependentUpon>SettingsMemoryTrackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml.cs">
+      <DependentUpon>SettingsMemoryTracksTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\System\SettingsSystemMIDIView.xaml.cs">
       <DependentUpon>SettingsSystemMIDIView.xaml</DependentUpon>
@@ -408,6 +416,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryTrackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

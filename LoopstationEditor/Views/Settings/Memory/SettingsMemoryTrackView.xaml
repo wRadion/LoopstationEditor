@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.SettingsMemoryTrackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <conv:IntToStringConverter x:Key="IntToString" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" MinHeight="48px" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" MinHeight="48px" />
+        </Grid.RowDefinitions>
+
+        <!-- Reverse (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Reverse" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="0" DataContext="{Binding Reverse}" />
+
+        <!-- Play Level (int, Level) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Play Level" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding PlayLevel}"
+                          SmallChange="2" LargeChange="10" TickFrequency="2" />
+
+        <!-- Pan (int, Pan) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Pan" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding Pan}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- One Shot (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="One Shot" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="3" DataContext="{Binding OneShot}" />
+
+        <!-- Track Fx (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Track Fx" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="4" DataContext="{Binding TrackFx}" />
+
+        <!-- Play Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Play Mode" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="5" DataContext="{Binding PlayMode}" />
+
+        <!-- Start Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Start Mode" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="6" DataContext="{Binding StartMode}" />
+
+        <!-- Stop Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Stop Mode" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="7" DataContext="{Binding StopMode}" />
+
+        <!-- Measure Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Measure Mode" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="8" DataContext="{Binding MeasureMode}" />
+
+        <!-- Measure Length (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="9" Text="Measure Length" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="9" DataContext="{Binding MeasureLength}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Measure Beat (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="10" Text="Measure Beat" />
+        <prop:PropertyEnum Grid.Column="1" Grid.Row="10" DataContext="{Binding MeasureBeat}" />
+
+        <!-- Loop Sync (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="11" Text="Loop Sync" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="11" DataContext="{Binding LoopSync}" />
+
+        <!-- Tempo Sync (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="12" Text="Tempo Sync" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="12" DataContext="{Binding TempoSync}" />
+
+        <!-- Recorded Tempo (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="13" Text="Recorded Tempo" />
+        <xd:TextBlock Grid.Column="1" Grid.Row="13" Text="{Binding RecordedTempo, Converter={StaticResource IntToString}}"
+                      IsEnabled="False" HorizontalAlignment="Left" />
+
+        <!-- WavStatus (bool) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="14" Text="Wav Status" />
+        <prop:PropertyBool Grid.Column="1" Grid.Row="14" DataContext="{Binding WavStatus}"
+                           IsEnabled="False" />
+
+        <!-- WavLength (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="15" Text="Wav Length" />
+        <xd:TextBlock Grid.Column="1" Grid.Row="15" Text="{Binding WavLength, Converter={StaticResource IntToString}}"
+                      IsEnabled="False" HorizontalAlignment="Left" />
+
+    </Grid>
+</UserControl>

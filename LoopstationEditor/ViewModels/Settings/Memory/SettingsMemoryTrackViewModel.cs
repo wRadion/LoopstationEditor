@@ -10,7 +10,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyIntViewModel PlayLevel { get; }
         public PropertyIntViewModel Pan { get; }
         public PropertyBoolViewModel OneShot { get; }
-        public PropertyBoolViewModel TrackFX { get; }
+        public PropertyBoolViewModel TrackFx { get; }
         public PropertyEnumViewModel<TrackPlayMode> PlayMode { get; }
         public PropertyEnumViewModel<TrackStartMode> StartMode { get; }
         public PropertyEnumViewModel<TrackStopMode> StopMode { get; }
@@ -30,7 +30,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             PlayLevel = new PropertyIntViewModel(nameof(PlayLevel), _properties, new IntLevelConverter());
             Pan = new PropertyIntViewModel(nameof(Pan), _properties, new IntPanConverter());
             OneShot = new PropertyBoolViewModel(nameof(OneShot), _properties);
-            TrackFX = new PropertyBoolViewModel(nameof(TrackFX), _properties);
+            TrackFx = new PropertyBoolViewModel(nameof(TrackFx), _properties);
             PlayMode = new PropertyEnumViewModel<TrackPlayMode>(nameof(PlayMode), _properties);
             StartMode = new PropertyEnumViewModel<TrackStartMode>(nameof(StartMode), _properties);
             StopMode = new PropertyEnumViewModel<TrackStopMode>(nameof(StopMode), _properties);

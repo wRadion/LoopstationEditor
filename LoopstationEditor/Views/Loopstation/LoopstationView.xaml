@@ -79,9 +79,76 @@
             <!-- #endregion MIDISettings -->
         </Canvas> <!-- systemCanvas -->
 
-        <Canvas x:Name="memoryCanvas" Opacity="1">
+        <Canvas x:Name="memoryCanvas" Grid.RowSpan="3" Opacity="1">
+            <!-- #region TracksSettings -->
+            <local:LoopstationArea Canvas.Bottom="25"
+                                   Canvas.Left="60"
+                                   Text="Track 1"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="1">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="220" Y="0" />
+                    <Point X="220" Y="320" />
+                    <Point X="0" Y="320" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Bottom="25"
+                                   Canvas.Left="294"
+                                   Text="Track 2"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="2">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="220" Y="0" />
+                    <Point X="220" Y="320" />
+                    <Point X="0" Y="320" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Bottom="25"
+                                   Canvas.Left="528"
+                                   Text="Track 3"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="3">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="220" Y="0" />
+                    <Point X="220" Y="320" />
+                    <Point X="0" Y="320" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Bottom="25"
+                                   Canvas.Left="762"
+                                   Text="Track 4"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="4">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="220" Y="0" />
+                    <Point X="220" Y="320" />
+                    <Point X="0" Y="320" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Bottom="25"
+                                   Canvas.Left="996"
+                                   Text="Track 5"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="5">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="220" Y="0" />
+                    <Point X="220" Y="320" />
+                    <Point X="0" Y="320" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion TracksSettings -->
+
             <!-- #region RhythmSettings -->
-            <local:LoopstationArea Canvas.Bottom="0"
+            <local:LoopstationArea Canvas.Top="164"
                         Canvas.Right="352"
                         Text="Rhythm"
                         Command="{Binding OpenMemoryWindowRhythmTab}">

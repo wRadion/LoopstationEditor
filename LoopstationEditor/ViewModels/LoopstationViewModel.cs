@@ -29,6 +29,7 @@ namespace LoopstationEditor.ViewModels
         public ICommand OpenSystemWindowUSBTab { get; }
         public ICommand OpenSystemWindowMIDITab { get; }
 
+        public ICommand OpenMemoryWindowTracksTab { get; }
         public ICommand OpenMemoryWindowRhythmTab { get; }
 
         public LoopstationViewModel()
@@ -47,7 +48,8 @@ namespace LoopstationEditor.ViewModels
             OpenSystemWindowUSBTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.USB));
             OpenSystemWindowMIDITab = new RelayCommand(() => _systemViewModel.Show(SystemTab.MIDI));
 
-            OpenMemoryWindowRhythmTab = new RelayCommand(() => _memoryViewModels[_currentMemory].Show(MemoryTab.TRACKS));
+            OpenMemoryWindowTracksTab = new IntCommand((track) => _memoryViewModels[_currentMemory].ShowSubtab(MemoryTab.TRACKS, track - 1));
+            OpenMemoryWindowRhythmTab = new RelayCommand(() => _memoryViewModels[_currentMemory].Show(MemoryTab.RHYTHM));
         }
     }
 }

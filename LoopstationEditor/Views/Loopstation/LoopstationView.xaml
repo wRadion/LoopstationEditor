@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Loopstation"
+             xmlns:viewModel="clr-namespace:LoopstationEditor.ViewModels"
              mc:Ignorable="d">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
@@ -160,6 +161,46 @@
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
             <!-- #endregion RhythmSettings -->
+
+            <!-- #region NameSettings -->
+            <local:LoopstationArea Canvas.Top="78"
+                                   Canvas.Left="511"
+                                   Text="Name"
+                                   Command="{Binding OpenMemoryWindowNameTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="260" Y="0" />
+                    <Point X="260" Y="80" />
+                    <Point X="0" Y="80" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion NameSettings -->
+
+            <!-- #region MasterSettings -->
+            <local:LoopstationArea Canvas.Top="172"
+                        Canvas.Left="257"
+                        Text="Master"
+                        Command="{Binding OpenMemoryWindowMasterTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="150" Y="0" />
+                    <Point X="150" Y="87" />
+                    <Point X="0" Y="87" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="164"
+                        Canvas.Right="531"
+                        Text="Tempo"
+                        Command="{Binding OpenMemoryWindowMasterTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="100" Y="0" />
+                    <Point X="100" Y="95" />
+                    <Point X="0" Y="95" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion MasterSettings -->
         </Canvas>
 
     </Grid>

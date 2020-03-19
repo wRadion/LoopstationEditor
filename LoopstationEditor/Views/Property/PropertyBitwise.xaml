@@ -7,7 +7,28 @@
              xmlns:conv="clr-namespace:LoopstationEditor.Converters"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d">
-    <Grid>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type xd:CheckBox}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8px 8px 0 8px" />
+        </Style>
+    </UserControl.Resources>
 
-    </Grid>
+    <Border>
+        <ItemsControl ItemsSource="{Binding Options}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <xd:CheckBox Content="{Binding Option}" IsChecked="{Binding Enabled, Mode=TwoWay}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Border>
+
 </UserControl>

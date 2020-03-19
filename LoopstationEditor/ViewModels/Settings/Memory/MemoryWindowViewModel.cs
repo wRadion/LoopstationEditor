@@ -1,6 +1,8 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using LoopstationEditor.Commands;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.Memory.Tab;
 using LoopstationEditor.Views.Settings.Memory;
+using System;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
 {
@@ -23,6 +25,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
     {
         public int Id { get; }
 
+        public delegate void NameViewModelInitializedEventHandler(SettingsMemoryNameViewModel viewModel);
+        public event NameViewModelInitializedEventHandler NameViewModelInitialized;
+
         public SettingsMemoryTracksTabViewModel TracksTabViewModel { get; private set; }
         public SettingsMemoryRhythmViewModel RhythmViewModel { get; private set; }
         public SettingsMemoryNameViewModel NameViewModel { get; private set; }
@@ -39,6 +44,18 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             : base(model)
         {
             Id = model.Id + 1;
+
+            ApplyChangesCommand = new RelayCommand(() =>
+            {
+                TracksTabViewModel.Track1.ApplyChanges();
+                TracksTabViewModel.Track2.ApplyChanges();
+                TracksTabViewModel.Track3.ApplyChanges();
+                TracksTabViewModel.Track4.ApplyChanges();
+                TracksTabViewModel.Track5.ApplyChanges();
+                RhythmViewModel.ApplyChanges();
+                NameViewModel.ApplyChanges();
+                MasterViewModel.ApplyChanges();
+            });
         }
 
         public void ShowSubtab(MemoryTab tab, int subtab)
@@ -53,7 +70,10 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
             TracksTabViewModel = new SettingsMemoryTracksTabViewModel(model);
             RhythmViewModel = new SettingsMemoryRhythmViewModel(model.Rhythm);
+
             NameViewModel = new SettingsMemoryNameViewModel(model.Name);
+            NameViewModelInitialized?.Invoke(NameViewModel);
+
             MasterViewModel = new SettingsMemoryMasterViewModel(model.Master);
             RecOptionViewModel = new SettingsMemoryRecOptionViewModel(model.RecOption);
             PlayOptionViewModel = new SettingsMemoryPlayOptionViewModel(model.PlayOption);

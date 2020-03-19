@@ -10,12 +10,13 @@ namespace LoopstationEditor.ViewModels.Settings
         protected SettingsModel _model;
         protected PropertySet _properties;
 
-        public SettingsViewModel(SettingsModel model)
+        public SettingsViewModel(SettingsModel model, bool useProperties = true)
         {
             _model = model;
-            _properties = _model.CopyPropertySet(GetType().GetProperties(SettingsModel.PropertyFlags).Select((prop) => prop.Name).ToArray());
+            if (useProperties)
+                _properties = _model.CopyPropertySet(GetType().GetProperties(SettingsModel.PropertyFlags).Select((prop) => prop.Name).ToArray());
         }
 
-        public void ApplyChanges() => _model.PastePropertySet(_properties);
+        public virtual void ApplyChanges() => _model.PastePropertySet(_properties);
     }
 }

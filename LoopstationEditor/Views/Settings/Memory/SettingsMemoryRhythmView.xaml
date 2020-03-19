@@ -39,7 +39,7 @@
         <!-- Level (int, level) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Level" />
         <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding Level}"
-                          SmallChange="2" LargeChange="20" TickFrequency="2" />
+                          SmallChange="2" LargeChange="10" TickFrequency="2" />
 
         <!-- Pattern (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Pattern" />

@@ -19,7 +19,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyEnumViewModel<TrackMeasureBeat> MeasureBeat { get; }
         public PropertyBoolViewModel LoopSync { get; }
         public PropertyBoolViewModel TempoSync { get; }
-        public PropertyIntViewModel RecordedTempo { get; }
+        public PropertyFloatViewModel RecordedTempo { get; }
         public PropertyBoolViewModel WavStatus { get; }
         public PropertyIntViewModel WavLength { get; }
 
@@ -39,7 +39,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             MeasureBeat = new PropertyEnumViewModel<TrackMeasureBeat>(nameof(MeasureBeat), _properties);
             LoopSync = new PropertyBoolViewModel(nameof(LoopSync), _properties);
             TempoSync = new PropertyBoolViewModel(nameof(TempoSync), _properties);
-            RecordedTempo = new PropertyIntViewModel(nameof(RecordedTempo), _properties, new IntTempoConverter());
+            RecordedTempo = new PropertyFloatViewModel(nameof(RecordedTempo), _properties, new FloatTempoConverter());
             WavStatus = new PropertyBoolViewModel(nameof(WavStatus), _properties);
             WavLength = new PropertyIntViewModel(nameof(WavLength), _properties);
         }

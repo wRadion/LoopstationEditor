@@ -42,6 +42,16 @@
                         <local:SettingsMemoryRhythmView DataContext="{Binding RhythmViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
+                <TabItem Header="Name">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryNameView DataContext="{Binding NameViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Master">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryMasterView DataContext="{Binding MasterViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
             </xd:TabControl>
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 16px 16px">

@@ -1,4 +1,6 @@
 ﻿using LoopstationEditor.ViewModels.Settings.Memory;
+using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace LoopstationEditor.Views.Settings.Memory
@@ -24,8 +26,22 @@ namespace LoopstationEditor.Views.Settings.Memory
 
         public void SetViewModel(MemoryWindowViewModel viewModel)
         {
+            MemoryWindowViewModel oldViewModel = null;
+            if (DataContext != null)
+                oldViewModel = (MemoryWindowViewModel)DataContext;
+
             DataContext = viewModel;
-            Title += $" - { viewModel.Id.ToString("D2") }";
+            Title += $" - { viewModel.Id.ToString("D2") } { viewModel.NameViewModel.Name }";
+
+            viewModel.NameViewModelInitialized += ((nameViewModel) => nameViewModel.PropertyChanged += NameChanged);
+        }
+
+        private void NameChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName != "Name") return;
+
+            MemoryWindowViewModel viewModel = (MemoryWindowViewModel)DataContext;
+            Title += $" - { viewModel.Id.ToString("D2") } { viewModel.NameViewModel.Name }";
         }
 
         public void SetSelectedSubtabIndex(int index)

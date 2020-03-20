@@ -6,13 +6,13 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
     public class FxRobotViewModel : SettingsViewModel
     {
-        public PropertyEnumViewModel<FxRobotNote> RobotNote { get; }
+        public PropertyEnumComboViewModel<FxRobotNote> RobotNote { get; }
         public PropertyIntViewModel RobotGender { get; }
 
         public FxRobotViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            RobotNote = new PropertyEnumViewModel<FxRobotNote>(nameof(RobotNote), _properties);
+            RobotNote = new PropertyEnumComboViewModel<FxRobotNote>(nameof(RobotNote), _properties);
             RobotGender = new PropertyIntViewModel(nameof(RobotGender), _properties, new IntGenderConverter());
         }
     }

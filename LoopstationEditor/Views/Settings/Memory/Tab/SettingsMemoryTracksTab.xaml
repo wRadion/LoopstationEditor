@@ -7,28 +7,30 @@
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d"
              x:Name="TracksTab_this">
-    <xd:TabControl TabStripPlacement="Left" SelectedIndex="{Binding SelectedTabIndex, ElementName=TracksTab_this, Mode=TwoWay}">
-        <TabItem Header="Track1">
+    <xd:TabControl TabStripPlacement="Left"
+                   TabPadding="16px"
+                   SelectedIndex="{Binding SelectedTabIndex, ElementName=TracksTab_this, Mode=TwoWay}">
+        <TabItem Header="Track1" TabIndex="0">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track1}" />
             </Border>
         </TabItem>
-        <TabItem Header="Track2">
+        <TabItem Header="Track2" TabIndex="1">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track2}" />
             </Border>
         </TabItem>
-        <TabItem Header="Track3">
+        <TabItem Header="Track3" TabIndex="2">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track3}" />
             </Border>
         </TabItem>
-        <TabItem Header="Track4">
+        <TabItem Header="Track4" TabIndex="3">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track4}" />
             </Border>
         </TabItem>
-        <TabItem Header="Track5">
+        <TabItem Header="Track5" TabIndex="4">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track5}" />
             </Border>

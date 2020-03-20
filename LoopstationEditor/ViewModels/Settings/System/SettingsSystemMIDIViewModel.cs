@@ -9,8 +9,8 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public PropertyIntViewModel RxChannel { get; }
         public PropertyBoolViewModel Omni { get; }
         public PropertyMixedViewModel<MIDITxChannel> TxChannel { get; }
-        public PropertyEnumViewModel<MIDISync> Sync { get; }
-        public PropertyEnumViewModel<MIDISyncSource> SyncSource { get; }
+        public PropertyEnumRadioViewModel<MIDISync> Sync { get; }
+        public PropertyEnumRadioViewModel<MIDISyncSource> SyncSource { get; }
         public PropertyBoolViewModel PCOut { get; }
 
         public SettingsSystemMIDIViewModel(SettingsSystemMIDIModel model)
@@ -19,8 +19,8 @@ namespace LoopstationEditor.ViewModels.Settings.System
             RxChannel = new PropertyIntViewModel(nameof(RxChannel), _properties, new IntChannelConverter());
             Omni = new PropertyBoolViewModel(nameof(Omni), _properties);
             TxChannel = new PropertyMixedViewModel<MIDITxChannel>(nameof(TxChannel), _properties, new IntChannelConverter());
-            Sync = new PropertyEnumViewModel<MIDISync>(nameof(Sync), _properties);
-            SyncSource = new PropertyEnumViewModel<MIDISyncSource>(nameof(SyncSource), _properties);
+            Sync = new PropertyEnumRadioViewModel<MIDISync>(nameof(Sync), _properties);
+            SyncSource = new PropertyEnumRadioViewModel<MIDISyncSource>(nameof(SyncSource), _properties);
             PCOut = new PropertyBoolViewModel(nameof(PCOut), _properties);
         }
     }

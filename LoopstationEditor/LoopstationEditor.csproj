@@ -71,8 +71,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\IntCommand.cs" />
+    <Compile Include="Converters\Bitwise\FxSlotBitwiseToLetterConverter.cs" />
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\Bitwise\TrackBitwiseToNumberConverter.cs" />
+    <Compile Include="Converters\StringEqualsValueToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringEqualsValueToBooleanConverter.cs" />
     <Compile Include="Converters\Float\FloatIdentityConverter.cs" />
     <Compile Include="Converters\FloatToStringConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
@@ -126,11 +129,13 @@
     <Compile Include="ViewModels\LoopstationViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyBitwiseViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyBoolViewModel.cs" />
-    <Compile Include="ViewModels\PropertyEngine\PropertyEnumViewModel.cs" />
+    <Compile Include="ViewModels\PropertyEngine\PropertyEnumRadioViewModel.cs" />
+    <Compile Include="ViewModels\PropertyEngine\PropertyEnumComboViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyFloatViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryAssignsTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryTracksTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\WindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatRepeatViewModel.cs" />
@@ -190,8 +195,11 @@
     <Compile Include="Views\Property\PropertyBool.xaml.cs">
       <DependentUpon>PropertyBool.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Property\PropertyEnum.xaml.cs">
-      <DependentUpon>PropertyEnum.xaml</DependentUpon>
+    <Compile Include="Views\Property\PropertyEnumCombo.xaml.cs">
+      <DependentUpon>PropertyEnumCombo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyEnumRadio.xaml.cs">
+      <DependentUpon>PropertyEnumRadio.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Property\PropertyFloat.xaml.cs">
       <DependentUpon>PropertyFloat.xaml</DependentUpon>
@@ -205,17 +213,32 @@
     <Compile Include="Views\Settings\Memory\MemoryWindow.xaml.cs">
       <DependentUpon>MemoryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryAssignView.xaml.cs">
+      <DependentUpon>SettingsMemoryAssignView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\Memory\SettingsMemoryMasterView.xaml.cs">
       <DependentUpon>SettingsMemoryMasterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\SettingsMemoryNameView.xaml.cs">
       <DependentUpon>SettingsMemoryNameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryOptionFxView.xaml.cs">
+      <DependentUpon>SettingsMemoryOptionFxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryPlayOptionView.xaml.cs">
+      <DependentUpon>SettingsMemoryPlayOptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryRecOptionView.xaml.cs">
+      <DependentUpon>SettingsMemoryRecOptionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml.cs">
       <DependentUpon>SettingsMemoryRhythmView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\SettingsMemoryTrackView.xaml.cs">
       <DependentUpon>SettingsMemoryTrackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryAssignsTab.xaml.cs">
+      <DependentUpon>SettingsMemoryAssignsTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml.cs">
       <DependentUpon>SettingsMemoryTracksTab.xaml</DependentUpon>
@@ -405,7 +428,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Property\PropertyEnum.xaml">
+    <Page Include="Views\Property\PropertyEnumCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Property\PropertyEnumRadio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -433,6 +460,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryAssignView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Settings\Memory\SettingsMemoryMasterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -441,11 +472,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryOptionFxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryPlayOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryRecOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Settings\Memory\SettingsMemoryRhythmView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\Memory\SettingsMemoryTrackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Tab\SettingsMemoryAssignsTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,25 +31,51 @@
     <StackPanel Orientation="Vertical">
         <Border x:Name="MainContent">
             <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
-                <TabItem Header="Tracks">
-                    <Border Padding="16px">
+                <TabItem Header="Tracks" TabIndex="0">
+                    <Border Padding="0 6px">
                         <tab:SettingsMemoryTracksTab DataContext="{Binding TracksTabViewModel, Mode=OneWay}"
                                                      SelectedTabIndex="{Binding SelectedSubtabIndex, ElementName=MemoryWindow_this, Mode=TwoWay}" />
                     </Border>
                 </TabItem>
-                <TabItem Header="Rhythm">
+                <TabItem Header="Rhythm" TabIndex="1">
                     <Border Padding="16px">
                         <local:SettingsMemoryRhythmView DataContext="{Binding RhythmViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
-                <TabItem Header="Name">
+                <TabItem Header="Name" TabIndex="2">
                     <Border Padding="16px">
                         <local:SettingsMemoryNameView DataContext="{Binding NameViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
-                <TabItem Header="Master">
+                <TabItem Header="Master" TabIndex="3">
                     <Border Padding="16px">
                         <local:SettingsMemoryMasterView DataContext="{Binding MasterViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Rec Option" TabIndex="4">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryRecOptionView DataContext="{Binding RecOptionViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Play Option" TabIndex="5">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryPlayOptionView DataContext="{Binding PlayOptionViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Assigns" TabIndex="6">
+                    <Border Padding="0 6px">
+                        <tab:SettingsMemoryAssignsTab DataContext="{Binding AssignsTabViewModel, Mode=OneWay}"
+                                                      SelectedTabIndex="{Binding SelectedSubtabIndex, ElementName=MemoryWindow_this, Mode=TwoWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Input Fx" TabIndex="7">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryOptionFxView DataContext="{Binding InputFxViewModel, Mode=OneWay}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Track Fx" TabIndex="8">
+                    <Border Padding="16px">
+                        <local:SettingsMemoryOptionFxView DataContext="{Binding TrackFxViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
             </xd:TabControl>

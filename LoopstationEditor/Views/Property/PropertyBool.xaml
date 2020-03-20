@@ -1,20 +1,12 @@
-﻿<UserControl x:Class="LoopstationEditor.Views.Property.PropertyBool"
+﻿<xd:Switch x:Class="LoopstationEditor.Views.Property.PropertyBool"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
-             mc:Ignorable="d">
-    <UserControl.Resources>
-        <Style TargetType="{x:Type xd:Switch}">
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="8px 8px 0 8px" />
-        </Style>
-    </UserControl.Resources>
-
-    <Border>
-        <xd:Switch IsChecked="{Binding Value, Mode=TwoWay}" />
-    </Border>
-
-</UserControl>
+             mc:Ignorable="d"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Center"
+             Margin="8px 8px 0 8px"
+             IsChecked="{Binding Value, Mode=TwoWay}">
+</xd:Switch>

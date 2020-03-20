@@ -7,9 +7,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
     public class SettingsMemoryAssignViewModel : SettingsViewModel
     {
         public PropertyBoolViewModel Enabled { get; }
-        public PropertyEnumViewModel<AssignSource> Source { get; }
-        public PropertyEnumViewModel<AssignSourceMode> SourceMode { get; }
-        public PropertyEnumViewModel<AssignTarget> Target { get; }
+        public PropertyEnumComboViewModel<AssignSource> Source { get; }
+        public PropertyEnumRadioViewModel<AssignSourceMode> SourceMode { get; }
+        public PropertyEnumComboViewModel<AssignTarget> Target { get; }
         public PropertyIntViewModel TargetMin { get; }
         public PropertyIntViewModel TargetMax { get; }
 
@@ -17,9 +17,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             : base(model)
         {
             Enabled = new PropertyBoolViewModel(nameof(Enabled), _properties);
-            Source = new PropertyEnumViewModel<AssignSource>(nameof(Source), _properties);
-            SourceMode = new PropertyEnumViewModel<AssignSourceMode>(nameof(SourceMode), _properties);
-            Target = new PropertyEnumViewModel<AssignTarget>(nameof(Target), _properties);
+            Source = new PropertyEnumComboViewModel<AssignSource>(nameof(Source), _properties);
+            SourceMode = new PropertyEnumRadioViewModel<AssignSourceMode>(nameof(SourceMode), _properties);
+            Target = new PropertyEnumComboViewModel<AssignTarget>(nameof(Target), _properties);
             TargetMin = new PropertyIntViewModel(nameof(TargetMin), _properties, new IntTargetConverter());
             TargetMax = new PropertyIntViewModel(nameof(TargetMax), _properties, new IntTargetConverter());
         }

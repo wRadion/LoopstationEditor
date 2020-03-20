@@ -17,7 +17,7 @@
         <local:LoopstationTracks Grid.Row="1" Grid.RowSpan="2" />
 
         <Canvas x:Name="systemCanvas" Opacity="1">
-            <!-- #region SetupSettings -->
+            <!-- #region Setup -->
             <local:LoopstationArea Canvas.Top="64"
                                    Canvas.Right="222"
                                    Text="Setup"
@@ -30,9 +30,9 @@
                     <Point X="0" Y="50" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion SetupSettings -->
+            <!-- #endregion Setup -->
 
-            <!-- #region InputOutputSettings -->
+            <!-- #region InputOutput -->
             <local:LoopstationArea Canvas.Top="28"
                                    Canvas.Left="228"
                                    Text="Input/Output"
@@ -47,9 +47,9 @@
                     <Point X="0" Y="140" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion InputOutputSettings -->
+            <!-- #endregion InputOutput -->
 
-            <!-- #region USBSettings -->
+            <!-- #region USB -->
             <local:LoopstationArea Canvas.Top="28"
                                    Canvas.Right="290"
                                    Text="USB"
@@ -62,9 +62,9 @@
                     <Point X="0" Y="32" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion USBSettings -->
+            <!-- #endregion USB -->
 
-            <!-- #region MIDISettings -->
+            <!-- #region MIDI -->
             <local:LoopstationArea Canvas.Top="28"
                                    Canvas.Right="384"
                                    Text="MIDI"
@@ -77,11 +77,12 @@
                     <Point X="0" Y="32" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion MIDISettings -->
+            <!-- #endregion MIDI -->
         </Canvas> <!-- systemCanvas -->
 
+        <!-- memoryCanvas -->
         <Canvas x:Name="memoryCanvas" Grid.RowSpan="3" Opacity="1">
-            <!-- #region TracksSettings -->
+            <!-- #region Tracks -->
             <local:LoopstationArea Canvas.Bottom="25"
                                    Canvas.Left="60"
                                    Text="Track 1"
@@ -146,9 +147,9 @@
                     <Point X="0" Y="320" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion TracksSettings -->
+            <!-- #endregion Tracks -->
 
-            <!-- #region RhythmSettings -->
+            <!-- #region Rhythm -->
             <local:LoopstationArea Canvas.Top="164"
                         Canvas.Right="352"
                         Text="Rhythm"
@@ -160,9 +161,9 @@
                     <Point X="0" Y="95" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion RhythmSettings -->
+            <!-- #endregion Rhythm -->
 
-            <!-- #region NameSettings -->
+            <!-- #region Name -->
             <local:LoopstationArea Canvas.Top="78"
                                    Canvas.Left="511"
                                    Text="Name"
@@ -174,9 +175,9 @@
                     <Point X="0" Y="80" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion NameSettings -->
+            <!-- #endregion Name -->
 
-            <!-- #region MasterSettings -->
+            <!-- #region Master -->
             <local:LoopstationArea Canvas.Top="172"
                         Canvas.Left="257"
                         Text="Master"
@@ -200,8 +201,67 @@
                     <Point X="0" Y="95" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
-            <!-- #endregion MasterSettings -->
-        </Canvas>
+            <!-- #endregion Master -->
+
+            <!-- #region PlayOption -->
+            <local:LoopstationArea Canvas.Top="172"
+                                   Canvas.Left="410"
+                                   Text="Play Option"
+                                   TextOffset="-9 0 0 0"
+                                   Command="{Binding OpenMemoryWindowPlayOptionTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="100" Y="0" />
+                    <Point X="100" Y="87" />
+                    <Point X="0" Y="87" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion PlayOption -->
+
+            <!-- #region Assigns -->
+            <local:LoopstationArea Canvas.Top="28"
+                                   Canvas.Right="493"
+                                   Text="Assigns"
+                                   TextOffset="0 -4 0 0"
+                                   Command="{Binding OpenMemoryWindowAssignsTab}"
+                                   CommandParameter="1">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="80" Y="0" />
+                    <Point X="80" Y="32" />
+                    <Point X="0" Y="32" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion Assigns -->
+
+            <!-- #region InputFx -->
+            <local:LoopstationArea Canvas.Top="50"
+                                   Canvas.Left="46"
+                                   Text="Input FX"
+                                   Command="{Binding OpenMemoryWindowInputFxTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="135" Y="0" />
+                    <Point X="135" Y="135" />
+                    <Point X="0" Y="135" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion InputFx -->
+
+            <!-- #region TrackFx -->
+            <local:LoopstationArea Canvas.Top="50"
+                                   Canvas.Right="46"
+                                   Text="Track FX"
+                                   Command="{Binding OpenMemoryWindowTrackFxTab}">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="135" Y="0" />
+                    <Point X="135" Y="135" />
+                    <Point X="0" Y="135" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion TrackFx -->
+        </Canvas> <!-- memoryCanvas -->
 
     </Grid>
 </UserControl>

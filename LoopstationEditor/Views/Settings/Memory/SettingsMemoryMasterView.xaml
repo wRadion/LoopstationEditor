@@ -54,7 +54,7 @@
 
         <!-- Phones Out (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Phones Out" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="4" DataContext="{Binding PhonesOut}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="4" DataContext="{Binding PhonesOut}" />
 
         <!-- Phones Out Tracks (bitwise) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Phones Out Tracks" />

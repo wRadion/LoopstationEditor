@@ -45,6 +45,11 @@ namespace LoopstationEditor.ViewModels
         public ICommand OpenMemoryWindowRhythmTab { get; }
         public ICommand OpenMemoryWindowNameTab { get; }
         public ICommand OpenMemoryWindowMasterTab { get; }
+        public ICommand OpenMemoryWindowRecOptionTab { get; }
+        public ICommand OpenMemoryWindowPlayOptionTab { get; }
+        public ICommand OpenMemoryWindowAssignsTab { get; }
+        public ICommand OpenMemoryWindowInputFxTab { get; }
+        public ICommand OpenMemoryWindowTrackFxTab { get; }
 
         public LoopstationViewModel()
         {
@@ -57,15 +62,22 @@ namespace LoopstationEditor.ViewModels
                 _memoryViewModels[i] = new MemoryWindowViewModel(new MemoryModel(i));
             SetMemory(0);
 
+            // System
             OpenSystemWindowSetupTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.SETUP));
             OpenSystemWindowInputOutputTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.INPUT_OUTPUT));
             OpenSystemWindowUSBTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.USB));
             OpenSystemWindowMIDITab = new RelayCommand(() => _systemViewModel.Show(SystemTab.MIDI));
 
-            OpenMemoryWindowTracksTab = new IntCommand((track) => _memoryViewModels[_currentMemoryIndex].ShowSubtab(MemoryTab.TRACKS, track - 1));
-            OpenMemoryWindowRhythmTab = new RelayCommand(() => _memoryViewModels[_currentMemoryIndex].Show(MemoryTab.RHYTHM));
-            OpenMemoryWindowNameTab = new RelayCommand(() => _memoryViewModels[_currentMemoryIndex].Show(MemoryTab.NAME));
-            OpenMemoryWindowMasterTab = new RelayCommand(() => _memoryViewModels[_currentMemoryIndex].Show(MemoryTab.MASTER));
+            // Memory
+            OpenMemoryWindowTracksTab = new IntCommand((track) => CurrentMemory.ShowSubtab(MemoryTab.TRACKS, track - 1));
+            OpenMemoryWindowRhythmTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.RHYTHM));
+            OpenMemoryWindowNameTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.NAME));
+            OpenMemoryWindowMasterTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.MASTER));
+            OpenMemoryWindowRecOptionTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.REC_OPTION));
+            OpenMemoryWindowPlayOptionTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.PLAY_OPTION));
+            OpenMemoryWindowAssignsTab = new IntCommand((assign) => CurrentMemory.ShowSubtab(MemoryTab.ASSIGNS, assign - 1));
+            OpenMemoryWindowInputFxTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.INPUT_FX));
+            OpenMemoryWindowTrackFxTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.TRACK_FX));
         }
 
         public void SetMemory(int id)

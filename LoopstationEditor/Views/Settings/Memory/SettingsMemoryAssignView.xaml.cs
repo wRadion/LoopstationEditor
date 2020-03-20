@@ -3,11 +3,11 @@
 namespace LoopstationEditor.Views.Settings.Memory
 {
     /// <summary>
-    /// Interaction logic for SettingsMemoryTrackView.xaml
+    /// Interaction logic for SettingsMemoryAssignView.xaml
     /// </summary>
-    public partial class SettingsMemoryTrackView : UserControl
+    public partial class SettingsMemoryAssignView : UserControl
     {
-        public SettingsMemoryTrackView()
+        public SettingsMemoryAssignView()
         {
             InitializeComponent();
         }

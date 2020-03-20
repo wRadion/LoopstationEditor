@@ -49,11 +49,11 @@
 
         <!-- Display Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Display Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="3" DataContext="{Binding DisplayMode}" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="3" DataContext="{Binding DisplayMode}" />
 
         <!-- Indicator Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Indicator Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="4" DataContext="{Binding IndicatorMode}" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="4" DataContext="{Binding IndicatorMode}" />
 
         <!-- AutoOff (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Auto Off" />
@@ -69,6 +69,6 @@
 
         <!-- KnobMode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Knob Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="8" DataContext="{Binding KnobMode}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="8" DataContext="{Binding KnobMode}" />
     </Grid>
 </UserControl>

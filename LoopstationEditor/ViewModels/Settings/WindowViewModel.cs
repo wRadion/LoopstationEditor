@@ -3,7 +3,6 @@ using System.Windows.Input;
 
 using LoopstationEditor.Commands;
 using LoopstationEditor.Models.Settings;
-using LoopstationEditor.Views.Settings;
 
 namespace LoopstationEditor.ViewModels.Settings
 {

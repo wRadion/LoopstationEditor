@@ -46,11 +46,11 @@
 
         <!-- MIDI Sync (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="MIDI Sync" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="3" DataContext="{Binding Sync}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="3" DataContext="{Binding Sync}" />
 
         <!-- MIDI Sync Source (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="MIDI Sync Source" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="4" DataContext="{Binding SyncSource}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="4" DataContext="{Binding SyncSource}" />
 
         <!-- MIDI PC Out (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="MIDI PC Out" />

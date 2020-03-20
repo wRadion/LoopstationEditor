@@ -41,7 +41,7 @@
 
         <!-- Input Source (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Input Source" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="2" DataContext="{Binding InputSource}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="2" DataContext="{Binding InputSource}" />
 
         <!-- Input Line Out (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Input Line Out" />
@@ -49,6 +49,6 @@
 
         <!-- Output Level Selection (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Output Level Selection" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="4" DataContext="{Binding OutputLevelSelection}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="4" DataContext="{Binding OutputLevelSelection}" />
     </Grid>
 </UserControl>

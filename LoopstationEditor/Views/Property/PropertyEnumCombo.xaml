@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="LoopstationEditor.Views.Property.PropertyEnum"
+﻿<UserControl x:Class="LoopstationEditor.Views.Property.PropertyEnumCombo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             x:Name="PropertyEnum_this">
     <UserControl.Resources>
         <Style TargetType="{x:Type xd:ComboBox}">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -14,7 +15,10 @@
     </UserControl.Resources>
 
     <Border>
-        <xd:ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding Value, Mode=TwoWay}" />
+        <xd:ComboBox x:Name="EnumBox"
+                     ItemsSource="{Binding Options}"
+                     SelectedItem="{Binding Value, Mode=TwoWay}"
+                     SelectionChanged="EnumBox_SelectionChanged" />
     </Border>
 
 </UserControl>

@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Tab.SettingsMemoryAssignsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d"
+             x:Name="AssignsTab_this">
+    <xd:TabControl TabStripPlacement="Left"
+                   TabPadding="16px"
+                   SelectedIndex="{Binding SelectedTabIndex, ElementName=AssignsTab_this, Mode=TwoWay}">
+        <TabItem Header="Assign1" TabIndex="0">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign1}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign2" TabIndex="1">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign2}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign3" TabIndex="2">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign3}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign4" TabIndex="3">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign4}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign5" TabIndex="4">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign5}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign6" TabIndex="5">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign6}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign7" TabIndex="6">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign7}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign8" TabIndex="7">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign8}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign9" TabIndex="8">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign9}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign10" TabIndex="9">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign10}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign11" TabIndex="10">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign11}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign12" TabIndex="11">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign12}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign13" TabIndex="12">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign13}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign14" TabIndex="13">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign14}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign15" TabIndex="14">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign15}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Assign16" TabIndex="15">
+            <Border Padding="16px">
+                <local:SettingsMemoryAssignView DataContext="{Binding Assign16}" />
+            </Border>
+        </TabItem>
+    </xd:TabControl>
+</UserControl>

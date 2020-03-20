@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyFloatViewModel Tempo { get; }
         public PropertyIntViewModel Compressor { get; }
         public PropertyIntViewModel Reverb { get; }
-        public PropertyEnumViewModel<MasterPhonesOut> PhonesOut { get; }
+        public PropertyEnumRadioViewModel<MasterPhonesOut> PhonesOut { get; }
         public PropertyBitwiseViewModel<TrackBitwise> PhonesOutTracks { get; }
 
         public SettingsMemoryMasterViewModel(SettingsMemoryMasterModel model)
@@ -21,7 +21,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             Tempo = new PropertyFloatViewModel(nameof(Tempo), _properties, new FloatTempoConverter());
             Compressor = new PropertyIntViewModel(nameof(Compressor), _properties, new IntDbConverter());
             Reverb = new PropertyIntViewModel(nameof(Reverb), _properties);
-            PhonesOut = new PropertyEnumViewModel<MasterPhonesOut>(nameof(PhonesOut), _properties);
+            PhonesOut = new PropertyEnumRadioViewModel<MasterPhonesOut>(nameof(PhonesOut), _properties);
             PhonesOutTracks = new PropertyBitwiseViewModel<TrackBitwise>(nameof(PhonesOutTracks), _properties, new TrackBitwiseToNumberConverter());
         }
     }

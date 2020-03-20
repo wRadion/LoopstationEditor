@@ -5,13 +5,13 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
     public class FxOctaveViewModel : SettingsViewModel
     {
-        public PropertyEnumViewModel<FxOctaveMode> OctaveMod { get; }
+        public PropertyEnumComboViewModel<FxOctaveMode> OctaveMod { get; }
         public PropertyIntViewModel OctaveLevel { get; }
 
         public FxOctaveViewModel(SettingsMemoryFxModel model)
             : base(model)
         {
-            OctaveMod = new PropertyEnumViewModel<FxOctaveMode>(nameof(OctaveMod), _properties);
+            OctaveMod = new PropertyEnumComboViewModel<FxOctaveMode>(nameof(OctaveMod), _properties);
             OctaveLevel = new PropertyIntViewModel(nameof(OctaveLevel), _properties);
         }
     }

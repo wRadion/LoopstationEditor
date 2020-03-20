@@ -2,7 +2,6 @@
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.Memory.Tab;
 using LoopstationEditor.Views.Settings.Memory;
-using System;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
 {
@@ -34,7 +33,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryMasterViewModel MasterViewModel { get; private set; }
         public SettingsMemoryRecOptionViewModel RecOptionViewModel { get; private set; }
         public SettingsMemoryPlayOptionViewModel PlayOptionViewModel { get; private set; }
-        public SettingsMemoryAssignViewModel[] AssignViewModels { get; private set; }
+        public SettingsMemoryAssignsTabViewModel AssignsTabViewModel { get; private set; }
         public SettingsMemoryInputFxViewModel InputFxViewModel { get; private set; }
         public SettingsMemoryTrackFxViewModel TrackFxViewModel { get; private set; }
         public SettingsMemoryFxInputViewModel[] FxInputViewModels { get; private set; }
@@ -55,6 +54,26 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
                 RhythmViewModel.ApplyChanges();
                 NameViewModel.ApplyChanges();
                 MasterViewModel.ApplyChanges();
+                RecOptionViewModel.ApplyChanges();
+                PlayOptionViewModel.ApplyChanges();
+                AssignsTabViewModel.Assign1.ApplyChanges();
+                AssignsTabViewModel.Assign2.ApplyChanges();
+                AssignsTabViewModel.Assign3.ApplyChanges();
+                AssignsTabViewModel.Assign4.ApplyChanges();
+                AssignsTabViewModel.Assign5.ApplyChanges();
+                AssignsTabViewModel.Assign6.ApplyChanges();
+                AssignsTabViewModel.Assign7.ApplyChanges();
+                AssignsTabViewModel.Assign8.ApplyChanges();
+                AssignsTabViewModel.Assign9.ApplyChanges();
+                AssignsTabViewModel.Assign10.ApplyChanges();
+                AssignsTabViewModel.Assign11.ApplyChanges();
+                AssignsTabViewModel.Assign12.ApplyChanges();
+                AssignsTabViewModel.Assign13.ApplyChanges();
+                AssignsTabViewModel.Assign14.ApplyChanges();
+                AssignsTabViewModel.Assign15.ApplyChanges();
+                AssignsTabViewModel.Assign16.ApplyChanges();
+                InputFxViewModel.ApplyChanges();
+                TrackFxViewModel.ApplyChanges();
             });
         }
 
@@ -70,24 +89,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
             TracksTabViewModel = new SettingsMemoryTracksTabViewModel(model);
             RhythmViewModel = new SettingsMemoryRhythmViewModel(model.Rhythm);
-
             NameViewModel = new SettingsMemoryNameViewModel(model.Name);
             NameViewModelInitialized?.Invoke(NameViewModel);
-
             MasterViewModel = new SettingsMemoryMasterViewModel(model.Master);
             RecOptionViewModel = new SettingsMemoryRecOptionViewModel(model.RecOption);
             PlayOptionViewModel = new SettingsMemoryPlayOptionViewModel(model.PlayOption);
-
-            AssignViewModels = new SettingsMemoryAssignViewModel[16]
-            {
-                new SettingsMemoryAssignViewModel(model.Assign1), new SettingsMemoryAssignViewModel(model.Assign2), new SettingsMemoryAssignViewModel(model.Assign3),
-                new SettingsMemoryAssignViewModel(model.Assign4), new SettingsMemoryAssignViewModel(model.Assign5), new SettingsMemoryAssignViewModel(model.Assign6),
-                new SettingsMemoryAssignViewModel(model.Assign7), new SettingsMemoryAssignViewModel(model.Assign8), new SettingsMemoryAssignViewModel(model.Assign9),
-                new SettingsMemoryAssignViewModel(model.Assign10), new SettingsMemoryAssignViewModel(model.Assign11), new SettingsMemoryAssignViewModel(model.Assign12),
-                new SettingsMemoryAssignViewModel(model.Assign13), new SettingsMemoryAssignViewModel(model.Assign14), new SettingsMemoryAssignViewModel(model.Assign15),
-                new SettingsMemoryAssignViewModel(model.Assign16)
-            };
-
+            AssignsTabViewModel = new SettingsMemoryAssignsTabViewModel(model);
             InputFxViewModel = new SettingsMemoryInputFxViewModel(model.InputFx);
             TrackFxViewModel = new SettingsMemoryTrackFxViewModel(model.TrackFx);
 

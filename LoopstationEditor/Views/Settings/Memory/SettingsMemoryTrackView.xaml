@@ -14,6 +14,8 @@
                 <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <conv:IntToStringConverter x:Key="IntToString" />
+            <conv:FloatToStringConverter x:Key="FloatToString" />
+            <conv:StringEqualsValueToVisibilityConverter x:Key="StringEqualsValueToVisibility" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -37,9 +39,9 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" MinHeight="48px" />
+            <!--<RowDefinition Height="auto" MinHeight="48px" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" MinHeight="48px" />
+            <RowDefinition Height="auto" MinHeight="48px" />-->
         </Grid.RowDefinitions>
 
         <!-- Reverse (bool) -->
@@ -66,28 +68,32 @@
 
         <!-- Play Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Play Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="5" DataContext="{Binding PlayMode}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="5" DataContext="{Binding PlayMode}" />
 
         <!-- Start Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Start Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="6" DataContext="{Binding StartMode}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="6" DataContext="{Binding StartMode}" />
 
         <!-- Stop Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Stop Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="7" DataContext="{Binding StopMode}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="7" DataContext="{Binding StopMode}" />
 
         <!-- Measure Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Measure Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="8" DataContext="{Binding MeasureMode}" />
+        <prop:PropertyEnumRadio x:Name="MeasureModeProp" Grid.Column="1" Grid.Row="8" DataContext="{Binding MeasureMode}" />
 
         <!-- Measure Length (int) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="9" Text="Measure Length" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="9" Text="Measure Length"
+                      Visibility="{Binding ElementName=MeasureModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
         <prop:PropertyInt Grid.Column="1" Grid.Row="9" DataContext="{Binding MeasureLength}"
-                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+                          SmallChange="1" LargeChange="10" TickFrequency="1"
+                          Visibility="{Binding ElementName=MeasureModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
 
         <!-- Measure Beat (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="10" Text="Measure Beat" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="10" DataContext="{Binding MeasureBeat}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="10" Text="Measure Beat"
+                      Visibility="{Binding ElementName=MeasureModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="10" DataContext="{Binding MeasureBeat}"
+                           Visibility="{Binding ElementName=MeasureModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
 
         <!-- Loop Sync (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="11" Text="Loop Sync" />
@@ -97,20 +103,22 @@
         <xd:TextBlock Grid.Column="0" Grid.Row="12" Text="Tempo Sync" />
         <prop:PropertyBool Grid.Column="1" Grid.Row="12" DataContext="{Binding TempoSync}" />
 
-        <!-- Recorded Tempo (int) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="13" Text="Recorded Tempo" />
-        <xd:TextBlock Grid.Column="1" Grid.Row="13" Text="{Binding RecordedTempo, Converter={StaticResource IntToString}}"
+        <!-- Recorded Tempo (int) --><!--
+        <xd:TextBlock Grid.Column="0" Grid.Row="13" Text="Recorded Tempo"
+                      IsEnabled="False" />
+        <xd:TextBlock Grid.Column="1" Grid.Row="13" Text="{Binding RecordedTempo, Converter={StaticResource FloatToString}, ConverterParameter=1}"
                       IsEnabled="False" HorizontalAlignment="Left" />
 
-        <!-- WavStatus (bool) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="14" Text="Wav Status" />
+        --><!-- WavStatus (bool) --><!--
+        <xd:TextBlock Grid.Column="0" Grid.Row="14" Text="Wav Status"
+                      IsEnabled="False" />
         <prop:PropertyBool Grid.Column="1" Grid.Row="14" DataContext="{Binding WavStatus}"
                            IsEnabled="False" />
 
-        <!-- WavLength (int) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="15" Text="Wav Length" />
+        --><!-- WavLength (int) --><!--
+        <xd:TextBlock Grid.Column="0" Grid.Row="15" Text="Wav Length"
+                      IsEnabled="False" />
         <xd:TextBlock Grid.Column="1" Grid.Row="15" Text="{Binding WavLength, Converter={StaticResource IntToString}}"
-                      IsEnabled="False" HorizontalAlignment="Left" />
-
+                      IsEnabled="False" HorizontalAlignment="Left" />-->
     </Grid>
 </UserControl>

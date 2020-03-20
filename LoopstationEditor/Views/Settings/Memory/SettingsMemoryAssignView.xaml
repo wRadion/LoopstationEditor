@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.SettingsMemoryRhythmView"
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.SettingsMemoryAssignView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -28,41 +28,32 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <!-- Enabled (bool) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Enabled" />
         <prop:PropertyBool Grid.Column="1" Grid.Row="0" DataContext="{Binding Enabled}" />
 
-        <!-- Level (int, level) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Level" />
-        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding Level}"
+        <!-- Source (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Source" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="1" DataContext="{Binding Source}" />
+
+        <!-- Source Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Source Mode" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="2" DataContext="{Binding SourceMode}" />
+
+        <!-- Target (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Target" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="3" DataContext="{Binding Target}" />
+
+        <!-- Target Min (int, Level) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Target Min" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="4" DataContext="{Binding TargetMin}"
                           SmallChange="2" LargeChange="10" TickFrequency="2" />
 
-        <!-- Pattern (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Pattern" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="2" DataContext="{Binding Pattern}" />
-
-        <!-- Beat (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Beat" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="3" DataContext="{Binding Beat}" />
-
-        <!-- Line Out (bool) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Line Out" />
-        <prop:PropertyBool Grid.Column="1" Grid.Row="4" DataContext="{Binding LineOut}" />
-
-        <!-- Rec Count (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Rec Count" />
-        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="5" DataContext="{Binding RecCount}" />
-
-        <!-- Play Count (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Play Count" />
-        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="6" DataContext="{Binding PlayCount}" />
-
-        <!-- Stop Mode (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Stop Mode" />
-        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="7" DataContext="{Binding StopMode}" />
+        <!-- Target Max (int, Level) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Target Max" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="5" DataContext="{Binding TargetMax}"
+                          SmallChange="2" LargeChange="10" TickFrequency="2" />
     </Grid>
 </UserControl>

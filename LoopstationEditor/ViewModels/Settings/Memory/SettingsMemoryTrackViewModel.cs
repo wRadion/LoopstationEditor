@@ -11,12 +11,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyIntViewModel Pan { get; }
         public PropertyBoolViewModel OneShot { get; }
         public PropertyBoolViewModel TrackFx { get; }
-        public PropertyEnumViewModel<TrackPlayMode> PlayMode { get; }
-        public PropertyEnumViewModel<TrackStartMode> StartMode { get; }
-        public PropertyEnumViewModel<TrackStopMode> StopMode { get; }
-        public PropertyEnumViewModel<TrackMeasureMode> MeasureMode { get; }
+        public PropertyEnumRadioViewModel<TrackPlayMode> PlayMode { get; }
+        public PropertyEnumRadioViewModel<TrackStartMode> StartMode { get; }
+        public PropertyEnumRadioViewModel<TrackStopMode> StopMode { get; }
+        public PropertyEnumRadioViewModel<TrackMeasureMode> MeasureMode { get; }
         public PropertyIntViewModel MeasureLength { get; }
-        public PropertyEnumViewModel<TrackMeasureBeat> MeasureBeat { get; }
+        public PropertyEnumComboViewModel<TrackMeasureBeat> MeasureBeat { get; }
         public PropertyBoolViewModel LoopSync { get; }
         public PropertyBoolViewModel TempoSync { get; }
         public PropertyFloatViewModel RecordedTempo { get; }
@@ -31,12 +31,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             Pan = new PropertyIntViewModel(nameof(Pan), _properties, new IntPanConverter());
             OneShot = new PropertyBoolViewModel(nameof(OneShot), _properties);
             TrackFx = new PropertyBoolViewModel(nameof(TrackFx), _properties);
-            PlayMode = new PropertyEnumViewModel<TrackPlayMode>(nameof(PlayMode), _properties);
-            StartMode = new PropertyEnumViewModel<TrackStartMode>(nameof(StartMode), _properties);
-            StopMode = new PropertyEnumViewModel<TrackStopMode>(nameof(StopMode), _properties);
-            MeasureMode = new PropertyEnumViewModel<TrackMeasureMode>(nameof(MeasureMode), _properties);
+            PlayMode = new PropertyEnumRadioViewModel<TrackPlayMode>(nameof(PlayMode), _properties);
+            StartMode = new PropertyEnumRadioViewModel<TrackStartMode>(nameof(StartMode), _properties);
+            StopMode = new PropertyEnumRadioViewModel<TrackStopMode>(nameof(StopMode), _properties);
+            MeasureMode = new PropertyEnumRadioViewModel<TrackMeasureMode>(nameof(MeasureMode), _properties);
             MeasureLength = new PropertyIntViewModel(nameof(MeasureLength), _properties);
-            MeasureBeat = new PropertyEnumViewModel<TrackMeasureBeat>(nameof(MeasureBeat), _properties);
+            MeasureBeat = new PropertyEnumComboViewModel<TrackMeasureBeat>(nameof(MeasureBeat), _properties);
             LoopSync = new PropertyBoolViewModel(nameof(LoopSync), _properties);
             TempoSync = new PropertyBoolViewModel(nameof(TempoSync), _properties);
             RecordedTempo = new PropertyFloatViewModel(nameof(RecordedTempo), _properties, new FloatTempoConverter());

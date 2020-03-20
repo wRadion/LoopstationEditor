@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.SettingsMemoryPlayOptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <conv:StringEqualsValueToVisibilityConverter x:Key="StringEqualsValueToVisibility" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Single Play Change (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Single Play Change" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="0" DataContext="{Binding SinglePlayChange}" />
+
+        <!-- Loop Quantize (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Loop Quantize" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="1" DataContext="{Binding LoopQuantize}" />
+
+        <!-- Loop Mode (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Loop Mode" />
+        <prop:PropertyEnumRadio x:Name="LoopModeProp" Grid.Column="1" Grid.Row="2" DataContext="{Binding LoopMode}" />
+
+        <!-- Loop Length (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Loop Length"
+                      Visibility="{Binding ElementName=LoopModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="3" DataContext="{Binding LoopLength}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1"
+                          Visibility="{Binding ElementName=LoopModeProp, Path=Value, Converter={StaticResource StringEqualsValueToVisibility}, ConverterParameter=LENGTH}" />
+
+        <!-- All Start (bitwise) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="All Start" />
+        <prop:PropertyBitwise Grid.Column="1" Grid.Row="4" DataContext="{Binding AllStart}" />
+
+        <!-- All Stop (bitwise) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="All Stop" />
+        <prop:PropertyBitwise Grid.Column="1" Grid.Row="5" DataContext="{Binding AllStop}" />
+
+        <!-- Fade Time (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Fade Time" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="6" DataContext="{Binding FadeTime}" />
+
+        <!-- Target Track (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Target Track" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="7" DataContext="{Binding TargetTrack}" />
+    </Grid>
+</UserControl>

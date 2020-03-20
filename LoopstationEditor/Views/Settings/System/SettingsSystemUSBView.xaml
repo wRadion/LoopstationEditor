@@ -30,11 +30,11 @@
 
         <!-- USB Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="USB Mode" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="0" DataContext="{Binding Mode}" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="0" DataContext="{Binding Mode}" />
 
         <!-- USB Audio Routing (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="USB Audio Routing" />
-        <prop:PropertyEnum Grid.Column="1" Grid.Row="1" DataContext="{Binding AudioRouting}" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="1" DataContext="{Binding AudioRouting}" />
 
         <!-- USB Input Level (int, Level) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="USB Input Level" />

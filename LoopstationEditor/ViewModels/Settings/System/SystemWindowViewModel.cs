@@ -1,7 +1,4 @@
-﻿using System.Windows.Input;
-
-using LoopstationEditor.Commands;
-using LoopstationEditor.Models.Settings.System;
+﻿using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.Views.Settings.System_;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -25,14 +22,6 @@ namespace LoopstationEditor.ViewModels.Settings.System
             : base(model)
         {
             SelectTab(SystemTab.SETUP);
-
-            ApplyChangesCommand = new RelayCommand(() =>
-            {
-                SetupViewModel.ApplyChanges();
-                InputOutputViewModel.ApplyChanges();
-                USBViewModel.ApplyChanges();
-                MIDIViewModel.ApplyChanges();
-            });
         }
 
         protected override void InitViewModels()
@@ -43,6 +32,14 @@ namespace LoopstationEditor.ViewModels.Settings.System
             InputOutputViewModel = new SettingsSystemInputOutputViewModel(model.InputOutput);
             USBViewModel = new SettingsSystemUSBViewModel(model.USB);
             MIDIViewModel = new SettingsSystemMIDIViewModel(model.MIDI);
+        }
+
+        public override void ApplyChanges()
+        {
+            SetupViewModel.ApplyChanges();
+            InputOutputViewModel.ApplyChanges();
+            USBViewModel.ApplyChanges();
+            MIDIViewModel.ApplyChanges();
         }
     }
 }

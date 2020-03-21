@@ -1,9 +1,10 @@
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxFlangerViewModel : SettingsViewModel
+    public class FxFlangerViewModel : FxViewModel
     {
         public PropertyMixedViewModel<FxRate> FlangerRate { get; }
         public PropertyIntViewModel FlangerDepth { get; }
@@ -12,12 +13,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel FlangerLevel { get; }
 
         public FxFlangerViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Flanger", model)
         {
             FlangerRate = new PropertyMixedViewModel<FxRate>(nameof(FlangerRate), _properties);
             FlangerDepth = new PropertyIntViewModel(nameof(FlangerDepth), _properties);
             FlangerResonance = new PropertyIntViewModel(nameof(FlangerResonance), _properties);
-            FlangerStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(FlangerStepRate), _properties);
+            FlangerStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(FlangerStepRate), _properties, new IntStepRateConverter());
             FlangerLevel = new PropertyIntViewModel(nameof(FlangerLevel), _properties);
         }
     }

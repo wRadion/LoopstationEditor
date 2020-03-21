@@ -69,8 +69,8 @@
                     </Border>
                 </TabItem>
                 <TabItem Header="Input Fx" TabIndex="7">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryOptionFxView DataContext="{Binding InputFxViewModel, Mode=OneWay}" />
+                    <Border Padding="0 6px">
+                        <tab:SettingsMemoryInputFxTab DataContext="{Binding InputFxTabViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
                 <TabItem Header="Track Fx" TabIndex="8">

@@ -2,8 +2,7 @@
 
 namespace LoopstationEditor.ViewModels.Settings
 {
-    // TODO SettingsContainerViewModel
-    public class SettingsContainerViewModel : ViewModel
+    public abstract class SettingsContainerViewModel : ViewModel
     {
         protected readonly SettingsContainerModel _model;
 
@@ -12,5 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings
         {
             _model = model;
         }
+
+        public abstract void ApplyChanges();
     }
 }

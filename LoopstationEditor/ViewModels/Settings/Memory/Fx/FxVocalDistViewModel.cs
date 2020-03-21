@@ -4,14 +4,14 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxVocalDistViewModel : SettingsViewModel
+    public class FxVocalDistViewModel : FxViewModel
     {
         public PropertyIntViewModel VocalDistDistortion { get; }
         public PropertyIntViewModel VocalDistTone { get; }
         public PropertyIntViewModel VocalDistLevel { get; }
 
         public FxVocalDistViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Vocal Dist", model)
         {
             VocalDistDistortion = new PropertyIntViewModel(nameof(VocalDistDistortion), _properties);
             VocalDistTone = new PropertyIntViewModel(nameof(VocalDistTone), _properties, new IntToneConverter());

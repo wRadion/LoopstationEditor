@@ -1,4 +1,4 @@
-﻿namespace LoopstationEditor.Converters.Int
+﻿namespace LoopstationEditor.Converters.Float
 {
     public class FloatTempoConverter : IValueConverter<int, float>
     {

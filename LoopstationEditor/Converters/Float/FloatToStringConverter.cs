@@ -3,9 +3,9 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace LoopstationEditor.Converters
+namespace LoopstationEditor.Converters.Float
 {
-    public class IntToStringConverter : IValueConverter
+    public class FloatToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -22,7 +22,7 @@ namespace LoopstationEditor.Converters
             if (string.IsNullOrWhiteSpace(str))
                 return DependencyProperty.UnsetValue;
 
-            return int.Parse(str);
+            return float.Parse(str);
         }
     }
 }

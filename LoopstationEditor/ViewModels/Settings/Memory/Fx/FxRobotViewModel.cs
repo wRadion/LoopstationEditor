@@ -4,13 +4,13 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxRobotViewModel : SettingsViewModel
+    public class FxRobotViewModel : FxViewModel
     {
         public PropertyEnumComboViewModel<FxRobotNote> RobotNote { get; }
         public PropertyIntViewModel RobotGender { get; }
 
         public FxRobotViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Robot", model)
         {
             RobotNote = new PropertyEnumComboViewModel<FxRobotNote>(nameof(RobotNote), _properties);
             RobotGender = new PropertyIntViewModel(nameof(RobotGender), _properties, new IntGenderConverter());

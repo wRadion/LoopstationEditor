@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters.String"
              xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d">

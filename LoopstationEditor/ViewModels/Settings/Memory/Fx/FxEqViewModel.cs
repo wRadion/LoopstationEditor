@@ -4,7 +4,7 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxEqViewModel : SettingsViewModel
+    public class FxEqViewModel : FxViewModel
     {
         public PropertyIntViewModel EqLow { get; }
         public PropertyIntViewModel EqLowMid { get; }
@@ -13,7 +13,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel EqLevel { get; }
 
         public FxEqViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("EQ", model)
         {
             EqLow = new PropertyIntViewModel(nameof(EqLow), _properties, new IntDbConverter());
             EqLowMid = new PropertyIntViewModel(nameof(EqLowMid), _properties, new IntDbConverter());

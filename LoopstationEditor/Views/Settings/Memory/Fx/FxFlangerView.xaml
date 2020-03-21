@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Fx.FxFlangerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory.Fx"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Flanger Rate (mixed) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Flanger Rate" />
+        <prop:PropertyMixed Grid.Column="1" Grid.Row="0" DataContext="{Binding FlangerRate}"
+                            SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Flanger Depth (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Flanger Depth" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding FlangerDepth}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Flanger Resonance (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Flanger Resonance" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding FlangerResonance}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Flanger Step Rate (mixed) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Flanger StepRate" />
+        <prop:PropertyMixed Grid.Column="1" Grid.Row="3" DataContext="{Binding FlangerStepRate}"
+                            SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Flanger Level (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Flanger Level" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="4" DataContext="{Binding FlangerLevel}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+    </Grid>
+</UserControl>

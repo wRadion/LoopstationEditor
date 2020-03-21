@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Fx.FxReverbView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory.Fx"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Reverb Time (float) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Reverb Time" />
+        <prop:PropertyFloat Grid.Column="1" Grid.Row="0" DataContext="{Binding ReverbTime}"
+                            SmallChange="0.1" LargeChange="1" TickFrequency="0.1" />
+
+        <!-- Reverb Level (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Reverb Level" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding ReverbLevel}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Reverb Dry Level (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Reverb Dry Level" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding ReverbDryLevel}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+    </Grid>
+</UserControl>

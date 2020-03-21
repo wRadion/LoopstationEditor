@@ -19,5 +19,14 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             Track4 = new SettingsMemoryTrackViewModel(model.Track4);
             Track5 = new SettingsMemoryTrackViewModel(model.Track5);
         }
+
+        public override void ApplyChanges()
+        {
+            Track1.ApplyChanges();
+            Track2.ApplyChanges();
+            Track3.ApplyChanges();
+            Track4.ApplyChanges();
+            Track5.ApplyChanges();
+        }
     }
 }

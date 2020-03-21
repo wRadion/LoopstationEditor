@@ -3,12 +3,12 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxGuitarToBassViewModel : SettingsViewModel
+    public class FxGuitarToBassViewModel : FxViewModel
     {
         public PropertyIntViewModel GuitarToBassBalance { get; }
 
         public FxGuitarToBassViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Guitar To Bass", model)
         {
             GuitarToBassBalance = new PropertyIntViewModel(nameof(GuitarToBassBalance), _properties);
         }

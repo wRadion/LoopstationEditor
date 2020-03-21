@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Tab.SettingsMemoryInputFxTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d"
+             x:Name="InputFxTab_this">
+    <xd:TabControl TabStripPlacement="Left"
+                   TabPadding="16px"
+                   SelectedIndex="{Binding SelectedTabIndex, ElementName=InputFxTab_this, Mode=TwoWay}">
+        <TabItem Header="Input Fx Settings" TabIndex="0">
+            <Border Padding="16px">
+                <local:SettingsMemoryOptionFxView DataContext="{Binding InputFx}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Input Fx A" TabIndex="1">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding InputFxA}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Input Fx B" TabIndex="2">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding InputFxB}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Input Fx C" TabIndex="3">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding InputFxC}" />
+            </Border>
+        </TabItem>
+    </xd:TabControl>
+</UserControl>

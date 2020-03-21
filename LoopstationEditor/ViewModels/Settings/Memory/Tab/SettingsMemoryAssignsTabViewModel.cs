@@ -41,5 +41,25 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             Assign15 = new SettingsMemoryAssignViewModel(model.Assign15);
             Assign16 = new SettingsMemoryAssignViewModel(model.Assign16);
         }
+
+        public override void ApplyChanges()
+        {
+            Assign1.ApplyChanges();
+            Assign2.ApplyChanges();
+            Assign3.ApplyChanges();
+            Assign4.ApplyChanges();
+            Assign5.ApplyChanges();
+            Assign6.ApplyChanges();
+            Assign7.ApplyChanges();
+            Assign8.ApplyChanges();
+            Assign9.ApplyChanges();
+            Assign10.ApplyChanges();
+            Assign11.ApplyChanges();
+            Assign12.ApplyChanges();
+            Assign13.ApplyChanges();
+            Assign14.ApplyChanges();
+            Assign15.ApplyChanges();
+            Assign16.ApplyChanges();
+        }
     }
 }

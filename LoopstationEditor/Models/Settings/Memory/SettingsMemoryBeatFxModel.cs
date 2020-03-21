@@ -11,7 +11,6 @@ namespace LoopstationEditor.Models.Settings.Memory
     public enum FxBeatScatterType { P1 = 0, P2 = 1, P3 = 2, P4 = 3 }
     public enum FxBeatScatterLength { THRU = 0, HALF_NOTE = 1, QUARTER_NOTE = 2, EIGHTH_NOTE = 3, SIXTEENTH_NOTE = 4 }
 
-
     public static class BeatFxProperty
     {
         public const string BeatRepeatType = "RepTyp";
@@ -23,7 +22,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         public const string BeatScatterType = "ScatTyp";
         public const string BeatScatterLength = "ScatLen";
 
-        public const string VinylFlick = "Flick";
+        public const string VinylFlickFlick = "Flick";
     }
 
     public class SettingsMemoryBeatFxModel : SettingsModel
@@ -53,8 +52,8 @@ namespace LoopstationEditor.Models.Settings.Memory
         public ValueEnum<FxBeatScatterLength> BeatScatterLength { get; set; }
 
         // VINYL FLICK
-        [XmlElement(BeatFxProperty.VinylFlick, typeof(int))]
+        [XmlElement(BeatFxProperty.VinylFlickFlick, typeof(int))]
         [Property(50, 0, 100)]
-        public ValueInt VinylFlick { get; set; }
+        public ValueInt VinylFlickFlick { get; set; }
     }
 }

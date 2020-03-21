@@ -3,26 +3,23 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace LoopstationEditor.Converters
+namespace LoopstationEditor.Converters.Int
 {
-    public class FloatToStringConverter : IValueConverter
+    public class IntToBalanceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
                 return DependencyProperty.UnsetValue;
 
-            return value.ToString();
+            int i = (int)value;
+
+            return $"{i}:{100 - i}";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string str = value.ToString();
-
-            if (string.IsNullOrWhiteSpace(str))
-                return DependencyProperty.UnsetValue;
-
-            return float.Parse(str);
+            throw new NotImplementedException();
         }
     }
 }

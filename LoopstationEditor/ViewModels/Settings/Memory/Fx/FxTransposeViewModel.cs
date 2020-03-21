@@ -4,12 +4,12 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxTransposeViewModel : SettingsViewModel
+    public class FxTransposeViewModel : FxViewModel
     {
         public PropertyIntViewModel TransposeSemitones { get; }
 
         public FxTransposeViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Transpose", model)
         {
             TransposeSemitones = new PropertyIntViewModel(nameof(TransposeSemitones), _properties, new IntSemitonesConverter());
         }

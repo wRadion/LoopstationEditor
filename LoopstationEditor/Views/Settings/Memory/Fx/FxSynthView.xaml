@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Fx.FxSynthView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory.Fx"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Synth Frequency (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Synth Frequency" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="0" DataContext="{Binding SynthFrequency}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Synth Resonance (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Synth Resonance" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="1" DataContext="{Binding SynthResonance}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Synth Decay (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Synth Decay" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding SynthDecay}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Synth Balance (int, Balance) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Synth Balance" />
+        <prop:PropertyIntBalance Grid.Column="1" Grid.Row="3" DataContext="{Binding SynthBalance}" />
+    </Grid>
+</UserControl>

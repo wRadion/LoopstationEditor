@@ -3,7 +3,7 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxSynthViewModel : SettingsViewModel
+    public class FxSynthViewModel : FxViewModel
     {
         public PropertyIntViewModel SynthFrequency { get; }
         public PropertyIntViewModel SynthResonance { get; }
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel SynthBalance { get; }
 
         public FxSynthViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Synth", model)
         {
             SynthFrequency = new PropertyIntViewModel(nameof(SynthFrequency), _properties);
             SynthResonance = new PropertyIntViewModel(nameof(SynthResonance), _properties);

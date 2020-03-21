@@ -3,7 +3,7 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxRollViewModel : SettingsViewModel
+    public class FxRollViewModel : FxViewModel
     {
         public PropertyMixedViewModel<FxDelayTime> RollTime { get; }
         public PropertyEnumComboViewModel<FxRollMode> RollMode { get; }
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel RollLevel { get; }
 
         public FxRollViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Roll", model)
         {
             RollTime = new PropertyMixedViewModel<FxDelayTime>(nameof(RollTime), _properties);
             RollMode = new PropertyEnumComboViewModel<FxRollMode>(nameof(RollMode), _properties);

@@ -1,4 +1,5 @@
-﻿using LoopstationEditor.Converters.Int;
+﻿using LoopstationEditor.Converters.Float;
+using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
 

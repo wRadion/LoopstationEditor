@@ -13,7 +13,7 @@ namespace LoopstationEditor.ViewModels.Settings
 
         public int SelectedTabIndex { get; set; }
 
-        public ICommand ApplyChangesCommand { get; protected set; }
+        public ICommand ApplyChangesCommand { get; }
         public ICommand CancelChangesCommand { get; }
 
         public WindowViewModel(SettingsContainerModel model)
@@ -22,6 +22,7 @@ namespace LoopstationEditor.ViewModels.Settings
             _view = null;
             _isClosed = true;
 
+            ApplyChangesCommand = new RelayCommand(() => ApplyChanges());
             CancelChangesCommand = new RelayCommand(() => { });
 
             InitViewModels();

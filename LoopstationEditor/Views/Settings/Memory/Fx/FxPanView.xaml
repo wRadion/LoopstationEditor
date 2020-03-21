@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Fx.FxPanView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory.Fx"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" MinWidth="160px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Pan Type (enum) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Pan Type" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="0" DataContext="{Binding PanType}" />
+
+        <!-- Pan Rate (mixed) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Pan Rate" />
+        <prop:PropertyMixed Grid.Column="1" Grid.Row="1" DataContext="{Binding PanRate}"
+                            SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Pan Depth (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Pan Depth" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="2" DataContext="{Binding PanDepth}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Pan Step Rate (mixed) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Pan StepRate" />
+        <prop:PropertyMixed Grid.Column="1" Grid.Row="3" DataContext="{Binding PanStepRate}"
+                            SmallChange="1" LargeChange="10" TickFrequency="1" />
+
+        <!-- Pan Position (int) -->
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Pan Position" />
+        <prop:PropertyInt Grid.Column="1" Grid.Row="4" DataContext="{Binding PanPosition}"
+                          SmallChange="1" LargeChange="10" TickFrequency="1" />
+    </Grid>
+</UserControl>

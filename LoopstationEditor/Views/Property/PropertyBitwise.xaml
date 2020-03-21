@@ -19,7 +19,7 @@
         <ItemsControl ItemsSource="{Binding Options}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <xd:CheckBox Content="{Binding Option}" IsChecked="{Binding Enabled, Mode=TwoWay}" />
+                    <xd:CheckBox Content="{Binding Option}" IsChecked="{Binding IsChecked, Mode=TwoWay}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 

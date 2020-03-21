@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:convInt="clr-namespace:LoopstationEditor.Converters.Int"
+             xmlns:convFloat="clr-namespace:LoopstationEditor.Converters.Float"
+             xmlns:convString="clr-namespace:LoopstationEditor.Converters.String"
              xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d">
@@ -13,9 +15,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/LoopstationEditor;component/Views/Resources/SettingsViewStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <conv:IntToStringConverter x:Key="IntToString" />
-            <conv:FloatToStringConverter x:Key="FloatToString" />
-            <conv:StringEqualsValueToVisibilityConverter x:Key="StringEqualsValueToVisibility" />
+            <convInt:IntToStringConverter x:Key="IntToString" />
+            <convFloat:FloatToStringConverter x:Key="FloatToString" />
+            <convString:StringEqualsValueToVisibilityConverter x:Key="StringEqualsValueToVisibility" />
         </ResourceDictionary>
     </UserControl.Resources>
 

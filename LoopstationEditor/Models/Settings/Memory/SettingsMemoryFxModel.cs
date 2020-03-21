@@ -101,7 +101,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         public const string IsolatorStepRate = "IsoStpRat";
         public const string IsolatorLevel = "IsoLvl";
 
-        public const string OctaveMod = "OctMod";
+        public const string OctaveMode = "OctMod";
         public const string OctaveLevel = "OctLvl";
 
         public const string PanType = "PanTyp";
@@ -342,9 +342,9 @@ namespace LoopstationEditor.Models.Settings.Memory
         public ValueInt IsolatorLevel { get; set; }
 
         // OCTAVE
-        [XmlElement(FxProperty.OctaveMod, typeof(int))]
+        [XmlElement(FxProperty.OctaveMode, typeof(int))]
         [Property(FxOctaveMode.MINUS_1OCT, 0, 2)]
-        public ValueEnum<FxOctaveMode> OctaveMod { get; set; }
+        public ValueEnum<FxOctaveMode> OctaveMode { get; set; }
         [XmlElement(FxProperty.OctaveLevel, typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt OctaveLevel { get; set; }

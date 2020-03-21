@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace LoopstationEditor.Converters
+namespace LoopstationEditor.Converters.String
 {
     public class StringEqualsValueToVisibilityConverter : IValueConverter
     {

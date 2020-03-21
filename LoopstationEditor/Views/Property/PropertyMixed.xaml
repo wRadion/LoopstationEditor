@@ -4,28 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Property"
-             xmlns:conv="clr-namespace:LoopstationEditor.Converters"
+             xmlns:conv="clr-namespace:LoopstationEditor.Converters.Int"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d"
              x:Name="PropertyMixed_this">
     <UserControl.Resources>
-        <Style TargetType="{x:Type xd:NumberBoxInteger}">
+        <Style TargetType="{x:Type xd:RadioButton}">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="8px 8px 0 8px" />
         </Style>
 
+        <Style TargetType="{x:Type xd:NumberBoxInteger}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8px 0 0 8px" />
+        </Style>
+
         <Style TargetType="{x:Type xd:Slider}">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="8px 8px 0 8px" />
+            <Setter Property="Margin" Value="8px 0 0 8px" />
             <Setter Property="Width" Value="160px" />
         </Style>
 
         <Style TargetType="{x:Type xd:ComboBox}">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="8px 8px 0 8px" />
+            <Setter Property="Margin" Value="8px 0 0 8px" />
         </Style>
 
         <conv:IntToStringConverter x:Key="IntToString" />

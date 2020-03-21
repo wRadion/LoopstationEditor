@@ -3,14 +3,14 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxVinylFlickViewModel : SettingsViewModel
+    public class FxVinylFlickViewModel : FxBeatViewModel
     {
-        public PropertyIntViewModel VinylFlick { get; }
+        public PropertyIntViewModel VinylFlickFlick { get; }
 
         public FxVinylFlickViewModel(SettingsMemoryBeatFxModel model)
-            : base(model)
+            : base("Vinyl Flick", model)
         {
-            VinylFlick = new PropertyIntViewModel(nameof(VinylFlick), _properties);
+            VinylFlickFlick = new PropertyIntViewModel(nameof(VinylFlickFlick), _properties);
         }
     }
 }

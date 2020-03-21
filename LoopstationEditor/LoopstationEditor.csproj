@@ -74,11 +74,14 @@
     <Compile Include="Converters\Bitwise\FxSlotBitwiseToLetterConverter.cs" />
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\Bitwise\TrackBitwiseToNumberConverter.cs" />
-    <Compile Include="Converters\StringEqualsValueToVisibilityConverter.cs" />
-    <Compile Include="Converters\StringEqualsValueToBooleanConverter.cs" />
+    <Compile Include="Converters\Int\IntStepRateConverter.cs" />
+    <Compile Include="Converters\Int\IntToBalanceConverter.cs" />
+    <Compile Include="Converters\Int\IntToSampleRateConverter.cs" />
+    <Compile Include="Converters\String\StringEqualsValueToVisibilityConverter.cs" />
+    <Compile Include="Converters\String\StringEqualsValueToBooleanConverter.cs" />
     <Compile Include="Converters\Float\FloatIdentityConverter.cs" />
-    <Compile Include="Converters\FloatToStringConverter.cs" />
-    <Compile Include="Converters\IntToStringConverter.cs" />
+    <Compile Include="Converters\Float\FloatToStringConverter.cs" />
+    <Compile Include="Converters\Int\IntToStringConverter.cs" />
     <Compile Include="Converters\Int\IntChannelConverter.cs" />
     <Compile Include="Converters\Int\IntDbConverter.cs" />
     <Compile Include="Converters\Int\IntDepthConverter.cs" />
@@ -91,7 +94,7 @@
     <Compile Include="Converters\Int\IntMemoryNumberConverter.cs" />
     <Compile Include="Converters\Int\IntPanConverter.cs" />
     <Compile Include="Converters\Float\FloatTempoConverter.cs" />
-    <Compile Include="Converters\Int\IntTimeConverter.cs" />
+    <Compile Include="Converters\Float\FloatTimeConverter.cs" />
     <Compile Include="Converters\Int\IntToneConverter.cs" />
     <Compile Include="Converters\IValueConverter.cs" />
     <Compile Include="Extensions\EnumUtils.cs" />
@@ -135,7 +138,11 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Fx\FxViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryAssignsTabViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryTrackFxTabViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryInputFxTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryTracksTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\WindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatRepeatViewModel.cs" />
@@ -207,8 +214,107 @@
     <Compile Include="Views\Property\PropertyInt.xaml.cs">
       <DependentUpon>PropertyInt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Property\PropertyIntSampleRate.xaml.cs">
+      <DependentUpon>PropertyIntSampleRate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Property\PropertyIntBalance.xaml.cs">
+      <DependentUpon>PropertyIntBalance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Property\PropertyMixed.xaml.cs">
       <DependentUpon>PropertyMixed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxBeatRepeatView.xaml.cs">
+      <DependentUpon>FxBeatRepeatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxBeatScatterView.xaml.cs">
+      <DependentUpon>FxBeatScatterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxBeatShiftView.xaml.cs">
+      <DependentUpon>FxBeatShiftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxChorusView.xaml.cs">
+      <DependentUpon>FxChorusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxDelayView.xaml.cs">
+      <DependentUpon>FxDelayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxDynamicsView.xaml.cs">
+      <DependentUpon>FxDynamicsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxEqView.xaml.cs">
+      <DependentUpon>FxEqView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxFilterView.xaml.cs">
+      <DependentUpon>FxFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxFlangerView.xaml.cs">
+      <DependentUpon>FxFlangerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxGranularDelayView.xaml.cs">
+      <DependentUpon>FxGranularDelayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxGuitarToBassView.xaml.cs">
+      <DependentUpon>FxGuitarToBassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxIsolatorView.xaml.cs">
+      <DependentUpon>FxIsolatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxLoFiView.xaml.cs">
+      <DependentUpon>FxLoFiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxOctaveView.xaml.cs">
+      <DependentUpon>FxOctaveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxPanningDelayView.xaml.cs">
+      <DependentUpon>FxPanningDelayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxPanView.xaml.cs">
+      <DependentUpon>FxPanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxPhaserView.xaml.cs">
+      <DependentUpon>FxPhaserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxPitchBendView.xaml.cs">
+      <DependentUpon>FxPitchBendView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxReverbView.xaml.cs">
+      <DependentUpon>FxReverbView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxRingModulatorView.xaml.cs">
+      <DependentUpon>FxRingModulatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxRobotView.xaml.cs">
+      <DependentUpon>FxRobotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxRollView.xaml.cs">
+      <DependentUpon>FxRollView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxSlicerView.xaml.cs">
+      <DependentUpon>FxSlicerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxSlowGearView.xaml.cs">
+      <DependentUpon>FxSlowGearView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxSynthView.xaml.cs">
+      <DependentUpon>FxSynthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxTapeEchoView.xaml.cs">
+      <DependentUpon>FxTapeEchoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxTransposeView.xaml.cs">
+      <DependentUpon>FxTransposeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxTremoloView.xaml.cs">
+      <DependentUpon>FxTremoloView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxVinylFlickView.xaml.cs">
+      <DependentUpon>FxVinylFlickView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxVocalDistView.xaml.cs">
+      <DependentUpon>FxVocalDistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Fx\FxVocoderView.xaml.cs">
+      <DependentUpon>FxVocoderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\MemoryWindow.xaml.cs">
       <DependentUpon>MemoryWindow.xaml</DependentUpon>
@@ -239,6 +345,12 @@
     </Compile>
     <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryAssignsTab.xaml.cs">
       <DependentUpon>SettingsMemoryAssignsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\SettingsMemoryFxView.xaml.cs">
+      <DependentUpon>SettingsMemoryFxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryInputFxTab.xaml.cs">
+      <DependentUpon>SettingsMemoryInputFxTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml.cs">
       <DependentUpon>SettingsMemoryTracksTab.xaml</DependentUpon>
@@ -444,6 +556,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Property\PropertyIntSampleRate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Property\PropertyIntBalance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Property\PropertyMixed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -453,6 +573,130 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Resources\SettingsViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxBeatRepeatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxBeatScatterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxBeatShiftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxChorusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxDelayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxDynamicsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxEqView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxFilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxFlangerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxGranularDelayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxGuitarToBassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxIsolatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxLoFiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxOctaveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxPanningDelayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxPanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxPhaserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxPitchBendView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxReverbView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxRingModulatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxRobotView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxRollView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxSlicerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxSlowGearView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxSynthView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxTapeEchoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxTransposeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxTremoloView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxVinylFlickView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxVocalDistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Fx\FxVocoderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -493,6 +737,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\Memory\Tab\SettingsMemoryAssignsTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\SettingsMemoryFxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\Tab\SettingsMemoryInputFxTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,7 +3,7 @@ using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
 {
-    public class FxVocoderViewModel : SettingsViewModel
+    public class FxVocoderViewModel : FxViewModel
     {
         public PropertyEnumComboViewModel<Track> VocoderCarrier { get; }
         public PropertyIntViewModel VocoderModSens { get; }
@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public PropertyIntViewModel VocoderBalance { get; }
 
         public FxVocoderViewModel(SettingsMemoryFxModel model)
-            : base(model)
+            : base("Vocoder", model)
         {
             VocoderCarrier = new PropertyEnumComboViewModel<Track>(nameof(VocoderCarrier), _properties);
             VocoderModSens = new PropertyIntViewModel(nameof(VocoderModSens), _properties);

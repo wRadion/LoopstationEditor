@@ -7,34 +7,25 @@ namespace LoopstationEditor.Models.Settings.System
     public enum IOInputSource { MONO = 0, STEREO = 1 }
     public enum IOOutputLevelSelection { LINE_PLUS_PHONES = 0, PHONES = 1 }
 
-    public static class InputOutputProperty
-    {
-        public const string InputNSThreshold = "InNsThrs";
-        public const string LineOutLevel = "LineOutLvl";
-        public const string InputSource = "InSrc";
-        public const string InputLineOut = "InLineOut";
-        public const string OutputLevelSelection = "OutLvlSel";
-    }
-
     public class SettingsSystemInputOutputModel : SettingsModel
     {
-        [XmlElement(InputOutputProperty.InputNSThreshold, typeof(int))]
+        [XmlElement("InNsThrs", typeof(int))]
         [Property(40, 0, 100)]
         public ValueInt InputNSThreshold { get; set; }
 
-        [XmlElement(InputOutputProperty.LineOutLevel, typeof(int))]
+        [XmlElement("LineOutLvl", typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt LineOutLevel { get; set; }
 
-        [XmlElement(InputOutputProperty.InputSource, typeof(int))]
+        [XmlElement("InSrc", typeof(int))]
         [Property(IOInputSource.STEREO, 0, 1)]
         public ValueEnum<IOInputSource> InputSource { get; set; }
 
-        [XmlElement(InputOutputProperty.InputLineOut, typeof(int))]
+        [XmlElement("InLineOut", typeof(int))]
         [Property(true, 0, 1)]
         public ValueBool InputLineOut { get; set; }
 
-        [XmlElement(InputOutputProperty.OutputLevelSelection, typeof(int))]
+        [XmlElement("OutLvlSel", typeof(int))]
         [Property(IOOutputLevelSelection.LINE_PLUS_PHONES, 0, 1)]
         public ValueEnum<IOOutputLevelSelection> OutputLevelSelection { get; set; }
 

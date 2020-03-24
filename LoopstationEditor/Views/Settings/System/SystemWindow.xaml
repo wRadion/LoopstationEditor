@@ -28,7 +28,7 @@
 
     <StackPanel Orientation="Vertical">
         <Border x:Name="MainContent">
-            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
+            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
                 <TabItem Header="Setup">
                     <Border Padding="16px">
                         <local:SettingsSystemSetupView DataContext="{Binding SetupViewModel, Mode=OneWay}" />

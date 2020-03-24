@@ -3,7 +3,7 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public abstract class PropertyViewModel<TInput, TOutput>
+    public abstract class PropertyViewModel<TInput, TOutput> : ViewModel
     {
         protected string _name;
         protected PropertySet _set;
@@ -14,6 +14,14 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             _name = name;
             _set = set;
             _converter = converter;
+
+            _set.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == name)
+                    This_PropertyChanged();
+            };
         }
+
+        protected abstract void This_PropertyChanged();
     }
 }

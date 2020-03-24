@@ -3,16 +3,23 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
+using LoopstationEditor.Models.Interfaces;
+
 namespace LoopstationEditor.Models.Settings
 {
-    public abstract class FileModel
+    public abstract class FileModel : IXmlContainer
     {
-        public static T Load<T>(string path)
+        protected static T Load<T>(string path) where T : FileModel, IXmlContainer
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             XmlReaderSettings settings = new XmlReaderSettings() { CloseInput = true };
             using (XmlReader reader = XmlReader.Create(File.OpenRead(path), settings))
-                return (T)serializer.Deserialize(reader);
+            {
+                T model = (T)serializer.Deserialize(reader);
+                model.CurrentPath = path;
+                model.ApplyXmlValues();
+                return model;
+            }
         }
 
         [XmlAttribute("name")]
@@ -21,8 +28,12 @@ namespace LoopstationEditor.Models.Settings
         [XmlAttribute("revision")]
         public int Revision { get; set; } = 2;
 
+        [XmlIgnore]
+        public string CurrentPath { get; set; }
+
         public FileModel() { }
 
+        public void Save() => Save(CurrentPath);
         public void Save(string path)
         {
             XmlSerializer serializer = new XmlSerializer(GetType());
@@ -34,7 +45,14 @@ namespace LoopstationEditor.Models.Settings
                 NewLineChars = "\n"
             };
             using (XmlWriter writer = XmlWriter.Create(File.OpenWrite(path), settings))
+            {
+                ApplyPropertyValues();
                 serializer.Serialize(writer, this, new XmlSerializerNamespaces(new XmlQualifiedName[] { new XmlQualifiedName() }));
+                CurrentPath = path;
+            }
         }
+
+        public abstract void ApplyXmlValues();
+        public abstract void ApplyPropertyValues();
     }
 }

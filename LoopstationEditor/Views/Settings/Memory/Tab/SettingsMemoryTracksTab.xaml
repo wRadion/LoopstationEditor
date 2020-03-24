@@ -9,7 +9,7 @@
              x:Name="TracksTab_this">
     <xd:TabControl TabStripPlacement="Left"
                    TabPadding="16px"
-                   SelectedIndex="{Binding SelectedTabIndex, ElementName=TracksTab_this, Mode=TwoWay}">
+                   SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
         <TabItem Header="Track1" TabIndex="0">
             <Border Padding="16px">
                 <local:SettingsMemoryTrackView DataContext="{Binding Track1}" />

@@ -1,4 +1,6 @@
-﻿using LoopstationEditor.Models.Settings.System;
+﻿using System;
+
+using LoopstationEditor.Models.Settings.System;
 using LoopstationEditor.Views.Settings.System_;
 
 namespace LoopstationEditor.ViewModels.Settings.System
@@ -13,6 +15,22 @@ namespace LoopstationEditor.ViewModels.Settings.System
 
     public class SystemWindowViewModel : WindowViewModel<SystemWindow>
     {
+        public override SettingsViewModel CurrentViewModel
+        {
+            get
+            {
+                switch (GetCurrentTab<SystemTab>())
+                {
+                    case SystemTab.SETUP: return SetupViewModel;
+                    case SystemTab.INPUT_OUTPUT: return InputOutputViewModel;
+                    case SystemTab.USB: return USBViewModel;
+                    case SystemTab.MIDI: return MIDIViewModel;
+                }
+
+                throw new InvalidOperationException("Current system tab is not valid.");
+            }
+        }
+
         public SettingsSystemSetupViewModel SetupViewModel { get; private set; }
         public SettingsSystemInputOutputViewModel InputOutputViewModel { get; private set; }
         public SettingsSystemUSBViewModel USBViewModel { get; private set; }

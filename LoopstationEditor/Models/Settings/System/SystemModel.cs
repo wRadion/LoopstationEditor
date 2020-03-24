@@ -159,5 +159,113 @@ namespace LoopstationEditor.Models.Settings.System
             TrackFxC = new SettingsMemoryFxModel();
             #endregion DefaultMemory
         }
+
+        public override void ApplyXmlValues()
+        {
+            Setup.ApplyXmlValues();
+            InputOutput.ApplyXmlValues();
+            USB.ApplyXmlValues();
+            MIDI.ApplyXmlValues();
+
+            #region DefaultMemory
+            Track1.ApplyXmlValues();
+            Track2.ApplyXmlValues();
+            Track3.ApplyXmlValues();
+            Track4.ApplyXmlValues();
+            Track5.ApplyXmlValues();
+
+            Rhythm.ApplyXmlValues();
+            //Name.ApplyXmlValues();
+            Master.ApplyXmlValues();
+            RecOption.ApplyXmlValues();
+            PlayOption.ApplyXmlValues();
+
+            Assign1.ApplyXmlValues();
+            Assign2.ApplyXmlValues();
+            Assign3.ApplyXmlValues();
+            Assign4.ApplyXmlValues();
+            Assign5.ApplyXmlValues();
+            Assign6.ApplyXmlValues();
+            Assign7.ApplyXmlValues();
+            Assign8.ApplyXmlValues();
+            Assign9.ApplyXmlValues();
+            Assign10.ApplyXmlValues();
+            Assign11.ApplyXmlValues();
+            Assign12.ApplyXmlValues();
+            Assign13.ApplyXmlValues();
+            Assign14.ApplyXmlValues();
+            Assign15.ApplyXmlValues();
+            Assign16.ApplyXmlValues();
+
+            InputFx.ApplyXmlValues();
+            TrackFx.ApplyXmlValues();
+
+            BeatFxA.ApplyXmlValues();
+            BeatFxB.ApplyXmlValues();
+            BeatFxC.ApplyXmlValues();
+
+            InputFxA.ApplyXmlValues();
+            InputFxB.ApplyXmlValues();
+            InputFxC.ApplyXmlValues();
+
+            TrackFxA.ApplyXmlValues();
+            TrackFxB.ApplyXmlValues();
+            TrackFxC.ApplyXmlValues();
+            #endregion DefaultMemory
+        }
+
+        public override void ApplyPropertyValues()
+        {
+            Setup.ApplyPropertyValues();
+            InputOutput.ApplyPropertyValues();
+            USB.ApplyPropertyValues();
+            MIDI.ApplyPropertyValues();
+
+            #region DefaultMemory
+            Track1.ApplyPropertyValues();
+            Track2.ApplyPropertyValues();
+            Track3.ApplyPropertyValues();
+            Track4.ApplyPropertyValues();
+            Track5.ApplyPropertyValues();
+
+            Rhythm.ApplyPropertyValues();
+            //Name.ApplyPropertyValues();
+            Master.ApplyPropertyValues();
+            RecOption.ApplyPropertyValues();
+            PlayOption.ApplyPropertyValues();
+
+            Assign1.ApplyPropertyValues();
+            Assign2.ApplyPropertyValues();
+            Assign3.ApplyPropertyValues();
+            Assign4.ApplyPropertyValues();
+            Assign5.ApplyPropertyValues();
+            Assign6.ApplyPropertyValues();
+            Assign7.ApplyPropertyValues();
+            Assign8.ApplyPropertyValues();
+            Assign9.ApplyPropertyValues();
+            Assign10.ApplyPropertyValues();
+            Assign11.ApplyPropertyValues();
+            Assign12.ApplyPropertyValues();
+            Assign13.ApplyPropertyValues();
+            Assign14.ApplyPropertyValues();
+            Assign15.ApplyPropertyValues();
+            Assign16.ApplyPropertyValues();
+
+            InputFx.ApplyPropertyValues();
+            TrackFx.ApplyPropertyValues();
+
+            BeatFxA.ApplyPropertyValues();
+            BeatFxB.ApplyPropertyValues();
+            BeatFxC.ApplyPropertyValues();
+
+            InputFxA.ApplyPropertyValues();
+            InputFxB.ApplyPropertyValues();
+            InputFxC.ApplyPropertyValues();
+
+            TrackFxA.ApplyPropertyValues();
+            TrackFxB.ApplyPropertyValues();
+            TrackFxC.ApplyPropertyValues();
+            #endregion DefaultMemory
+        }
     }
 }

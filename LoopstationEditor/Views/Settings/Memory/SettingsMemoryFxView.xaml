@@ -9,6 +9,7 @@
              mc:Ignorable="d">
     <StackPanel Orientation="Horizontal">
         <xd:ListBox ItemsSource="{Binding FxList}"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
                     DisplayMemberPath="Name"
                     SelectionChanged="FxListBox_SelectionChanged"
                     SelectionMode="Single"

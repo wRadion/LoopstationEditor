@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPitchBendViewModel(SettingsMemoryFxModel model)
             : base("Pitch Bend", model)
         {
-            PitchBendOctave = new PropertyIntViewModel(nameof(PitchBendOctave), _properties, new IntOctaveConverter());
-            PitchBendBend = new PropertyIntViewModel(nameof(PitchBendBend), _properties);
+            PitchBendOctave = new PropertyIntViewModel(nameof(model.PitchBendOctave), _properties, new IntOctaveConverter());
+            PitchBendBend = new PropertyIntViewModel(nameof(model.PitchBendBend), _properties);
         }
     }
 }

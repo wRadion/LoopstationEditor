@@ -1,3 +1,4 @@
+using LoopstationEditor.Converters.Enum;
 using LoopstationEditor.Converters.Int;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.PropertyEngine;
@@ -15,11 +16,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxFlangerViewModel(SettingsMemoryFxModel model)
             : base("Flanger", model)
         {
-            FlangerRate = new PropertyMixedViewModel<FxRate>(nameof(FlangerRate), _properties);
-            FlangerDepth = new PropertyIntViewModel(nameof(FlangerDepth), _properties);
-            FlangerResonance = new PropertyIntViewModel(nameof(FlangerResonance), _properties);
-            FlangerStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(FlangerStepRate), _properties, new IntStepRateConverter());
-            FlangerLevel = new PropertyIntViewModel(nameof(FlangerLevel), _properties);
+            FlangerRate = new PropertyMixedViewModel<FxRate>(nameof(model.FlangerRate), _properties, new EnumNoteConverter<FxRate>());
+            FlangerDepth = new PropertyIntViewModel(nameof(model.FlangerDepth), _properties);
+            FlangerResonance = new PropertyIntViewModel(nameof(model.FlangerResonance), _properties);
+            FlangerStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.FlangerStepRate), _properties, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
+            FlangerLevel = new PropertyIntViewModel(nameof(model.FlangerLevel), _properties);
         }
     }
 }

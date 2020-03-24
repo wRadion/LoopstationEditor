@@ -13,10 +13,10 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxSynthViewModel(SettingsMemoryFxModel model)
             : base("Synth", model)
         {
-            SynthFrequency = new PropertyIntViewModel(nameof(SynthFrequency), _properties);
-            SynthResonance = new PropertyIntViewModel(nameof(SynthResonance), _properties);
-            SynthDecay = new PropertyIntViewModel(nameof(SynthDecay), _properties);
-            SynthBalance = new PropertyIntViewModel(nameof(SynthBalance), _properties);
+            SynthFrequency = new PropertyIntViewModel(nameof(model.SynthFrequency), _properties);
+            SynthResonance = new PropertyIntViewModel(nameof(model.SynthResonance), _properties);
+            SynthDecay = new PropertyIntViewModel(nameof(model.SynthDecay), _properties);
+            SynthBalance = new PropertyIntViewModel(nameof(model.SynthBalance), _properties);
         }
     }
 }

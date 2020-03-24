@@ -18,12 +18,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryMasterViewModel(SettingsMemoryMasterModel model)
             : base(model)
         {
-            Level = new PropertyIntViewModel(nameof(Level), _properties, new IntLevelConverter());
-            Tempo = new PropertyFloatViewModel(nameof(Tempo), _properties, new FloatTempoConverter());
-            Compressor = new PropertyIntViewModel(nameof(Compressor), _properties, new IntDbConverter());
-            Reverb = new PropertyIntViewModel(nameof(Reverb), _properties);
-            PhonesOut = new PropertyEnumRadioViewModel<MasterPhonesOut>(nameof(PhonesOut), _properties);
-            PhonesOutTracks = new PropertyBitwiseViewModel<TrackBitwise>(nameof(PhonesOutTracks), _properties, new TrackBitwiseToNumberConverter());
+            Level = new PropertyIntViewModel(nameof(model.Level), _properties, new IntLevelConverter());
+            Tempo = new PropertyFloatViewModel(nameof(model.Tempo), _properties, new FloatTempoConverter());
+            Compressor = new PropertyIntViewModel(nameof(model.Compressor), _properties, new IntDbConverter());
+            Reverb = new PropertyIntViewModel(nameof(model.Reverb), _properties);
+            PhonesOut = new PropertyEnumRadioViewModel<MasterPhonesOut>(nameof(model.PhonesOut), _properties);
+            PhonesOutTracks = new PropertyBitwiseViewModel<TrackBitwise>(nameof(model.PhonesOutTracks), _properties, new TrackBitwiseToNumberConverter());
         }
     }
 }

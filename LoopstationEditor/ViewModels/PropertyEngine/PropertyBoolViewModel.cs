@@ -11,5 +11,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
         }
 
         public PropertyBoolViewModel(string name, PropertySet set) : base(name, set, null) { }
+
+        protected override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
     }
 }

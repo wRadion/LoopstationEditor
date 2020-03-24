@@ -10,48 +10,37 @@ namespace LoopstationEditor.Models.Settings.Memory
     public enum RhythmPlayCount { OFF = 0, ONE_MEASURE = 1 }
     public enum RhythmStopMode { OFF = 0, LOOPER_STOP = 1, REC_END = 2 }
 
-    public static class RhythmProperty
-    {
-        public const string Enabled = "Sw";
-        public const string Level = "Lvl";
-        public const string Pattern = "Ptn";
-        public const string Beat = "Bt";
-        public const string LineOut = "LineOut";
-        public const string RecCount = "RecCnt";
-        public const string PlayCount = "PlyCnt";
-        public const string StopMode = "Stp";
-    }
     public class SettingsMemoryRhythmModel : SettingsModel
     {
-        [XmlElement(RhythmProperty.Enabled, typeof(int))]
-        [Property(false, 0, 1)]
+        [XmlElement("Sw", typeof(int))]
+        [Property(false, 0, 2)]
         public ValueBool Enabled { get; set; }
 
-        [XmlElement(RhythmProperty.Level, typeof(int))]
+        [XmlElement("Lvl", typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt Level { get; set; }
 
-        [XmlElement(RhythmProperty.Pattern, typeof(int))]
+        [XmlElement("Ptn", typeof(int))]
         [Property(RhythmPattern.SIMPLE_BEAT_1, 0, 57)]
         public ValueEnum<RhythmPattern> Pattern { get; set; }
 
-        [XmlElement(RhythmProperty.Beat, typeof(int))]
+        [XmlElement("Bt", typeof(int))]
         [Property(RhythmBeat._4_4, 0, 16)]
         public ValueEnum<RhythmBeat> Beat { get; set; }
 
-        [XmlElement(RhythmProperty.LineOut, typeof(int))]
+        [XmlElement("LineOut", typeof(int))]
         [Property(true, 0, 1)]
         public ValueBool LineOut { get; set; }
 
-        [XmlElement(RhythmProperty.RecCount, typeof(int))]
+        [XmlElement("RecCnt", typeof(int))]
         [Property(RhythmRecCount.OFF, 0, 1)]
         public ValueEnum<RhythmRecCount> RecCount { get; set; }
 
-        [XmlElement(RhythmProperty.PlayCount, typeof(int))]
+        [XmlElement("PlyCnt", typeof(int))]
         [Property(RhythmPlayCount.OFF, 0, 1)]
         public ValueEnum<RhythmPlayCount> PlayCount { get; set; }
 
-        [XmlElement(RhythmProperty.StopMode, typeof(int))]
+        [XmlElement("Stp", typeof(int))]
         [Property(RhythmStopMode.LOOPER_STOP, 0, 2)]
         public ValueEnum<RhythmStopMode> StopMode { get; set; }
 

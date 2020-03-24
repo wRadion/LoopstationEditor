@@ -24,6 +24,8 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             MaximumValue = _converter.Convert(prop.MaximumValue);
         }
 
+        protected override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
+
         public override string ToString() => Value.ToString();
     }
 }

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="LoopstationEditor.Views.Settings.Memory.Tab.SettingsMemoryTrackFxTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
+             xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
+             mc:Ignorable="d"
+             x:Name="TrackFxTab_this">
+    <xd:TabControl TabStripPlacement="Left"
+                   TabPadding="16px"
+                   SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+        <TabItem Header="Track Fx Settings" TabIndex="0">
+            <Border Padding="16px">
+                <local:SettingsMemoryOptionFxView DataContext="{Binding TrackFx}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Track Fx A" TabIndex="1">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding TrackFxA}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Track Fx B" TabIndex="2">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding TrackFxB}" />
+            </Border>
+        </TabItem>
+        <TabItem Header="Track Fx C" TabIndex="3">
+            <Border Padding="16px">
+                <local:SettingsMemoryFxView DataContext="{Binding TrackFxC}" />
+            </Border>
+        </TabItem>
+    </xd:TabControl>
+</UserControl>

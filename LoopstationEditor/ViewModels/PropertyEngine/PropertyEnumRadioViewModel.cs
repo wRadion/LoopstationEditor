@@ -8,9 +8,9 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class RadioOption
+    public class RadioOption : ViewModel
     {
-        private Action _updateValue;
+        private readonly Action _updateValue;
 
         public string Value { get; }
 
@@ -34,6 +34,12 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             _isChecked = isChecked;
             GroupName = groupName;
         }
+
+        public void UpdateIsChecked(bool value)
+        {
+            _isChecked = value;
+            OnPropertyChanged(nameof(IsChecked));
+        }
     }
 
     public static class GroupName
@@ -49,7 +55,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             set => _set.SetValue<ValueEnum<TEnum>>(_name, _converter.ConvertBack(value));
         }
 
-        public RadioOption[] Options { get; }
+        public RadioOption[] Options { get; private set; }
 
         public PropertyEnumRadioViewModel(string name, PropertySet set) : this(name, set, new EnumDefaultConverter<TEnum>()) { }
         public PropertyEnumRadioViewModel(string name, PropertySet set, IValueConverter<TEnum, string> converter)
@@ -75,6 +81,16 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
                     break;
                 }
             }
+        }
+
+        protected override void This_PropertyChanged()
+        {
+            string enumValue = Value;
+
+            for (int i = 0; i < Options.Length; ++i)
+                Options[i].UpdateIsChecked(Options[i].Value == enumValue);
+
+            OnPropertyChanged(nameof(Options));
         }
     }
 }

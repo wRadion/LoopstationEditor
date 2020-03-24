@@ -16,12 +16,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryAssignViewModel(SettingsMemoryAssignModel model)
             : base(model)
         {
-            Enabled = new PropertyBoolViewModel(nameof(Enabled), _properties);
-            Source = new PropertyEnumComboViewModel<AssignSource>(nameof(Source), _properties);
-            SourceMode = new PropertyEnumRadioViewModel<AssignSourceMode>(nameof(SourceMode), _properties);
-            Target = new PropertyEnumComboViewModel<AssignTarget>(nameof(Target), _properties);
-            TargetMin = new PropertyIntViewModel(nameof(TargetMin), _properties, new IntTargetConverter());
-            TargetMax = new PropertyIntViewModel(nameof(TargetMax), _properties, new IntTargetConverter());
+            Enabled = new PropertyBoolViewModel(nameof(model.Enabled), _properties);
+            Source = new PropertyEnumComboViewModel<AssignSource>(nameof(model.Source), _properties);
+            SourceMode = new PropertyEnumRadioViewModel<AssignSourceMode>(nameof(model.SourceMode), _properties);
+            Target = new PropertyEnumComboViewModel<AssignTarget>(nameof(model.Target), _properties);
+            TargetMin = new PropertyIntViewModel(nameof(model.TargetMin), _properties, new IntTargetConverter());
+            TargetMax = new PropertyIntViewModel(nameof(model.TargetMax), _properties, new IntTargetConverter());
         }
     }
 }

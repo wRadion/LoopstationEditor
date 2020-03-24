@@ -1,7 +1,10 @@
-﻿namespace LoopstationEditor.Models.Settings
+﻿using LoopstationEditor.Models.Interfaces;
+
+namespace LoopstationEditor.Models.Settings
 {
-    public abstract class SettingsContainerModel
+    public abstract class SettingsContainerModel : IXmlContainer
     {
-        // TODO SettingsContainerModel
+        public abstract void ApplyXmlValues();
+        public abstract void ApplyPropertyValues();
     }
 }

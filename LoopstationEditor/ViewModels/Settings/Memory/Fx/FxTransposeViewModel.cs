@@ -11,7 +11,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxTransposeViewModel(SettingsMemoryFxModel model)
             : base("Transpose", model)
         {
-            TransposeSemitones = new PropertyIntViewModel(nameof(TransposeSemitones), _properties, new IntSemitonesConverter());
+            TransposeSemitones = new PropertyIntViewModel(nameof(model.TransposeSemitones), _properties, new IntSemitonesConverter());
         }
     }
 }

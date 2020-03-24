@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Data;
+﻿using System.ComponentModel;
 using System.Windows.Input;
 
 using LoopstationEditor.Commands;
@@ -29,10 +26,7 @@ namespace LoopstationEditor.ViewModels
     public class LoopstationViewModel : ViewModel
     {
         private SystemWindowViewModel _systemViewModel;
-        private MemoryWindowViewModel[] _memoryViewModels;
-        private int _currentMemoryIndex;
-
-        public MemoryWindowViewModel CurrentMemory => _memoryViewModels[_currentMemoryIndex];
+        private MemoryWindowViewModel _memoryViewModel;
 
         public ScreenText ScreenText { get; private set; }
 
@@ -53,50 +47,45 @@ namespace LoopstationEditor.ViewModels
 
         public LoopstationViewModel()
         {
-            _systemViewModel = new SystemWindowViewModel(new SystemModel());
-            _memoryViewModels = new MemoryWindowViewModel[MemoryFileModel.MemoryCount];
-
             ScreenText = new ScreenText();
 
-            for (int i = 0; i < _memoryViewModels.Length; ++i)
-                _memoryViewModels[i] = new MemoryWindowViewModel(new MemoryModel(i));
-            SetMemory(0);
-
             // System
-            OpenSystemWindowSetupTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.SETUP));
-            OpenSystemWindowInputOutputTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.INPUT_OUTPUT));
-            OpenSystemWindowUSBTab = new RelayCommand(() => _systemViewModel.Show(SystemTab.USB));
-            OpenSystemWindowMIDITab = new RelayCommand(() => _systemViewModel.Show(SystemTab.MIDI));
+            OpenSystemWindowSetupTab = new Command(() => _systemViewModel.Show(SystemTab.SETUP));
+            OpenSystemWindowInputOutputTab = new Command(() => _systemViewModel.Show(SystemTab.INPUT_OUTPUT));
+            OpenSystemWindowUSBTab = new Command(() => _systemViewModel.Show(SystemTab.USB));
+            OpenSystemWindowMIDITab = new Command(() => _systemViewModel.Show(SystemTab.MIDI));
 
             // Memory
-            OpenMemoryWindowTracksTab = new IntCommand((track) => CurrentMemory.ShowSubtab(MemoryTab.TRACKS, track - 1));
-            OpenMemoryWindowRhythmTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.RHYTHM));
-            OpenMemoryWindowNameTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.NAME));
-            OpenMemoryWindowMasterTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.MASTER));
-            OpenMemoryWindowRecOptionTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.REC_OPTION));
-            OpenMemoryWindowPlayOptionTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.PLAY_OPTION));
-            OpenMemoryWindowAssignsTab = new IntCommand((assign) => CurrentMemory.ShowSubtab(MemoryTab.ASSIGNS, assign - 1));
-            OpenMemoryWindowInputFxTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.INPUT_FX));
-            OpenMemoryWindowTrackFxTab = new RelayCommand(() => CurrentMemory.Show(MemoryTab.TRACK_FX));
+            OpenMemoryWindowTracksTab = new Command<int>((track) => _memoryViewModel.ShowSubtab(MemoryTab.TRACKS, track - 1));
+            OpenMemoryWindowRhythmTab = new Command(() => _memoryViewModel.Show(MemoryTab.RHYTHM));
+            OpenMemoryWindowNameTab = new Command(() => _memoryViewModel.Show(MemoryTab.NAME));
+            OpenMemoryWindowMasterTab = new Command(() => _memoryViewModel.Show(MemoryTab.MASTER));
+            OpenMemoryWindowRecOptionTab = new Command(() => _memoryViewModel.Show(MemoryTab.REC_OPTION));
+            OpenMemoryWindowPlayOptionTab = new Command(() => _memoryViewModel.Show(MemoryTab.PLAY_OPTION));
+            OpenMemoryWindowAssignsTab = new Command<int>((assign) => _memoryViewModel.ShowSubtab(MemoryTab.ASSIGNS, assign - 1));
+            OpenMemoryWindowInputFxTab = new Command<int>((tab) => _memoryViewModel.ShowSubtab(MemoryTab.INPUT_FX, tab - 1));
+            OpenMemoryWindowTrackFxTab = new Command<int>((tab) => _memoryViewModel.ShowSubtab(MemoryTab.TRACK_FX, tab - 1));
         }
 
-        public void SetMemory(int id)
+        public void SetSystem(SystemModel model)
         {
-            _currentMemoryIndex = id;
-            CurrentMemory.NameViewModelInitialized += CurrentMemory_NameViewModelInitialized;
-            NameChanged(CurrentMemory.NameViewModel, new PropertyChangedEventArgs("Name"));
+            _systemViewModel = new SystemWindowViewModel(model);
         }
 
-        private void CurrentMemory_NameViewModelInitialized(SettingsMemoryNameViewModel viewModel)
+        public MemoryWindowViewModel SetMemory(MemoryModel model)
         {
-            viewModel.PropertyChanged += NameChanged;
+            _memoryViewModel = new MemoryWindowViewModel(model);
+            _memoryViewModel.NameViewModelInitialized += ((viewModel) => viewModel.PropertyChanged += NameChanged);
+            NameChanged(_memoryViewModel.NameViewModel, new PropertyChangedEventArgs("Name"));
+
+            return _memoryViewModel;
         }
 
         private void NameChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != "Name") return;
 
-            ScreenText.TextLine1 = $"{ CurrentMemory.Id.ToString("D2") }  { CurrentMemory.NameViewModel.Name }";
+            ScreenText.TextLine1 = $"{ _memoryViewModel.Id:D2}  { _memoryViewModel.NameViewModel.Name }";
         }
     }
 }

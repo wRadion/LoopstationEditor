@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
 
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.Memory.Fx;
@@ -24,6 +23,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
     public abstract class SettingsMemoryFxViewModel : SettingsContainerViewModel
     {
+        public override SettingsViewModel CurrentViewModel => FxList[SelectedIndex].ViewModel;
+
         public FxFilterViewModel Filter { get; }
         public FxPhaserViewModel Phaser { get; }
         public FxFlangerViewModel Flanger { get; }
@@ -87,33 +88,35 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
         public virtual void SetFxList()
         {
-            FxList = new List<FxItem>();
-            FxList.Add(new FxItem(Filter.DisplayName, Filter, typeof(FxFilterView)));
-            FxList.Add(new FxItem(Phaser.DisplayName, Phaser, typeof(FxPhaserView)));
-            FxList.Add(new FxItem(Flanger.DisplayName, Flanger, typeof(FxFlangerView)));
-            FxList.Add(new FxItem(Synth.DisplayName, Synth, typeof(FxSynthView)));
-            FxList.Add(new FxItem(LoFi.DisplayName, LoFi, typeof(FxLoFiView)));
-            FxList.Add(new FxItem(RingModulator.DisplayName, RingModulator, typeof(FxRingModulatorView)));
-            FxList.Add(new FxItem(GuitarToBass.DisplayName, GuitarToBass, typeof(FxGuitarToBassView)));
-            FxList.Add(new FxItem(SlowGear.DisplayName, SlowGear, typeof(FxSlowGearView)));
-            FxList.Add(new FxItem(Transpose.DisplayName, Transpose, typeof(FxTransposeView)));
-            FxList.Add(new FxItem(PitchBend.DisplayName, PitchBend, typeof(FxPitchBendView)));
-            FxList.Add(new FxItem(Robot.DisplayName, Robot, typeof(FxRobotView)));
-            FxList.Add(new FxItem(VocalDist.DisplayName, VocalDist, typeof(FxVocalDistView)));
-            FxList.Add(new FxItem(Dynamics.DisplayName, Dynamics, typeof(FxDynamicsView)));
-            FxList.Add(new FxItem(Eq.DisplayName, Eq, typeof(FxEqView)));
-            FxList.Add(new FxItem(Isolator.DisplayName, Isolator, typeof(FxIsolatorView)));
-            FxList.Add(new FxItem(Octave.DisplayName, Octave, typeof(FxOctaveView)));
-            FxList.Add(new FxItem(Pan.DisplayName, Pan, typeof(FxPanView)));
-            FxList.Add(new FxItem(Tremolo.DisplayName, Tremolo, typeof(FxTremoloView)));
-            FxList.Add(new FxItem(Slicer.DisplayName, Slicer, typeof(FxSlicerView)));
-            FxList.Add(new FxItem(Delay.DisplayName, Delay, typeof(FxDelayView)));
-            FxList.Add(new FxItem(PanningDelay.DisplayName, PanningDelay, typeof(FxPanningDelayView)));
-            FxList.Add(new FxItem(TapeEcho.DisplayName, TapeEcho, typeof(FxTapeEchoView)));
-            FxList.Add(new FxItem(GranularDelay.DisplayName, GranularDelay, typeof(FxGranularDelayView)));
-            FxList.Add(new FxItem(Roll.DisplayName, Roll, typeof(FxRollView)));
-            FxList.Add(new FxItem(Chorus.DisplayName, Chorus, typeof(FxChorusView)));
-            FxList.Add(new FxItem(Reverb.DisplayName, Reverb, typeof(FxReverbView)));
+            FxList = new List<FxItem>
+            {
+                new FxItem(Filter.DisplayName, Filter, typeof(FxFilterView)),
+                new FxItem(Phaser.DisplayName, Phaser, typeof(FxPhaserView)),
+                new FxItem(Flanger.DisplayName, Flanger, typeof(FxFlangerView)),
+                new FxItem(Synth.DisplayName, Synth, typeof(FxSynthView)),
+                new FxItem(LoFi.DisplayName, LoFi, typeof(FxLoFiView)),
+                new FxItem(RingModulator.DisplayName, RingModulator, typeof(FxRingModulatorView)),
+                new FxItem(GuitarToBass.DisplayName, GuitarToBass, typeof(FxGuitarToBassView)),
+                new FxItem(SlowGear.DisplayName, SlowGear, typeof(FxSlowGearView)),
+                new FxItem(Transpose.DisplayName, Transpose, typeof(FxTransposeView)),
+                new FxItem(PitchBend.DisplayName, PitchBend, typeof(FxPitchBendView)),
+                new FxItem(Robot.DisplayName, Robot, typeof(FxRobotView)),
+                new FxItem(VocalDist.DisplayName, VocalDist, typeof(FxVocalDistView)),
+                new FxItem(Dynamics.DisplayName, Dynamics, typeof(FxDynamicsView)),
+                new FxItem(Eq.DisplayName, Eq, typeof(FxEqView)),
+                new FxItem(Isolator.DisplayName, Isolator, typeof(FxIsolatorView)),
+                new FxItem(Octave.DisplayName, Octave, typeof(FxOctaveView)),
+                new FxItem(Pan.DisplayName, Pan, typeof(FxPanView)),
+                new FxItem(Tremolo.DisplayName, Tremolo, typeof(FxTremoloView)),
+                new FxItem(Slicer.DisplayName, Slicer, typeof(FxSlicerView)),
+                new FxItem(Delay.DisplayName, Delay, typeof(FxDelayView)),
+                new FxItem(PanningDelay.DisplayName, PanningDelay, typeof(FxPanningDelayView)),
+                new FxItem(TapeEcho.DisplayName, TapeEcho, typeof(FxTapeEchoView)),
+                new FxItem(GranularDelay.DisplayName, GranularDelay, typeof(FxGranularDelayView)),
+                new FxItem(Roll.DisplayName, Roll, typeof(FxRollView)),
+                new FxItem(Chorus.DisplayName, Chorus, typeof(FxChorusView)),
+                new FxItem(Reverb.DisplayName, Reverb, typeof(FxReverbView))
+            };
         }
 
         public override void ApplyChanges()

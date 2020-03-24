@@ -11,8 +11,6 @@ namespace LoopstationEditor.ViewModels.Settings
         protected TWindow _view;
         protected bool _isClosed;
 
-        public int SelectedTabIndex { get; set; }
-
         public ICommand ApplyChangesCommand { get; }
         public ICommand CancelChangesCommand { get; }
 
@@ -22,13 +20,14 @@ namespace LoopstationEditor.ViewModels.Settings
             _view = null;
             _isClosed = true;
 
-            ApplyChangesCommand = new RelayCommand(() => ApplyChanges());
-            CancelChangesCommand = new RelayCommand(() => { });
+            ApplyChangesCommand = new Command(() => ApplyChanges());
+            CancelChangesCommand = new Command(() => { });
 
             InitViewModels();
         }
 
-        public void SelectTab<TEnum>(TEnum tab) where TEnum : Enum => SelectedTabIndex = Convert.ToInt32(tab);
+        public TEnum GetCurrentTab<TEnum>() where TEnum : Enum => (TEnum)Enum.ToObject(typeof(TEnum), SelectedIndex);
+        public void SelectTab<TEnum>(TEnum tab) where TEnum : Enum => SelectedIndex = Convert.ToInt32(tab);
 
         public void Show<TEnum>(TEnum tab) where TEnum : Enum
         {

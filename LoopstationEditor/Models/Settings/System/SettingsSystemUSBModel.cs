@@ -5,31 +5,23 @@ using LoopstationEditor.Models.PropertyEngine;
 namespace LoopstationEditor.Models.Settings.System
 {
     public enum USBMode { STORAGE = 0, AUDIO_MIDI = 1 }
-    public enum USBAudioRouting { LOOP_IN = 0, SUBMIX = 1, LINEOUT = 2 }
-
-    public static class USBProperty
-    {
-        public const string Mode = "Mod";
-        public const string AudioRouting = "AuRouting";
-        public const string InputLevel = "InLvl";
-        public const string OutputLevel = "OutLvL";
-    }
+    public enum USBAudioRouting { LOOP_IN = 0, SUB_MIX = 1, LINEOUT = 2 }
 
     public class SettingsSystemUSBModel : SettingsModel
     {
-        [XmlElement(USBProperty.Mode, typeof(int))]
+        [XmlElement("Mod", typeof(int))]
         [Property(USBMode.STORAGE, 0, 1)]
         public ValueEnum<USBMode> Mode { get; set; }
 
-        [XmlElement(USBProperty.AudioRouting, typeof(int))]
+        [XmlElement("AuRouting", typeof(int))]
         [Property(USBAudioRouting.LOOP_IN, 0, 2)]
         public ValueEnum<USBAudioRouting> AudioRouting { get; set; }
 
-        [XmlElement(USBProperty.InputLevel, typeof(int))]
+        [XmlElement("InLvl", typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt InputLevel { get; set; }
 
-        [XmlElement(USBProperty.OutputLevel, typeof(int))]
+        [XmlElement("OutLvL", typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt OutputLevel { get; set; }
 

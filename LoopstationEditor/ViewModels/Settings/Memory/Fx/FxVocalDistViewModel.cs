@@ -13,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxVocalDistViewModel(SettingsMemoryFxModel model)
             : base("Vocal Dist", model)
         {
-            VocalDistDistortion = new PropertyIntViewModel(nameof(VocalDistDistortion), _properties);
-            VocalDistTone = new PropertyIntViewModel(nameof(VocalDistTone), _properties, new IntToneConverter());
-            VocalDistLevel = new PropertyIntViewModel(nameof(VocalDistLevel), _properties);
+            VocalDistDistortion = new PropertyIntViewModel(nameof(model.VocalDistDistortion), _properties);
+            VocalDistTone = new PropertyIntViewModel(nameof(model.VocalDistTone), _properties, new IntToneConverter());
+            VocalDistLevel = new PropertyIntViewModel(nameof(model.VocalDistLevel), _properties);
         }
     }
 }

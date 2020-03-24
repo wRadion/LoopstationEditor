@@ -5,11 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LoopstationEditor.Views.Settings.Memory"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
-             mc:Ignorable="d"
-             x:Name="InputFxTab_this">
+             mc:Ignorable="d">
     <xd:TabControl TabStripPlacement="Left"
                    TabPadding="16px"
-                   SelectedIndex="{Binding SelectedTabIndex, ElementName=InputFxTab_this, Mode=TwoWay}">
+                   SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
         <TabItem Header="Input Fx Settings" TabIndex="0">
             <Border Padding="16px">
                 <local:SettingsMemoryOptionFxView DataContext="{Binding InputFx}" />

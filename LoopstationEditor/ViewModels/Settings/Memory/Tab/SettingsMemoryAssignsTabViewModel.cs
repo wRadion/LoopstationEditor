@@ -1,9 +1,39 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using System;
+
+using LoopstationEditor.Models.Settings.Memory;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
 {
     public class SettingsMemoryAssignsTabViewModel : SettingsContainerViewModel
     {
+        public override SettingsViewModel CurrentViewModel
+        {
+            get
+            {
+                switch (SelectedIndex)
+                {
+                    case 0: return Assign1;
+                    case 1: return Assign2;
+                    case 2: return Assign3;
+                    case 3: return Assign4;
+                    case 4: return Assign5;
+                    case 5: return Assign6;
+                    case 6: return Assign7;
+                    case 7: return Assign8;
+                    case 8: return Assign9;
+                    case 9: return Assign10;
+                    case 10: return Assign11;
+                    case 11: return Assign12;
+                    case 12: return Assign13;
+                    case 13: return Assign14;
+                    case 14: return Assign15;
+                    case 15: return Assign16;
+                }
+
+                throw new ArgumentOutOfRangeException("Assign index must be between 0 and 15.");
+            }
+        }
+
         public SettingsMemoryAssignViewModel Assign1 { get; }
         public SettingsMemoryAssignViewModel Assign2 { get; }
         public SettingsMemoryAssignViewModel Assign3 { get; }

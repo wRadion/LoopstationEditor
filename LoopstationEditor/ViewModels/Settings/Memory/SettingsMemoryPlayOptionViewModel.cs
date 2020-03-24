@@ -18,14 +18,14 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryPlayOptionViewModel(SettingsMemoryPlayOptionModel model)
             : base(model)
         {
-            SinglePlayChange = new PropertyEnumRadioViewModel<PlayOptionSinglePlayChange>(nameof(SinglePlayChange), _properties);
-            LoopQuantize = new PropertyEnumRadioViewModel<PlayOptionLoopQuantize>(nameof(LoopQuantize), _properties);
-            LoopMode = new PropertyEnumRadioViewModel<PlayOptionLoopMode>(nameof(LoopMode), _properties);
-            LoopLength = new PropertyIntViewModel(nameof(LoopLength), _properties);
-            AllStart = new PropertyBitwiseViewModel<TrackBitwise>(nameof(AllStart), _properties, new TrackBitwiseToNumberConverter());
-            AllStop = new PropertyBitwiseViewModel<TrackBitwise>(nameof(AllStop), _properties, new TrackBitwiseToNumberConverter());
-            FadeTime = new PropertyIntViewModel(nameof(FadeTime), _properties);
-            TargetTrack = new PropertyEnumComboViewModel<Track>(nameof(TargetTrack), _properties);
+            SinglePlayChange = new PropertyEnumRadioViewModel<PlayOptionSinglePlayChange>(nameof(model.SinglePlayChange), _properties);
+            LoopQuantize = new PropertyEnumRadioViewModel<PlayOptionLoopQuantize>(nameof(model.LoopQuantize), _properties);
+            LoopMode = new PropertyEnumRadioViewModel<PlayOptionLoopMode>(nameof(model.LoopMode), _properties);
+            LoopLength = new PropertyIntViewModel(nameof(model.LoopLength), _properties);
+            AllStart = new PropertyBitwiseViewModel<TrackBitwise>(nameof(model.AllStart), _properties, new TrackBitwiseToNumberConverter());
+            AllStop = new PropertyBitwiseViewModel<TrackBitwise>(nameof(model.AllStop), _properties, new TrackBitwiseToNumberConverter());
+            FadeTime = new PropertyIntViewModel(nameof(model.FadeTime), _properties);
+            TargetTrack = new PropertyEnumComboViewModel<Track>(nameof(model.TargetTrack), _properties);
         }
     }
 }

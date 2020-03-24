@@ -1,4 +1,8 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using System;
+using System.Windows.Input;
+
+using LoopstationEditor.Commands;
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.Memory.Tab;
 using LoopstationEditor.Views.Settings.Memory;
 
@@ -14,9 +18,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         PLAY_OPTION = 5,
         ASSIGNS = 6,
         INPUT_FX = 7,
-        TRACK_FX = 8,
-        INPUT_FXS = 9,
-        TRACK_FXS = 10
+        TRACK_FX = 8
     }
 
     public class MemoryWindowViewModel : WindowViewModel<MemoryWindow>
@@ -26,6 +28,27 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public delegate void NameViewModelInitializedEventHandler(SettingsMemoryNameViewModel viewModel);
         public event NameViewModelInitializedEventHandler NameViewModelInitialized;
 
+        public override SettingsViewModel CurrentViewModel
+        {
+            get
+            {
+                switch (GetCurrentTab<MemoryTab>())
+                {
+                    case MemoryTab.TRACKS: return TracksTabViewModel.CurrentViewModel;
+                    case MemoryTab.RHYTHM: return RhythmViewModel;
+                    case MemoryTab.NAME: return NameViewModel;
+                    case MemoryTab.MASTER: return MasterViewModel;
+                    case MemoryTab.REC_OPTION: return RecOptionViewModel;
+                    case MemoryTab.PLAY_OPTION: return PlayOptionViewModel;
+                    case MemoryTab.ASSIGNS: return AssignsTabViewModel.CurrentViewModel;
+                    case MemoryTab.INPUT_FX: return InputFxTabViewModel.CurrentViewModel;
+                    case MemoryTab.TRACK_FX: return TrackFxTabViewModel.CurrentViewModel;
+                }
+
+                throw new InvalidOperationException("Current memory tab is not valid.");
+            }
+        }
+
         public SettingsMemoryTracksTabViewModel TracksTabViewModel { get; private set; }
         public SettingsMemoryRhythmViewModel RhythmViewModel { get; private set; }
         public SettingsMemoryNameViewModel NameViewModel { get; private set; }
@@ -34,20 +57,44 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryPlayOptionViewModel PlayOptionViewModel { get; private set; }
         public SettingsMemoryAssignsTabViewModel AssignsTabViewModel { get; private set; }
         public SettingsMemoryInputFxTabViewModel InputFxTabViewModel { get; private set; }
-        public SettingsMemoryTrackFxViewModel TrackFxViewModel { get; private set; }
-        public SettingsMemoryFxTrackViewModel[] FxTrackViewModels { get; private set; }
+        public SettingsMemoryTrackFxTabViewModel TrackFxTabViewModel { get; private set; }
+
+        public ICommand CopyPropertySetCommand { get; }
+        public ICommand PastePropertySetCommand { get; }
 
         public MemoryWindowViewModel(MemoryModel model)
             : base(model)
         {
             Id = model.Id + 1;
             SelectTab(MemoryTab.TRACKS);
+
+            TabChanged += (sender, e) => UpdatePasteBtn();
+
+            CopyPropertySetCommand = new Command(() =>
+            {
+                CurrentViewModel.CopyToClipboard();
+                UpdatePasteBtn();
+            });
+
+            PastePropertySetCommand = new Command(
+                () => CurrentViewModel.PasteFromClipboard(),
+                () => CurrentViewModel.CanPasteFromClipboard()
+            );
         }
+
+        private void UpdatePasteBtn() => ((Command)PastePropertySetCommand).RaiseCanExecuteChanged();
 
         public void ShowSubtab(MemoryTab tab, int subtab)
         {
             Show(tab);
-            _view.SetSelectedSubtabIndex(subtab);
+
+            switch (tab)
+            {
+                case MemoryTab.TRACKS: TracksTabViewModel.SelectedIndex = subtab; break;
+                case MemoryTab.ASSIGNS: AssignsTabViewModel.SelectedIndex = subtab; break;
+                case MemoryTab.INPUT_FX: InputFxTabViewModel.SelectedIndex = subtab; break;
+                case MemoryTab.TRACK_FX: TrackFxTabViewModel.SelectedIndex = subtab; break;
+            }
         }
 
         protected override void InitViewModels()
@@ -63,12 +110,20 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             PlayOptionViewModel = new SettingsMemoryPlayOptionViewModel(model.PlayOption);
             AssignsTabViewModel = new SettingsMemoryAssignsTabViewModel(model);
             InputFxTabViewModel = new SettingsMemoryInputFxTabViewModel(model);
-            TrackFxViewModel = new SettingsMemoryTrackFxViewModel(model.TrackFx);
+            TrackFxTabViewModel = new SettingsMemoryTrackFxTabViewModel(model);
 
-            FxTrackViewModels = new SettingsMemoryFxTrackViewModel[3]
-            {
-                new SettingsMemoryFxTrackViewModel(model.TrackFxA, model.BeatFxA), new SettingsMemoryFxTrackViewModel(model.TrackFxB, model.BeatFxB), new SettingsMemoryFxTrackViewModel(model.TrackFxC, model.BeatFxC)
-            };
+            TracksTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            AssignsTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+
+            InputFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxA.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxB.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxC.TabChanged += (sender, e) => UpdatePasteBtn();
+
+            TrackFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxA.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxB.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxC.TabChanged += (sender, e) => UpdatePasteBtn();
         }
 
         public override void ApplyChanges()
@@ -81,7 +136,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             PlayOptionViewModel.ApplyChanges();
             AssignsTabViewModel.ApplyChanges();
             InputFxTabViewModel.ApplyChanges();
-            TrackFxViewModel.ApplyChanges();
+            TrackFxTabViewModel.ApplyChanges();
         }
     }
 }

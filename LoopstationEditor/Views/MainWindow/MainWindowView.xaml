@@ -7,26 +7,93 @@
         xmlns:xdw="clr-namespace:XenionDark.Windows;assembly=XenionDark"
         xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
         xmlns:loopstation="clr-namespace:LoopstationEditor.Views.Loopstation"
+        xmlns:controls="clr-namespace:LoopstationEditor.Views.Loopstation.Tracks.Controls"
+        xmlns:cmd="clr-namespace:LoopstationEditor.Commands"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="RC-505 Loopstation Settings Editor"
+        Title="Loopstation RC-505 Settings Editor"
         Icon="/Views/Resources/Images/icon.png"
-        MinWidth="1350px"
-        MinHeight="700px"
+        MinWidth="1600px"
+        MinHeight="750px"
         BorderBrush="#444"
         BorderThickness="1"
         MaximizedBorderBrush="#444"
         MaximizedBorderThickness="1">
+    <xdw:Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </xdw:Window.Resources>
+
+    <xdw:Window.CommandBindings>
+        <CommandBinding Command="cmd:Application.NewSettings" CanExecute="CanExecuteDefault" Executed="NewSettings_Executed" />
+        <CommandBinding Command="cmd:Application.OpenSettings" CanExecute="CanExecuteDefault" Executed="OpenSettings_Executed" />
+        <CommandBinding Command="cmd:Application.SaveSettings" CanExecute="CanExecuteDefault" Executed="SaveSettings_Executed" />
+        <CommandBinding Command="cmd:Application.SaveSettingsAs" CanExecute="CanExecuteDefault" Executed="SaveSettingsAs_Executed" />
+    </xdw:Window.CommandBindings>
+
     <DockPanel>
 
         <xd:Menu DockPanel.Dock="Top">
             <xd:MenuItem Header="_File">
-                <xd:MenuItem Header="_New Settings" InputGestureText="Ctrl+N" />
-                <xd:MenuItem Header="_Open Settings" InputGestureText="Ctrl+O" />
+                <xd:MenuItem Header="_New Settings" InputGestureText="Ctrl+N" Command="cmd:Application.NewSettings" />
+                <xd:MenuItem Header="_Open Settings" InputGestureText="Ctrl+O" Command="cmd:Application.OpenSettings" />
+                <xd:MenuItem Header="_Save Settings" InputGestureText="Ctrl+S" Command="cmd:Application.SaveSettings" />
+                <xd:MenuItem Header="_Save Settings As..." InputGestureText="Ctrl+Alt+S" Command="cmd:Application.SaveSettingsAs" />
             </xd:MenuItem>
         </xd:Menu>
 
-        <loopstation:LoopstationView DataContext="{Binding LoopstationViewModel}" />
+        <xd:ListBox x:Name="MemoryListBox"
+                    DockPanel.Dock="Left"
+                    ItemsSource="{Binding MemoryNames, Mode=OneWay}"
+                    SelectedIndex="{Binding CurrentMemoryIndex, Mode=TwoWay}"
+                    SelectionMode="Single"
+                    SelectionChanged="MemoryListBox_SelectionChanged"
+                    Width="256px"
+                    Margin="16px"
+                    Visibility="{Binding IsNull, Converter={StaticResource BoolToVisibility}}" />
+
+        <Border Visibility="{Binding IsNull, Converter={StaticResource BoolToVisibility}}">
+            <loopstation:LoopstationView DataContext="{Binding LoopstationViewModel}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center" />
+        </Border>
+
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="{Binding IsNotNull, Converter={StaticResource BoolToVisibility}}">
+            <xd:TextBlock FontSize="32px"
+                          FontWeight="Bold"
+                          Text="Loopstation RC-505 Settings Editor"
+                          TextAlignment="Center"
+                          TextWrapping="Wrap"
+                          Foreground="#111111"
+                          Width="300px"
+                          Margin="0 -16px 0 0" />
+
+            <controls:TrackStartStopButtonGray Margin="0 32px" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Border Width="180px">
+                    <xd:Button Content="Create New Settings"
+                               Command="cmd:Application.NewSettings"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Padding="10px"
+                               Margin="0 0 16px 0" />
+                </Border>
+                <xd:TextBlock Text="or" VerticalAlignment="Center" />
+                <Border Width="180px">
+                    <xd:Button Content="Open Existing Settings"
+                               Command="cmd:Application.OpenSettings"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Padding="10px"
+                               Margin="16px 0 0 0" />
+                </Border>
+            </StackPanel>
+        </StackPanel>
 
     </DockPanel>
 </xdw:Window>

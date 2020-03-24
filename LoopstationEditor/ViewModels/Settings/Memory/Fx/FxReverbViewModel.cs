@@ -13,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxReverbViewModel(SettingsMemoryFxModel model)
             : base("Reverb", model)
         {
-            ReverbTime = new PropertyFloatViewModel(nameof(ReverbTime), _properties, new FloatTimeConverter());
-            ReverbLevel = new PropertyIntViewModel(nameof(ReverbLevel), _properties);
-            ReverbDryLevel = new PropertyIntViewModel(nameof(ReverbDryLevel), _properties);
+            ReverbTime = new PropertyFloatViewModel(nameof(model.ReverbTime), _properties, new FloatTimeConverter());
+            ReverbLevel = new PropertyIntViewModel(nameof(model.ReverbLevel), _properties);
+            ReverbDryLevel = new PropertyIntViewModel(nameof(model.ReverbDryLevel), _properties);
         }
     }
 }

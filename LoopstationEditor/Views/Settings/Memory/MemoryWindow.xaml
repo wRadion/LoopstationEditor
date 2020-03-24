@@ -30,11 +30,10 @@
 
     <StackPanel Orientation="Vertical">
         <Border x:Name="MainContent">
-            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
+            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
                 <TabItem Header="Tracks" TabIndex="0">
                     <Border Padding="0 6px">
-                        <tab:SettingsMemoryTracksTab DataContext="{Binding TracksTabViewModel, Mode=OneWay}"
-                                                     SelectedTabIndex="{Binding SelectedSubtabIndex, ElementName=MemoryWindow_this, Mode=TwoWay}" />
+                        <tab:SettingsMemoryTracksTab DataContext="{Binding TracksTabViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
                 <TabItem Header="Rhythm" TabIndex="1">
@@ -64,8 +63,7 @@
                 </TabItem>
                 <TabItem Header="Assigns" TabIndex="6">
                     <Border Padding="0 6px">
-                        <tab:SettingsMemoryAssignsTab DataContext="{Binding AssignsTabViewModel, Mode=OneWay}"
-                                                      SelectedTabIndex="{Binding SelectedSubtabIndex, ElementName=MemoryWindow_this, Mode=TwoWay}" />
+                        <tab:SettingsMemoryAssignsTab DataContext="{Binding AssignsTabViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
                 <TabItem Header="Input Fx" TabIndex="7">
@@ -74,20 +72,33 @@
                     </Border>
                 </TabItem>
                 <TabItem Header="Track Fx" TabIndex="8">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryOptionFxView DataContext="{Binding TrackFxViewModel, Mode=OneWay}" />
+                    <Border Padding="0 6px">
+                        <tab:SettingsMemoryTrackFxTab DataContext="{Binding TrackFxTabViewModel, Mode=OneWay}" />
                     </Border>
                 </TabItem>
             </xd:TabControl>
         </Border>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 16px 16px">
-            <xd:Button Content="OK"
-                       Margin="0 0 16px 0"
-                       Command="{Binding ApplyChangesCommand}"
-                       Click="OK_Click" />
-            <xd:Button Content="Cancel"
-                       Command="{Binding CancelChangesCommand}"
-                       Click="Cancel_Click" />
-        </StackPanel>
+
+        <Grid Margin="16px">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <xd:Button x:Name="CopyPropertiesBtn"
+                           Content="Copy Properties"
+                           Margin="0 0 16px 0"
+                           Command="{Binding CopyPropertySetCommand}" />
+                <xd:Button x:Name="PastePropertiesBtn"
+                           Content="Paste Properties"
+                           Command="{Binding PastePropertySetCommand}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <xd:Button Content="OK"
+                           Margin="0 0 16px 0"
+                           Command="{Binding ApplyChangesCommand}"
+                           Click="OK_Click" />
+                <xd:Button Content="Cancel"
+                           Command="{Binding CancelChangesCommand}"
+                           Click="Cancel_Click" />
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </xdw:Window>

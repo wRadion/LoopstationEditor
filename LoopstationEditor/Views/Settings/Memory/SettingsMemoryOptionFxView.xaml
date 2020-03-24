@@ -34,54 +34,46 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <!-- Mode (enum) -->
         <xd:TextBlock Grid.Column="0" Grid.Row="0" Text="Mode" />
         <prop:PropertyEnumRadio x:Name="ModeProp" Grid.Column="1" Grid.Row="0" DataContext="{Binding Mode}" />
 
-        <!-- Multi Mode (bool) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Multi Mode"
-                      IsEnabled="False" />
-        <prop:PropertyBool Grid.Column="1" Grid.Row="1" DataContext="{Binding MultiMode}"
-                           IsEnabled="False"
-                           IsChecked="{Binding Value, ElementName=ModeProp, Mode=OneWay, Converter={StaticResource StringEqualsValueToBoolean},ConverterParameter=MULTI}" />
-
         <!-- Single Enabled Fx Slot (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Enabled Fx Slot (Single)" />
-        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="2" DataContext="{Binding SingleEnabledFxSlot}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="1" Text="Enabled Fx Slot (Single)" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="1" DataContext="{Binding SingleEnabledFxSlot}" />
 
         <!-- Selected Fx Slot (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Selected Fx Slot" />
-        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="3" DataContext="{Binding SelectedFxSlot}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="2" Text="Selected Fx Slot" />
+        <prop:PropertyEnumRadio Grid.Column="1" Grid.Row="2" DataContext="{Binding SelectedFxSlot}" />
 
         <!-- Selected Single Fx A (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Selected Fx (Single, Slot A)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="4" DataContext="{Binding SelectedSingleFxA}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="3" Text="Selected Fx (Single, Slot A)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="3" DataContext="{Binding SelectedSingleFxA}" />
 
         <!-- Selected Single Fx B (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Selected Fx (Single, Slot B)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="5" DataContext="{Binding SelectedSingleFxB}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="4" Text="Selected Fx (Single, Slot B)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="4" DataContext="{Binding SelectedSingleFxB}" />
 
         <!-- Selected Single Fx C (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Selected Fx (Single, Slot C)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="6" DataContext="{Binding SelectedSingleFxC}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="5" Text="Selected Fx (Single, Slot C)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="5" DataContext="{Binding SelectedSingleFxC}" />
 
         <!-- Multi Enabled Fx Slot (bitwise) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Enabled Fx Slot(s) (Multi)" />
-        <prop:PropertyBitwise Grid.Column="1" Grid.Row="7" DataContext="{Binding MultiEnabledFxSlot}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="6" Text="Enabled Fx Slot(s) (Multi)" />
+        <prop:PropertyBitwise Grid.Column="1" Grid.Row="6" DataContext="{Binding MultiEnabledFxSlot}" />
 
         <!-- Selected Multi Fx A (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Selected Fx (Multi, Slot A)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="8" DataContext="{Binding SelectedMultiFxA}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="7" Text="Selected Fx (Multi, Slot A)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="7" DataContext="{Binding SelectedMultiFxA}" />
 
         <!-- Selected Multi Fx B (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="9" Text="Selected Fx (Multi, Slot B)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="9" DataContext="{Binding SelectedMultiFxB}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="8" Text="Selected Fx (Multi, Slot B)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="8" DataContext="{Binding SelectedMultiFxB}" />
 
         <!-- Selected Multi Fx C (enum) -->
-        <xd:TextBlock Grid.Column="0" Grid.Row="10" Text="Selected Fx (Multi, Slot C)" />
-        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="10" DataContext="{Binding SelectedMultiFxC}" />
+        <xd:TextBlock Grid.Column="0" Grid.Row="9" Text="Selected Fx (Multi, Slot C)" />
+        <prop:PropertyEnumCombo Grid.Column="1" Grid.Row="9" DataContext="{Binding SelectedMultiFxC}" />
     </Grid>
 </UserControl>

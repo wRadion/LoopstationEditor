@@ -19,9 +19,9 @@
         <Canvas x:Name="systemCanvas" Opacity="1">
             <!-- #region Setup -->
             <local:LoopstationArea Canvas.Top="64"
-                                   Canvas.Right="222"
-                                   Text="Setup"
-                                   TextOffset="-8 0 0 0"
+                                   Canvas.Right="217"
+                                   Text="System"
+                                   TextOffset="-14 0 0 0"
                                    Command="{Binding OpenSystemWindowSetupTab}">
                 <local:LoopstationArea.Points>
                     <Point X="0" Y="0" />
@@ -82,6 +82,22 @@
 
         <!-- memoryCanvas -->
         <Canvas x:Name="memoryCanvas" Grid.RowSpan="3" Opacity="1">
+            <!-- #region Memory -->
+            <local:LoopstationArea Canvas.Top="115"
+                                   Canvas.Right="211"
+                                   Text="Memory"
+                                   TextOffset="-20 0 0 0"
+                                   Command="{Binding OpenMemoryWindowTracksTab}"
+                                   CommandParameter="1">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="50" Y="0" />
+                    <Point X="50" Y="50" />
+                    <Point X="0" Y="50" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+            <!-- #endregion Memory -->
+
             <!-- #region Tracks -->
             <local:LoopstationArea Canvas.Bottom="25"
                                    Canvas.Left="60"
@@ -238,12 +254,52 @@
             <local:LoopstationArea Canvas.Top="50"
                                    Canvas.Left="46"
                                    Text="Input FX"
-                                   Command="{Binding OpenMemoryWindowInputFxTab}">
+                                   Command="{Binding OpenMemoryWindowInputFxTab}"
+                                   CommandParameter="1">
                 <local:LoopstationArea.Points>
                     <Point X="0" Y="0" />
                     <Point X="135" Y="0" />
                     <Point X="135" Y="135" />
                     <Point X="0" Y="135" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Left="51"
+                                   Text="Fx A"
+                                   Command="{Binding OpenMemoryWindowInputFxTab}"
+                                   CommandParameter="2">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Left="118"
+                                   Text="Fx B"
+                                   Command="{Binding OpenMemoryWindowInputFxTab}"
+                                   CommandParameter="3">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Left="184"
+                                   Text="Fx C"
+                                   Command="{Binding OpenMemoryWindowInputFxTab}"
+                                   CommandParameter="4">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
             <!-- #endregion InputFx -->
@@ -252,12 +308,52 @@
             <local:LoopstationArea Canvas.Top="50"
                                    Canvas.Right="46"
                                    Text="Track FX"
-                                   Command="{Binding OpenMemoryWindowTrackFxTab}">
+                                   Command="{Binding OpenMemoryWindowTrackFxTab}"
+                                   CommandParameter="1">
                 <local:LoopstationArea.Points>
                     <Point X="0" Y="0" />
                     <Point X="135" Y="0" />
                     <Point X="135" Y="135" />
                     <Point X="0" Y="135" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Right="53"
+                                   Text="Fx C"
+                                   Command="{Binding OpenMemoryWindowTrackFxTab}"
+                                   CommandParameter="4">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Right="120"
+                                   Text="Fx B"
+                                   Command="{Binding OpenMemoryWindowTrackFxTab}"
+                                   CommandParameter="3">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
+                </local:LoopstationArea.Points>
+            </local:LoopstationArea>
+
+            <local:LoopstationArea Canvas.Top="187"
+                                   Canvas.Right="186"
+                                   Text="Fx A"
+                                   Command="{Binding OpenMemoryWindowTrackFxTab}"
+                                   CommandParameter="2">
+                <local:LoopstationArea.Points>
+                    <Point X="0" Y="0" />
+                    <Point X="60" Y="0" />
+                    <Point X="60" Y="60" />
+                    <Point X="0" Y="60" />
                 </local:LoopstationArea.Points>
             </local:LoopstationArea>
             <!-- #endregion TrackFx -->

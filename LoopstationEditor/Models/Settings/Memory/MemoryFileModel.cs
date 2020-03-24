@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Linq;
+using System.Xml.Serialization;
 
 namespace LoopstationEditor.Models.Settings.Memory
 {
@@ -20,5 +21,8 @@ namespace LoopstationEditor.Models.Settings.Memory
             for (int i = 0; i < Memories.Length; ++i)
                 Memories[i] = new MemoryModel(i);
         }
+
+        public override void ApplyXmlValues() => Memories.ToList().ForEach((m) => m.ApplyXmlValues());
+        public override void ApplyPropertyValues() => Memories.ToList().ForEach((m) => m.ApplyPropertyValues());
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
 namespace LoopstationEditor.Models.Settings.System
@@ -19,5 +17,8 @@ namespace LoopstationEditor.Models.Settings.System
         {
             System = new SystemModel();
         }
+
+        public override void ApplyXmlValues() => System.ApplyXmlValues();
+        public override void ApplyPropertyValues() => System.ApplyPropertyValues();
     }
 }

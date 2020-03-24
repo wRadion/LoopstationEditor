@@ -24,8 +24,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             SettingsMemoryNameModel model = (SettingsMemoryNameModel)_model;
 
             string newName = TempName.TrimEnd(' ');
-            if (newName.Length < NameProperty.Length)
-                newName = new StringBuilder(newName).Append(' ', NameProperty.Length - newName.Length).ToString();
+            if (newName.Length < SettingsMemoryNameModel.Length)
+                newName = new StringBuilder(newName).Append(' ', SettingsMemoryNameModel.Length - newName.Length).ToString();
             Name = newName;
 
             model.Character01 = Name[0];
@@ -40,6 +40,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             model.Character10 = Name[9];
             model.Character11 = Name[10];
             model.Character12 = Name[11];
+
+            base.ApplyChanges();
         }
     }
 }

@@ -70,10 +70,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\IntCommand.cs" />
+    <Compile Include="Commands\Application.cs" />
+    <Compile Include="Commands\Command_1arg.cs" />
     <Compile Include="Converters\Bitwise\FxSlotBitwiseToLetterConverter.cs" />
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\Bitwise\TrackBitwiseToNumberConverter.cs" />
+    <Compile Include="Converters\Enum\EnumNoteConverter.cs" />
+    <Compile Include="Converters\Enum\EnumRhythmPatternConverter.cs" />
+    <Compile Include="Converters\Enum\EnumTimeSignatureConverter.cs" />
+    <Compile Include="Converters\Enum\EnumUSBAudioRoutingConverter.cs" />
     <Compile Include="Converters\Int\IntStepRateConverter.cs" />
     <Compile Include="Converters\Int\IntToBalanceConverter.cs" />
     <Compile Include="Converters\Int\IntToSampleRateConverter.cs" />
@@ -98,6 +103,7 @@
     <Compile Include="Converters\Int\IntToneConverter.cs" />
     <Compile Include="Converters\IValueConverter.cs" />
     <Compile Include="Extensions\EnumUtils.cs" />
+    <Compile Include="Models\Interfaces\IXmlContainer.cs" />
     <Compile Include="Models\PropertyEngine\Property.cs" />
     <Compile Include="Models\PropertyEngine\PropertyAttribute.cs" />
     <Compile Include="Models\PropertyEngine\PropertyMixed.cs" />
@@ -138,6 +144,7 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Clipboard.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryAssignsTabViewModel.cs" />
@@ -196,6 +203,9 @@
     <Compile Include="ViewModels\Settings\System\SettingsSystemSetupViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SettingsSystemUSBViewModel.cs" />
     <Compile Include="ViewModels\Settings\System\SystemWindowViewModel.cs" />
+    <Compile Include="Views\Loopstation\Tracks\Controls\TrackStartStopButtonGray.xaml.cs">
+      <DependentUpon>TrackStartStopButtonGray.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Property\PropertyBitwise.xaml.cs">
       <DependentUpon>PropertyBitwise.xaml</DependentUpon>
     </Compile>
@@ -352,6 +362,9 @@
     <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryInputFxTab.xaml.cs">
       <DependentUpon>SettingsMemoryInputFxTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryTrackFxTab.xaml.cs">
+      <DependentUpon>SettingsMemoryTrackFxTab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml.cs">
       <DependentUpon>SettingsMemoryTracksTab.xaml</DependentUpon>
     </Compile>
@@ -405,6 +418,10 @@
     <Page Include="Views\Loopstation\Tracks\Controls\TrackSeparator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loopstation\Tracks\Controls\TrackStartStopButtonGray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loopstation\Tracks\Controls\TrackStartStopButton.xaml">
       <SubType>Designer</SubType>
@@ -462,7 +479,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\Loopstation\Controls\ButtonNormal.xaml.cs">
@@ -748,6 +765,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\Memory\Tab\SettingsMemoryTrackFxTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Settings\Memory\Tab\SettingsMemoryTracksTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -801,7 +822,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\Resources\Images\icon_gray.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Resources\Images\icon.png" />
   </ItemGroup>

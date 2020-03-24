@@ -1,4 +1,6 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using System;
+
+using LoopstationEditor.Models.Settings.Memory;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
 {

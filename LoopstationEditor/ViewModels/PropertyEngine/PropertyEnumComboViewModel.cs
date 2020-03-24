@@ -24,5 +24,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
         {
             Options = EnumUtils.GetOptions<TEnum>().Select((option) => _converter.Convert(option)).ToArray();
         }
+
+        protected override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
     }
 }

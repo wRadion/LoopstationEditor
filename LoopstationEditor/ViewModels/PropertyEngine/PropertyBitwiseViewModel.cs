@@ -8,9 +8,9 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class BitwiseOption
+    public class BitwiseOption : ViewModel
     {
-        private Action _updateValue;
+        private readonly Action _updateValue;
 
         public string Option { get; }
 
@@ -31,6 +31,12 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             Option = option;
             _isChecked = isChecked;
         }
+
+        public void UpdateIsChecked(bool value)
+        {
+            _isChecked = value;
+            OnPropertyChanged(nameof(IsChecked));
+        }
     }
 
     public class PropertyBitwiseViewModel<TEnum> : PropertyViewModel<TEnum, string> where TEnum : Enum
@@ -41,7 +47,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             set => _set.SetValue<ValueEnum<TEnum>>(_name, value);
         }
 
-        public BitwiseOption[] Options { get; }
+        public BitwiseOption[] Options { get; private set; }
 
         public PropertyBitwiseViewModel(string name, PropertySet set) : this(name, set, new EnumDefaultConverter<TEnum>()) { }
         public PropertyBitwiseViewModel(string name, PropertySet set, IValueConverter<TEnum, string> converter)
@@ -70,6 +76,19 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             }
 
             Value = bitwiseValue;
+        }
+
+        protected override void This_PropertyChanged()
+        {
+            int bitwiseValue = Value;
+
+            for (int i = 0; i < Options.Length; ++i)
+            {
+                int power2 = (int)Math.Pow(2, i);
+                Options[i].UpdateIsChecked((bitwiseValue & power2) == power2);
+            }
+
+            OnPropertyChanged(nameof(Options));
         }
     }
 }

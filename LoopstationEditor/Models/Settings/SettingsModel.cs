@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
-using System.Xml.Serialization;
 
 using LoopstationEditor.Models.PropertyEngine;
 
@@ -10,7 +10,7 @@ namespace LoopstationEditor.Models.Settings
     {
         public const BindingFlags PropertyFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.SetProperty;
 
-        private readonly PropertySet _properties;
+        protected readonly PropertySet _properties;
 
         public SettingsModel() : base()
         {
@@ -34,7 +34,7 @@ namespace LoopstationEditor.Models.Settings
                 prop.SetValue(this, propValue.Value);
             }
 
-            _properties = new PropertySet(properties.ToArray());
+            _properties = new PropertySet(GetType(), properties.ToArray());
         }
 
         public void PastePropertySet(PropertySet set)
@@ -47,5 +47,38 @@ namespace LoopstationEditor.Models.Settings
         }
 
         public PropertySet CopyPropertySet(params string[] names) => _properties.Clone(names);
+
+        public override void ApplyXmlValues()
+        {
+            PropertyInfo[] instanceProperties = GetType().GetProperties(PropertyFlags);
+            foreach (PropertyInfo prop in instanceProperties)
+            {
+                if (prop.GetCustomAttribute<PropertyAttribute>() == null) continue;
+
+                object value = prop.GetValue(this);
+
+                if (value is ValueInt intValue)
+                    _properties.SetValue(prop.Name, intValue);
+                else if (value is ValueBool boolValue)
+                    _properties.SetValue(prop.Name, boolValue);
+                else if (value is ValueChar charValue)
+                    _properties.SetValue(prop.Name, charValue);
+                else
+                {
+                    Type type = typeof(ValueEnum<>).MakeGenericType(value.GetType());
+                    _properties.SetValue(prop.Name, (ValueInt)Activator.CreateInstance(type, value));
+                }
+            }
+        }
+
+        public override void ApplyPropertyValues()
+        {
+            PropertyInfo[] instanceProperties = GetType().GetProperties(PropertyFlags);
+            foreach (PropertyInfo prop in instanceProperties)
+            {
+                if (prop.GetCustomAttribute<PropertyAttribute>() == null) continue;
+                prop.SetValue(this, _properties.GetValue<ValueInt>(prop.Name));
+            }
+        }
     }
 }

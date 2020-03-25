@@ -8,37 +8,29 @@ using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine
 {
-    public class RadioOption : ViewModel
+    public class EnumRadioOption : ViewModel
     {
-        private readonly Action _updateValue;
+        private readonly Func<string> _getValue;
+        private readonly Action<string> _setValue;
 
-        public string Value { get; }
-
-        private bool _isChecked;
+        public string Option { get; }
+        public string GroupName { get; }
         public bool IsChecked
         {
-            get => _isChecked;
+            get => Option == _getValue();
             set
             {
-                _isChecked = value;
-                _updateValue();
+                if (value)
+                    _setValue(Option);
             }
         }
 
-        public string GroupName { get; }
-
-        public RadioOption(string value, bool isChecked, string groupName, Action updateValue)
+        public EnumRadioOption(string option, string groupName, Func<string> getValue, Action<string> setValue)
         {
-            _updateValue = updateValue;
-            Value = value;
-            _isChecked = isChecked;
+            Option = option;
             GroupName = groupName;
-        }
-
-        public void UpdateIsChecked(bool value)
-        {
-            _isChecked = value;
-            OnPropertyChanged(nameof(IsChecked));
+            _getValue = getValue;
+            _setValue = setValue;
         }
     }
 
@@ -51,46 +43,27 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
     {
         public string Value
         {
-            get => _converter.Convert(_set.GetValue<ValueEnum<TEnum>>(_name));
-            set => _set.SetValue<ValueEnum<TEnum>>(_name, _converter.ConvertBack(value));
+            get => _converter.Convert((TEnum)_set.GetValue<ValueEnum<TEnum>>(_name));
+            set => _set.SetValue(_name, (ValueEnum<TEnum>)_converter.ConvertBack(value));
         }
-
-        public RadioOption[] Options { get; private set; }
+        public EnumRadioOption[] Options { get; private set; }
 
         public PropertyEnumRadioViewModel(string name, PropertySet set) : this(name, set, new EnumDefaultConverter<TEnum>()) { }
         public PropertyEnumRadioViewModel(string name, PropertySet set, IValueConverter<TEnum, string> converter)
             : base(name, set, converter)
         {
-            string[] optionStr = EnumUtils.GetOptions<TEnum>().Select((option) => _converter.Convert(option)).ToArray();
-            string enumValue = Value;
-
+            string[] options = EnumUtils.GetOptions<TEnum>().Select((option) => _converter.Convert(option)).ToArray();
             string groupName = $"EnumRadio{ GroupName.Id++ }";
-            Options = new RadioOption[optionStr.Length];
 
+            Options = new EnumRadioOption[options.Length];
             for (int i = 0; i < Options.Length; ++i)
-                Options[i] = new RadioOption(optionStr[i], optionStr[i] == enumValue, groupName, UpdateValue);
+                Options[i] = new EnumRadioOption(options[i], groupName, () => Value, (value) => Value = value);
         }
 
-        private void UpdateValue()
+        public override void This_PropertyChanged()
         {
-            foreach (RadioOption option in Options)
-            {
-                if (option.IsChecked)
-                {
-                    Value = option.Value;
-                    break;
-                }
-            }
-        }
-
-        protected override void This_PropertyChanged()
-        {
-            string enumValue = Value;
-
-            for (int i = 0; i < Options.Length; ++i)
-                Options[i].UpdateIsChecked(Options[i].Value == enumValue);
-
-            OnPropertyChanged(nameof(Options));
+            foreach (EnumRadioOption option in Options)
+                option.OnPropertyChanged(nameof(option.IsChecked));
         }
     }
 }

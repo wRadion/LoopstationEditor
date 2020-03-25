@@ -7,30 +7,19 @@ namespace LoopstationEditor.Models.PropertyEngine
         private ValueInt _value;
 
         public string Name { get; }
-        public int MinimumValue { get; }
-        public int MaximumValue { get; }
+        public IRange Range { get; }
         public ValueInt Value
         {
             get => _value;
-            set
-            {
-                if (MinimumValue > value || value > MaximumValue)
-                    throw new ArgumentOutOfRangeException($"Value must be between { MinimumValue } and { MaximumValue }.");
-
-                _value = value;
-            }
+            set => _value = Range.ContainsGuard(value);
         }
 
         public Property(string name, PropertyAttribute attr)
-            : this(name, attr.MinimumValue, attr.MaximumValue, attr.DefaultValue) { }
-        protected Property(string name, int minimumValue, int maximumValue, ValueInt value)
+            : this(name, attr.DefaultValue, attr.Range) { }
+        public Property(string name, ValueInt value, IRange range)
         {
             Name = name;
-            MinimumValue = minimumValue;
-            MaximumValue = maximumValue;
-
-            if (MinimumValue > MaximumValue)
-                throw new ArgumentException("Maximum value must be greater than Minimum value.");
+            Range = range;
 
             if (value is ValueInt intValue)
                 Value = intValue;
@@ -45,6 +34,6 @@ namespace LoopstationEditor.Models.PropertyEngine
             }
         }
 
-        public Property Clone() => new Property(Name, MinimumValue, MaximumValue, Value);
+        public Property Clone() => new Property(Name, Value, Range);
     }
 }

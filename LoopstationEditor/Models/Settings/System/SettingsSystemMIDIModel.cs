@@ -19,7 +19,7 @@ namespace LoopstationEditor.Models.Settings.System
         public ValueBool Omni { get; set; }
 
         [XmlElement("TxCh", typeof(int))]
-        [PropertyMixed(MIDITxChannel.RX, 0, 16, 0, 15)]
+        [PropertyMixed(MIDITxChannel.RX, 0, 16, 0, 15, MIDITxChannel.RX, MIDITxChannel.RX)]
         public ValueInt TxChannel { get; set; }
 
         [XmlElement("Sync", typeof(int))]

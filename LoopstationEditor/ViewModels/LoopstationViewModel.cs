@@ -74,9 +74,12 @@ namespace LoopstationEditor.ViewModels
 
         public MemoryWindowViewModel SetMemory(MemoryModel model)
         {
+            if (_memoryViewModel != null)
+                _memoryViewModel.CloseWindow();
+
             _memoryViewModel = new MemoryWindowViewModel(model);
-            _memoryViewModel.NameViewModelInitialized += ((viewModel) => viewModel.PropertyChanged += NameChanged);
-            NameChanged(_memoryViewModel.NameViewModel, new PropertyChangedEventArgs("Name"));
+            _memoryViewModel.NameViewModel.PropertyChanged += NameChanged;
+            NameChanged(_memoryViewModel.NameViewModel, new PropertyChangedEventArgs(nameof(_memoryViewModel.NameViewModel.Name)));
 
             return _memoryViewModel;
         }

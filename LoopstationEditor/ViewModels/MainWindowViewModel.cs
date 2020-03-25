@@ -15,7 +15,7 @@ namespace LoopstationEditor.ViewModels
 {
     public class MainWindowViewModel : ViewModel
     {
-        private Window _window;
+        private readonly Window _window;
         private SystemFileModel _systemFile;
         private MemoryFileModel _memoryFile;
 
@@ -23,7 +23,18 @@ namespace LoopstationEditor.ViewModels
         public bool IsNotNull => !IsNull;
         public LoopstationViewModel LoopstationViewModel { get; }
 
-        public int CurrentMemoryIndex { get; set; }
+        private int _currentMemoryIndex;
+        public int CurrentMemoryIndex
+        {
+            get => _currentMemoryIndex;
+            set
+            {
+                if (value < 0) return;
+                _currentMemoryIndex = value;
+                MemoryWindowViewModel memoryViewModel = LoopstationViewModel.SetMemory(_memoryFile.Memories[_currentMemoryIndex]);
+                memoryViewModel.NameViewModel.AppliedChanges += (sender, e) => UpdateMemoryNames();
+            }
+        }
         public string[] MemoryNames { get; private set; }
 
         public ICommand NewSettingsCommand { get; }
@@ -36,8 +47,7 @@ namespace LoopstationEditor.ViewModels
             _window = window;
             _systemFile = null;
             _memoryFile = null;
-
-            PropertyChanged += MainWindowViewModel_PropertyChanged;
+            _currentMemoryIndex = -1;
 
             LoopstationViewModel = new LoopstationViewModel();
 
@@ -52,10 +62,12 @@ namespace LoopstationEditor.ViewModels
 
             OpenSettingsCommand = new Command(() =>
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Title = "Open Loopstation Settings";
-                dialog.Filter = "All Settings file|*.RC0";
-                dialog.Multiselect = true;
+                OpenFileDialog dialog = new OpenFileDialog
+                {
+                    Title = "Open Loopstation Settings",
+                    Filter = "All Settings file|*.RC0",
+                    Multiselect = true
+                };
 
                 if ((bool)dialog.ShowDialog(_window))
                 {
@@ -113,20 +125,24 @@ namespace LoopstationEditor.ViewModels
             {
                 if (_systemFile == null && _memoryFile == null) return;
 
-                SaveFileDialog dialog = new SaveFileDialog();
-
                 // System
-                dialog.Title = "Save SYSTEM.RC0 file As...";
-                dialog.Filter = "System Settings file|SYSTEM.RC0";
-                dialog.FileName = "SYSTEM.RC0";
+                SaveFileDialog dialog = new SaveFileDialog
+                {
+                    Title = "Save SYSTEM.RC0 file As...",
+                    Filter = "System Settings file|SYSTEM.RC0",
+                    FileName = "SYSTEM.RC0"
+                };
 
                 if ((bool)dialog.ShowDialog(_window))
                     _systemFile.Save(dialog.FileName);
 
                 // Memory
-                dialog.Title = "Save MEMORY.RC0 file As...";
-                dialog.Filter = "System Settings file|MEMORY.RC0";
-                dialog.FileName = "MEMORY.RC0";
+                dialog = new SaveFileDialog
+                {
+                    Title = "Save MEMORY.RC0 file As...",
+                    Filter = "System Settings file|MEMORY.RC0",
+                    FileName = "MEMORY.RC0"
+                };
 
                 if ((bool)dialog.ShowDialog(_window))
                     _memoryFile.Save(dialog.FileName);
@@ -139,26 +155,14 @@ namespace LoopstationEditor.ViewModels
             _memoryFile = memory;
 
             LoopstationViewModel.SetSystem(_systemFile.System);
-            CurrentMemoryIndex = _systemFile.System.Setup.SelectedMemory;
-            MainWindowViewModel_PropertyChanged(this, new PropertyChangedEventArgs(nameof(CurrentMemoryIndex)));
-            MemoryNames = _memoryFile.Memories.Select((m) => $"{ m.Id + 1:D2}  { m.Name }").ToArray();
+            CurrentMemoryIndex = (int)_systemFile.System.Setup.SelectedMemory;
+            UpdateMemoryNames();
 
             OnPropertyChanged(nameof(IsNull));
             OnPropertyChanged(nameof(IsNotNull));
         }
 
-        private void MainWindowViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(CurrentMemoryIndex))
-            {
-                if (CurrentMemoryIndex < 0) return;
-
-                MemoryWindowViewModel memoryViewModel = LoopstationViewModel.SetMemory(_memoryFile.Memories[CurrentMemoryIndex]);
-                memoryViewModel.NameViewModelInitialized += ((viewModel) => viewModel.AppliedChanges += NameViewModel_AppliedChanges);
-            }
-        }
-
-        private void NameViewModel_AppliedChanges(object sender, EventArgs e)
+        private void UpdateMemoryNames()
         {
             MemoryNames = _memoryFile.Memories.Select((m) => $"{ m.Id+1:D2}  { m.Name }").ToArray();
         }

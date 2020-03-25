@@ -37,7 +37,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(FxFilterType.LPF, 0, 2)]
         public ValueEnum<FxFilterType> FilterType { get; set; }
         [XmlElement("FilRat", typeof(int))]
-        [PropertyMixed(50, 0, 114, 0, 100)]
+        [PropertyMixed(50, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt FilterRate { get; set; }
         [XmlElement("FilDep", typeof(int))]
         [Property(55, 0, 100)]
@@ -49,12 +49,12 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(50, 0, 100)]
         public ValueInt FilterCutoff { get; set; }
         [XmlElement("FilStpRat", typeof(int))]
-        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101, FxStepRate.FOUR_MEASURES, FxStepRate.THIRTYSECOND_NOTE, FxStepRate.OFF)]
         public ValueInt FilterStepRate { get; set; }
 
         // PHASER
         [XmlElement("PhRat", typeof(int))]
-        [PropertyMixed(70, 0, 114, 0, 100)]
+        [PropertyMixed(70, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt PhaserRate { get; set; }
         [XmlElement("PhDep", typeof(int))]
         [Property(50, 0, 100)]
@@ -63,7 +63,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(0, 0, 100)]
         public ValueInt PhaserResonance { get; set; }
         [XmlElement("PhStpRat", typeof(int))]
-        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101, FxStepRate.FOUR_MEASURES, FxStepRate.THIRTYSECOND_NOTE, FxStepRate.OFF)]
         public ValueInt PhaserStepRate { get; set; }
         [XmlElement("PhLvl", typeof(int))]
         [Property(50, 0, 100)]
@@ -71,7 +71,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // FLANGER
         [XmlElement("FlRat", typeof(int))]
-        [PropertyMixed(25, 0, 114, 0, 100)]
+        [PropertyMixed(25, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt FlangerRate { get; set; }
         [XmlElement("FlDep", typeof(int))]
         [Property(50, 0, 100)]
@@ -80,7 +80,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(70, 0, 100)]
         public ValueInt FlangerResonance { get; set; }
         [XmlElement("FlStpRat", typeof(int))]
-        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101, FxStepRate.FOUR_MEASURES, FxStepRate.THIRTYSECOND_NOTE, FxStepRate.OFF)]
         public ValueInt FlangerStepRate { get; set; }
         [XmlElement("FlLvl", typeof(int))]
         [Property(50, 0, 100)]
@@ -211,13 +211,13 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(FxIsolatorBand.LOW, 0, 2)]
         public ValueEnum<FxIsolatorBand> IsolatorBand { get; set; }
         [XmlElement("IsoRat", typeof(int))]
-        [PropertyMixed(FxRate.ONE_MEASURE, 0, 114, 0, 100)]
+        [PropertyMixed(FxRate.ONE_MEASURE, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt IsolatorRate { get; set; }
         [XmlElement("IsoDep", typeof(int))]
         [Property(100, 0, 100)]
         public ValueInt IsolatorDepth { get; set; }
         [XmlElement("IsoStpRat", typeof(int))]
-        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101, FxStepRate.FOUR_MEASURES, FxStepRate.THIRTYSECOND_NOTE, FxStepRate.OFF)]
         public ValueInt IsolatorStepRate { get; set; }
         [XmlElement("IsoLvl", typeof(int))]
         [Property(100, 0, 100)]
@@ -236,13 +236,13 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(FxPanType.AUTO1, 0, 2)]
         public ValueEnum<FxPanType> PanType { get; set; }
         [XmlElement("PanRat", typeof(int))]
-        [PropertyMixed(50, 0, 114, 0, 100)]
+        [PropertyMixed(50, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt PanRate { get; set; }
         [XmlElement("PanDep", typeof(int))]
         [Property(50, 0, 100)]
         public ValueInt PanDepth { get; set; }
         [XmlElement("PanStpRat", typeof(int))]
-        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101)]
+        [PropertyMixed(FxStepRate.OFF, 0, 115, 1, 101, FxStepRate.FOUR_MEASURES, FxStepRate.THIRTYSECOND_NOTE, FxStepRate.OFF)]
         public ValueInt PanStepRate { get; set; }
         [XmlElement("PanPos", typeof(int))]
         [Property(50, 0, 100)]
@@ -250,7 +250,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // TREMOLO
         [XmlElement("TrRat", typeof(int))]
-        [PropertyMixed(85, 0, 114, 0, 100)]
+        [PropertyMixed(85, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt TremoloRate { get; set; }
         [XmlElement("TrDep", typeof(int))]
         [Property(50, 0, 100)]
@@ -264,7 +264,7 @@ namespace LoopstationEditor.Models.Settings.Memory
         [Property(FxSlicerPattern.P01, 0, 19)]
         public ValueEnum<FxSlicerPattern> SlicerPattern { get; set; }
         [XmlElement("SlRat", typeof(int))]
-        [PropertyMixed(FxRate.EIGHTH_NOTE, 0, 114, 0, 100)]
+        [PropertyMixed(FxRate.EIGHTH_NOTE, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt SlicerRate { get; set; }
         [XmlElement("SlDep", typeof(int))]
         [Property(100, 0, 120)]
@@ -272,7 +272,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // DELAY
         [XmlElement("DlyTim", typeof(int))]
-        [PropertyMixed(200, 0, 1011, 0, 1000)]
+        [PropertyMixed(200, 0, 1011, 0, 1000, 1001, 1011)]
         public ValueInt DelayTime { get; set; }
         [XmlElement("DlyFb", typeof(int))]
         [Property(20, 0, 100)]
@@ -283,7 +283,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // PANNING DELAY
         [XmlElement("PanDlyTim", typeof(int))]
-        [PropertyMixed(200, 0, 1011, 0, 1000)]
+        [PropertyMixed(200, 0, 1011, 0, 1000, 1001, 1011)]
         public ValueInt PanningDelayTime { get; set; }
         [XmlElement("PanDlyFb", typeof(int))]
         [Property(20, 0, 100)]
@@ -316,7 +316,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // ROLL
         [XmlElement("RllTim", typeof(int))]
-        [PropertyMixed(FxDelayTime.QUARTER_NOTE, 0, 1011, 0, 1000)]
+        [PropertyMixed(FxDelayTime.QUARTER_NOTE, 0, 1011, 0, 1000, 1001, 1011)]
         public ValueInt RollTime { get; set; }
 
         [XmlElement("RllMod", typeof(int))]
@@ -333,7 +333,7 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         // CHORUS
         [XmlElement("ChoRat", typeof(int))]
-        [PropertyMixed(50, 0, 114, 0, 100)]
+        [PropertyMixed(50, 0, 114, 0, 100, FxRate.FOUR_MEASURES, FxRate.THIRTYSECOND_NOTE)]
         public ValueInt ChorusRate { get; set; }
         [XmlElement("ChoDep", typeof(int))]
         [Property(50, 0, 100)]

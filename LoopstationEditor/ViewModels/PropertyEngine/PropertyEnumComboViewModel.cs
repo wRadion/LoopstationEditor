@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
     {
         public string Value
         {
-            get => _converter.Convert(_set.GetValue<ValueEnum<TEnum>>(_name));
-            set => _set.SetValue<ValueEnum<TEnum>>(_name, _converter.ConvertBack(value));
+            get => _converter.Convert((TEnum)_set.GetValue<ValueEnum<TEnum>>(_name));
+            set => _set.SetValue(_name, (ValueEnum<TEnum>)_converter.ConvertBack(value));
         }
 
         public string[] Options { get; }
@@ -25,6 +25,6 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             Options = EnumUtils.GetOptions<TEnum>().Select((option) => _converter.Convert(option)).ToArray();
         }
 
-        protected override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
+        public override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
     }
 }

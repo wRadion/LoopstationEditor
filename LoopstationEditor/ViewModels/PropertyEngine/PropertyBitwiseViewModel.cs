@@ -43,8 +43,8 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
     {
         private int Value
         {
-            get => _set.GetValue<ValueEnum<TEnum>>(_name);
-            set => _set.SetValue<ValueEnum<TEnum>>(_name, value);
+            get => (int)_set.GetValue<ValueEnum<TEnum>>(_name);
+            set => _set.SetValue(_name, (ValueEnum<TEnum>)value);
         }
 
         public BitwiseOption[] Options { get; private set; }
@@ -78,7 +78,7 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             Value = bitwiseValue;
         }
 
-        protected override void This_PropertyChanged()
+        public override void This_PropertyChanged()
         {
             int bitwiseValue = Value;
 

@@ -43,5 +43,13 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             InputFxB.ApplyChanges();
             InputFxC.ApplyChanges();
         }
+
+        public override void RevertChanges()
+        {
+            InputFx.RevertChanges();
+            InputFxA.RevertChanges();
+            InputFxB.RevertChanges();
+            InputFxC.RevertChanges();
+        }
     }
 }

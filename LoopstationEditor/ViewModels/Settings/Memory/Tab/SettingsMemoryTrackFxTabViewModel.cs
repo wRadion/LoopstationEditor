@@ -43,5 +43,13 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             TrackFxB.ApplyChanges();
             TrackFxC.ApplyChanges();
         }
+
+        public override void RevertChanges()
+        {
+            TrackFx.RevertChanges();
+            TrackFxA.RevertChanges();
+            TrackFxB.RevertChanges();
+            TrackFxC.RevertChanges();
+        }
     }
 }

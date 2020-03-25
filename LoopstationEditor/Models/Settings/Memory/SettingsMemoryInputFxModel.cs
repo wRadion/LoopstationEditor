@@ -18,8 +18,8 @@ namespace LoopstationEditor.Models.Settings.Memory
         [XmlElement("MltMod", typeof(int))]
         public ValueBool MultiMode
         {
-            get => Mode == FxMode.MULTI;
-            set => Mode = value ? FxMode.MULTI : FxMode.SINGLE;
+            get => (ValueBool)((FxMode)Mode == FxMode.MULTI);
+            set => Mode = (ValueEnum<FxMode>)((bool)value ? FxMode.MULTI : FxMode.SINGLE);
         }
 
         [XmlElement("Sw", typeof(int))]

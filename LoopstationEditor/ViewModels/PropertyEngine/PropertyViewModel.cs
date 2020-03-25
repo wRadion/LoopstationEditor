@@ -22,6 +22,6 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
             };
         }
 
-        protected abstract void This_PropertyChanged();
+        public abstract void This_PropertyChanged();
     }
 }

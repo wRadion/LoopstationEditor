@@ -17,8 +17,5 @@ namespace LoopstationEditor.Views.Settings.System_
         {
             DataContext = viewModel;
         }
-
-        private void OK_Click(object sender, System.Windows.RoutedEventArgs e) => Close();
-        private void Cancel_Click(object sender, System.Windows.RoutedEventArgs e) => Close();
     }
 }

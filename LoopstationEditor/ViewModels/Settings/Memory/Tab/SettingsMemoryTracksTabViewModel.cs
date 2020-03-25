@@ -47,5 +47,14 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             Track4.ApplyChanges();
             Track5.ApplyChanges();
         }
+
+        public override void RevertChanges()
+        {
+            Track1.RevertChanges();
+            Track2.RevertChanges();
+            Track3.RevertChanges();
+            Track4.RevertChanges();
+            Track5.RevertChanges();
+        }
     }
 }

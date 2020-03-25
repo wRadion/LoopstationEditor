@@ -24,6 +24,11 @@
         </ResourceDictionary>
     </xdw:Window.Resources>
 
+    <xdw:Window.InputBindings>
+        <KeyBinding Key="Return" Command="{Binding ApplyChangesAndCloseCommand}" />
+        <KeyBinding Key="Esc" Command="{Binding RevertChangesAndCloseCommand}" />
+    </xdw:Window.InputBindings>
+
     <xdw:Window.Background>
         <SolidColorBrush Color="{StaticResource Dark.Light}" Opacity="1" />
     </xdw:Window.Background>
@@ -93,11 +98,9 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <xd:Button Content="OK"
                            Margin="0 0 16px 0"
-                           Command="{Binding ApplyChangesCommand}"
-                           Click="OK_Click" />
+                           Command="{Binding ApplyChangesAndCloseCommand}" />
                 <xd:Button Content="Cancel"
-                           Command="{Binding CancelChangesCommand}"
-                           Click="Cancel_Click" />
+                           Command="{Binding RevertChangesAndCloseCommand}" />
             </StackPanel>
         </Grid>
     </StackPanel>

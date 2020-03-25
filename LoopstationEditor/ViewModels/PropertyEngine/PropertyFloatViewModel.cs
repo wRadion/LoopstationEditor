@@ -8,8 +8,8 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
     {
         public float Value
         {
-            get => _converter.Convert(_set.GetValue<ValueInt>(_name));
-            set => _set.SetValue<ValueInt>(_name, _converter.ConvertBack(value));
+            get => _converter.Convert((int)_set.GetValue<ValueInt>(_name));
+            set => _set.SetValue(_name, (ValueInt)_converter.ConvertBack(value));
         }
         public float MinimumValue { get; }
         public float MaximumValue { get; }
@@ -20,11 +20,11 @@ namespace LoopstationEditor.ViewModels.PropertyEngine
         {
             Property prop = set.GetProperty(name);
 
-            MinimumValue = _converter.Convert(prop.MinimumValue);
-            MaximumValue = _converter.Convert(prop.MaximumValue);
+            MinimumValue = _converter.Convert(prop.Range.Minimum);
+            MaximumValue = _converter.Convert(prop.Range.Maximum);
         }
 
-        protected override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
+        public override void This_PropertyChanged() => OnPropertyChanged(nameof(Value));
 
         public override string ToString() => Value.ToString();
     }

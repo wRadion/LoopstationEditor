@@ -148,5 +148,35 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             Chorus.ApplyChanges();
             Reverb.ApplyChanges();
         }
+
+        public override void RevertChanges()
+        {
+            Filter.RevertChanges();
+            Phaser.RevertChanges();
+            Flanger.RevertChanges();
+            Synth.RevertChanges();
+            LoFi.RevertChanges();
+            RingModulator.RevertChanges();
+            GuitarToBass.RevertChanges();
+            SlowGear.RevertChanges();
+            Transpose.RevertChanges();
+            PitchBend.RevertChanges();
+            Robot.RevertChanges();
+            VocalDist.RevertChanges();
+            Dynamics.RevertChanges();
+            Eq.RevertChanges();
+            Isolator.RevertChanges();
+            Octave.RevertChanges();
+            Pan.RevertChanges();
+            Tremolo.RevertChanges();
+            Slicer.RevertChanges();
+            Delay.RevertChanges();
+            PanningDelay.RevertChanges();
+            TapeEcho.RevertChanges();
+            GranularDelay.RevertChanges();
+            Roll.RevertChanges();
+            Chorus.RevertChanges();
+            Reverb.RevertChanges();
+        }
     }
 }

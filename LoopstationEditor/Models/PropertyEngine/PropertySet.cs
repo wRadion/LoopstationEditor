@@ -17,13 +17,7 @@ namespace LoopstationEditor.Models.PropertyEngine
             _type = type;
             _properties = new Dictionary<string, Property>();
 
-            properties.ToList().ForEach((p) =>
-            {
-                if (p is PropertyMixed mixedp)
-                    _properties.Add(p.Name, mixedp);
-                else
-                    _properties.Add(p.Name, p);
-            });
+            properties.ToList().ForEach((p) => _properties.Add(p.Name, p));
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -43,7 +37,7 @@ namespace LoopstationEditor.Models.PropertyEngine
         public T GetValue<T>(string name) where T : ValueInt
         {
             ContainsNameGuard(name);
-            return (T)_properties[name].Value;
+            return (T)Convert.ChangeType(_properties[name].Value, typeof(T));
         }
 
         public void SetValue<T>(string name, T value) where T : ValueInt
@@ -83,10 +77,7 @@ namespace LoopstationEditor.Models.PropertyEngine
                 if (names != null && names.Length > 0 && !names.Contains(prop.Name))
                     continue;
 
-                if (prop is PropertyMixed mixedProp)
-                    props[currentIndex++] = mixedProp.Clone();
-                else
-                    props[currentIndex++] = prop.Clone();
+                props[currentIndex++] = prop.Clone();
             }
 
             return new PropertySet(_type, props);

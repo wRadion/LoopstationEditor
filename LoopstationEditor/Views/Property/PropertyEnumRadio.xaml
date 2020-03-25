@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -14,12 +15,12 @@
     </UserControl.Resources>
 
     <Border>
-        <ItemsControl ItemsSource="{Binding Options}">
+        <ItemsControl ItemsSource="{Binding Options, Mode=OneWay}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <xd:RadioButton Content="{Binding Value}"
-                                    IsChecked="{Binding IsChecked}"
-                                    GroupName="{Binding GroupName}"
+                    <xd:RadioButton Content="{Binding Option, Mode=OneWay}"
+                                    GroupName="{Binding GroupName, Mode=OneWay}"
+                                    IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                     Checked="RadioButton_Checked" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

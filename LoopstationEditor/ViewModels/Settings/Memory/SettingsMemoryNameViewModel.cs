@@ -1,6 +1,7 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
-using System;
-using System.Text;
+﻿using System.Text;
+
+using LoopstationEditor.Models.PropertyEngine;
+using LoopstationEditor.Models.Settings.Memory;
 
 namespace LoopstationEditor.ViewModels.Settings.Memory
 {
@@ -28,18 +29,18 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
                 newName = new StringBuilder(newName).Append(' ', SettingsMemoryNameModel.Length - newName.Length).ToString();
             Name = newName;
 
-            model.Character01 = Name[0];
-            model.Character02 = Name[1];
-            model.Character03 = Name[2];
-            model.Character04 = Name[3];
-            model.Character05 = Name[4];
-            model.Character06 = Name[5];
-            model.Character07 = Name[6];
-            model.Character08 = Name[7];
-            model.Character09 = Name[8];
-            model.Character10 = Name[9];
-            model.Character11 = Name[10];
-            model.Character12 = Name[11];
+            model.Character01 = (ValueChar)Name[0];
+            model.Character02 = (ValueChar)Name[1];
+            model.Character03 = (ValueChar)Name[2];
+            model.Character04 = (ValueChar)Name[3];
+            model.Character05 = (ValueChar)Name[4];
+            model.Character06 = (ValueChar)Name[5];
+            model.Character07 = (ValueChar)Name[6];
+            model.Character08 = (ValueChar)Name[7];
+            model.Character09 = (ValueChar)Name[8];
+            model.Character10 = (ValueChar)Name[9];
+            model.Character11 = (ValueChar)Name[10];
+            model.Character12 = (ValueChar)Name[11];
 
             base.ApplyChanges();
         }

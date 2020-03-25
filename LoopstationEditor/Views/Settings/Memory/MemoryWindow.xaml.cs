@@ -18,14 +18,10 @@ namespace LoopstationEditor.Views.Settings.Memory
 
         public void SetViewModel(MemoryWindowViewModel viewModel)
         {
-            MemoryWindowViewModel oldViewModel = null;
-            if (DataContext != null)
-                oldViewModel = (MemoryWindowViewModel)DataContext;
-
             DataContext = viewModel;
             Title += $" - { viewModel.Id:D2} { viewModel.NameViewModel.Name }";
 
-            viewModel.NameViewModelInitialized += (nameViewModel) => nameViewModel.PropertyChanged += NameChanged;
+            viewModel.NameViewModel.PropertyChanged += NameChanged;
         }
 
         private void NameChanged(object sender, PropertyChangedEventArgs e)
@@ -35,8 +31,5 @@ namespace LoopstationEditor.Views.Settings.Memory
             MemoryWindowViewModel viewModel = (MemoryWindowViewModel)DataContext;
             Title += $" - { viewModel.Id:D2} { viewModel.NameViewModel.Name }";
         }
-
-        private void OK_Click(object sender, RoutedEventArgs e) => Close();
-        private void Cancel_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

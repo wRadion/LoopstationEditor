@@ -23,11 +23,13 @@ namespace LoopstationEditor.Views.MainWindow
         {
             int newIndex = MemoryListBox.SelectedIndex;
 
-
             if (newIndex >= 0)
                 _oldValidSelectedIndex = newIndex;
             else
                 MemoryListBox.SelectedIndex = _oldValidSelectedIndex;
+
+            MemoryListBox.SelectedItem = _viewModel.MemoryNames[MemoryListBox.SelectedIndex];
+            MemoryListBox.SelectedValue = MemoryListBox.SelectedItem;
         }
 
         private void CanExecuteDefault(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;

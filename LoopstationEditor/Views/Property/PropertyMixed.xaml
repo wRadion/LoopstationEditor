@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:LoopstationEditor.Views.Property"
+             xmlns:prop="clr-namespace:LoopstationEditor.Views.Property"
              xmlns:conv="clr-namespace:LoopstationEditor.Converters.Int"
              xmlns:xd="clr-namespace:XenionDark.Controls;assembly=XenionDark"
              mc:Ignorable="d"
@@ -58,20 +58,10 @@
                     Grid.Row="1"
                     Orientation="Horizontal"
                     IsEnabled="{Binding ElementName=Int_Radio, Path=IsChecked, Mode=OneWay}">
-            <xd:NumberBoxInteger Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource IntToString}}"
-                                 Value="{Binding IntValue, Mode=TwoWay}"
-                                 Width="48px"
-                                 Minimum="{Binding MinimumIntValue}"
-                                 Maximum="{Binding MaximumIntValue}" />
-            <xd:Slider Value="{Binding IntValue, Mode=TwoWay}"
-                       Minimum="{Binding MinimumIntValue}"
-                       Maximum="{Binding MaximumIntValue}"
-                       Width="100px"
-                       SmallChange="{Binding SmallChange, ElementName=PropertyMixed_this}"
-                       LargeChange="{Binding LargeChange, ElementName=PropertyMixed_this}"
-                       TickFrequency="{Binding TickFrequency, ElementName=PropertyMixed_this}"
-                       IsSnapToTickEnabled="True"
-                       AutoToolTipPlacement="TopLeft" />
+            <prop:PropertyInt DataContext="{Binding IntViewModel}"
+                              SmallChange="{Binding SmallChange, ElementName=PropertyMixed_this}"
+                              LargeChange="{Binding LargeChange, ElementName=PropertyMixed_this}"
+                              TickFrequency="{Binding TickFrequency, ElementName=PropertyMixed_this}" />
         </StackPanel>
 
         <xd:RadioButton x:Name="Enum_Radio"
@@ -81,10 +71,9 @@
                         Content="Other value"
                         GroupName="{Binding GroupName, ElementName=PropertyMixed_this}" />
 
-        <xd:ComboBox Grid.Column="1"
-                     Grid.Row="1"
-                     IsEnabled="{Binding ElementName=Enum_Radio, Path=IsChecked, Mode=OneWay}"
-                     ItemsSource="{Binding EnumOptions}"
-                     SelectedItem="{Binding EnumValue, Mode=TwoWay}" />
+        <prop:PropertyEnumCombo Grid.Column="1"
+                                Grid.Row="1"
+                                IsEnabled="{Binding ElementName=Enum_Radio, Path=IsChecked, Mode=OneWay}"
+                                DataContext="{Binding EnumViewModel}" />
     </Grid>
 </UserControl>

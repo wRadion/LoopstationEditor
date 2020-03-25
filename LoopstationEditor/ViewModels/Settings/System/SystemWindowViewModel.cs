@@ -39,17 +39,12 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SystemWindowViewModel(SystemModel model)
             : base(model)
         {
-            SelectTab(SystemTab.SETUP);
-        }
-
-        protected override void InitViewModels()
-        {
-            SystemModel model = (SystemModel)_model;
-
             SetupViewModel = new SettingsSystemSetupViewModel(model.Setup);
             InputOutputViewModel = new SettingsSystemInputOutputViewModel(model.InputOutput);
             USBViewModel = new SettingsSystemUSBViewModel(model.USB);
             MIDIViewModel = new SettingsSystemMIDIViewModel(model.MIDI);
+
+            SelectTab(SystemTab.SETUP);
         }
 
         public override void ApplyChanges()
@@ -58,6 +53,14 @@ namespace LoopstationEditor.ViewModels.Settings.System
             InputOutputViewModel.ApplyChanges();
             USBViewModel.ApplyChanges();
             MIDIViewModel.ApplyChanges();
+        }
+
+        public override void RevertChanges()
+        {
+            SetupViewModel.RevertChanges();
+            InputOutputViewModel.RevertChanges();
+            USBViewModel.RevertChanges();
+            MIDIViewModel.RevertChanges();
         }
     }
 }

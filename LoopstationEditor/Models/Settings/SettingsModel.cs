@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Linq;
 
 using LoopstationEditor.Models.PropertyEngine;
 
@@ -25,11 +26,22 @@ namespace LoopstationEditor.Models.Settings
                 Property propValue;
 
                 if (attr is PropertyMixedAttribute mixedAttr)
-                    propValue = new PropertyMixed(prop.Name, mixedAttr);
-                else
-                    propValue = new Property(prop.Name, attr);
+                {
+                    Property intProperty = new Property(prop.Name + "_int", mixedAttr.IntAttribute);
+                    Property enumProperty = new Property(prop.Name + "_enum", mixedAttr.EnumAttribute);
+                    Property boolProperty = new Property(prop.Name + "_mixed", mixedAttr.BoolAttribute);
 
-                properties.Add(propValue);
+                    propValue = Convert.ToBoolean(boolProperty.Value) ? enumProperty : intProperty;
+
+                    properties.Add(intProperty);
+                    properties.Add(enumProperty);
+                    properties.Add(boolProperty);
+                }
+                else
+                {
+                    propValue = new Property(prop.Name, attr);
+                    properties.Add(propValue);
+                }
 
                 prop.SetValue(this, propValue.Value);
             }
@@ -37,15 +49,7 @@ namespace LoopstationEditor.Models.Settings
             _properties = new PropertySet(GetType(), properties.ToArray());
         }
 
-        public void PastePropertySet(PropertySet set)
-        {
-            set.ForEachName((name) =>
-            {
-                try { _properties.SetValue(name, set.GetValue<ValueInt>(name)); }
-                catch (KeyNotFoundException) { }
-            });
-        }
-
+        public void PastePropertySet(PropertySet set) => _properties.Paste(set);
         public PropertySet CopyPropertySet(params string[] names) => _properties.Clone(names);
 
         public override void ApplyXmlValues()

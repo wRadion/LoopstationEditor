@@ -25,9 +25,6 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
     {
         public int Id { get; }
 
-        public delegate void NameViewModelInitializedEventHandler(SettingsMemoryNameViewModel viewModel);
-        public event NameViewModelInitializedEventHandler NameViewModelInitialized;
-
         public override SettingsViewModel CurrentViewModel
         {
             get
@@ -66,6 +63,30 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             : base(model)
         {
             Id = model.Id + 1;
+
+            TracksTabViewModel = new SettingsMemoryTracksTabViewModel(model);
+            RhythmViewModel = new SettingsMemoryRhythmViewModel(model.Rhythm);
+            NameViewModel = new SettingsMemoryNameViewModel(model.Name);
+            MasterViewModel = new SettingsMemoryMasterViewModel(model.Master);
+            RecOptionViewModel = new SettingsMemoryRecOptionViewModel(model.RecOption);
+            PlayOptionViewModel = new SettingsMemoryPlayOptionViewModel(model.PlayOption);
+            AssignsTabViewModel = new SettingsMemoryAssignsTabViewModel(model);
+            InputFxTabViewModel = new SettingsMemoryInputFxTabViewModel(model);
+            TrackFxTabViewModel = new SettingsMemoryTrackFxTabViewModel(model);
+
+            TracksTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            AssignsTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+
+            InputFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxA.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxB.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.InputFxC.TabChanged += (sender, e) => UpdatePasteBtn();
+
+            TrackFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxA.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxB.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TrackFxC.TabChanged += (sender, e) => UpdatePasteBtn();
+
             SelectTab(MemoryTab.TRACKS);
 
             TabChanged += (sender, e) => UpdatePasteBtn();
@@ -97,35 +118,6 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             }
         }
 
-        protected override void InitViewModels()
-        {
-            MemoryModel model = (MemoryModel)_model;
-
-            TracksTabViewModel = new SettingsMemoryTracksTabViewModel(model);
-            RhythmViewModel = new SettingsMemoryRhythmViewModel(model.Rhythm);
-            NameViewModel = new SettingsMemoryNameViewModel(model.Name);
-            NameViewModelInitialized?.Invoke(NameViewModel);
-            MasterViewModel = new SettingsMemoryMasterViewModel(model.Master);
-            RecOptionViewModel = new SettingsMemoryRecOptionViewModel(model.RecOption);
-            PlayOptionViewModel = new SettingsMemoryPlayOptionViewModel(model.PlayOption);
-            AssignsTabViewModel = new SettingsMemoryAssignsTabViewModel(model);
-            InputFxTabViewModel = new SettingsMemoryInputFxTabViewModel(model);
-            TrackFxTabViewModel = new SettingsMemoryTrackFxTabViewModel(model);
-
-            TracksTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            AssignsTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-
-            InputFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxA.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxB.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxC.TabChanged += (sender, e) => UpdatePasteBtn();
-
-            TrackFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxA.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxB.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxC.TabChanged += (sender, e) => UpdatePasteBtn();
-        }
-
         public override void ApplyChanges()
         {
             TracksTabViewModel.ApplyChanges();
@@ -137,6 +129,19 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             AssignsTabViewModel.ApplyChanges();
             InputFxTabViewModel.ApplyChanges();
             TrackFxTabViewModel.ApplyChanges();
+        }
+
+        public override void RevertChanges()
+        {
+            TracksTabViewModel.RevertChanges();
+            RhythmViewModel.RevertChanges();
+            NameViewModel.RevertChanges();
+            MasterViewModel.RevertChanges();
+            RecOptionViewModel.RevertChanges();
+            PlayOptionViewModel.RevertChanges();
+            AssignsTabViewModel.RevertChanges();
+            InputFxTabViewModel.RevertChanges();
+            TrackFxTabViewModel.RevertChanges();
         }
     }
 }

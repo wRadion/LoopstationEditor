@@ -76,6 +76,7 @@
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
     <Compile Include="Converters\Bitwise\TrackBitwiseToNumberConverter.cs" />
     <Compile Include="Converters\Enum\EnumNoteConverter.cs" />
+    <Compile Include="Converters\Enum\EnumOctaveModeConverter.cs" />
     <Compile Include="Converters\Enum\EnumRhythmPatternConverter.cs" />
     <Compile Include="Converters\Enum\EnumTimeSignatureConverter.cs" />
     <Compile Include="Converters\Enum\EnumUSBAudioRoutingConverter.cs" />
@@ -106,9 +107,9 @@
     <Compile Include="Models\Interfaces\IXmlContainer.cs" />
     <Compile Include="Models\PropertyEngine\Property.cs" />
     <Compile Include="Models\PropertyEngine\PropertyAttribute.cs" />
-    <Compile Include="Models\PropertyEngine\PropertyMixed.cs" />
     <Compile Include="Models\PropertyEngine\PropertyMixedAttribute.cs" />
     <Compile Include="Models\PropertyEngine\PropertySet.cs" />
+    <Compile Include="Models\PropertyEngine\Range.cs" />
     <Compile Include="Models\PropertyEngine\ValueChar.cs" />
     <Compile Include="Models\PropertyEngine\ValueInt.cs" />
     <Compile Include="Models\PropertyEngine\ValueBool.cs" />

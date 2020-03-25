@@ -30,5 +30,6 @@ namespace LoopstationEditor.ViewModels.Settings
         }
 
         public abstract void ApplyChanges();
+        public abstract void RevertChanges();
     }
 }

@@ -91,5 +91,25 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             Assign15.ApplyChanges();
             Assign16.ApplyChanges();
         }
+
+        public override void RevertChanges()
+        {
+            Assign1.RevertChanges();
+            Assign2.RevertChanges();
+            Assign3.RevertChanges();
+            Assign4.RevertChanges();
+            Assign5.RevertChanges();
+            Assign6.RevertChanges();
+            Assign7.RevertChanges();
+            Assign8.RevertChanges();
+            Assign9.RevertChanges();
+            Assign10.RevertChanges();
+            Assign11.RevertChanges();
+            Assign12.RevertChanges();
+            Assign13.RevertChanges();
+            Assign14.RevertChanges();
+            Assign15.RevertChanges();
+            Assign16.RevertChanges();
+        }
     }
 }

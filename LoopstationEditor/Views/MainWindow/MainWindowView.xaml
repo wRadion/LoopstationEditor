@@ -11,7 +11,7 @@
         xmlns:cmd="clr-namespace:LoopstationEditor.Commands"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Loopstation RC-505 Settings Editor"
+        Title="RC-505 Loopstation Settings Editor - Beta v0.1"
         Icon="/Views/Resources/Images/icon.png"
         MinWidth="1600px"
         MinHeight="750px"

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Windows;
 
 using LoopstationEditor.ViewModels.Settings.Memory;
 
@@ -19,17 +18,13 @@ namespace LoopstationEditor.Views.Settings.Memory
         public void SetViewModel(MemoryWindowViewModel viewModel)
         {
             DataContext = viewModel;
-            Title += $" - { viewModel.Id:D2} { viewModel.NameViewModel.Name }";
-
-            viewModel.NameViewModel.PropertyChanged += NameChanged;
+            UpdateMemoryName(viewModel);
+            viewModel.NameViewModel.PropertyChanged += (sender, e) => UpdateMemoryName(viewModel);
         }
 
-        private void NameChanged(object sender, PropertyChangedEventArgs e)
+        private void UpdateMemoryName(MemoryWindowViewModel viewModel)
         {
-            if (e.PropertyName != "Name") return;
-
-            MemoryWindowViewModel viewModel = (MemoryWindowViewModel)DataContext;
-            Title += $" - { viewModel.Id:D2} { viewModel.NameViewModel.Name }";
+            Title = $"Memory Settings - { viewModel.Id:D2} { viewModel.NameViewModel.Name }";
         }
     }
 }

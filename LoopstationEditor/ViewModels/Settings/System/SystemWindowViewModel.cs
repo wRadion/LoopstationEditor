@@ -47,12 +47,17 @@ namespace LoopstationEditor.ViewModels.Settings.System
             SelectTab(SystemTab.SETUP);
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            SetupViewModel.ApplyChanges();
-            InputOutputViewModel.ApplyChanges();
-            USBViewModel.ApplyChanges();
-            MIDIViewModel.ApplyChanges();
+            if (model is SystemModel system)
+            {
+                SetupViewModel.ApplyChanges(system.Setup);
+                InputOutputViewModel.ApplyChanges(system.InputOutput);
+                USBViewModel.ApplyChanges(system.USB);
+                MIDIViewModel.ApplyChanges(system.MIDI);
+            }
+            else
+                throw new ArgumentException("Model must be of type SystemModel.");
         }
 
         public override void RevertChanges()

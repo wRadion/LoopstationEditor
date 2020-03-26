@@ -16,11 +16,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPanViewModel(SettingsMemoryFxModel model)
             : base("Pan", model)
         {
-            PanType = new PropertyEnumRadioViewModel<FxPanType>(nameof(model.PanType), _properties);
-            PanRate = new PropertyMixedViewModel<FxRate>(nameof(model.PanRate), _properties, new EnumNoteConverter<FxRate>());
-            PanDepth = new PropertyIntViewModel(nameof(model.PanDepth), _properties);
-            PanStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.PanStepRate), _properties, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
-            PanPosition = new PropertyIntViewModel(nameof(model.PanPosition), _properties, new IntPanConverter());
+            PanType = new PropertyEnumRadioViewModel<FxPanType>(nameof(model.PanType), PropertySet);
+            PanRate = new PropertyMixedViewModel<FxRate>(nameof(model.PanRate), PropertySet, new EnumNoteConverter<FxRate>());
+            PanDepth = new PropertyIntViewModel(nameof(model.PanDepth), PropertySet);
+            PanStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.PanStepRate), PropertySet, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
+            PanPosition = new PropertyIntViewModel(nameof(model.PanPosition), PropertySet, new IntPanConverter());
         }
     }
 }

@@ -16,11 +16,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxIsolatorViewModel(SettingsMemoryFxModel model)
             : base("Isolator", model)
         {
-            IsolatorBand = new PropertyEnumRadioViewModel<FxIsolatorBand>(nameof(model.IsolatorBand), _properties);
-            IsolatorRate = new PropertyMixedViewModel<FxRate>(nameof(model.IsolatorRate), _properties, new EnumNoteConverter<FxRate>());
-            IsolatorDepth = new PropertyIntViewModel(nameof(model.IsolatorDepth), _properties);
-            IsolatorStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.IsolatorStepRate), _properties, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
-            IsolatorLevel = new PropertyIntViewModel(nameof(model.IsolatorLevel), _properties);
+            IsolatorBand = new PropertyEnumRadioViewModel<FxIsolatorBand>(nameof(model.IsolatorBand), PropertySet);
+            IsolatorRate = new PropertyMixedViewModel<FxRate>(nameof(model.IsolatorRate), PropertySet, new EnumNoteConverter<FxRate>());
+            IsolatorDepth = new PropertyIntViewModel(nameof(model.IsolatorDepth), PropertySet);
+            IsolatorStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.IsolatorStepRate), PropertySet, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
+            IsolatorLevel = new PropertyIntViewModel(nameof(model.IsolatorLevel), PropertySet);
         }
     }
 }

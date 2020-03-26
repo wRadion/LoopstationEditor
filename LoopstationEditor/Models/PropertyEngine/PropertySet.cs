@@ -53,16 +53,15 @@ namespace LoopstationEditor.Models.PropertyEngine
             return _properties[name];
         }
 
-        public bool CanPaste(PropertySet properties) => properties != null && Count == properties.Count && _type == properties._type;
-
-        public void Paste(PropertySet properties)
+        public void CopyTo(PropertySet target)
         {
-            properties.ForEachName((name) =>
+            ForEachName((name) =>
             {
-                if (Contains(name))
-                    SetValue(name, properties.GetValue<ValueInt>(name));
+                if (target.Contains(name))
+                    target.SetValue(name, GetValue<ValueInt>(name));
             });
         }
+        public bool CanPaste(PropertySet properties) => properties != null && Count == properties.Count && _type == properties._type;
 
         public PropertySet Clone(params string[] names)
         {

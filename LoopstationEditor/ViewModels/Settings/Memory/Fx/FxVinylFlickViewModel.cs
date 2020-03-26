@@ -10,7 +10,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxVinylFlickViewModel(SettingsMemoryBeatFxModel model)
             : base("Vinyl Flick", model)
         {
-            VinylFlickFlick = new PropertyIntViewModel(nameof(model.VinylFlickFlick), _properties);
+            VinylFlickFlick = new PropertyIntViewModel(nameof(model.VinylFlickFlick), PropertySet);
         }
     }
 }

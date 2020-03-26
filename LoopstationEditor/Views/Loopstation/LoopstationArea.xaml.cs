@@ -56,12 +56,12 @@ namespace LoopstationEditor.Views.Loopstation
             _hasClicked = false;
         }
 
-        private void Polygon_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Polygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _hasClicked = true;
         }
 
-        private void Polygon_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Polygon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (_hasClicked && Command != null)
             {

@@ -19,14 +19,14 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryRhythmViewModel(SettingsMemoryRhythmModel model)
             : base(model)
         {
-            Enabled = new PropertyBoolViewModel(nameof(model.Enabled), _properties);
-            Level = new PropertyIntViewModel(nameof(model.Level), _properties, new IntLevelConverter());
-            Pattern = new PropertyEnumComboViewModel<RhythmPattern>(nameof(model.Pattern), _properties, new EnumRhythmPatternConverter());
-            Beat = new PropertyEnumComboViewModel<RhythmBeat>(nameof(model.Beat), _properties, new EnumTimeSignatureConverter<RhythmBeat>());
-            LineOut = new PropertyBoolViewModel(nameof(model.LineOut), _properties);
-            RecCount = new PropertyEnumRadioViewModel<RhythmRecCount>(nameof(model.RecCount), _properties);
-            PlayCount = new PropertyEnumRadioViewModel<RhythmPlayCount>(nameof(model.PlayCount), _properties);
-            StopMode = new PropertyEnumRadioViewModel<RhythmStopMode>(nameof(model.StopMode), _properties);
+            Enabled = new PropertyBoolViewModel(nameof(model.Enabled), PropertySet);
+            Level = new PropertyIntViewModel(nameof(model.Level), PropertySet, new IntLevelConverter());
+            Pattern = new PropertyEnumComboViewModel<RhythmPattern>(nameof(model.Pattern), PropertySet, new EnumRhythmPatternConverter());
+            Beat = new PropertyEnumComboViewModel<RhythmBeat>(nameof(model.Beat), PropertySet, new EnumTimeSignatureConverter<RhythmBeat>());
+            LineOut = new PropertyBoolViewModel(nameof(model.LineOut), PropertySet);
+            RecCount = new PropertyEnumRadioViewModel<RhythmRecCount>(nameof(model.RecCount), PropertySet);
+            PlayCount = new PropertyEnumRadioViewModel<RhythmPlayCount>(nameof(model.PlayCount), PropertySet);
+            StopMode = new PropertyEnumRadioViewModel<RhythmStopMode>(nameof(model.StopMode), PropertySet);
         }
     }
 }

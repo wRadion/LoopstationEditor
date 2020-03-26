@@ -32,36 +32,32 @@
     </xdw:Window.Background>
 
     <StackPanel Orientation="Vertical">
-        <Border x:Name="MainContent">
-            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
-                <TabItem Header="Setup">
-                    <Border Padding="16px">
-                        <local:SettingsSystemSetupView DataContext="{Binding SetupViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Input/Output">
-                    <Border Padding="16px">
-                        <local:SettingsSystemInputOutputView DataContext="{Binding InputOutputViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="USB">
-                    <Border Padding="16px">
-                        <local:SettingsSystemUSBView DataContext="{Binding USBViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="MIDI">
-                    <Border Padding="16px">
-                        <local:SettingsSystemMIDIView DataContext="{Binding MIDIViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-            </xd:TabControl>
-        </Border>
+        <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+            <TabItem Header="Setup">
+                <Border Padding="16px">
+                    <local:SettingsSystemSetupView DataContext="{Binding SetupViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Input/Output">
+                <Border Padding="16px">
+                    <local:SettingsSystemInputOutputView DataContext="{Binding InputOutputViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="USB">
+                <Border Padding="16px">
+                    <local:SettingsSystemUSBView DataContext="{Binding USBViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="MIDI">
+                <Border Padding="16px">
+                    <local:SettingsSystemMIDIView DataContext="{Binding MIDIViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+        </xd:TabControl>
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 16px 16px">
-            <xd:Button Content="OK"
-                       Margin="0 0 16px 0"
-                       Command="{Binding ApplyChangesAndCloseCommand}" />
-            <xd:Button Content="Cancel"
-                       Command="{Binding RevertChangesAndCloseCommand}" />
+            <xd:Button Content="OK" Margin="0 0 16px 0" Command="{Binding ApplyChangesAndCloseCommand}" />
+            <xd:Button Content="Cancel" Command="{Binding RevertChangesAndCloseCommand}" />
         </StackPanel>
     </StackPanel>
 </xdw:Window>

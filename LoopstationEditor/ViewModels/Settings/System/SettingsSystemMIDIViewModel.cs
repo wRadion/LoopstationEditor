@@ -16,12 +16,12 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemMIDIViewModel(SettingsSystemMIDIModel model)
             : base(model)
         {
-            RxChannel = new PropertyIntViewModel(nameof(model.RxChannel), _properties, new IntChannelConverter());
-            Omni = new PropertyBoolViewModel(nameof(model.Omni), _properties);
-            TxChannel = new PropertyMixedViewModel<MIDITxChannel>(nameof(model.TxChannel), _properties, new IntChannelConverter());
-            Sync = new PropertyEnumRadioViewModel<MIDISync>(nameof(model.Sync), _properties);
-            SyncSource = new PropertyEnumRadioViewModel<MIDISyncSource>(nameof(model.SyncSource), _properties);
-            PCOut = new PropertyBoolViewModel(nameof(model.PCOut), _properties);
+            RxChannel = new PropertyIntViewModel(nameof(model.RxChannel), PropertySet, new IntChannelConverter());
+            Omni = new PropertyBoolViewModel(nameof(model.Omni), PropertySet);
+            TxChannel = new PropertyMixedViewModel<MIDITxChannel>(nameof(model.TxChannel), PropertySet, new IntChannelConverter());
+            Sync = new PropertyEnumRadioViewModel<MIDISync>(nameof(model.Sync), PropertySet);
+            SyncSource = new PropertyEnumRadioViewModel<MIDISyncSource>(nameof(model.SyncSource), PropertySet);
+            PCOut = new PropertyBoolViewModel(nameof(model.PCOut), PropertySet);
         }
     }
 }

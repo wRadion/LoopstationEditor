@@ -32,20 +32,25 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
         public SettingsMemoryTracksTabViewModel(MemoryModel model)
             : base(model)
         {
-            Track1 = new SettingsMemoryTrackViewModel(model.Track1);
-            Track2 = new SettingsMemoryTrackViewModel(model.Track2);
-            Track3 = new SettingsMemoryTrackViewModel(model.Track3);
-            Track4 = new SettingsMemoryTrackViewModel(model.Track4);
-            Track5 = new SettingsMemoryTrackViewModel(model.Track5);
+            Track1 = new SettingsMemoryTrackViewModel(1, model.Track1);
+            Track2 = new SettingsMemoryTrackViewModel(2, model.Track2);
+            Track3 = new SettingsMemoryTrackViewModel(3, model.Track3);
+            Track4 = new SettingsMemoryTrackViewModel(4, model.Track4);
+            Track5 = new SettingsMemoryTrackViewModel(5, model.Track5);
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            Track1.ApplyChanges();
-            Track2.ApplyChanges();
-            Track3.ApplyChanges();
-            Track4.ApplyChanges();
-            Track5.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                Track1.ApplyChanges(memory.Track1);
+                Track2.ApplyChanges(memory.Track2);
+                Track3.ApplyChanges(memory.Track3);
+                Track4.ApplyChanges(memory.Track4);
+                Track5.ApplyChanges(memory.Track5);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
 
         public override void RevertChanges()

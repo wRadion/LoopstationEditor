@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -8,8 +7,7 @@ using Microsoft.Win32;
 using LoopstationEditor.Commands;
 using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.Models.Settings.System;
-using LoopstationEditor.ViewModels.Settings.Memory;
-using System.IO;
+using LoopstationEditor.Utils;
 
 namespace LoopstationEditor.ViewModels
 {
@@ -31,10 +29,10 @@ namespace LoopstationEditor.ViewModels
             {
                 if (value < 0) return;
                 _currentMemoryIndex = value;
-                MemoryWindowViewModel memoryViewModel = LoopstationViewModel.SetMemory(_memoryFile.Memories[_currentMemoryIndex]);
-                memoryViewModel.NameViewModel.AppliedChanges += (sender, e) => UpdateMemoryNames();
+                LoopstationViewModel.SetMemory(CurrentMemory);
             }
         }
+        public MemoryModel CurrentMemory => _memoryFile.Memories[CurrentMemoryIndex];
         public string[] MemoryNames { get; private set; }
 
         public ICommand NewSettingsCommand { get; }
@@ -153,6 +151,9 @@ namespace LoopstationEditor.ViewModels
         {
             _systemFile = system;
             _memoryFile = memory;
+            _memoryFile.Memories.ToList().ForEach((mem) => mem.Name.NameChanged += (sender, e) => UpdateMemoryNames());
+
+            Global.Instance.MemoryFileModel = _memoryFile;
 
             LoopstationViewModel.SetSystem(_systemFile.System);
             CurrentMemoryIndex = (int)_systemFile.System.Setup.SelectedMemory;

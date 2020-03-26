@@ -11,8 +11,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxRingModulatorViewModel(SettingsMemoryFxModel model)
             : base("Ring Modulator", model)
         {
-            RingModulatorFrequency = new PropertyIntViewModel(nameof(model.RingModulatorFrequency), _properties);
-            RingModulatorBalance = new PropertyIntViewModel(nameof(model.RingModulatorBalance), _properties);
+            RingModulatorFrequency = new PropertyIntViewModel(nameof(model.RingModulatorFrequency), PropertySet);
+            RingModulatorBalance = new PropertyIntViewModel(nameof(model.RingModulatorBalance), PropertySet);
         }
     }
 }

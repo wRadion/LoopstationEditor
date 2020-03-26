@@ -15,11 +15,11 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemInputOutputViewModel(SettingsSystemInputOutputModel model)
             : base(model)
         {
-            InputNSThreshold = new PropertyIntViewModel(nameof(model.InputNSThreshold), _properties);
-            LineOutLevel = new PropertyIntViewModel(nameof(model.LineOutLevel), _properties, new IntLevelConverter());
-            InputSource = new PropertyEnumRadioViewModel<IOInputSource>(nameof(model.InputSource), _properties);
-            InputLineOut = new PropertyBoolViewModel(nameof(model.InputLineOut), _properties);
-            OutputLevelSelection = new PropertyEnumRadioViewModel<IOOutputLevelSelection>(nameof(model.OutputLevelSelection), _properties);
+            InputNSThreshold = new PropertyIntViewModel(nameof(model.InputNSThreshold), PropertySet);
+            LineOutLevel = new PropertyIntViewModel(nameof(model.LineOutLevel), PropertySet, new IntLevelConverter());
+            InputSource = new PropertyEnumRadioViewModel<IOInputSource>(nameof(model.InputSource), PropertySet);
+            InputLineOut = new PropertyBoolViewModel(nameof(model.InputLineOut), PropertySet);
+            OutputLevelSelection = new PropertyEnumRadioViewModel<IOOutputLevelSelection>(nameof(model.OutputLevelSelection), PropertySet);
         }
     }
 }

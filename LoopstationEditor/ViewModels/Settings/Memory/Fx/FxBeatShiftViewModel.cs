@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxBeatShiftViewModel(SettingsMemoryBeatFxModel model)
             : base("Beat Shift", model)
         {
-            BeatShiftType = new PropertyEnumRadioViewModel<FxBeatShiftType>(nameof(model.BeatShiftType), _properties);
-            BeatShiftShift = new PropertyEnumComboViewModel<FxBeatShiftShift>(nameof(model.BeatShiftShift), _properties, new EnumNoteConverter<FxBeatShiftShift>());
+            BeatShiftType = new PropertyEnumRadioViewModel<FxBeatShiftType>(nameof(model.BeatShiftType), PropertySet);
+            BeatShiftShift = new PropertyEnumComboViewModel<FxBeatShiftShift>(nameof(model.BeatShiftShift), PropertySet, new EnumNoteConverter<FxBeatShiftShift>());
         }
     }
 }

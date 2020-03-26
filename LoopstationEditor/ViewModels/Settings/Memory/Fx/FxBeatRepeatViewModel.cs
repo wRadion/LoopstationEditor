@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxBeatRepeatViewModel(SettingsMemoryBeatFxModel model)
             : base("Beat Repeat", model)
         {
-            BeatRepeatType = new PropertyEnumRadioViewModel<FxBeatRepeatType>(nameof(model.BeatRepeatType), _properties);
-            BeatRepeatLength = new PropertyEnumComboViewModel<FxBeatRepeatLength>(nameof(model.BeatRepeatLength), _properties, new EnumNoteConverter<FxBeatRepeatLength>());
+            BeatRepeatType = new PropertyEnumRadioViewModel<FxBeatRepeatType>(nameof(model.BeatRepeatType), PropertySet);
+            BeatRepeatLength = new PropertyEnumComboViewModel<FxBeatRepeatLength>(nameof(model.BeatRepeatLength), PropertySet, new EnumNoteConverter<FxBeatRepeatLength>());
         }
     }
 }

@@ -19,15 +19,15 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemSetupViewModel(SettingsSystemSetupModel model)
             : base(model)
         {
-            SelectedMemory = new PropertyIntViewModel(nameof(model.SelectedMemory), _properties, new IntMemoryNumberConverter());
-            LcdContrast = new PropertyIntViewModel(nameof(model.LcdContrast), _properties);
-            PhantomPower = new PropertyBoolViewModel(nameof(model.PhantomPower), _properties);
-            DisplayMode = new PropertyEnumComboViewModel<SetupDisplayMode>(nameof(model.DisplayMode), _properties);
-            IndicatorMode = new PropertyEnumComboViewModel<SetupIndicatorMode>(nameof(model.IndicatorMode), _properties);
-            AutoOff = new PropertyBoolViewModel(nameof(model.AutoOff), _properties);
-            AllClear = new PropertyBoolViewModel(nameof(model.AllClear), _properties);
-            QuickClear = new PropertyBoolViewModel(nameof(model.QuickClear), _properties);
-            KnobMode = new PropertyEnumRadioViewModel<SetupKnobMode>(nameof(model.KnobMode), _properties);
+            SelectedMemory = new PropertyIntViewModel(nameof(model.SelectedMemory), PropertySet, new IntMemoryNumberConverter());
+            LcdContrast = new PropertyIntViewModel(nameof(model.LcdContrast), PropertySet);
+            PhantomPower = new PropertyBoolViewModel(nameof(model.PhantomPower), PropertySet);
+            DisplayMode = new PropertyEnumComboViewModel<SetupDisplayMode>(nameof(model.DisplayMode), PropertySet);
+            IndicatorMode = new PropertyEnumComboViewModel<SetupIndicatorMode>(nameof(model.IndicatorMode), PropertySet);
+            AutoOff = new PropertyBoolViewModel(nameof(model.AutoOff), PropertySet);
+            AllClear = new PropertyBoolViewModel(nameof(model.AllClear), PropertySet);
+            QuickClear = new PropertyBoolViewModel(nameof(model.QuickClear), PropertySet);
+            KnobMode = new PropertyEnumRadioViewModel<SetupKnobMode>(nameof(model.KnobMode), PropertySet);
         }
     }
 }

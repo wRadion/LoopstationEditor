@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxSlowGearViewModel(SettingsMemoryFxModel model)
             : base("Slow Gear", model)
         {
-            SlowGearSensitivity = new PropertyIntViewModel(nameof(model.SlowGearSensitivity), _properties);
-            SlowGearRiseTime = new PropertyIntViewModel(nameof(model.SlowGearRiseTime), _properties);
-            SlowGearLevel = new PropertyIntViewModel(nameof(model.SlowGearLevel), _properties);
+            SlowGearSensitivity = new PropertyIntViewModel(nameof(model.SlowGearSensitivity), PropertySet);
+            SlowGearRiseTime = new PropertyIntViewModel(nameof(model.SlowGearRiseTime), PropertySet);
+            SlowGearLevel = new PropertyIntViewModel(nameof(model.SlowGearLevel), PropertySet);
         }
     }
 }

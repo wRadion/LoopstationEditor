@@ -13,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPanningDelayViewModel(SettingsMemoryFxModel model)
             : base("Panning Delay", model)
         {
-            PanningDelayTime = new PropertyMixedViewModel<FxDelayTime>(nameof(model.PanningDelayTime), _properties, new EnumNoteConverter<FxDelayTime>());
-            PanningDelayFeedback = new PropertyIntViewModel(nameof(model.PanningDelayFeedback), _properties);
-            PanningDelayLevel = new PropertyIntViewModel(nameof(model.PanningDelayLevel), _properties);
+            PanningDelayTime = new PropertyMixedViewModel<FxDelayTime>(nameof(model.PanningDelayTime), PropertySet, new EnumNoteConverter<FxDelayTime>());
+            PanningDelayFeedback = new PropertyIntViewModel(nameof(model.PanningDelayFeedback), PropertySet);
+            PanningDelayLevel = new PropertyIntViewModel(nameof(model.PanningDelayLevel), PropertySet);
         }
     }
 }

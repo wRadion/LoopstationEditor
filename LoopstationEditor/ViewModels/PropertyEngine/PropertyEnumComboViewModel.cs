@@ -3,7 +3,7 @@ using System.Linq;
 
 using LoopstationEditor.Converters;
 using LoopstationEditor.Converters.Enum;
-using LoopstationEditor.Extensions;
+using LoopstationEditor.Utils;
 using LoopstationEditor.Models.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.PropertyEngine

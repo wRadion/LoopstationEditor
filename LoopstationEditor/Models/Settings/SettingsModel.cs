@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Linq;
 
 using LoopstationEditor.Models.PropertyEngine;
 
@@ -11,7 +10,7 @@ namespace LoopstationEditor.Models.Settings
     {
         public const BindingFlags PropertyFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.SetProperty;
 
-        protected readonly PropertySet _properties;
+        public PropertySet PropertySet { get; private set; }
 
         public SettingsModel() : base()
         {
@@ -46,11 +45,8 @@ namespace LoopstationEditor.Models.Settings
                 prop.SetValue(this, propValue.Value);
             }
 
-            _properties = new PropertySet(GetType(), properties.ToArray());
+            PropertySet = new PropertySet(GetType(), properties.ToArray());
         }
-
-        public void PastePropertySet(PropertySet set) => _properties.Paste(set);
-        public PropertySet CopyPropertySet(params string[] names) => _properties.Clone(names);
 
         public override void ApplyXmlValues()
         {
@@ -62,15 +58,15 @@ namespace LoopstationEditor.Models.Settings
                 object value = prop.GetValue(this);
 
                 if (value is ValueInt intValue)
-                    _properties.SetValue(prop.Name, intValue);
+                    PropertySet.SetValue(prop.Name, intValue);
                 else if (value is ValueBool boolValue)
-                    _properties.SetValue(prop.Name, boolValue);
+                    PropertySet.SetValue(prop.Name, boolValue);
                 else if (value is ValueChar charValue)
-                    _properties.SetValue(prop.Name, charValue);
+                    PropertySet.SetValue(prop.Name, charValue);
                 else
                 {
                     Type type = typeof(ValueEnum<>).MakeGenericType(value.GetType());
-                    _properties.SetValue(prop.Name, (ValueInt)Activator.CreateInstance(type, value));
+                    PropertySet.SetValue(prop.Name, (ValueInt)Activator.CreateInstance(type, value));
                 }
             }
         }
@@ -81,7 +77,7 @@ namespace LoopstationEditor.Models.Settings
             foreach (PropertyInfo prop in instanceProperties)
             {
                 if (prop.GetCustomAttribute<PropertyAttribute>() == null) continue;
-                prop.SetValue(this, _properties.GetValue<ValueInt>(prop.Name));
+                prop.SetValue(this, PropertySet.GetValue<ValueInt>(prop.Name));
             }
         }
     }

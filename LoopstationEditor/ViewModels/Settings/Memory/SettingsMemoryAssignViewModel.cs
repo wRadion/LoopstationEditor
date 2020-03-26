@@ -6,6 +6,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 {
     public class SettingsMemoryAssignViewModel : SettingsViewModel
     {
+        public readonly int AssignNumber;
+
         public PropertyBoolViewModel Enabled { get; }
         public PropertyEnumComboViewModel<AssignSource> Source { get; }
         public PropertyEnumRadioViewModel<AssignSourceMode> SourceMode { get; }
@@ -13,15 +15,17 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyIntViewModel TargetMin { get; }
         public PropertyIntViewModel TargetMax { get; }
 
-        public SettingsMemoryAssignViewModel(SettingsMemoryAssignModel model)
+        public SettingsMemoryAssignViewModel(int assignNumber, SettingsMemoryAssignModel model)
             : base(model)
         {
-            Enabled = new PropertyBoolViewModel(nameof(model.Enabled), _properties);
-            Source = new PropertyEnumComboViewModel<AssignSource>(nameof(model.Source), _properties);
-            SourceMode = new PropertyEnumRadioViewModel<AssignSourceMode>(nameof(model.SourceMode), _properties);
-            Target = new PropertyEnumComboViewModel<AssignTarget>(nameof(model.Target), _properties);
-            TargetMin = new PropertyIntViewModel(nameof(model.TargetMin), _properties, new IntTargetConverter());
-            TargetMax = new PropertyIntViewModel(nameof(model.TargetMax), _properties, new IntTargetConverter());
+            AssignNumber = assignNumber;
+
+            Enabled = new PropertyBoolViewModel(nameof(model.Enabled), PropertySet);
+            Source = new PropertyEnumComboViewModel<AssignSource>(nameof(model.Source), PropertySet);
+            SourceMode = new PropertyEnumRadioViewModel<AssignSourceMode>(nameof(model.SourceMode), PropertySet);
+            Target = new PropertyEnumComboViewModel<AssignTarget>(nameof(model.Target), PropertySet);
+            TargetMin = new PropertyIntViewModel(nameof(model.TargetMin), PropertySet, new IntTargetConverter());
+            TargetMax = new PropertyIntViewModel(nameof(model.TargetMax), PropertySet, new IntTargetConverter());
         }
     }
 }

@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxDynamicsViewModel(SettingsMemoryFxModel model)
             : base("Dynamics", model)
         {
-            DynamicsType = new PropertyEnumComboViewModel<FxDynamicsType>(nameof(model.DynamicsType), _properties);
-            DynamicsDynamics = new PropertyIntViewModel(nameof(model.DynamicsDynamics), _properties, new IntDbConverter());
+            DynamicsType = new PropertyEnumComboViewModel<FxDynamicsType>(nameof(model.DynamicsType), PropertySet);
+            DynamicsDynamics = new PropertyIntViewModel(nameof(model.DynamicsDynamics), PropertySet, new IntDbConverter());
         }
     }
 }

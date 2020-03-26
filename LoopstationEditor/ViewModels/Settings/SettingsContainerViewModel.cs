@@ -29,7 +29,8 @@ namespace LoopstationEditor.ViewModels.Settings
             _model = model;
         }
 
-        public abstract void ApplyChanges();
+        public void ApplyChanges() => ApplyChanges(_model);
+        public abstract void ApplyChanges<T>(T model) where T : SettingsContainerModel;
         public abstract void RevertChanges();
     }
 }

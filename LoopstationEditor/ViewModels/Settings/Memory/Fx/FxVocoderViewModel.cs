@@ -13,10 +13,10 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxVocoderViewModel(SettingsMemoryFxModel model)
             : base("Vocoder", model)
         {
-            VocoderCarrier = new PropertyEnumComboViewModel<Track>(nameof(model.VocoderCarrier), _properties);
-            VocoderModSens = new PropertyIntViewModel(nameof(model.VocoderModSens), _properties);
-            VocoderAttack = new PropertyIntViewModel(nameof(model.VocoderAttack), _properties);
-            VocoderBalance = new PropertyIntViewModel(nameof(model.VocoderBalance), _properties);
+            VocoderCarrier = new PropertyEnumComboViewModel<Track>(nameof(model.VocoderCarrier), PropertySet);
+            VocoderModSens = new PropertyIntViewModel(nameof(model.VocoderModSens), PropertySet);
+            VocoderAttack = new PropertyIntViewModel(nameof(model.VocoderAttack), PropertySet);
+            VocoderBalance = new PropertyIntViewModel(nameof(model.VocoderBalance), PropertySet);
         }
     }
 }

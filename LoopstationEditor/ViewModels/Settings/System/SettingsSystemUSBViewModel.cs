@@ -15,10 +15,10 @@ namespace LoopstationEditor.ViewModels.Settings.System
         public SettingsSystemUSBViewModel(SettingsSystemUSBModel model)
             : base(model)
         {
-            Mode = new PropertyEnumRadioViewModel<USBMode>(nameof(model.Mode), _properties);
-            AudioRouting = new PropertyEnumComboViewModel<USBAudioRouting>(nameof(model.AudioRouting), _properties, new EnumUSBAudioRoutingConverter());
-            InputLevel = new PropertyIntViewModel(nameof(model.InputLevel), _properties, new IntLevelConverter());
-            OutputLevel = new PropertyIntViewModel(nameof(model.OutputLevel), _properties, new IntLevelConverter());
+            Mode = new PropertyEnumRadioViewModel<USBMode>(nameof(model.Mode), PropertySet);
+            AudioRouting = new PropertyEnumComboViewModel<USBAudioRouting>(nameof(model.AudioRouting), PropertySet, new EnumUSBAudioRoutingConverter());
+            InputLevel = new PropertyIntViewModel(nameof(model.InputLevel), PropertySet, new IntLevelConverter());
+            OutputLevel = new PropertyIntViewModel(nameof(model.OutputLevel), PropertySet, new IntLevelConverter());
         }
     }
 }

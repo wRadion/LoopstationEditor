@@ -22,9 +22,12 @@ namespace LoopstationEditor.Views.Property
         public PropertyEnumRadio()
         {
             InitializeComponent();
+            DataContextChanged += (sender, e) => UpdateValue();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e) => UpdateValue();
+
+        private void UpdateValue()
         {
             Value = (string)DataContext.GetType().GetProperty(nameof(PropertyEnumRadioViewModel<Enum>.Value)).GetValue(DataContext);
         }

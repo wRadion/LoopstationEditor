@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Xml.Serialization;
 
 using LoopstationEditor.Models.PropertyEngine;
@@ -8,6 +9,8 @@ namespace LoopstationEditor.Models.Settings.Memory
     public class SettingsMemoryNameModel : SettingsModel
     {
         public const int Length = 12;
+
+        public event EventHandler NameChanged;
 
         [XmlElement("C01", typeof(int))]
         [Property('I', 32, 126)]
@@ -58,6 +61,8 @@ namespace LoopstationEditor.Models.Settings.Memory
         public ValueChar Character12 { get; set; }
 
         public SettingsMemoryNameModel() : base() { }
+
+        public void OnNameChanged() => NameChanged?.Invoke(this, EventArgs.Empty);
 
         public override string ToString()
         {

@@ -17,7 +17,7 @@ namespace LoopstationEditor.Commands
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => _canExecute((T)parameter);
+        public bool CanExecute(object parameter) => _canExecute((T)Convert.ChangeType(parameter, typeof(T)));
         public void Execute(object parameter) => _execute((T)Convert.ChangeType(parameter, typeof(T)));
 
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

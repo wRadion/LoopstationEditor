@@ -31,17 +31,22 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             : base(model)
         {
             InputFx = new SettingsMemoryInputFxViewModel(model.InputFx);
-            InputFxA = new SettingsMemoryFxInputViewModel(model.InputFxA);
-            InputFxB = new SettingsMemoryFxInputViewModel(model.InputFxB);
-            InputFxC = new SettingsMemoryFxInputViewModel(model.InputFxC);
+            InputFxA = new SettingsMemoryFxInputViewModel(FxSlot.A, model.InputFxA);
+            InputFxB = new SettingsMemoryFxInputViewModel(FxSlot.B, model.InputFxB);
+            InputFxC = new SettingsMemoryFxInputViewModel(FxSlot.C, model.InputFxC);
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            InputFx.ApplyChanges();
-            InputFxA.ApplyChanges();
-            InputFxB.ApplyChanges();
-            InputFxC.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                InputFx.ApplyChanges(memory.InputFx);
+                InputFxA.ApplyChanges(memory.InputFxA);
+                InputFxB.ApplyChanges(memory.InputFxB);
+                InputFxC.ApplyChanges(memory.InputFxC);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
 
         public override void RevertChanges()

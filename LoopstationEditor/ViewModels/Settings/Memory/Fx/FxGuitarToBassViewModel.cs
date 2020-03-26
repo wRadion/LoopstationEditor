@@ -10,7 +10,7 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxGuitarToBassViewModel(SettingsMemoryFxModel model)
             : base("Guitar To Bass", model)
         {
-            GuitarToBassBalance = new PropertyIntViewModel(nameof(model.GuitarToBassBalance), _properties);
+            GuitarToBassBalance = new PropertyIntViewModel(nameof(model.GuitarToBassBalance), PropertySet);
         }
     }
 }

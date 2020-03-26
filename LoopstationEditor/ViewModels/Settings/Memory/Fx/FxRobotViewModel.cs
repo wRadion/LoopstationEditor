@@ -12,8 +12,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxRobotViewModel(SettingsMemoryFxModel model)
             : base("Robot", model)
         {
-            RobotNote = new PropertyEnumComboViewModel<FxRobotNote>(nameof(model.RobotNote), _properties);
-            RobotGender = new PropertyIntViewModel(nameof(model.RobotGender), _properties, new IntGenderConverter());
+            RobotNote = new PropertyEnumComboViewModel<FxRobotNote>(nameof(model.RobotNote), PropertySet);
+            RobotGender = new PropertyIntViewModel(nameof(model.RobotGender), PropertySet, new IntGenderConverter());
         }
     }
 }

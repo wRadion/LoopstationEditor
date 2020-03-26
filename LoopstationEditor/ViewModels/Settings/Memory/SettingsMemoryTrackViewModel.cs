@@ -8,6 +8,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 {
     public class SettingsMemoryTrackViewModel : SettingsViewModel
     {
+        public readonly int TrackNumber;
+
         public PropertyBoolViewModel Reverse { get; }
         public PropertyIntViewModel PlayLevel { get; }
         public PropertyIntViewModel Pan { get; }
@@ -25,25 +27,27 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public PropertyBoolViewModel WavStatus { get; }
         public PropertyIntViewModel WavLength { get; }
 
-        public SettingsMemoryTrackViewModel(SettingsMemoryTrackModel model)
+        public SettingsMemoryTrackViewModel(int trackNumber, SettingsMemoryTrackModel model)
             : base(model)
         {
-            Reverse = new PropertyBoolViewModel(nameof(model.Reverse), _properties);
-            PlayLevel = new PropertyIntViewModel(nameof(model.PlayLevel), _properties, new IntLevelConverter());
-            Pan = new PropertyIntViewModel(nameof(model.Pan), _properties, new IntPanConverter());
-            OneShot = new PropertyBoolViewModel(nameof(model.OneShot), _properties);
-            TrackFx = new PropertyBoolViewModel(nameof(model.TrackFx), _properties);
-            PlayMode = new PropertyEnumRadioViewModel<TrackPlayMode>(nameof(model.PlayMode), _properties);
-            StartMode = new PropertyEnumRadioViewModel<TrackStartMode>(nameof(model.StartMode), _properties);
-            StopMode = new PropertyEnumRadioViewModel<TrackStopMode>(nameof(model.StopMode), _properties);
-            MeasureMode = new PropertyEnumRadioViewModel<TrackMeasureMode>(nameof(model.MeasureMode), _properties);
-            MeasureLength = new PropertyIntViewModel(nameof(model.MeasureLength), _properties);
-            MeasureBeat = new PropertyEnumComboViewModel<TrackMeasureBeat>(nameof(model.MeasureBeat), _properties, new EnumNoteConverter<TrackMeasureBeat>());
-            LoopSync = new PropertyBoolViewModel(nameof(model.LoopSync), _properties);
-            TempoSync = new PropertyBoolViewModel(nameof(model.TempoSync), _properties);
-            RecordedTempo = new PropertyFloatViewModel(nameof(model.RecordedTempo), _properties, new FloatTempoConverter());
-            WavStatus = new PropertyBoolViewModel(nameof(model.WavStatus), _properties);
-            WavLength = new PropertyIntViewModel(nameof(model.WavLength), _properties);
+            TrackNumber = trackNumber;
+
+            Reverse = new PropertyBoolViewModel(nameof(model.Reverse), PropertySet);
+            PlayLevel = new PropertyIntViewModel(nameof(model.PlayLevel), PropertySet, new IntLevelConverter());
+            Pan = new PropertyIntViewModel(nameof(model.Pan), PropertySet, new IntPanConverter());
+            OneShot = new PropertyBoolViewModel(nameof(model.OneShot), PropertySet);
+            TrackFx = new PropertyBoolViewModel(nameof(model.TrackFx), PropertySet);
+            PlayMode = new PropertyEnumRadioViewModel<TrackPlayMode>(nameof(model.PlayMode), PropertySet);
+            StartMode = new PropertyEnumRadioViewModel<TrackStartMode>(nameof(model.StartMode), PropertySet);
+            StopMode = new PropertyEnumRadioViewModel<TrackStopMode>(nameof(model.StopMode), PropertySet);
+            MeasureMode = new PropertyEnumRadioViewModel<TrackMeasureMode>(nameof(model.MeasureMode), PropertySet);
+            MeasureLength = new PropertyIntViewModel(nameof(model.MeasureLength), PropertySet);
+            MeasureBeat = new PropertyEnumComboViewModel<TrackMeasureBeat>(nameof(model.MeasureBeat), PropertySet, new EnumNoteConverter<TrackMeasureBeat>());
+            LoopSync = new PropertyBoolViewModel(nameof(model.LoopSync), PropertySet);
+            TempoSync = new PropertyBoolViewModel(nameof(model.TempoSync), PropertySet);
+            RecordedTempo = new PropertyFloatViewModel(nameof(model.RecordedTempo), PropertySet, new FloatTempoConverter());
+            WavStatus = new PropertyBoolViewModel(nameof(model.WavStatus), PropertySet);
+            WavLength = new PropertyIntViewModel(nameof(model.WavLength), PropertySet);
         }
     }
 }

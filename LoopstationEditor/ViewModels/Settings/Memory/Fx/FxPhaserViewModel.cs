@@ -16,11 +16,11 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxPhaserViewModel(SettingsMemoryFxModel model)
             : base("Phaser", model)
         {
-            PhaserRate = new PropertyMixedViewModel<FxRate>(nameof(model.PhaserRate), _properties, new EnumNoteConverter<FxRate>());
-            PhaserDepth = new PropertyIntViewModel(nameof(model.PhaserDepth), _properties);
-            PhaserResonance = new PropertyIntViewModel(nameof(model.PhaserResonance), _properties);
-            PhaserStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.PhaserStepRate), _properties, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
-            PhaserLevel = new PropertyIntViewModel(nameof(model.PhaserLevel), _properties);
+            PhaserRate = new PropertyMixedViewModel<FxRate>(nameof(model.PhaserRate), PropertySet, new EnumNoteConverter<FxRate>());
+            PhaserDepth = new PropertyIntViewModel(nameof(model.PhaserDepth), PropertySet);
+            PhaserResonance = new PropertyIntViewModel(nameof(model.PhaserResonance), PropertySet);
+            PhaserStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.PhaserStepRate), PropertySet, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
+            PhaserLevel = new PropertyIntViewModel(nameof(model.PhaserLevel), PropertySet);
         }
     }
 }

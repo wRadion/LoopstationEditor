@@ -23,6 +23,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
     public abstract class SettingsMemoryFxViewModel : SettingsContainerViewModel
     {
+        public readonly FxType Type;
+        public readonly FxSlot Slot;
+
         public override SettingsViewModel CurrentViewModel => FxList[SelectedIndex].ViewModel;
 
         public FxFilterViewModel Filter { get; }
@@ -55,9 +58,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
 
         public List<FxItem> FxList { get; private set; }
 
-        public SettingsMemoryFxViewModel(SettingsMemoryFxModel model)
+        public SettingsMemoryFxViewModel(FxType type, FxSlot slot, SettingsMemoryFxModel model)
             : base(model)
         {
+            Type = type;
+            Slot = slot;
+
             Filter = new FxFilterViewModel(model);
             Phaser = new FxPhaserViewModel(model);
             Flanger = new FxFlangerViewModel(model);
@@ -119,34 +125,39 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             };
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            Filter.ApplyChanges();
-            Phaser.ApplyChanges();
-            Flanger.ApplyChanges();
-            Synth.ApplyChanges();
-            LoFi.ApplyChanges();
-            RingModulator.ApplyChanges();
-            GuitarToBass.ApplyChanges();
-            SlowGear.ApplyChanges();
-            Transpose.ApplyChanges();
-            PitchBend.ApplyChanges();
-            Robot.ApplyChanges();
-            VocalDist.ApplyChanges();
-            Dynamics.ApplyChanges();
-            Eq.ApplyChanges();
-            Isolator.ApplyChanges();
-            Octave.ApplyChanges();
-            Pan.ApplyChanges();
-            Tremolo.ApplyChanges();
-            Slicer.ApplyChanges();
-            Delay.ApplyChanges();
-            PanningDelay.ApplyChanges();
-            TapeEcho.ApplyChanges();
-            GranularDelay.ApplyChanges();
-            Roll.ApplyChanges();
-            Chorus.ApplyChanges();
-            Reverb.ApplyChanges();
+            if (model is SettingsMemoryFxModel memoryFx)
+            {
+                Filter.ApplyChanges(memoryFx);
+                Phaser.ApplyChanges(memoryFx);
+                Flanger.ApplyChanges(memoryFx);
+                Synth.ApplyChanges(memoryFx);
+                LoFi.ApplyChanges(memoryFx);
+                RingModulator.ApplyChanges(memoryFx);
+                GuitarToBass.ApplyChanges(memoryFx);
+                SlowGear.ApplyChanges(memoryFx);
+                Transpose.ApplyChanges(memoryFx);
+                PitchBend.ApplyChanges(memoryFx);
+                Robot.ApplyChanges(memoryFx);
+                VocalDist.ApplyChanges(memoryFx);
+                Dynamics.ApplyChanges(memoryFx);
+                Eq.ApplyChanges(memoryFx);
+                Isolator.ApplyChanges(memoryFx);
+                Octave.ApplyChanges(memoryFx);
+                Pan.ApplyChanges(memoryFx);
+                Tremolo.ApplyChanges(memoryFx);
+                Slicer.ApplyChanges(memoryFx);
+                Delay.ApplyChanges(memoryFx);
+                PanningDelay.ApplyChanges(memoryFx);
+                TapeEcho.ApplyChanges(memoryFx);
+                GranularDelay.ApplyChanges(memoryFx);
+                Roll.ApplyChanges(memoryFx);
+                Chorus.ApplyChanges(memoryFx);
+                Reverb.ApplyChanges(memoryFx);
+            }
+            else
+                throw new ArgumentException("Model must be of type SettingsMemoryFxModel.");
         }
 
         public override void RevertChanges()

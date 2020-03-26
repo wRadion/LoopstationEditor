@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 using LoopstationEditor.Commands;
 using LoopstationEditor.Models.Settings.Memory;
+using LoopstationEditor.Utils;
 using LoopstationEditor.ViewModels.Settings.Memory.Tab;
 using LoopstationEditor.Views.Settings.Memory;
 
@@ -56,8 +57,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryInputFxTabViewModel InputFxTabViewModel { get; private set; }
         public SettingsMemoryTrackFxTabViewModel TrackFxTabViewModel { get; private set; }
 
-        public ICommand CopyPropertySetCommand { get; }
-        public ICommand PastePropertySetCommand { get; }
+        public ICommand ApplyToCommand { get; }
+        public Command CopyPropertySetCommand { get; }
+        public Command PastePropertySetCommand { get; }
 
         public MemoryWindowViewModel(MemoryModel model)
             : base(model)
@@ -74,36 +76,47 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             InputFxTabViewModel = new SettingsMemoryInputFxTabViewModel(model);
             TrackFxTabViewModel = new SettingsMemoryTrackFxTabViewModel(model);
 
-            TracksTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            AssignsTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
+            TracksTabViewModel.TabChanged += (sender, e) => UpdateButtons();
+            AssignsTabViewModel.TabChanged += (sender, e) => UpdateButtons();
 
-            InputFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxA.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxB.TabChanged += (sender, e) => UpdatePasteBtn();
-            InputFxTabViewModel.InputFxC.TabChanged += (sender, e) => UpdatePasteBtn();
+            InputFxTabViewModel.TabChanged += (sender, e) => UpdateButtons();
+            InputFxTabViewModel.InputFxA.TabChanged += (sender, e) => UpdateButtons();
+            InputFxTabViewModel.InputFxB.TabChanged += (sender, e) => UpdateButtons();
+            InputFxTabViewModel.InputFxC.TabChanged += (sender, e) => UpdateButtons();
 
-            TrackFxTabViewModel.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxA.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxB.TabChanged += (sender, e) => UpdatePasteBtn();
-            TrackFxTabViewModel.TrackFxC.TabChanged += (sender, e) => UpdatePasteBtn();
+            TrackFxTabViewModel.TabChanged += (sender, e) => UpdateButtons();
+            TrackFxTabViewModel.TrackFxA.TabChanged += (sender, e) => UpdateButtons();
+            TrackFxTabViewModel.TrackFxB.TabChanged += (sender, e) => UpdateButtons();
+            TrackFxTabViewModel.TrackFxC.TabChanged += (sender, e) => UpdateButtons();
 
             SelectTab(MemoryTab.TRACKS);
 
-            TabChanged += (sender, e) => UpdatePasteBtn();
+            TabChanged += (sender, e) => UpdateButtons();
 
-            CopyPropertySetCommand = new Command(() =>
+            ApplyToCommand = new Command(() =>
             {
-                CurrentViewModel.CopyToClipboard();
-                UpdatePasteBtn();
+                new MemoryApplyToWindow(new MemoryApplyToWindowViewModel(Id, this, GetCurrentTab<MemoryTab>())).ShowDialog();
             });
 
+            CopyPropertySetCommand = new Command(
+                () => {
+                    Global.Instance.Clipboard = CurrentViewModel.PropertySet.Clone();
+                    UpdateButtons();
+                },
+                () => CurrentViewModel.PropertySet != null
+            );
+
             PastePropertySetCommand = new Command(
-                () => CurrentViewModel.PasteFromClipboard(),
-                () => CurrentViewModel.CanPasteFromClipboard()
+                () => Global.Instance.Clipboard.CopyTo(CurrentViewModel.PropertySet),
+                () => CurrentViewModel.PropertySet == null ? false : CurrentViewModel.PropertySet.CanPaste(Global.Instance.Clipboard)
             );
         }
 
-        private void UpdatePasteBtn() => ((Command)PastePropertySetCommand).RaiseCanExecuteChanged();
+        private void UpdateButtons()
+        {
+            CopyPropertySetCommand.RaiseCanExecuteChanged();
+            PastePropertySetCommand.RaiseCanExecuteChanged();
+        }
 
         public void ShowSubtab(MemoryTab tab, int subtab)
         {
@@ -118,17 +131,22 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             }
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            TracksTabViewModel.ApplyChanges();
-            RhythmViewModel.ApplyChanges();
-            NameViewModel.ApplyChanges();
-            MasterViewModel.ApplyChanges();
-            RecOptionViewModel.ApplyChanges();
-            PlayOptionViewModel.ApplyChanges();
-            AssignsTabViewModel.ApplyChanges();
-            InputFxTabViewModel.ApplyChanges();
-            TrackFxTabViewModel.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                TracksTabViewModel.ApplyChanges(memory);
+                RhythmViewModel.ApplyChanges(memory.Rhythm);
+                NameViewModel.ApplyChanges(memory.Name);
+                MasterViewModel.ApplyChanges(memory.Master);
+                RecOptionViewModel.ApplyChanges(memory.RecOption);
+                PlayOptionViewModel.ApplyChanges(memory.PlayOption);
+                AssignsTabViewModel.ApplyChanges(memory);
+                InputFxTabViewModel.ApplyChanges(memory);
+                TrackFxTabViewModel.ApplyChanges(memory);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
 
         public override void RevertChanges()

@@ -58,8 +58,8 @@
                    Margin="{Binding TextOffset, ElementName=this_LoopstationArea}"
                    Panel.ZIndex="1" />
         <Polygon Points="{Binding Points, ElementName=this_LoopstationArea}"
-                 MouseDown="Polygon_MouseDown"
-                 MouseUp="Polygon_MouseUp"
+                 MouseLeftButtonDown="Polygon_MouseLeftButtonDown"
+                 MouseLeftButtonUp="Polygon_MouseLeftButtonUp"
                  Panel.ZIndex="0">
             <Polygon.Fill>
                 <SolidColorBrush x:Name="background" Color="{StaticResource Background}" Opacity="{StaticResource Background.Opacity.Normal}" />
@@ -108,7 +108,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
 
-                <EventTrigger RoutedEvent="MouseDown">
+                <EventTrigger RoutedEvent="MouseLeftButtonDown">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation Storyboard.TargetName="background"
@@ -127,7 +127,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
 
-                <EventTrigger RoutedEvent="MouseUp">
+                <EventTrigger RoutedEvent="MouseLeftButtonUp">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation Storyboard.TargetName="background"

@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryRecOptionViewModel(SettingsMemoryRecOptionModel model)
             : base(model)
         {
-            OverdubMode = new PropertyEnumRadioViewModel<RecOptionOverdubMode>(nameof(model.OverdubMode), _properties);
-            RecordAction = new PropertyEnumRadioViewModel<RecOptionRecordAction>(nameof(model.RecordAction), _properties);
-            RecordQuantize = new PropertyIntViewModel(nameof(model.RecordQuantize), _properties);
+            OverdubMode = new PropertyEnumRadioViewModel<RecOptionOverdubMode>(nameof(model.OverdubMode), PropertySet);
+            RecordAction = new PropertyEnumRadioViewModel<RecOptionRecordAction>(nameof(model.RecordAction), PropertySet);
+            RecordQuantize = new PropertyIntViewModel(nameof(model.RecordQuantize), PropertySet);
         }
     }
 }

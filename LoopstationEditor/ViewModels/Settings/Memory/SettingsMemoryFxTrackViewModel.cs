@@ -1,4 +1,6 @@
-﻿using LoopstationEditor.Models.Settings.Memory;
+﻿using System;
+
+using LoopstationEditor.Models.Settings.Memory;
 using LoopstationEditor.ViewModels.Settings.Memory.Fx;
 using LoopstationEditor.Views.Settings.Memory.Fx;
 
@@ -11,8 +13,8 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public FxBeatScatterViewModel BeatScatter { get; }
         public FxVinylFlickViewModel VinylFlick { get; }
 
-        public SettingsMemoryFxTrackViewModel(SettingsMemoryFxModel model, SettingsMemoryBeatFxModel beatFxModel)
-            : base(model)
+        public SettingsMemoryFxTrackViewModel(FxSlot slot, SettingsMemoryFxModel model, SettingsMemoryBeatFxModel beatFxModel)
+            : base(FxType.TRACK, slot, model)
         {
             BeatRepeat = new FxBeatRepeatViewModel(beatFxModel);
             BeatShift = new FxBeatShiftViewModel(beatFxModel);
@@ -31,13 +33,38 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
             FxList.Add(new FxItem(VinylFlick.DisplayName, VinylFlick, typeof(FxVinylFlickView)));
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            base.ApplyChanges();
-            BeatRepeat.ApplyChanges();
-            BeatShift.ApplyChanges();
-            BeatScatter.ApplyChanges();
-            VinylFlick.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                SettingsMemoryFxModel fx = memory.TrackFxA;
+                SettingsMemoryBeatFxModel beatFx = memory.BeatFxA;
+
+                switch (Slot)
+                {
+                    case FxSlot.A:
+                        fx = memory.TrackFxA;
+                        beatFx = memory.BeatFxA;
+                        break;
+                    case FxSlot.B:
+                        fx = memory.TrackFxB;
+                        beatFx = memory.BeatFxB;
+                        break;
+                    case FxSlot.C:
+                        fx = memory.TrackFxC;
+                        beatFx = memory.BeatFxC;
+                        break;
+                }
+
+                base.ApplyChanges(fx);
+
+                BeatRepeat.ApplyChanges(beatFx);
+                BeatShift.ApplyChanges(beatFx);
+                BeatScatter.ApplyChanges(beatFx);
+                VinylFlick.ApplyChanges(beatFx);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
     }
 }

@@ -31,17 +31,22 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
             : base(model)
         {
             TrackFx = new SettingsMemoryTrackFxViewModel(model.TrackFx);
-            TrackFxA = new SettingsMemoryFxTrackViewModel(model.TrackFxA, model.BeatFxA);
-            TrackFxB = new SettingsMemoryFxTrackViewModel(model.TrackFxB, model.BeatFxB);
-            TrackFxC = new SettingsMemoryFxTrackViewModel(model.TrackFxC, model.BeatFxC);
+            TrackFxA = new SettingsMemoryFxTrackViewModel(FxSlot.A, model.TrackFxA, model.BeatFxA);
+            TrackFxB = new SettingsMemoryFxTrackViewModel(FxSlot.B, model.TrackFxB, model.BeatFxB);
+            TrackFxC = new SettingsMemoryFxTrackViewModel(FxSlot.C, model.TrackFxC, model.BeatFxC);
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            TrackFx.ApplyChanges();
-            TrackFxA.ApplyChanges();
-            TrackFxB.ApplyChanges();
-            TrackFxC.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                TrackFx.ApplyChanges(memory.TrackFx);
+                TrackFxA.ApplyChanges(memory);
+                TrackFxB.ApplyChanges(memory);
+                TrackFxC.ApplyChanges(memory);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
 
         public override void RevertChanges()

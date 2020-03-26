@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
 using LoopstationEditor.Models.PropertyEngine;
 using LoopstationEditor.Models.Settings;
+using LoopstationEditor.Utils;
 using LoopstationEditor.ViewModels.PropertyEngine;
 
 namespace LoopstationEditor.ViewModels.Settings
@@ -15,7 +15,8 @@ namespace LoopstationEditor.ViewModels.Settings
 
         protected SettingsModel _model;
         protected string[] _propertyNames;
-        protected PropertySet _properties;
+
+        public PropertySet PropertySet { get; private set; }
 
         public event EventHandler AppliedChanges;
 
@@ -41,34 +42,23 @@ namespace LoopstationEditor.ViewModels.Settings
             _propertyNames = names.ToArray();
 
             if (useProperties)
-                _properties = _model.CopyPropertySet(_propertyNames);
+                PropertySet = _model.PropertySet.Clone(_propertyNames);
             else
-                _properties = null;
+                PropertySet = null;
         }
 
-        public void CopyToClipboard()
+        public void ApplyChanges() => ApplyChanges(_model);
+        public virtual void ApplyChanges<T>(T model) where T : SettingsModel
         {
-            if (_properties == null) return;
-            Clipboard.Instance.PropertySet = _properties.Clone();
-        }
-        public bool CanPasteFromClipboard() => _properties == null ? false : _properties.CanPaste(Clipboard.Instance.PropertySet);
-        public void PasteFromClipboard()
-        {
-            if (_properties == null) return;
-            _properties.Paste(Clipboard.Instance.PropertySet);
-        }
-
-        public virtual void ApplyChanges()
-        {
-            if (_properties != null)
-                _model.PastePropertySet(_properties);
+            if (PropertySet != null)
+                PropertySet.CopyTo(model.PropertySet);
             AppliedChanges?.Invoke(this, EventArgs.Empty);
         }
 
         public virtual void RevertChanges()
         {
-            if (_properties != null)
-                _properties.Paste(_model.CopyPropertySet(_propertyNames));
+            if (PropertySet != null)
+                _model.PropertySet.Clone(_propertyNames).CopyTo(PropertySet);
         }
     }
 }

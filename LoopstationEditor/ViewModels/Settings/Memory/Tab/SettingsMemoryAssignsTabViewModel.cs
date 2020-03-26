@@ -54,42 +54,47 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Tab
         public SettingsMemoryAssignsTabViewModel(MemoryModel model)
             : base(model)
         {
-            Assign1 = new SettingsMemoryAssignViewModel(model.Assign1);
-            Assign2 = new SettingsMemoryAssignViewModel(model.Assign2);
-            Assign3 = new SettingsMemoryAssignViewModel(model.Assign3);
-            Assign4 = new SettingsMemoryAssignViewModel(model.Assign4);
-            Assign5 = new SettingsMemoryAssignViewModel(model.Assign5);
-            Assign6 = new SettingsMemoryAssignViewModel(model.Assign6);
-            Assign7 = new SettingsMemoryAssignViewModel(model.Assign7);
-            Assign8 = new SettingsMemoryAssignViewModel(model.Assign8);
-            Assign9 = new SettingsMemoryAssignViewModel(model.Assign9);
-            Assign10 = new SettingsMemoryAssignViewModel(model.Assign10);
-            Assign11 = new SettingsMemoryAssignViewModel(model.Assign11);
-            Assign12 = new SettingsMemoryAssignViewModel(model.Assign12);
-            Assign13 = new SettingsMemoryAssignViewModel(model.Assign13);
-            Assign14 = new SettingsMemoryAssignViewModel(model.Assign14);
-            Assign15 = new SettingsMemoryAssignViewModel(model.Assign15);
-            Assign16 = new SettingsMemoryAssignViewModel(model.Assign16);
+            Assign1 = new SettingsMemoryAssignViewModel(1, model.Assign1);
+            Assign2 = new SettingsMemoryAssignViewModel(2, model.Assign2);
+            Assign3 = new SettingsMemoryAssignViewModel(3, model.Assign3);
+            Assign4 = new SettingsMemoryAssignViewModel(4, model.Assign4);
+            Assign5 = new SettingsMemoryAssignViewModel(5, model.Assign5);
+            Assign6 = new SettingsMemoryAssignViewModel(6, model.Assign6);
+            Assign7 = new SettingsMemoryAssignViewModel(7, model.Assign7);
+            Assign8 = new SettingsMemoryAssignViewModel(8, model.Assign8);
+            Assign9 = new SettingsMemoryAssignViewModel(9, model.Assign9);
+            Assign10 = new SettingsMemoryAssignViewModel(10, model.Assign10);
+            Assign11 = new SettingsMemoryAssignViewModel(11, model.Assign11);
+            Assign12 = new SettingsMemoryAssignViewModel(12, model.Assign12);
+            Assign13 = new SettingsMemoryAssignViewModel(13, model.Assign13);
+            Assign14 = new SettingsMemoryAssignViewModel(14, model.Assign14);
+            Assign15 = new SettingsMemoryAssignViewModel(15, model.Assign15);
+            Assign16 = new SettingsMemoryAssignViewModel(16, model.Assign16);
         }
 
-        public override void ApplyChanges()
+        public override void ApplyChanges<T>(T model)
         {
-            Assign1.ApplyChanges();
-            Assign2.ApplyChanges();
-            Assign3.ApplyChanges();
-            Assign4.ApplyChanges();
-            Assign5.ApplyChanges();
-            Assign6.ApplyChanges();
-            Assign7.ApplyChanges();
-            Assign8.ApplyChanges();
-            Assign9.ApplyChanges();
-            Assign10.ApplyChanges();
-            Assign11.ApplyChanges();
-            Assign12.ApplyChanges();
-            Assign13.ApplyChanges();
-            Assign14.ApplyChanges();
-            Assign15.ApplyChanges();
-            Assign16.ApplyChanges();
+            if (model is MemoryModel memory)
+            {
+                Assign1.ApplyChanges(memory.Assign1);
+                Assign2.ApplyChanges(memory.Assign2);
+                Assign3.ApplyChanges(memory.Assign3);
+                Assign4.ApplyChanges(memory.Assign4);
+                Assign5.ApplyChanges(memory.Assign5);
+                Assign6.ApplyChanges(memory.Assign6);
+                Assign7.ApplyChanges(memory.Assign7);
+                Assign8.ApplyChanges(memory.Assign8);
+                Assign9.ApplyChanges(memory.Assign9);
+                Assign10.ApplyChanges(memory.Assign10);
+                Assign11.ApplyChanges(memory.Assign11);
+                Assign12.ApplyChanges(memory.Assign12);
+                Assign13.ApplyChanges(memory.Assign13);
+                Assign14.ApplyChanges(memory.Assign14);
+                Assign15.ApplyChanges(memory.Assign15);
+                Assign16.ApplyChanges(memory.Assign16);
+            }
+            else
+                throw new ArgumentException("Model must be of type MemoryModel.");
         }
 
         public override void RevertChanges()

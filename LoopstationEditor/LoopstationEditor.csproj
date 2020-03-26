@@ -71,6 +71,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Application.cs" />
+    <Compile Include="Commands\Command_2args.cs" />
     <Compile Include="Commands\Command_1arg.cs" />
     <Compile Include="Converters\Bitwise\FxSlotBitwiseToLetterConverter.cs" />
     <Compile Include="Converters\Enum\EnumDefaultConverter.cs" />
@@ -103,7 +104,7 @@
     <Compile Include="Converters\Float\FloatTimeConverter.cs" />
     <Compile Include="Converters\Int\IntToneConverter.cs" />
     <Compile Include="Converters\IValueConverter.cs" />
-    <Compile Include="Extensions\EnumUtils.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
     <Compile Include="Models\Interfaces\IXmlContainer.cs" />
     <Compile Include="Models\PropertyEngine\Property.cs" />
     <Compile Include="Models\PropertyEngine\PropertyAttribute.cs" />
@@ -145,9 +146,10 @@
     <Compile Include="ViewModels\PropertyEngine\PropertyIntViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyMixedViewModel.cs" />
     <Compile Include="ViewModels\PropertyEngine\PropertyViewModel.cs" />
-    <Compile Include="ViewModels\Settings\Clipboard.cs" />
+    <Compile Include="Utils\Global.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxBeatViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Fx\FxViewModel.cs" />
+    <Compile Include="ViewModels\Settings\Memory\MemoryApplyToWindowViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryAssignsTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryTrackFxTabViewModel.cs" />
     <Compile Include="ViewModels\Settings\Memory\Tab\SettingsMemoryInputFxTabViewModel.cs" />
@@ -326,6 +328,9 @@
     </Compile>
     <Compile Include="Views\Settings\Memory\Fx\FxVocoderView.xaml.cs">
       <DependentUpon>FxVocoderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Memory\MemoryApplyToWindow.xaml.cs">
+      <DependentUpon>MemoryApplyToWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Memory\MemoryWindow.xaml.cs">
       <DependentUpon>MemoryWindow.xaml</DependentUpon>
@@ -715,6 +720,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\Memory\Fx\FxVocoderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Memory\MemoryApplyToWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

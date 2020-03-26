@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace LoopstationEditor.Extensions
+namespace LoopstationEditor.Utils
 {
     public static class EnumUtils
     {

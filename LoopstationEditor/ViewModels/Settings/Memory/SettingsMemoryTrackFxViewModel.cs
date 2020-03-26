@@ -20,16 +20,16 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryTrackFxViewModel(SettingsMemoryTrackFxModel model)
             : base(model)
         {
-            Mode = new PropertyEnumRadioViewModel<FxMode>(nameof(model.Mode), _properties);
-            SingleEnabledFxSlot = new PropertyEnumRadioViewModel<FxSlotOrNone>(nameof(model.SingleEnabledFxSlot), _properties);
-            SelectedFxSlot = new PropertyEnumRadioViewModel<FxSlot>(nameof(model.SelectedFxSlot), _properties);
-            SelectedSingleFxA = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxA), _properties);
-            SelectedSingleFxB = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxB), _properties);
-            SelectedSingleFxC = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxC), _properties);
-            MultiEnabledFxSlot = new PropertyBitwiseViewModel<FxSlotBitwise>(nameof(model.MultiEnabledFxSlot), _properties, new FxSlotBitwiseToLetterConverter());
-            SelectedMultiFxA = new PropertyEnumComboViewModel<MultiTrackFxA>(nameof(model.SelectedMultiFxA), _properties);
-            SelectedMultiFxB = new PropertyEnumComboViewModel<MultiTrackFxB>(nameof(model.SelectedMultiFxB), _properties);
-            SelectedMultiFxC = new PropertyEnumComboViewModel<MultiTrackFxC>(nameof(model.SelectedMultiFxC), _properties);
+            Mode = new PropertyEnumRadioViewModel<FxMode>(nameof(model.Mode), PropertySet);
+            SingleEnabledFxSlot = new PropertyEnumRadioViewModel<FxSlotOrNone>(nameof(model.SingleEnabledFxSlot), PropertySet);
+            SelectedFxSlot = new PropertyEnumRadioViewModel<FxSlot>(nameof(model.SelectedFxSlot), PropertySet);
+            SelectedSingleFxA = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxA), PropertySet);
+            SelectedSingleFxB = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxB), PropertySet);
+            SelectedSingleFxC = new PropertyEnumComboViewModel<SingleTrackFx>(nameof(model.SelectedSingleFxC), PropertySet);
+            MultiEnabledFxSlot = new PropertyBitwiseViewModel<FxSlotBitwise>(nameof(model.MultiEnabledFxSlot), PropertySet, new FxSlotBitwiseToLetterConverter());
+            SelectedMultiFxA = new PropertyEnumComboViewModel<MultiTrackFxA>(nameof(model.SelectedMultiFxA), PropertySet);
+            SelectedMultiFxB = new PropertyEnumComboViewModel<MultiTrackFxB>(nameof(model.SelectedMultiFxB), PropertySet);
+            SelectedMultiFxC = new PropertyEnumComboViewModel<MultiTrackFxC>(nameof(model.SelectedMultiFxC), PropertySet);
         }
     }
 }

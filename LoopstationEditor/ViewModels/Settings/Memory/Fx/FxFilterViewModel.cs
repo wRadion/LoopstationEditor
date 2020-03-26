@@ -17,12 +17,12 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxFilterViewModel(SettingsMemoryFxModel model)
             : base("Filter", model)
         {
-            FilterType = new PropertyEnumRadioViewModel<FxFilterType>(nameof(model.FilterType), _properties);
-            FilterRate = new PropertyMixedViewModel<FxRate>(nameof(model.FilterRate), _properties, new EnumNoteConverter<FxRate>());
-            FilterDepth = new PropertyIntViewModel(nameof(model.FilterDepth), _properties);
-            FilterResonance = new PropertyIntViewModel(nameof(model.FilterResonance), _properties);
-            FilterCutoff = new PropertyIntViewModel(nameof(model.FilterCutoff), _properties);
-            FilterStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.FilterStepRate), _properties, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
+            FilterType = new PropertyEnumRadioViewModel<FxFilterType>(nameof(model.FilterType), PropertySet);
+            FilterRate = new PropertyMixedViewModel<FxRate>(nameof(model.FilterRate), PropertySet, new EnumNoteConverter<FxRate>());
+            FilterDepth = new PropertyIntViewModel(nameof(model.FilterDepth), PropertySet);
+            FilterResonance = new PropertyIntViewModel(nameof(model.FilterResonance), PropertySet);
+            FilterCutoff = new PropertyIntViewModel(nameof(model.FilterCutoff), PropertySet);
+            FilterStepRate = new PropertyMixedViewModel<FxStepRate>(nameof(model.FilterStepRate), PropertySet, new IntStepRateConverter(), new EnumNoteConverter<FxStepRate>());
         }
     }
 }

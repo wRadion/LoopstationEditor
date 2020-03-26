@@ -39,6 +39,55 @@
                 <xd:MenuItem Header="_Save Settings" InputGestureText="Ctrl+S" Command="cmd:Application.SaveSettings" />
                 <xd:MenuItem Header="_Save Settings As..." InputGestureText="Ctrl+Alt+S" Command="cmd:Application.SaveSettingsAs" />
             </xd:MenuItem>
+            <xd:MenuItem Header="_Settings" DataContext="{Binding LoopstationViewModel}">
+                <xd:MenuItem Header="System Setup" Command="{Binding OpenSystemWindowSetupTab}" />
+                <xd:MenuItem Header="System Input/Output" Command="{Binding OpenSystemWindowInputOutputTab}" />
+                <xd:MenuItem Header="System USB" Command="{Binding OpenSystemWindowUSBTab}" />
+                <xd:MenuItem Header="System MIDI" Command="{Binding OpenSystemWindowMIDITab}" />
+                <xd:MenuItem />
+                <xd:MenuItem Header="Memory Tracks" IsEnabled="{Binding IsMemoryNotNull}">
+                    <xd:MenuItem Header="Track 1" Command="{Binding OpenMemoryWindowTracksTab}" CommandParameter="1" />
+                    <xd:MenuItem Header="Track 2" Command="{Binding OpenMemoryWindowTracksTab}" CommandParameter="2" />
+                    <xd:MenuItem Header="Track 3" Command="{Binding OpenMemoryWindowTracksTab}" CommandParameter="3" />
+                    <xd:MenuItem Header="Track 4" Command="{Binding OpenMemoryWindowTracksTab}" CommandParameter="4" />
+                    <xd:MenuItem Header="Track 5" Command="{Binding OpenMemoryWindowTracksTab}" CommandParameter="5" />
+                </xd:MenuItem>
+                <xd:MenuItem Header="Memory Rhythm" Command="{Binding OpenMemoryWindowRhythmTab}" />
+                <xd:MenuItem Header="Memory Name" Command="{Binding OpenMemoryWindowNameTab}" />
+                <xd:MenuItem Header="Memory Master" Command="{Binding OpenMemoryWindowMasterTab}" />
+                <xd:MenuItem Header="Memory Rec Option" Command="{Binding OpenMemoryWindowRecOptionTab}" />
+                <xd:MenuItem Header="Memory Play Option" Command="{Binding OpenMemoryWindowPlayOptionTab}" />
+                <xd:MenuItem Header="Memory Assigns" IsEnabled="{Binding IsMemoryNotNull}">
+                    <xd:MenuItem Header="Assign 1" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="1" />
+                    <xd:MenuItem Header="Assign 2" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="2" />
+                    <xd:MenuItem Header="Assign 3" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="3" />
+                    <xd:MenuItem Header="Assign 4" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="4" />
+                    <xd:MenuItem Header="Assign 5" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="5" />
+                    <xd:MenuItem Header="Assign 6" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="6" />
+                    <xd:MenuItem Header="Assign 7" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="7" />
+                    <xd:MenuItem Header="Assign 8" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="8" />
+                    <xd:MenuItem Header="Assign 9" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="9" />
+                    <xd:MenuItem Header="Assign 10" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="10" />
+                    <xd:MenuItem Header="Assign 11" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="11" />
+                    <xd:MenuItem Header="Assign 12" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="12" />
+                    <xd:MenuItem Header="Assign 13" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="13" />
+                    <xd:MenuItem Header="Assign 14" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="14" />
+                    <xd:MenuItem Header="Assign 15" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="15" />
+                    <xd:MenuItem Header="Assign 16" Command="{Binding OpenMemoryWindowAssignsTab}" CommandParameter="16" />
+                </xd:MenuItem>
+                <xd:MenuItem Header="Input Fx" IsEnabled="{Binding IsMemoryNotNull}">
+                    <xd:MenuItem Header="Settings" Command="{Binding OpenMemoryWindowInputFxTab}" CommandParameter="1" />
+                    <xd:MenuItem Header="Input Fx A" Command="{Binding OpenMemoryWindowInputFxTab}" CommandParameter="2" />
+                    <xd:MenuItem Header="Input Fx B" Command="{Binding OpenMemoryWindowInputFxTab}" CommandParameter="3" />
+                    <xd:MenuItem Header="Input Fx C" Command="{Binding OpenMemoryWindowInputFxTab}" CommandParameter="4" />
+                </xd:MenuItem>
+                <xd:MenuItem Header="Track Fx" IsEnabled="{Binding IsMemoryNotNull}">
+                    <xd:MenuItem Header="Settings" Command="{Binding OpenMemoryWindowTrackFxTab}" CommandParameter="1" />
+                    <xd:MenuItem Header="Track Fx A" Command="{Binding OpenMemoryWindowTrackFxTab}" CommandParameter="2" />
+                    <xd:MenuItem Header="Track Fx B" Command="{Binding OpenMemoryWindowTrackFxTab}" CommandParameter="3" />
+                    <xd:MenuItem Header="Track Fx C" Command="{Binding OpenMemoryWindowTrackFxTab}" CommandParameter="4" />
+                </xd:MenuItem>
+            </xd:MenuItem>
         </xd:Menu>
 
         <xd:ListBox x:Name="MemoryListBox"

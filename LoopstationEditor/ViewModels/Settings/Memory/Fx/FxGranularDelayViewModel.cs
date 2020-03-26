@@ -12,9 +12,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory.Fx
         public FxGranularDelayViewModel(SettingsMemoryFxModel model)
             : base("Granular Delay", model)
         {
-            GranularDelayTime = new PropertyIntViewModel(nameof(model.GranularDelayTime), _properties);
-            GranularDelayFeedback = new PropertyIntViewModel(nameof(model.GranularDelayFeedback), _properties);
-            GranularDelayLevel = new PropertyIntViewModel(nameof(model.GranularDelayLevel), _properties);
+            GranularDelayTime = new PropertyIntViewModel(nameof(model.GranularDelayTime), PropertySet);
+            GranularDelayFeedback = new PropertyIntViewModel(nameof(model.GranularDelayFeedback), PropertySet);
+            GranularDelayLevel = new PropertyIntViewModel(nameof(model.GranularDelayLevel), PropertySet);
         }
     }
 }

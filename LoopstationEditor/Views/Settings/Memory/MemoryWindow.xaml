@@ -21,6 +21,17 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/XenionDark;component/Themes/Generic/Resources/Colors.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="BorderContextMenu" TargetType="{x:Type Border}">
+                <Setter Property="ContextMenu">
+                    <Setter.Value>
+                        <xd:ContextMenu>
+                            <xd:MenuItem Header="Copy Properties" Command="{Binding CopyPropertySetCommand}" />
+                            <xd:MenuItem Header="Paste Properties" Command="{Binding PastePropertySetCommand}" />
+                        </xd:ContextMenu>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </xdw:Window.Resources>
 
@@ -34,73 +45,62 @@
     </xdw:Window.Background>
 
     <StackPanel Orientation="Vertical">
-        <Border x:Name="MainContent">
-            <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
-                <TabItem Header="Tracks" TabIndex="0">
-                    <Border Padding="0 6px">
-                        <tab:SettingsMemoryTracksTab DataContext="{Binding TracksTabViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Rhythm" TabIndex="1">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryRhythmView DataContext="{Binding RhythmViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Name" TabIndex="2">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryNameView DataContext="{Binding NameViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Master" TabIndex="3">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryMasterView DataContext="{Binding MasterViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Rec Option" TabIndex="4">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryRecOptionView DataContext="{Binding RecOptionViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Play Option" TabIndex="5">
-                    <Border Padding="16px">
-                        <local:SettingsMemoryPlayOptionView DataContext="{Binding PlayOptionViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Assigns" TabIndex="6">
-                    <Border Padding="0 6px">
-                        <tab:SettingsMemoryAssignsTab DataContext="{Binding AssignsTabViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Input Fx" TabIndex="7">
-                    <Border Padding="0 6px">
-                        <tab:SettingsMemoryInputFxTab DataContext="{Binding InputFxTabViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Track Fx" TabIndex="8">
-                    <Border Padding="0 6px">
-                        <tab:SettingsMemoryTrackFxTab DataContext="{Binding TrackFxTabViewModel, Mode=OneWay}" />
-                    </Border>
-                </TabItem>
-            </xd:TabControl>
-        </Border>
+        <xd:TabControl TabPadding="16px" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+            <TabItem Header="Tracks" TabIndex="0">
+                <Border Style="{StaticResource BorderContextMenu}" Padding="0 6px">
+                    <tab:SettingsMemoryTracksTab DataContext="{Binding TracksTabViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Rhythm" TabIndex="1">
+                <Border Style="{StaticResource BorderContextMenu}" Background="Transparent" Padding="16px">
+                    <local:SettingsMemoryRhythmView DataContext="{Binding RhythmViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Name" TabIndex="2">
+                <Border Padding="16px">
+                    <local:SettingsMemoryNameView DataContext="{Binding NameViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Master" TabIndex="3">
+                <Border Style="{StaticResource BorderContextMenu}" Background="Transparent" Padding="16px">
+                    <local:SettingsMemoryMasterView DataContext="{Binding MasterViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Rec Option" TabIndex="4">
+                <Border Style="{StaticResource BorderContextMenu}" Background="Transparent" Padding="16px">
+                    <local:SettingsMemoryRecOptionView DataContext="{Binding RecOptionViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Play Option" TabIndex="5">
+                <Border Style="{StaticResource BorderContextMenu}" Background="Transparent" Padding="16px">
+                    <local:SettingsMemoryPlayOptionView DataContext="{Binding PlayOptionViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Assigns" TabIndex="6">
+                <Border Style="{StaticResource BorderContextMenu}" Padding="0 6px">
+                    <tab:SettingsMemoryAssignsTab DataContext="{Binding AssignsTabViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Input Fx" TabIndex="7">
+                <Border Style="{StaticResource BorderContextMenu}" Padding="0 6px">
+                    <tab:SettingsMemoryInputFxTab DataContext="{Binding InputFxTabViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+            <TabItem Header="Track Fx" TabIndex="8">
+                <Border Style="{StaticResource BorderContextMenu}" Padding="0 6px">
+                    <tab:SettingsMemoryTrackFxTab DataContext="{Binding TrackFxTabViewModel, Mode=OneWay}" />
+                </Border>
+            </TabItem>
+        </xd:TabControl>
 
-        <Grid Margin="16px">
+        <Grid Margin="16px 0 16px 16px">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <xd:Button x:Name="CopyPropertiesBtn"
-                           Content="Copy Properties"
-                           Margin="0 0 16px 0"
-                           Command="{Binding CopyPropertySetCommand}" />
-                <xd:Button x:Name="PastePropertiesBtn"
-                           Content="Paste Properties"
-                           Command="{Binding PastePropertySetCommand}" />
+                <xd:Button Content="Apply to..." Command="{Binding ApplyToCommand}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <xd:Button Content="OK"
-                           Margin="0 0 16px 0"
-                           Command="{Binding ApplyChangesAndCloseCommand}" />
-                <xd:Button Content="Cancel"
-                           Command="{Binding RevertChangesAndCloseCommand}" />
+                <xd:Button Content="OK" Margin="0 0 16px 0" Command="{Binding ApplyChangesAndCloseCommand}" />
+                <xd:Button Content="Cancel" Command="{Binding RevertChangesAndCloseCommand}" />
             </StackPanel>
         </Grid>
     </StackPanel>

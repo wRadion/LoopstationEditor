@@ -19,11 +19,11 @@ namespace LoopstationEditor.Views.Property
         public PropertyEnumCombo()
         {
             InitializeComponent();
+            DataContextChanged += (sender, e) => UpdateValue();
         }
 
-        private void EnumBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Value = (string)EnumBox.SelectedValue;
-        }
+        private void EnumBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => UpdateValue();
+
+        private void UpdateValue() => Value = (string)EnumBox.SelectedValue;
     }
 }

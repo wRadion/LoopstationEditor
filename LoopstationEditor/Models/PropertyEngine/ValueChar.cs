@@ -19,8 +19,8 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public override string ToString() => ((char)this).ToString();
 
-        public static explicit operator int(ValueChar value) => value._value;
-        public static explicit operator ValueChar(int value) => new ValueChar(value);
+        public static implicit operator int(ValueChar value) => value._value;
+        public static implicit operator ValueChar(int value) => new ValueChar(value);
 
         public static explicit operator char(ValueChar value) => (char)value._value;
         public static explicit operator ValueChar(char value) => new ValueChar(value);

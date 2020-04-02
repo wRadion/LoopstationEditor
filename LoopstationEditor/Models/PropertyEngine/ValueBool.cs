@@ -20,8 +20,8 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public override string ToString() => ((bool)this).ToString();
 
-        public static explicit operator int(ValueBool value) => value._value;
-        public static explicit operator ValueBool(int value) => new ValueBool(value);
+        public static implicit operator int(ValueBool value) => value._value;
+        public static implicit operator ValueBool(int value) => new ValueBool(value);
 
         public static explicit operator bool(ValueBool value) => Convert.ToBoolean(value._value);
         public static explicit operator ValueBool(bool value) => new ValueBool(value);

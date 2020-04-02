@@ -20,8 +20,8 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public override string ToString() => ((TEnum)this).ToString();
 
-        public static explicit operator int(ValueEnum<TEnum> value) => value._value;
-        public static explicit operator ValueEnum<TEnum>(int value) => new ValueEnum<TEnum>(value);
+        public static implicit operator int(ValueEnum<TEnum> value) => value._value;
+        public static implicit operator ValueEnum<TEnum>(int value) => new ValueEnum<TEnum>(value);
 
         public static explicit operator TEnum(ValueEnum<TEnum> value) => (TEnum)Enum.ToObject(typeof(TEnum), value._value);
         public static explicit operator ValueEnum<TEnum>(TEnum value) => new ValueEnum<TEnum>(value);

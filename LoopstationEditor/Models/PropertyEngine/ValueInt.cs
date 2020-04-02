@@ -50,7 +50,7 @@ namespace LoopstationEditor.Models.PropertyEngine
 
         public override string ToString() => _value.ToString();
 
-        public static explicit operator int(ValueInt value) => value._value;
-        public static explicit operator ValueInt(int value) => new ValueInt(value);
+        public static implicit operator int(ValueInt value) => value._value;
+        public static implicit operator ValueInt(int value) => new ValueInt(value);
     }
 }

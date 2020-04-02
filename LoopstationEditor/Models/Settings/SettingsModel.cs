@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Xml.Serialization;
 
 using LoopstationEditor.Models.PropertyEngine;
 
@@ -10,6 +11,7 @@ namespace LoopstationEditor.Models.Settings
     {
         public const BindingFlags PropertyFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.SetProperty;
 
+        [XmlIgnore]
         public PropertySet PropertySet { get; private set; }
 
         public SettingsModel() : base()
@@ -77,7 +79,29 @@ namespace LoopstationEditor.Models.Settings
             foreach (PropertyInfo prop in instanceProperties)
             {
                 if (prop.GetCustomAttribute<PropertyAttribute>() == null) continue;
-                prop.SetValue(this, PropertySet.GetValue<ValueInt>(prop.Name));
+
+                PropertyMixedAttribute mixedAttr = prop.GetCustomAttribute<PropertyMixedAttribute>();
+
+                if (prop.PropertyType == typeof(ValueInt))
+                {
+                    if (mixedAttr == null)
+                        prop.SetValue(this, PropertySet.GetValue<ValueInt>(prop.Name));
+                    else
+                    {
+                        ValueBool mixed = PropertySet.GetValue<ValueBool>(prop.Name + "_mixed");
+                        prop.SetValue(this, PropertySet.GetValue<ValueInt>(prop.Name + ((bool)mixed ? "_enum" : "_int")));
+                    }
+                }
+                else if (prop.PropertyType == typeof(ValueBool))
+                    prop.SetValue(this, PropertySet.GetValue<ValueBool>(prop.Name));
+                else if (prop.PropertyType == typeof(ValueChar))
+                    prop.SetValue(this, PropertySet.GetValue<ValueChar>(prop.Name));
+                else if (prop.PropertyType.IsGenericType)
+                {
+                    Type type = typeof(ValueEnum<>).MakeGenericType(prop.PropertyType.GetGenericArguments()[0]);
+                    prop.SetValue(this, Convert.ChangeType(PropertySet.GetValue<ValueInt>(prop.Name), type));
+                }
+
             }
         }
     }

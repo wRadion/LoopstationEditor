@@ -13,9 +13,9 @@ namespace LoopstationEditor.ViewModels.Settings.Memory
         public SettingsMemoryNameViewModel(SettingsMemoryNameModel model)
             : base(model, false)
         {
-            Name = new StringBuilder().Append(model.Character01).Append(model.Character02).Append(model.Character03).Append(model.Character04).
-                Append(model.Character05).Append(model.Character06).Append(model.Character07).Append(model.Character08).
-                Append(model.Character09).Append(model.Character10).Append(model.Character11).Append(model.Character12).
+            Name = new StringBuilder().Append((char)model.Character01).Append((char)model.Character02).Append((char)model.Character03).Append((char)model.Character04).
+                Append((char)model.Character05).Append((char)model.Character06).Append((char)model.Character07).Append((char)model.Character08).
+                Append((char)model.Character09).Append((char)model.Character10).Append((char)model.Character11).Append((char)model.Character12).
                 ToString().TrimEnd(' ');
             TempName = Name;
         }

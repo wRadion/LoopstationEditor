@@ -66,9 +66,9 @@ namespace LoopstationEditor.Models.Settings.Memory
 
         public override string ToString()
         {
-            return new StringBuilder(12).Append(Character01).Append(Character02).Append(Character03).Append(Character04).
-                Append(Character05).Append(Character06).Append(Character07).Append(Character08).Append(Character09).
-                Append(Character10).Append(Character11).Append(Character12).ToString();
+            return new StringBuilder(12).Append((char)Character01).Append((char)Character02).Append((char)Character03).Append((char)Character04).
+                Append((char)Character05).Append((char)Character06).Append((char)Character07).Append((char)Character08).Append((char)Character09).
+                Append((char)Character10).Append((char)Character11).Append((char)Character12).ToString();
         }
     }
 }
